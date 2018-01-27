@@ -18,6 +18,8 @@ set $term i3-sensible-terminal
 set $web_browser google-chrome-stable
 set $text_editor subl
 set $file_browser thunar
+set $system_monitor gnome-system-monitor
+set $calculator qalc
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -28,6 +30,8 @@ bindsym $mod+Return exec $term
 bindsym $mod+c exec $web_browser
 bindsym $mod+e exec $text_editor
 bindsym $mod+t exec $file_browser
+bindsym $mod+Delete exec $system_monitor
+bindsym $mod+l exec $term -e $calculator
 
 # screenshot
 
