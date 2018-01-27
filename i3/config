@@ -1,0 +1,196 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# general
+font pango:Roboto 9
+gaps inner 10
+smart_gaps on
+smart_borders on
+new_window pixel 2
+new_float pixel 2
+hide_edge_borders none
+
+#
+set $mod Mod4
+
+set $term i3-sensible-terminal
+set $web_browser google-chrome-stable
+set $text_editor subl
+set $file_browser thunar
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+## --- program shortcuts --- ##
+
+bindsym $mod+Return exec $term
+bindsym $mod+c exec $web_browser
+bindsym $mod+e exec $text_editor
+bindsym $mod+t exec $file_browser
+
+# screenshot
+
+bindsym --release Shift+Print exec scrot -s "/tmp/.scrot_tmp.png" -e 'xclip -i "/tmp/.scrot_tmp.png" -selection clipboard -t image/png'
+bindsym --release Ctrl+Shift+Print exec scrot -s "screenshot_%Y%m%d_%H%M%S.png"
+
+bindsym --release Print exec scrot "/tmp/.scrot_tmp.png" -e 'xclip -i "/tmp/.scrot_tmp.png" -selection clipboard -t image/png'
+bindsym --release Ctrl+Print exec scrot "screenshot_%Y%m%d_%H%M%S.png"
+
+# startup
+exec --
+exec --no-startup-id nm-applet
+exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.png
+
+## --- i3 shortcuts --- ##
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# run
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# resize
+bindsym $mod+Ctrl+Up resize grow height 5 px or 5 ppt
+bindsym $mod+Ctrl+Right resize grow width 5 px or 5 ppt
+bindsym $mod+Ctrl+Down resize shrink height 5 px or 5 ppt
+bindsym $mod+Ctrl+Left resize shrink width 5 px or 5 ppt
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+plus workspace 1
+bindsym $mod+lcaron workspace 2
+bindsym $mod+scaron workspace 3
+bindsym $mod+ccaron workspace 4
+bindsym $mod+tcaron workspace 5
+bindsym $mod+zcaron workspace 6
+bindsym $mod+yacute workspace 7
+bindsym $mod+aacute workspace 8
+bindsym $mod+iacute workspace 9
+bindsym $mod+eacute workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+plus move container to workspace 1
+bindsym $mod+Shift+lcaron move container to workspace 2
+bindsym $mod+Shift+scaron move container to workspace 3
+bindsym $mod+Shift+ccaron move container to workspace 4
+bindsym $mod+Shift+tcaron move container to workspace 5
+bindsym $mod+Shift+zcaron move container to workspace 6
+bindsym $mod+Shift+yacute move container to workspace 7
+bindsym $mod+Shift+aacute move container to workspace 8
+bindsym $mod+Shift+iacute move container to workspace 9
+bindsym $mod+Shift+eacute move container to workspace 10
+
+
+# reload i3
+bindsym $mod+Shift+c reload
+
+# restart i3
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# colors
+set_from_resource 	$background_i3wmthemer  background
+set_from_resource	$foreground_i3wmthemer	foreground
+set_from_resource	$color00_i3wmthemer		color0
+set_from_resource 	$color01_i3wmthemer     color1
+set_from_resource 	$color02_i3wmthemer 	color2
+set_from_resource 	$color03_i3wmthemer 	color3
+set_from_resource 	$color04_i3wmthemer 	color4
+set_from_resource 	$color05_i3wmthemer 	color5
+set_from_resource 	$color06_i3wmthemer		color6
+set_from_resource	$color07_i3wmthemer		color7
+set_from_resource	$color08_i3wmthemer		color8
+set_from_resource	$color09_i3wmthemer		color9
+set_from_resource	$color10_i3wmthemer		color10
+set_from_resource	$color11_i3wmthemer		color11
+set_from_resource	$color12_i3wmthemer		color12
+set_from_resource	$color13_i3wmthemer		color13
+set_from_resource	$color14_i3wmthemer		color14
+set_from_resource	$color15_i3wmthemer		color15
+
+client.background       $background_i3wmthemer
+
+client.focused          #FFCF76 $background_i3wmthemer  #FFCF76 #FFCF76         #FFCF76
+client.unfocused        #FFCF76 $background_i3wmthemer  #FFCF76 $color00_i3wmthemer             $color00_i3wmthemer
+client.focused_inactive #FFCF76 $background_i3wmthemer  #FFCF76 $color00_i3wmthemer             $color00_i3wmthemer
+client.urgent           #FFCF76 $background_i3wmthemer  #FFCF76 $color00_i3wmthemer             $color00_i3wmthemer
+client.placeholder      #FFCF76 $background_i3wmthemer  #FFCF76 $color00_i3wmthemer             $color00_i3wmthemer
+
+# dont focus with mouse
+focus_follows_mouse no
+
+# audio with media keys
+bindsym XF86AudioRaiseVolume exec amixer -qD pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -qD pulse sset Master 5%-
+bindsym XF86AudioMute exec amixer -qD set Master toggle
+
+# audio with numpad
+bindsym $mod+KP_Add exec amixer -qD pulse sset Master unmute 5%+
+bindsym $mod+KP_Subtract exec amixer -qD pulse sset Master unmute 5%-
+bindsym $mod+KP_Multiply exec amixer -qD pulse set Master toggle
