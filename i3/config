@@ -32,6 +32,7 @@ bindsym $mod+e exec $text_editor
 bindsym $mod+t exec $file_browser
 bindsym $mod+Delete exec $system_monitor
 bindsym $mod+l exec $term -e $calculator
+#; floating enable; move position center
 
 # screenshot
 
@@ -63,10 +64,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left move left 20 px
+bindsym $mod+Shift+Down move down 20 px
+bindsym $mod+Shift+Up move up 20 px
+bindsym $mod+Shift+Right move right 20 px
 
 # resize
 bindsym $mod+Ctrl+Up resize grow height 5 px or 5 ppt
