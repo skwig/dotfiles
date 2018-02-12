@@ -43,10 +43,11 @@ bindsym --release Print exec scrot "/tmp/.scrot_tmp.png" -e 'xclip -i "/tmp/.scr
 bindsym --release Ctrl+Print exec scrot "screenshot_%Y%m%d_%H%M%S.png"
 
 # startup
-exec --
 exec --no-startup-id nm-applet
 exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.png
+exec_always --no-startup-id ~/.config/startup_i3
+exec_always --no-startup-id xrandr --output DP-1 --mode 1680x1050 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --off --output HDMI-2 --off
 
 ## --- i3 shortcuts --- ##
 
@@ -194,9 +195,12 @@ focus_follows_mouse no
 # audio with media keys
 bindsym XF86AudioRaiseVolume exec amixer -qD pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -qD pulse sset Master 5%-
-bindsym XF86AudioMute exec amixer -qD set Master toggle
+bindsym XF86AudioMute exec amixer -qD pulse set Master toggle
 
 # audio with numpad
 bindsym $mod+KP_Add exec amixer -qD pulse sset Master unmute 5%+
 bindsym $mod+KP_Subtract exec amixer -qD pulse sset Master unmute 5%-
 bindsym $mod+KP_Multiply exec amixer -qD pulse set Master toggle
+
+# screen brightness
+# bindsym XF86MonBrightnessUp
