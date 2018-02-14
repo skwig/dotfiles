@@ -14,10 +14,11 @@ hide_edge_borders none
 #
 set $mod Mod4
 
-set $term i3-sensible-terminal
+set $term urxvt
 set $web_browser google-chrome-stable
 set $text_editor subl
-set $file_browser thunar
+set $file_browser_terminal ranger
+set $file_browser_gui thunar
 set $system_monitor gnome-system-monitor
 set $calculator qalc
 
@@ -29,7 +30,8 @@ floating_modifier $mod
 bindsym $mod+Return exec $term
 bindsym $mod+c exec $web_browser
 bindsym $mod+e exec $text_editor
-bindsym $mod+t exec $file_browser
+bindsym $mod+t exec $term -e $file_browser_terminal
+bindsym $mod+Shift+t exec $file_browser_gui
 bindsym $mod+Delete exec $system_monitor
 bindsym $mod+l exec $term -e $calculator
 #; floating enable; move position center
@@ -44,9 +46,10 @@ bindsym --release Ctrl+Print exec scrot "screenshot_%Y%m%d_%H%M%S.png"
 
 # startup
 exec --no-startup-id nm-applet
+exec --no-startup-id dropbox start
+exec --no-startup-id redshift-gtk
 exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.png
-exec_always --no-startup-id ~/.config/startup_i3
 exec_always --no-startup-id xrandr --output DP-1 --mode 1680x1050 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --off --output HDMI-2 --off
 
 ## --- i3 shortcuts --- ##
