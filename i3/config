@@ -33,7 +33,7 @@ bindsym $mod+e exec $text_editor
 bindsym $mod+t exec $term -e $file_browser_terminal
 bindsym $mod+Shift+t exec $file_browser_gui
 bindsym $mod+Delete exec $system_monitor
-bindsym $mod+l exec $term -e $calculator
+bindsym $mod+o exec $term -e $calculator
 #; floating enable; move position center
 
 # screenshot
@@ -68,26 +68,44 @@ bindsym $mod+Shift+q kill
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -i'
 
-# focus
+# focus arrows
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move
+# move arrows
 bindsym $mod+Shift+Left move left 20 px
 bindsym $mod+Shift+Down move down 20 px
 bindsym $mod+Shift+Up move up 20 px
 bindsym $mod+Shift+Right move right 20 px
 
-# resize
+# resize arrows
 bindsym $mod+Ctrl+Up resize grow height 5 px or 5 ppt
 bindsym $mod+Ctrl+Right resize grow width 5 px or 5 ppt
 bindsym $mod+Ctrl+Down resize shrink height 5 px or 5 ppt
 bindsym $mod+Ctrl+Left resize shrink width 5 px or 5 ppt
 
+# focus vim
+bindsym $mod+H focus left
+bindsym $mod+J focus down
+bindsym $mod+K focus up
+bindsym $mod+L focus right
+
+# move vim
+bindsym $mod+Shift+H move left 20 px
+bindsym $mod+Shift+J move down 20 px
+bindsym $mod+Shift+K move up 20 px
+bindsym $mod+Shift+L move right 20 px
+
+# resize vim
+bindsym $mod+Ctrl+H resize shrink width 5 px or 5 ppt
+bindsym $mod+Ctrl+J resize shrink height 5 px or 5 ppt
+bindsym $mod+Ctrl+K resize grow height 5 px or 5 ppt
+bindsym $mod+Ctrl+L resize grow width 5 px or 5 ppt
+
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+g split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -145,31 +163,6 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
 
 # colors
 set_from_resource 	$background_i3wmthemer  background
