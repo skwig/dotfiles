@@ -16,7 +16,8 @@ set $mod Mod4
 
 set $term urxvt
 set $web_browser chromium-browser
-set $text_editor subl
+set $text_editor_gui subl
+set $text_editor_terminal nano
 set $file_browser_terminal ranger
 set $file_browser_gui thunar
 set $system_monitor gnome-system-monitor
@@ -29,7 +30,8 @@ floating_modifier $mod
 
 bindsym $mod+Return exec $term
 bindsym $mod+c exec $web_browser
-bindsym $mod+e exec $text_editor
+bindsym $mod+e exec $text_editor_gui
+bindsym $mod+Shift+e exec $term -e $text_editor_terminal
 bindsym $mod+t exec $term -e $file_browser_terminal
 bindsym $mod+Shift+t exec $file_browser_gui
 bindsym $mod+Delete exec $system_monitor
@@ -53,10 +55,10 @@ exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.png
 
 # internat
-#exec_always --no-startup-id xrandr --output DP-1 --mode 1680x1050 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --off --output HDMI-2 --off
+exec_always --no-startup-id xrandr --output DP-1 --mode 1680x1050 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --off --output HDMI-2 --off
 
 # doma
-exec_always --no-startup-id xrandr --output DP-1 --mode 1600x900 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --off --output HDMI-2 --off
+#exec_always --no-startup-id xrandr --output DP-1 --mode 1600x900 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --off --output HDMI-2 --off
 
 
 ## --- i3 shortcuts --- ##
@@ -162,7 +164,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # colors
 set_from_resource 	$background_i3wmthemer  background
