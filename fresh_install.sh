@@ -1,0 +1,1 @@
+apt install vim xorg lightdm rofi i3 rxvt-unicode compton fonts-roboto arc-theme lxappearance feh fonts-font-awesome git

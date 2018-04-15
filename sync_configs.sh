@@ -9,3 +9,4 @@ cp -rf ~/.config/ranger/colorschemes ./ranger
 
 cp -rf ~/.Xresources .
 
+cp -f  ~/.vimrc . 
