@@ -22,6 +22,8 @@ set $file_browser_terminal ranger
 set $file_browser_gui thunar
 set $system_monitor gnome-system-monitor
 set $calculator qalc
+set $music_player_gui spotify-wrapper.sh
+set $music_player_terminal ncmpcpp
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -36,7 +38,8 @@ bindsym $mod+t exec $term -e $file_browser_terminal
 bindsym $mod+Shift+t exec $file_browser_gui
 bindsym $mod+Delete exec $system_monitor
 bindsym $mod+o exec $term -e $calculator
-#; floating enable; move position center
+bindsym $mod+m exec $term -e $music_player_terminal
+bindsym $mod+Shift+m exec $music_player_gui
 
 # screenshot
 
@@ -58,7 +61,12 @@ exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.png
 exec_always --no-startup-id xrandr --output DP-1 --mode 1680x1050 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --off --output HDMI-2 --off
 
 # doma
-#exec_always --no-startup-id xrandr --output DP-1 --mode 1600x900 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --off --output HDMI-2 --off
+# exec_always --no-startup-id xrandr --output DP-1 --mode 1600x900 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --off --output HDMI-2 --off
+
+
+# power controls
+bindsym $mod+Shift+Ctrl+x exec --no-startup-id poweroff
+bindsym $mod+Shift+Ctrl+r exec --no-startup-id reboot
 
 
 ## --- i3 shortcuts --- ##
