@@ -1,12 +1,14 @@
 set nocompatible
-filetype indent plugin on
- 
+
 syntax on
+execute pathogen#infect()
+filetype plugin indent on
 
 set hidden
 set wildmenu
 set showcmd
 set hlsearch
+set incsearch
 "set nomodeline
 
 set bg=dark
@@ -55,6 +57,10 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
+"" NERDtree
+map <C-n> :NERDTreeToggle<CR>
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Navigating with guides
 inoremap <Tab><Space> <Esc>/<++><Enter>"_c4l
