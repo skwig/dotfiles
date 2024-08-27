@@ -1,0 +1,62 @@
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+let mapleader = " "
+
+" Plugins
+set highlightedyank
+set commentary
+set easymotion
+set NERDTree
+set which-key
+
+" General settings
+set scrolloff=5
+set incsearch
+set relativenumber number
+set clipboard^=ideaput
+set keymodel=startsel,stopsel
+
+" Disable annoying bells
+set visualbell
+set noerrorbells
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" Remaps
+nnoremap <leader> <NOP>
+
+" Halfpage jumps to Shift
+nnoremap <S-k> <C-u>
+nnoremap <S-j> <C-d>
+
+" Redo with Shift
+nmap <S-u> <C-r>
+
+" Custom maps
+map <leader>b <Action>(ToggleLineBreakpoint)
+nmap <leader>h <Action>(PreviousTab)
+"nmap <leader>l <Action>(NextTab)
+nmap <Space>l <Action>(NextTab)
+nmap ,l <Action>(NextTab)
+
+" Collisions
+sethandler <C-B> a:ide
+sethandler <C-C> a:ide
+sethandler <C-D> a:vim
+sethandler <C-E> a:vim
+sethandler <C-F> a:ide
+sethandler <C-G> a:ide
+sethandler <C-I> a:vim
+sethandler <C-J> a:ide
+sethandler <C-K> a:ide
+sethandler <C-L> a:ide
+sethandler <C-N> a:ide
+sethandler <C-O> a:vim
+sethandler <C-P> a:ide
+sethandler <C-R> a:ide
+sethandler <C-S> a:vim
+sethandler <C-V> a:ide
+sethandler <C-W> a:ide
+sethandler <C-X> a:ide
