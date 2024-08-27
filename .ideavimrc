@@ -1,11 +1,10 @@
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
 
-let mapleader = " "
+let mapleader=" "
 
 " Plugins
 set highlightedyank
-set commentary
 set easymotion
 set NERDTree
 set which-key
@@ -63,6 +62,9 @@ xnoremap <leader>} c{}<Esc>P
 "" Surround with <>
 xnoremap <leader>< c<><Esc>P
 xnoremap <leader>> c<><Esc>P
+
+" Quicker easymotion
+map <leader>s <leader><leader>s
 
 " Collisions
 sethandler <C-B> a:ide
