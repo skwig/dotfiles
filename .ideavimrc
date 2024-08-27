@@ -38,13 +38,24 @@ nnoremap <S-j> <C-d>
 map <A-i> <Action>(PreviousTab)
 map <A-o> <Action>(NextTab)
 
-" IDE features - usually the default keymap, but with <leader> instead of ctrl
+" IDE features
 map <leader>b <Action>(GotoDeclaration)
 map <leader><S-b> <Action>(GotoImplementation)
 map <leader>r <Action>(ToggleLineBreakpoint)
 nmap <leader><S-t> <Action>(Refactorings.QuickListPopupAction)
-nmap <leader>k <Action>(ActivateCommitToolWindow)
-nmap <leader><S-k> <Action>(Vcs.Push)
+
+"" Tests
+map <leader>tw <Action>(ActivateTestsToolWindow) |" Test window
+map <leader>tt <Action>(RiderUnitTestRunContextAction) |" Test this
+map <leader>ts <Action>(RiderUnitTestRunCurrentSessionAction) |" Test session
+map <leader>tr <Action>(RiderUnitTestRepeatPreviousRunAction) |" Test repeat
+map <leader>tg <Action>(RiderGenerateUnitTestAction) |" Test generate
+map <leader>t1 <Action>(Rider.UnitTesting.Main)
+map <leader>t2 <Action>(Rider.UnitTesting.MainMenu)
+
+"" Git
+nmap <leader>gc <Action>(ActivateCommitToolWindow) |" Git commit
+nmap <leader>gp <Action>(Vcs.Push) |" Git push
 
 " Macros
 "" Surround with ()
