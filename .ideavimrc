@@ -24,22 +24,45 @@ set noerrorbells
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
-" Remaps
+" NOPs
 nnoremap <leader> <NOP>
-
-" Halfpage jumps to Shift
-nnoremap <S-k> <C-u>
-nnoremap <S-j> <C-d>
 
 " Redo with Shift
 nmap <S-u> <C-r>
 
-" Custom maps
-map <leader>b <Action>(ToggleLineBreakpoint)
-nmap <leader>h <Action>(PreviousTab)
-"nmap <leader>l <Action>(NextTab)
-nmap <Space>l <Action>(NextTab)
-nmap ,l <Action>(NextTab)
+" Custom movement
+"" Halfpage jumps to Shift
+nnoremap <S-k> <C-u>
+nnoremap <S-j> <C-d>
+
+"" Tabs
+map <A-i> <Action>(PreviousTab)
+map <A-o> <Action>(NextTab)
+
+" IDE features - usually the default keymap, but with <leader> instead of ctrl
+map <leader>b <Action>(GotoDeclaration)
+map <leader><S-b> <Action>(GotoImplementation)
+map <leader>r <Action>(ToggleLineBreakpoint)
+nmap <leader><S-t> <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>k <Action>(ActivateCommitToolWindow)
+nmap <leader><S-k> <Action>(Vcs.Push)
+
+" Macros
+"" Surround with ()
+xnoremap <leader>( c()<Esc>P
+xnoremap <leader>) c()<Esc>P
+
+"" Surround with []
+xnoremap <leader>[ c[]<Esc>P
+xnoremap <leader>] c[]Esc>P
+
+"" Surround with {}
+xnoremap <leader>{ c{}<Esc>P
+xnoremap <leader>} c{}<Esc>P
+
+"" Surround with <>
+xnoremap <leader>< c<><Esc>P
+xnoremap <leader>> c<><Esc>P
 
 " Collisions
 sethandler <C-B> a:ide
