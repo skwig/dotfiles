@@ -39,21 +39,43 @@ map <A-i> <Action>(PreviousTab)
 map <A-o> <Action>(NextTab)
 
 " IDE features
-map <leader>b <Action>(GotoDeclaration)
-map <leader><S-b> <Action>(GotoImplementation)
-map <leader>r <Action>(ToggleLineBreakpoint)
-nmap <leader><S-t> <Action>(Refactorings.QuickListPopupAction)
+map <leader>k <Action>(ToggleLineBreakpoint) |" BreaKpoint
+
+" Refactoring
+map <leader>rt <Action>(Refactorings.QuickListPopupAction) |" Refactor this
+map <leader>rm <Action>(ExtractMethod) |" Refactor method
+map <leader>rv <Action>(IntroduceVariable) |" Refactor variable
+map <leader>rp <Action>(IntroduceParameter) |" Refactor parameter
+map <leader>rc <Action>(IntroduceConstant) |" Refactor constant
+map <leader>rf <Action>(IntroduceField) |" Refactor field
+
+" Movement
+map <leader>ll <Action>(GotoDeclaration) |" Look (at)
+map <leader>li <Action>(GotoImplementation) |" Look (at) implementation
+map <leader>ls <Action>(GotoSuperMethod) |" Look (at) super (method)
+map <leader>lt <Action>(GotoTest) |" Look (at) tests
+map <leader>lu <Action>(ShowUsages) |" Look (at) usages
+
+" Build
+map <leader>bw <Action>(ActivateBuildToolWindow) |" Build window
+map <leader>bt <Action>(BuildSelection) |" Build this
+map <leader>bs <Action>(BuildSolutionAction) |" Build  solution
+map <leader>bc <Action>(CancelBuildAction) |" Build cancel
+
+" Editor
+map <leader>eq <Action>(CloseContent) |" Editor quit
 
 "" Tests
 map <leader>tw <Action>(ActivateTestsToolWindow) |" Test window
 map <leader>tt <Action>(RiderUnitTestRunContextAction) |" Test this
+map <leader>td <Action>(RiderUnitTestDebugContextAction) |" Test debug (this)
 map <leader>ts <Action>(RiderUnitTestRunCurrentSessionAction) |" Test session
 map <leader>tr <Action>(RiderUnitTestRepeatPreviousRunAction) |" Test repeat
 map <leader>tg <Action>(RiderGenerateUnitTestAction) |" Test generate
-map <leader>t1 <Action>(Rider.UnitTesting.Main)
-map <leader>t2 <Action>(Rider.UnitTesting.MainMenu)
+map <leader>tm <Action>(Rider.UnitTesting.MainMenu) |" Test menu
 
 "" Git
+nmap <leader>gw <Action>(ActivateVersionControlToolWindow) |" Git window
 nmap <leader>gc <Action>(ActivateCommitToolWindow) |" Git commit
 nmap <leader>gp <Action>(Vcs.Push) |" Git push
 
