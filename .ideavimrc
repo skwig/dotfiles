@@ -7,10 +7,12 @@ let mapleader=" "
 set highlightedyank
 set easymotion
 set NERDTree
+
 set which-key
+set notimeout
 
 " General settings
-set scrolloff=5
+set scrolloff=10
 set incsearch
 set relativenumber number
 set clipboard^=ideaput
@@ -29,72 +31,77 @@ nnoremap <leader> <NOP>
 " Redo with Shift
 nmap <S-u> <C-r>
 
-" Custom movement
-"" Halfpage jumps to Shift
-nnoremap <S-k> <C-u>
-nnoremap <S-j> <C-d>
+" Custom motions
+"" Faster movement
+map <S-k> 10k
+map <S-j> 10j
 
 "" Tabs
 map <A-i> <Action>(PreviousTab)
 map <A-o> <Action>(NextTab)
 
 " IDE features
-map <leader>k <Action>(ToggleLineBreakpoint) |" BreaKpoint
 
-" Refactoring
-map <leader>rt <Action>(Refactorings.QuickListPopupAction) |" Refactor this
-map <leader>rm <Action>(ExtractMethod) |" Refactor method
-map <leader>rv <Action>(IntroduceVariable) |" Refactor variable
-map <leader>rp <Action>(IntroduceParameter) |" Refactor parameter
-map <leader>rc <Action>(IntroduceConstant) |" Refactor constant
-map <leader>rf <Action>(IntroduceField) |" Refactor field
+"" IDE motions
+map <leader>{ <Action>(MethodUp)
+map <leader>} <Action>(MethodDown)
 
-" Movement
+"" Look
 map <leader>ll <Action>(GotoDeclaration) |" Look (at)
-map <leader>li <Action>(GotoImplementation) |" Look (at) implementation
-map <leader>ls <Action>(GotoSuperMethod) |" Look (at) super (method)
-map <leader>lt <Action>(GotoTest) |" Look (at) tests
-map <leader>lu <Action>(ShowUsages) |" Look (at) usages
+map <leader>d <Action>(GotoDeclaration) |" (look at) Declaration [shorthand]
+map <leader>li <Action>(GotoImplementation) |" Look (at) Implementation
+map <leader>ls <Action>(GotoSuperMethod) |" Look (at) Super (method)
+map <leader>lt <Action>(RiderGoToLinkedTypesAction) |" Look (at) Tests
+map <leader>lu <Action>(ShowUsages) |" Look (at) Usages
+map <leader>lp <Action>(QuickPreview) |" Look (at) Preview
+map <leader>ln <Action>(ShowNavBar) |" Look (at) Navbar
 
-" Build
-map <leader>bw <Action>(ActivateBuildToolWindow) |" Build window
-map <leader>bt <Action>(BuildSelection) |" Build this
-map <leader>bs <Action>(BuildSolutionAction) |" Build  solution
-map <leader>bc <Action>(CancelBuildAction) |" Build cancel
+"" Refactor
+map <leader>rt <Action>(Refactorings.QuickListPopupAction) |" Refactor This
+map <leader>rm <Action>(ExtractMethod) |" Refactor Method
+map <leader>rv <Action>(IntroduceVariable) |" Refactor Variable
+map <leader>rp <Action>(IntroduceParameter) |" Refactor Parameter
+map <leader>rc <Action>(IntroduceConstant) |" Refactor Constant
+map <leader>rf <Action>(IntroduceField) |" Refactor Field
 
-" Editor
-map <leader>eq <Action>(CloseContent) |" Editor quit
+"" Generate
+map <leader>gg <Action>(Generate) |" Generate
+map <leader>gt <Action>(RiderGenerateUnitTestAction) |" Generate Test [copy of tg]
+map <leader>gs <Action>(RiderSurroundWith) |" Generate Surround
+
+"" Build
+map <leader>bw <Action>(ActivateBuildToolWindow) |" Build Window
+map <leader>bt <Action>(BuildSelection) |" Build This
+map <leader>bs <Action>(BuildSolutionAction) |" Build Solution
+map <leader>bc <Action>(CancelBuildAction) |" Build cancel BROKEN
+map <leader>bl <Action>(CleanSolutionAction) |" Build cLean
+
+"" Breakpoint
+map <leader>kk <Action>(ToggleLineBreakpoint) |" breaKpoint
+
+"" Editor
+map <leader>eq <Action>(CloseContent) |" Editor Quit
 
 "" Tests
-map <leader>tw <Action>(ActivateTestsToolWindow) |" Test window
-map <leader>tt <Action>(RiderUnitTestRunContextAction) |" Test this
-map <leader>td <Action>(RiderUnitTestDebugContextAction) |" Test debug (this)
-map <leader>ts <Action>(RiderUnitTestRunCurrentSessionAction) |" Test session
-map <leader>tr <Action>(RiderUnitTestRepeatPreviousRunAction) |" Test repeat
-map <leader>tg <Action>(RiderGenerateUnitTestAction) |" Test generate
-map <leader>tm <Action>(Rider.UnitTesting.MainMenu) |" Test menu
+map <leader>tw <Action>(ActivateTestsToolWindow) |" Test Window
+map <leader>tt <Action>(RiderUnitTestRunContextAction) |" Test This
+map <leader>td <Action>(RiderUnitTestDebugContextAction) |" Test Debug (this)
+map <leader>ts <Action>(RiderUnitTestRunCurrentSessionAction) |" Test Session
+map <leader>tr <Action>(RiderUnitTestRepeatPreviousRunAction) |" Test Repeat
+map <leader>tc <Action>(RiderUnitTestSessionAbortAction) |" Test Cancel
+map <leader>tg <Action>(RiderGenerateUnitTestAction) |" Test Generate [copy of gt]
+map <leader>tm <Action>(Rider.UnitTesting.MainMenu) |" Test Menu
 
-"" Git
-nmap <leader>gw <Action>(ActivateVersionControlToolWindow) |" Git window
-nmap <leader>gc <Action>(ActivateCommitToolWindow) |" Git commit
-nmap <leader>gp <Action>(Vcs.Push) |" Git push
+""
+map <leader>wq <Action>(HideActiveWindow) |" Window quit (close last or currently focused side window)
+
+"" VCS / Git
+nmap <leader>vw <Action>(ActivateVersionControlToolWindow) |" Vcs Window
+nmap <leader>vc <Action>(ActivateCommitToolWindow) |" Vcs Commit
+nmap <leader>vp <Action>(Vcs.Push) |" Vcs Push
 
 " Macros
-"" Surround with ()
-xnoremap <leader>( c()<Esc>P
-xnoremap <leader>) c()<Esc>P
-
-"" Surround with []
-xnoremap <leader>[ c[]<Esc>P
-xnoremap <leader>] c[]Esc>P
-
-"" Surround with {}
-xnoremap <leader>{ c{}<Esc>P
-xnoremap <leader>} c{}<Esc>P
-
-"" Surround with <>
-xnoremap <leader>< c<><Esc>P
-xnoremap <leader>> c<><Esc>P
+" Currently none
 
 " Quicker easymotion
 map <leader>s <leader><leader>s
@@ -106,6 +113,7 @@ sethandler <C-D> a:vim
 sethandler <C-E> a:vim
 sethandler <C-F> a:ide
 sethandler <C-G> a:ide
+sethandler <C-H> a:ide
 sethandler <C-I> a:vim
 sethandler <C-J> a:ide
 sethandler <C-K> a:ide
