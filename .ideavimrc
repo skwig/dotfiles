@@ -31,6 +31,10 @@ nnoremap <leader> <NOP>
 " Redo with Shift
 nmap <S-u> <C-r>
 
+" Collapsing everything doesnt seem to work out of the box
+map zr <Action>(CollapseAllRegions)
+map zR <Action>(ExpandAllRegions)
+
 " Custom motions
 "" Faster movement
 map <S-k> 10k
@@ -41,7 +45,6 @@ map <A-i> <Action>(PreviousTab)
 map <A-o> <Action>(NextTab)
 
 " IDE features
-
 "" IDE motions
 map <leader>{ <Action>(MethodUp)
 map <leader>} <Action>(MethodDown)
@@ -81,9 +84,6 @@ map <leader>bl <Action>(CleanSolutionAction) |" Build cLean
 "" Breakpoint
 map <leader>kk <Action>(ToggleLineBreakpoint) |" breaKpoint
 
-"" Editor
-map <leader>eq <Action>(CloseContent) |" Editor Quit
-
 "" Tests
 map <leader>tt <Action>(RiderUnitTestRunContextAction) |" Test
 map <leader>tw <Action>(ActivateTestsToolWindow) |" Test Window
@@ -94,8 +94,18 @@ map <leader>tc <Action>(RiderUnitTestSessionAbortAction) |" Test Cancel
 map <leader>tg <Action>(RiderGenerateUnitTestAction) |" Test Generate [copy of gt]
 map <leader>tm <Action>(Rider.UnitTesting.MainMenu) |" Test Menu
 
-""
-map <leader>wq <Action>(HideActiveWindow) |" Window quit (close last or currently focused side window)
+"" Editor
+map <leader>eq <Action>(CloseContent) |" Editor Quit
+
+"" Tool window
+map <leader>wq <Action>(HideActiveWindow) |" (tool) Window Quit
+map <leader>wo <Action>(JumpToLastWindow) |" (tool) Window Outer 
+map <leader>wk <Action>(ResizeToolWindowUp) |" (tool) Window K
+map <leader>wj <Action>(ResizeToolWindowDown) |" (tool) Window J
+map <leader>wp <Action>(ActivateProblemsViewToolWindow) |" (tool) Window Problems
+map <leader>wv <Action>(ActivateVersionControlToolWindow) |" (tool) Window Vcs [copy of vw]
+map <leader>wt <Action>(ActivateTestsToolWindow) |" (tool) Window Test [copy of tw]
+map <leader>wb <Action>(ActivateBuildToolWindow) |" (tool) Window Build [copy of bw]
 
 "" VCS / Git
 nmap <leader>vw <Action>(ActivateVersionControlToolWindow) |" Vcs Window
