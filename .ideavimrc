@@ -40,11 +40,23 @@ map zR <Action>(ExpandAllRegions)
 map <S-k> 10k
 map <S-j> 10j
 
-"" Tabs
+map gj <Action>(EditorJoinLines)
+"map gs <Action>(EditorSplitLine)
+map gs <Action>(RiderSpaciousFormatCode)
+
+map gh <Action>(MoveElementLeft)
+map gl <Action>(MoveElementRight)
+
+" Tabs
 map <A-i> <Action>(PreviousTab)
 map <A-o> <Action>(NextTab)
 
 " IDE features
+"" Multicursor
+map <space>aa <Action>(EditorAddCaretPerSelectedLine)
+map <space>ak <Action>(EditorCloneCaretAbove)
+map <space>aj <Action>(EditorCloneCaretBelow)
+
 "" IDE motions
 map <leader>{ <Action>(MethodUp)
 map <leader>} <Action>(MethodDown)
@@ -56,18 +68,25 @@ map <leader>li <Action>(GotoImplementation) |" Look (at) Implementation
 map <leader>ls <Action>(GotoSuperMethod) |" Look (at) Super (method)
 map <leader>lt <Action>(RiderGoToLinkedTypesAction) |" Look (at) Tests
 map <leader>lu <Action>(ShowUsages) |" Look (at) Usages
-map <leader>lp <Action>(QuickPreview) |" Look (at) Preview
+map <leader>lp <Action>(QuickPreview) |" Look (at) preView
+map <leader>p <Action>(QuickPreview) |" Look (at) preView [shorthand]
 map <leader>ln <Action>(ShowNavBar) |" Look (at) Navbar
+map <leader>lr <Action>(ParameterInfo) |" Look (at) Parameter
+map <leader>lq <Action>(QuickJavaDoc) |" Look (at) doQumentation 
 
 "" Refactor
 map <leader>rr <Action>(Refactorings.QuickListPopupAction) |" Refactor
-map <leader>f <Action>(Refactorings.QuickListPopupAction) |" reFactor [shorthand]
 map <leader>rm <Action>(ExtractMethod) |" Refactor Method
+map <leader>m <Action>(ExtractMethod) |" Refactor Method [shorthand]
 map <leader>rv <Action>(IntroduceVariable) |" Refactor Variable
+map <leader>v <Action>(IntroduceVariable) |" Refactor Variable [shorthand]
 map <leader>rp <Action>(IntroduceParameter) |" Refactor Parameter
 map <leader>rc <Action>(IntroduceConstant) |" Refactor Constant
 map <leader>rf <Action>(IntroduceField) |" Refactor Field
 map <leader>ri <Action>(Inline) |" Refactor Inline
+map <leader>i <Action>(Inline) |" Refactor Inline [shorthand]
+map <leader>rn <Action>(RenameElement) |" Refactor reName
+map <leader>n <Action>(RenameElement) |" Refactor reName [shorthand]
 
 "" Generate
 map <leader>gg <Action>(Generate) |" Generate
@@ -103,14 +122,14 @@ map <leader>wo <Action>(JumpToLastWindow) |" (tool) Window Outer
 map <leader>wk <Action>(ResizeToolWindowUp) |" (tool) Window K
 map <leader>wj <Action>(ResizeToolWindowDown) |" (tool) Window J
 map <leader>wp <Action>(ActivateProblemsViewToolWindow) |" (tool) Window Problems
-map <leader>wv <Action>(ActivateVersionControlToolWindow) |" (tool) Window Vcs [copy of vw]
+map <leader>wc <Action>(ActivateVersionControlToolWindow) |" (tool) Window Vcs [copy of cw]
 map <leader>wt <Action>(ActivateTestsToolWindow) |" (tool) Window Test [copy of tw]
 map <leader>wb <Action>(ActivateBuildToolWindow) |" (tool) Window Build [copy of bw]
 
 "" VCS / Git
-nmap <leader>vw <Action>(ActivateVersionControlToolWindow) |" Vcs Window
-nmap <leader>vc <Action>(ActivateCommitToolWindow) |" Vcs Commit
-nmap <leader>vp <Action>(Vcs.Push) |" Vcs Push
+map <leader>cw <Action>(ActivateVersionControlToolWindow) |" vCs Window
+map <leader>cc <Action>(ActivateCommitToolWindow) |" vCs Commit
+map <leader>cp <Action>(Vcs.Push) |" vCs Push
 
 " Macros
 " Currently none
