@@ -53,13 +53,17 @@ map <A-o> <Action>(NextTab)
 
 " IDE features
 
-"" Shorthands
+"" Shorthands - most commonly used things
 map <leader>d <Action>(GotoDeclaration) |" (look at) Declaration [shorthand]
-map <leader>p <Action>(QuickPreview) |" look (at) preView [shorthand]
+map <leader>p <Action>(QuickPreview) |" look (at) Preview [shorthand]
 map <leader>m <Action>(ExtractMethod) |" refactor Method [shorthand]
 map <leader>v <Action>(IntroduceVariable) |" refactor Variable [shorthand]
 map <leader>i <Action>(Inline) |" refactor Inline [shorthand]
 map <leader>n <Action>(RenameElement) |" refactor reName [shorthand]
+
+"" Basic
+map <leader><CR> <Action>(ShowIntentionActions) |" alt + enter but with leader
+map <leader>o <Action>(ShowIntentionActions) |" alt + enter but maybe more ergonomic
 
 "" Multicursor
 map <space>aa <Action>(EditorAddCaretPerSelectedLine)
@@ -76,9 +80,9 @@ map <leader>li <Action>(GotoImplementation) |" Look (at) Implementation
 map <leader>ls <Action>(GotoSuperMethod) |" Look (at) Super (method)
 map <leader>lt <Action>(RiderGoToLinkedTypesAction) |" Look (at) Tests
 map <leader>lu <Action>(ShowUsages) |" Look (at) Usages
-map <leader>lp <Action>(QuickPreview) |" Look (at) preView
+map <leader>lp <Action>(QuickPreview) |" Look (at) Preview
 map <leader>ln <Action>(ShowNavBar) |" Look (at) Navbar
-map <leader>lr <Action>(ParameterInfo) |" Look (at) Parameter
+map <leader>lr <Action>(ParameterInfo) |" Look (at) paRameter
 map <leader>lq <Action>(QuickJavaDoc) |" Look (at) doQumentation 
 
 "" Refactor
@@ -94,7 +98,7 @@ map <leader>rn <Action>(RenameElement) |" Refactor reName
 "" Generate
 map <leader>gg <Action>(Generate) |" Generate
 map <leader>gt <Action>(RiderGenerateUnitTestAction) |" Generate Test [copy of tg]
-map <leader>gs <Action>(RiderSurroundWith) |" Generate Surround
+map <leader>gs <Action>(SurroundWith) |" Generate Surround
 
 "" Build
 map <leader>bb <Action>(BuildSelection) |" Build
