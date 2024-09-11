@@ -22,14 +22,13 @@ set keymodel=startsel,stopsel
 set visualbell
 set noerrorbells
 
-" Don't use Ex mode, use Q for formatting.
-map Q gq
-
 " NOPs
 nnoremap <leader> <NOP>
 
-" Redo with Shift
-nmap <S-u> <C-r>
+" Remaps
+nmap <S-u> <C-r> |" Redo with shift
+map Y y$ |" Sane yank
+map Q gq |" Don't use Ex mode, use Q for formatting.
 
 " Collapsing everything doesnt seem to work out of the box
 map zr <Action>(CollapseAllRegions)
@@ -40,9 +39,9 @@ map zR <Action>(ExpandAllRegions)
 map <S-k> 10k
 map <S-j> 10j
 
-map gj <Action>(EditorJoinLines)
-"map gs <Action>(EditorSplitLine)
-map gs <Action>(RiderSpaciousFormatCode)
+map gj <Action>(EditorJoinLines) |" Generate Join
+map gs <Action>(EditorSplitLine) |" Generate Split
+"map gs <Action>(RiderSpaciousFormatCode) |" Generate Split
 
 map gh <Action>(MoveElementLeft)
 map gl <Action>(MoveElementRight)
