@@ -26,7 +26,7 @@ set noerrorbells
 nnoremap <leader> <NOP>
 
 " Remaps
-nmap <S-u> <C-r> |" Redo with shift
+map <S-u> <C-r> |" Redo with shift
 map Y y$ |" Sane yank
 map Q gq |" Don't use Ex mode, use Q for formatting.
 
@@ -39,10 +39,10 @@ map zR <Action>(ExpandAllRegions)
 map <S-k> 10k
 map <S-j> 10j
 
+" Basic text manipulation
 map gj <Action>(EditorJoinLines) |" Generate Join
 map gs <Action>(EditorSplitLine) |" Generate Split
 "map gs <Action>(RiderSpaciousFormatCode) |" Generate Split
-
 map gh <Action>(MoveElementLeft)
 map gl <Action>(MoveElementRight)
 
@@ -65,13 +65,16 @@ map <leader><CR> <Action>(ShowIntentionActions) |" alt + enter but with leader
 map <leader>o <Action>(ShowIntentionActions) |" alt + enter but maybe more ergonomic
 
 "" Multicursor
-map <space>aa <Action>(EditorAddCaretPerSelectedLine)
+map <space>aa <Action>(EditorAddCaretPerSelectedLine)<Home>
 map <space>ak <Action>(EditorCloneCaretAbove)
 map <space>aj <Action>(EditorCloneCaretBelow)
 
 "" IDE motions
 map <leader>{ <Action>(MethodUp)
 map <leader>} <Action>(MethodDown)
+
+map [i <Action>(GotoPreviousError)
+map [o <Action>(GotoNextError)
 
 "" Look
 map <leader>ll <Action>(GotoDeclaration) |" Look (at)
@@ -83,6 +86,7 @@ map <leader>lp <Action>(QuickPreview) |" Look (at) Preview
 map <leader>ln <Action>(ShowNavBar) |" Look (at) Navbar
 map <leader>lr <Action>(ParameterInfo) |" Look (at) paRameter
 map <leader>lq <Action>(QuickJavaDoc) |" Look (at) doQumentation 
+map <leader>lm <Action>(FileStructurePopup) |" Look (at) Members
 
 "" Refactor
 map <leader>rr <Action>(Refactorings.QuickListPopupAction) |" Refactor
@@ -98,6 +102,7 @@ map <leader>rn <Action>(RenameElement) |" Refactor reName
 map <leader>gg <Action>(Generate) |" Generate
 map <leader>gt <Action>(RiderGenerateUnitTestAction) |" Generate Test [copy of tg]
 map <leader>gs <Action>(SurroundWith) |" Generate Surround
+map <leader>gn <Action>(NewElement) |" Generate New (class, directory, file etc)
 
 "" Build
 map <leader>bb <Action>(BuildSelection) |" Build
@@ -116,11 +121,14 @@ map <leader>td <Action>(RiderUnitTestDebugContextAction) |" Test Debug (this)
 map <leader>ts <Action>(RiderUnitTestRunCurrentSessionAction) |" Test Session
 map <leader>tr <Action>(RiderUnitTestRepeatPreviousRunAction) |" Test Repeat
 map <leader>tc <Action>(RiderUnitTestSessionAbortAction) |" Test Cancel
+map <leader>tf <Action>(RiderUnitTestRerunBrokenSplitAction) |" Test Generate [copy of gt]
 map <leader>tg <Action>(RiderGenerateUnitTestAction) |" Test Generate [copy of gt]
 map <leader>tm <Action>(Rider.UnitTesting.MainMenu) |" Test Menu
 
 "" Editor
-map <leader>eq <Action>(CloseContent) |" Editor Quit
+map <leader>eq <Action>(CloseEditor) |" Editor Quit
+map <leader>eoq <Action>(CloseAllEditorsButActive) |" Editor Others Quit
+map <leader>ep <Action>(PinActiveTabToggle) |" Editor Pin
 
 "" Tool window
 map <leader>wq <Action>(HideActiveWindow) |" (tool) Window Quit
@@ -137,6 +145,30 @@ map <leader>cw <Action>(ActivateVersionControlToolWindow) |" vCs Window
 map <leader>cc <Action>(ActivateCommitToolWindow) |" vCs Commit
 map <leader>cp <Action>(Vcs.Push) |" vCs Push
 
+"" Bookmarks
+map <leader>m0 <Action>(ToggleBookmark0)  |" bookMark 0
+map <leader>m1 <Action>(ToggleBookmark1) |" bookMark 1
+map <leader>m2 <Action>(ToggleBookmark2) |" bookMark 2
+map <leader>m3 <Action>(ToggleBookmark3) |" bookMark 3
+map <leader>m4 <Action>(ToggleBookmark4) |" bookMark 4
+map <leader>m5 <Action>(ToggleBookmark5) |" bookMark 5
+map <leader>m6 <Action>(ToggleBookmark6) |" bookMark 6
+map <leader>m7 <Action>(ToggleBookmark7) |" bookMark 7
+map <leader>m8 <Action>(ToggleBookmark8) |" bookMark 8
+map <leader>m9 <Action>(ToggleBookmark9) |" bookMark 9
+
+map <C-m> <Action>(ShowBookmarks)
+map <C-0> <Action>(GotoBookmark0)
+map <C-1> <Action>(GotoBookmark1)
+map <C-2> <Action>(GotoBookmark2)
+map <C-3> <Action>(GotoBookmark3)
+map <C-4> <Action>(GotoBookmark4)
+map <C-5> <Action>(GotoBookmark5)
+map <C-6> <Action>(GotoBookmark6)
+map <C-7> <Action>(GotoBookmark7)
+map <C-8> <Action>(GotoBookmark8)
+map <C-9> <Action>(GotoBookmark9)
+
 " Macros
 " Currently none
 
@@ -144,7 +176,7 @@ map <leader>cp <Action>(Vcs.Push) |" vCs Push
 map <leader>s <leader><leader>s
 
 " Collisions
-sethandler <C-B> a:ide
+sethandler <C-B> a:vim
 sethandler <C-C> a:ide
 sethandler <C-D> a:vim
 sethandler <C-E> a:vim
@@ -163,3 +195,14 @@ sethandler <C-S> a:vim
 sethandler <C-V> a:ide
 sethandler <C-W> a:ide
 sethandler <C-X> a:ide
+
+sethandler <C-0> a:vim
+sethandler <C-1> a:vim
+sethandler <C-2> a:vim
+sethandler <C-3> a:vim
+sethandler <C-4> a:vim
+sethandler <C-5> a:vim
+sethandler <C-6> a:vim
+sethandler <C-7> a:vim
+sethandler <C-8> a:vim
+sethandler <C-9> a:vim
