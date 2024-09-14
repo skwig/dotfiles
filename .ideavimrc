@@ -45,6 +45,7 @@ map gs <Action>(EditorSplitLine) |" Generate Split
 "map gs <Action>(RiderSpaciousFormatCode) |" Generate Split
 map gh <Action>(MoveElementLeft)
 map gl <Action>(MoveElementRight)
+map gd <Action>(SafeDelete)
 
 " Tabs
 map <A-i> <Action>(PreviousTab)
@@ -59,6 +60,7 @@ map <leader>m <Action>(ExtractMethod) |" refactor Method [shorthand]
 map <leader>v <Action>(IntroduceVariable) |" refactor Variable [shorthand]
 map <leader>i <Action>(Inline) |" refactor Inline [shorthand]
 map <leader>n <Action>(RenameElement) |" refactor reName [shorthand]
+map <leader>u <Action>(ShowUsages) |" look (at) Usages [shorthand]
 
 "" Basic
 map <leader><CR> <Action>(ShowIntentionActions) |" alt + enter but with leader
@@ -70,11 +72,11 @@ map <space>ak <Action>(EditorCloneCaretAbove)
 map <space>aj <Action>(EditorCloneCaretBelow)
 
 "" IDE motions
-map <leader>{ <Action>(MethodUp)
-map <leader>} <Action>(MethodDown)
+map [M <Action>(MethodUp)
+map [m <Action>(MethodDown)
 
-map [i <Action>(GotoPreviousError)
-map [o <Action>(GotoNextError)
+map [E <Action>(GotoPreviousError)
+map [e <Action>(GotoNextError)
 
 "" Look
 map <leader>ll <Action>(GotoDeclaration) |" Look (at)
@@ -133,12 +135,15 @@ map <leader>ep <Action>(PinActiveTabToggle) |" Editor Pin
 "" Tool window
 map <leader>wq <Action>(HideActiveWindow) |" (tool) Window Quit
 map <leader>wo <Action>(JumpToLastWindow) |" (tool) Window Outer 
-map <leader>wk <Action>(ResizeToolWindowUp) |" (tool) Window K
-map <leader>wj <Action>(ResizeToolWindowDown) |" (tool) Window J
 map <leader>wp <Action>(ActivateProblemsViewToolWindow) |" (tool) Window Problems
 map <leader>wc <Action>(ActivateVersionControlToolWindow) |" (tool) Window Vcs [copy of cw]
 map <leader>wt <Action>(ActivateTestsToolWindow) |" (tool) Window Test [copy of tw]
 map <leader>wb <Action>(ActivateBuildToolWindow) |" (tool) Window Build [copy of bw]
+map <leader>wf <Action>(ActivateFindToolWindow) |" (tool) Window Find
+map <leader>ws <Action>(ActivateTerminalToolWindow) |" (tool) Window Shell
+map <leader>wr <Action>(ActivateRunToolWindow) |" (tool) Window Run
+map <C-S-t> <Action>(ResizeToolWindowUp) |" TOOL (window)
+map <C-t> <Action>(ResizeToolWindowDown) |" tool (window)
 
 "" VCS / Git
 map <leader>cw <Action>(ActivateVersionControlToolWindow) |" vCs Window
