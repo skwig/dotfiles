@@ -54,13 +54,17 @@ map <A-o> <Action>(NextTab)
 " IDE features
 
 "" Shorthands - most commonly used things
-map <leader>d <Action>(GotoDeclaration) |" (look at) Declaration [shorthand]
-map <leader>p <Action>(QuickPreview) |" look (at) Preview [shorthand]
+map <leader>d <Action>(GotoDeclaration) |" (hop to) Declaration [shorthand]
+map <leader>p <Action>(QuickPreview) |" (hop to) Preview [shorthand]
 map <leader>m <Action>(ExtractMethod) |" refactor Method [shorthand]
 map <leader>v <Action>(IntroduceVariable) |" refactor Variable [shorthand]
 map <leader>i <Action>(Inline) |" refactor Inline [shorthand]
 map <leader>n <Action>(RenameElement) |" refactor reName [shorthand]
-map <leader>u <Action>(ShowUsages) |" look (at) Usages [shorthand]
+map <leader>u <Action>(ShowUsages) |" (hop to) Usages [shorthand]
+
+"" IDE motions
+map <leader>ff <Action>(Run)
+map <leader>fd <Action>(Debug)
 
 "" Basic
 map <leader><CR> <Action>(ShowIntentionActions) |" alt + enter but with leader
@@ -78,17 +82,17 @@ map [m <Action>(MethodDown)
 map [E <Action>(GotoPreviousError)
 map [e <Action>(GotoNextError)
 
-"" Look
-map <leader>ll <Action>(GotoDeclaration) |" Look (at)
-map <leader>li <Action>(GotoImplementation) |" Look (at) Implementation
-map <leader>ls <Action>(GotoSuperMethod) |" Look (at) Super (method)
-map <leader>lt <Action>(RiderGoToLinkedTypesAction) |" Look (at) Tests
-map <leader>lu <Action>(ShowUsages) |" Look (at) Usages
-map <leader>lp <Action>(QuickPreview) |" Look (at) Preview
-map <leader>ln <Action>(ShowNavBar) |" Look (at) Navbar
-map <leader>lr <Action>(ParameterInfo) |" Look (at) paRameter
-map <leader>lq <Action>(QuickJavaDoc) |" Look (at) doQumentation 
-map <leader>lm <Action>(FileStructurePopup) |" Look (at) Members
+"" Hop
+map <leader>hh <Action>(GotoDeclaration) |" Hop (to)
+map <leader>hi <Action>(GotoImplementation) |" Hop (to) Implementation
+map <leader>hs <Action>(GotoSuperMethod) |" Hop (to) Super (method)
+map <leader>ht <Action>(RiderGoToLinkedTypesAction) |" Hop (to) Tests
+map <leader>hu <Action>(ShowUsages) |" Hop (to) Usages
+map <leader>hp <Action>(QuickPreview) |" Hop (to) Preview
+map <leader>hn <Action>(ShowNavBar) |" Hop (to) Navbar
+map <leader>hr <Action>(ParameterInfo) |" Hop (to) paRameter
+map <leader>hq <Action>(QuickJavaDoc) |" Hop (to) doQumentation 
+map <leader>hm <Action>(FileStructurePopup) |" Hop (to) Members
 
 "" Refactor
 map <leader>rr <Action>(Refactorings.QuickListPopupAction) |" Refactor
@@ -246,6 +250,7 @@ sethandler <C-I> a:vim
 sethandler <C-J> a:ide
 sethandler <C-K> a:ide
 sethandler <C-L> a:ide
+sethandler <C-M> a:vim
 sethandler <C-N> a:ide
 sethandler <C-O> a:vim
 sethandler <C-P> a:ide
