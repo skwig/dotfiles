@@ -1,0 +1,82 @@
+{
+  "remapKeys": {
+    "inProcess": [
+      {
+        "originalKeys": "20",
+        "newRemapKeys": "27"
+      }
+    ]
+  },
+  "remapKeysToText": {
+    "inProcess": []
+  },
+  "remapShortcuts": {
+    "global": [
+      {
+        "originalKeys": "91;13",
+        "runProgramElevationLevel": 0,
+        "secondKeyOfChord": 0,
+        "operationType": 1,
+        "runProgramAlreadyRunningAction": 0,
+        "runProgramStartWindowType": 0,
+        "runProgramFilePath": "%USERPROFILE%/AppData/Local/Microsoft/WindowsApps/wt.exe",
+        "runProgramArgs": "",
+        "runProgramStartInDir": "%USERPROFILE%",
+        "unicodeText": "*Unsupported*"
+      },
+      {
+        "originalKeys": "91;32",
+        "operationType": 0,
+        "secondKeyOfChord": 0,
+        "newRemapKeys": "164;32"
+      },
+      {
+        "originalKeys": "91;67",
+        "runProgramElevationLevel": 0,
+        "secondKeyOfChord": 0,
+        "operationType": 1,
+        "runProgramAlreadyRunningAction": 1,
+        "runProgramStartWindowType": 0,
+        "runProgramFilePath": "%PROGRAMFILES%/Google/Chrome/Application/chrome.exe",
+        "runProgramArgs": "",
+        "runProgramStartInDir": "",
+        "unicodeText": "*Unsupported*"
+      },
+      {
+        "originalKeys": "91;84",
+        "runProgramElevationLevel": 0,
+        "secondKeyOfChord": 0,
+        "operationType": 1,
+        "runProgramAlreadyRunningAction": 0,
+        "runProgramStartWindowType": 0,
+        "runProgramFilePath": "%PROGRAMFILES%/totalcmd/TOTALCMD64.EXE",
+        "runProgramArgs": "",
+        "runProgramStartInDir": "",
+        "unicodeText": "*Unsupported*"
+      },
+      {
+        "originalKeys": "91;160;13",
+        "runProgramElevationLevel": 0,
+        "secondKeyOfChord": 0,
+        "operationType": 1,
+        "runProgramAlreadyRunningAction": 0,
+        "runProgramStartWindowType": 0,
+        "runProgramFilePath": "%USERPROFILE%/AppData/Local/Microsoft/WindowsApps/wt.exe",
+        "runProgramArgs": "wsl",
+        "runProgramStartInDir": "%USERPROFILE%",
+        "unicodeText": "*Unsupported*"
+      },
+      {
+        "originalKeys": "91;160;81",
+        "operationType": 0,
+        "secondKeyOfChord": 0,
+        "newRemapKeys": "164;115"
+      }
+    ],
+    "appSpecific": []
+  },
+  "remapShortcutsToText": {
+    "global": [],
+    "appSpecific": []
+  }
+}
