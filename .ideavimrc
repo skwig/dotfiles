@@ -42,7 +42,6 @@ map <S-j> 10j
 " Basic text manipulation
 map gj <Action>(EditorJoinLines) |" Generate Join
 map gs <Action>(EditorSplitLine) |" Generate Split
-"map gs <Action>(RiderSpaciousFormatCode) |" Generate Split
 map gh <Action>(MoveElementLeft)
 map gl <Action>(MoveElementRight)
 map gd <Action>(SafeDelete)
@@ -95,6 +94,7 @@ map <leader>hn <Action>(ShowNavBar) |" Hop (to) Navbar
 map <leader>hr <Action>(ParameterInfo) |" Hop (to) paRameter
 map <leader>hq <Action>(QuickJavaDoc) |" Hop (to) doQumentation 
 map <leader>hm <Action>(FileStructurePopup) |" Hop (to) Members
+map <leader>hf <Action>(LocateInSolutionView)|" Hop (to) Filesystem
 
 "" Refactor
 map <leader>rr <Action>(Refactorings.QuickListPopupAction) |" Refactor
