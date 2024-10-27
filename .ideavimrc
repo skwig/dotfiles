@@ -1,15 +1,15 @@
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
 
+" Installed plugins:
+" IdeaVim-EasyMotion + AceJump
+
 let mapleader=" "
 
 " Plugins
 set highlightedyank
 set easymotion
 set NERDTree
-
-set which-key
-set notimeout
 
 " General settings
 set scrolloff=10
