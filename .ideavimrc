@@ -46,6 +46,7 @@ map gs <Action>(EditorSplitLine) |" Generate Split
 map gh <Action>(MoveElementLeft)
 map gl <Action>(MoveElementRight)
 map gd <Action>(SafeDelete)
+map gq <Action>(ReformatCode)
 
 " Tabs
 map <A-i> <Action>(PreviousTab)
@@ -61,6 +62,7 @@ map <leader>v <Action>(IntroduceVariable) |" refactor Variable [shorthand]
 map <leader>i <Action>(Inline) |" refactor Inline [shorthand]
 map <leader>n <Action>(RenameElement) |" refactor reName [shorthand]
 map <leader>u <Action>(ShowUsages) |" (hop to) Usages [shorthand]
+map <leader>q <Action>(QuickJavaDoc) |" (hop to) doQumentation [shorthand]
 
 "" IDE motions
 map <leader>ff <Action>(Run)
