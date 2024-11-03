@@ -1,4 +1,8 @@
 vim.cmd("language en_US")
+vim.o.tabstop = 4
+vim.o.expandtab = true
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -10,6 +14,8 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
+
+vim.opt.showmode = false
 
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
