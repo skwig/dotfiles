@@ -8,6 +8,7 @@ return {
 		"williamboman/mason.nvim",
 		"jay-babu/mason-nvim-dap.nvim",
 
+		-- languages
 		"leoluz/nvim-dap-go",
 	},
 	keys = function(_, keys)
@@ -15,9 +16,10 @@ return {
 		local dapui = require("dapui")
 		return {
 			{ "<F5>", dap.continue, desc = "Debug: Start/Continue" },
-			{ "<F1>", dap.step_into, desc = "Debug: Step Into" },
-			{ "<F2>", dap.step_over, desc = "Debug: Step Over" },
-			{ "<F3>", dap.step_out, desc = "Debug: Step Out" },
+			{ "<F7>", dap.step_into, desc = "Debug: Step Into" },
+			{ "<S-F8>", dap.step_out, desc = "Debug: Step Out" },
+			{ "<F8>", dap.step_over, desc = "Debug: Step Over" },
+			{ "<F9>", dapui.open, desc = "dapui open" },
 			{ "<leader>b", dap.toggle_breakpoint, desc = "Debug: Toggle Breakpoint" },
 			{
 				"<leader>B",
@@ -26,7 +28,7 @@ return {
 				end,
 				desc = "Debug: Set Breakpoint",
 			},
-			{ "<F7>", dapui.toggle, desc = "Debug: See last session result." },
+			{ "<F6>", dapui.toggle, desc = "Debug: See last session result." },
 			unpack(keys),
 		}
 	end,
@@ -86,6 +88,7 @@ return {
 		end
 
 		dap.listeners.after.event_initialized["dapui_config"] = dapui.open
+		dap.listeners.before.launch["dapui_config"] = dapui.open
 		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
 		dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
