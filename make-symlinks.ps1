@@ -3,3 +3,4 @@ cmd /c mklink "%UserProfile%\AppData\Local\Microsoft\PowerToys\Keyboard Manager\
 cmd /c mklink "%UserProfile%\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" "$PSScriptRoot\wt\settings.json"
 cmd /c mklink "%UserProfile%\.glzr\glazewm\config.yaml" "$PSScriptRoot\glazewm\config.yaml"
 cmd /c mklink "%UserProfile%\.ideavimrc" "$PSScriptRoot\ideavim\.ideavimrc"
+cmd /c mklink /D "%UserProfile%\AppData\Local\nvim" "$PSScriptRoot\nvim\"
