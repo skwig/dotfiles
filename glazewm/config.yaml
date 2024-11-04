@@ -313,7 +313,7 @@ keybindings:
   - commands: ['shell-exec wt nvim']
     bindings: ['lwin+alt+ctrl+e']
 
-  - commands: ['shell-exec wt -d ./Projects/dotfiles nvim .']
+  - commands: ['shell-exec wt -d ./dotfiles nvim .']
     bindings: ['lwin+alt+ctrl+.']
 
   - commands: ['shell-exec chrome']
