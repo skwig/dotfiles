@@ -25,6 +25,7 @@ vim.opt.breakindent = true
 
 vim.opt.undofile = true
 
+vim.opt.foldmethod = "manual"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 

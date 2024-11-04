@@ -30,14 +30,14 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: '10px'
+  inner_gap: '5px'
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '10px'
-    right: '10px'
-    bottom: '10px'
-    left: '10px'
+    top: '5px'
+    right: '5px'
+    bottom: '5px'
+    left: '5px'
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -305,16 +305,19 @@ keybindings:
 
   # Applications
   - commands: ['shell-exec wt']
-    bindings: ['lwin+alt+enter']
+    bindings: ['lwin+alt+ctrl+enter']
 
   - commands: ['shell-exec wt wsl']
     bindings: ['lwin+alt+shift+enter']
 
   - commands: ['shell-exec wt nvim']
-    bindings: ['lwin+alt+e']
+    bindings: ['lwin+alt+ctrl+e']
+
+  - commands: ['shell-exec wt -d ./Projects/dotfiles nvim .']
+    bindings: ['lwin+alt+ctrl+.']
 
   - commands: ['shell-exec chrome']
-    bindings: ['lwin+alt+c']
+    bindings: ['lwin+alt+ctrl+c']
   
   - commands: ['shell-exec C:\Program Files\totalcmd\TOTALCMD64.EXE']
-    bindings: ['lwin+alt+x']
+    bindings: ['lwin+alt+ctrl+t']
