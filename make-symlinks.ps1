@@ -1,6 +1,15 @@
 ﻿echo $PSScriptRoot
+cmd /c IF EXIST "%UserProfile%\AppData\Local\Microsoft\PowerToys\Keyboard Manager\default.json" DEL "%UserProfile%\AppData\Local\Microsoft\PowerToys\Keyboard Manager\default.json"
 cmd /c mklink "%UserProfile%\AppData\Local\Microsoft\PowerToys\Keyboard Manager\default.json" "$PSScriptRoot\PowerToys\Keyboard Manager\default.json"
+
+cmd /c IF EXIST "%UserProfile%\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" DEL "%UserProfile%\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 cmd /c mklink "%UserProfile%\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" "$PSScriptRoot\wt\settings.json"
+
+cmd /c IF EXIST "%UserProfile%\.glzr\glazewm\config.yaml" DEL "%UserProfile%\.glzr\glazewm\config.yaml"
 cmd /c mklink "%UserProfile%\.glzr\glazewm\config.yaml" "$PSScriptRoot\glazewm\config.yaml"
-cmd /c mklink "%UserProfile%\.ideavimrc" "$PSScriptRoot\ideavim\.ideavimrc"
-cmd /c mklink /D "%UserProfile%\AppData\Local\nvim" "$PSScriptRoot\nvim\"
+
+cmd /c IF EXIST "%UserProfile%\.ideavimrc" DEL "%UserProfile%\.ideavimrc"
+cmd /c MKLINK "%UserProfile%\.ideavimrc" "$PSScriptRoot\ideavim\.ideavimrc"
+
+cmd /c IF EXIST "%UserProfile%\AppData\Local\nvim" RMDIR "%UserProfile%\AppData\Local\nvim"
+cmd /c MKLINK /D "%UserProfile%\AppData\Local\nvim" "$PSScriptRoot\nvim\"
