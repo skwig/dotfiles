@@ -14,7 +14,7 @@ general:
 
   # Whether to switch back and forth between the previously focused
   # workspace when focusing the current workspace.
-  toggle_workspace_on_refocus: true
+  toggle_workspace_on_refocus: false
 
   cursor_jump:
     # Whether to automatically move the cursor on the specified trigger.
@@ -235,16 +235,6 @@ keybindings:
   - commands: ['wm-redraw']
     bindings: ['lwin+alt+shift+w']
 
-  # Focus the next/previous workspace defined in `workspaces` config.
-  - commands: ['focus --next-workspace']
-    bindings: ['lwin+alt+s']
-  - commands: ['focus --prev-workspace']
-    bindings: ['lwin+alt+a']
-
-  # Focus the workspace that last had focus.
-  - commands: ['focus --recent-workspace']
-    bindings: ['lwin+alt+d']
-
   # Change focus to a workspace defined in `workspaces` config.
   - commands: ['focus --workspace 1']
     bindings: ['lwin+alt+1']
@@ -264,17 +254,6 @@ keybindings:
     bindings: ['lwin+alt+8']
   - commands: ['focus --workspace 9']
     bindings: ['lwin+alt+9']
-
-  # Move the focused window's parent workspace to a monitor in a given
-  # direction.
-  - commands: ['move-workspace --direction left']
-    bindings: ['lwin+alt+shift+a']
-  - commands: ['move-workspace --direction right']
-    bindings: ['lwin+alt+shift+f']
-  - commands: ['move-workspace --direction up']
-    bindings: ['lwin+alt+shift+d']
-  - commands: ['move-workspace --direction down']
-    bindings: ['lwin+alt+shift+s']
 
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ['move --workspace 1', 'focus --workspace 1']
