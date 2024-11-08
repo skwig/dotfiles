@@ -14,6 +14,7 @@ set NERDTree
 " General settings
 set scrolloff=10
 set incsearch
+set ignorecase
 set relativenumber number
 set clipboard^=ideaput
 set keymodel=startsel,stopsel
@@ -29,6 +30,12 @@ nnoremap <leader> <NOP>
 map <S-u> <C-r> |" Redo with shift
 map Y y$ |" Sane yank
 map Q gq |" Don't use Ex mode, use Q for formatting.
+
+" Clipboard
+map <leader>y "*y
+map <leader>Y "*Y
+map <leader>p "*p
+map <leader>P "*P
 
 " Collapsing everything doesnt seem to work out of the box
 map zr <Action>(CollapseAllRegions)
@@ -46,6 +53,10 @@ map gh <Action>(MoveElementLeft)
 map gl <Action>(MoveElementRight)
 map gd <Action>(SafeDelete)
 map gq <Action>(ReformatCode)
+map gcc <Action>(CommentByLineComment)
+map gbc <Action>(CommentByBlockComment)
+vmap v <Action>(EditorSelectWord)
+vmap V <Action>(EditorUnSelectWord)
 
 " Tabs
 map <A-i> <Action>(PreviousTab)
@@ -54,22 +65,21 @@ map <A-o> <Action>(NextTab)
 " IDE features
 
 "" Shorthands - most commonly used things
-map <leader>d <Action>(GotoDeclaration) |" (hop to) Declaration [shorthand]
-map <leader>p <Action>(QuickPreview) |" (hop to) Preview [shorthand]
+map <leader>d <Action>(GotoDeclaration) |" (jump to) Declaration [shorthand]
 map <leader>m <Action>(ExtractMethod) |" refactor Method [shorthand]
 map <leader>v <Action>(IntroduceVariable) |" refactor Variable [shorthand]
 map <leader>i <Action>(Inline) |" refactor Inline [shorthand]
 map <leader>n <Action>(RenameElement) |" refactor reName [shorthand]
-map <leader>u <Action>(ShowUsages) |" (hop to) Usages [shorthand]
-map <leader>q <Action>(QuickJavaDoc) |" (hop to) doQumentation [shorthand]
-
-"" IDE motions
-map <leader>ff <Action>(Run)
-map <leader>fd <Action>(Debug)
+map <leader>u <Action>(ShowUsages) |" (jump to) Usages [shorthand]
+map <leader>q <Action>(QuickJavaDoc) |" (jump to) doQumentation [shorthand]
+map <leader>k <Action>(ShowIntentionActions) |" alt + enter but maybe more ergonomic
 
 "" Basic
 map <leader><CR> <Action>(ShowIntentionActions) |" alt + enter but with leader
-map <leader>o <Action>(ShowIntentionActions) |" alt + enter but maybe more ergonomic
+
+"" Run
+map <leader>ff <Action>(Run)
+map <leader>fd <Action>(Debug)
 
 "" Multicursor
 map <leader>aa <Action>(EditorAddCaretPerSelectedLine)<Home>
@@ -83,18 +93,18 @@ map [m <Action>(MethodDown)
 map [E <Action>(GotoPreviousError)
 map [e <Action>(GotoNextError)
 
-"" Hop
-map <leader>hh <Action>(GotoDeclaration) |" Hop (to)
-map <leader>hi <Action>(GotoImplementation) |" Hop (to) Implementation
-map <leader>hs <Action>(GotoSuperMethod) |" Hop (to) Super (method)
-map <leader>ht <Action>(RiderGoToLinkedTypesAction) |" Hop (to) Tests
-map <leader>hu <Action>(ShowUsages) |" Hop (to) Usages
-map <leader>hp <Action>(QuickPreview) |" Hop (to) Preview
-map <leader>hn <Action>(ShowNavBar) |" Hop (to) Navbar
-map <leader>hr <Action>(ParameterInfo) |" Hop (to) paRameter
-map <leader>hq <Action>(QuickJavaDoc) |" Hop (to) doQumentation 
-map <leader>hm <Action>(FileStructurePopup) |" Hop (to) Members
-map <leader>hf <Action>(LocateInSolutionView)|" Hop (to) Filesystem
+"" Jump
+map <leader>jh <Action>(GotoDeclaration) |" Jump (to)
+map <leader>ji <Action>(GotoImplementation) |" Jump (to) Implementation
+map <leader>js <Action>(GotoSuperMethod) |" Jump (to) Super (method)
+map <leader>jt <Action>(RiderGoToLinkedTypesAction) |" Jump (to) Tests
+map <leader>ju <Action>(ShowUsages) |" Jump (to) Usages
+map <leader>jp <Action>(QuickPreview) |" Jump (to) Preview
+map <leader>jn <Action>(ShowNavBar) |" Jump (to) Navbar
+map <leader>jr <Action>(ParameterInfo) |" Jump (to) paRameter
+map <leader>jq <Action>(QuickJavaDoc) |" Jump (to) doQumentation 
+map <leader>jm <Action>(FileStructurePopup) |" Jump (to) Members
+map <leader>jf <Action>(LocateInSolutionView)|" Jump (to) Filesystem
 
 "" Refactor
 map <leader>rr <Action>(Refactorings.QuickListPopupAction) |" Refactor
@@ -253,9 +263,9 @@ sethandler <C-J> a:ide
 sethandler <C-K> a:ide
 sethandler <C-L> a:ide
 sethandler <C-M> a:vim
-sethandler <C-N> a:ide
+sethandler <C-N> a:vim
 sethandler <C-O> a:vim
-sethandler <C-P> a:ide
+sethandler <C-P> a:vim
 sethandler <C-R> a:ide
 sethandler <C-S> a:vim
 sethandler <C-V> a:ide
