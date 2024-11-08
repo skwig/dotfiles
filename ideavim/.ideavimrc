@@ -72,7 +72,9 @@ map <leader>i <Action>(Inline) |" refactor Inline [shorthand]
 map <leader>n <Action>(RenameElement) |" refactor reName [shorthand]
 map <leader>u <Action>(ShowUsages) |" (jump to) Usages [shorthand]
 map <leader>q <Action>(QuickJavaDoc) |" (jump to) doQumentation [shorthand]
-map <leader>k <Action>(ShowIntentionActions) |" alt + enter but maybe more ergonomic
+map <leader>k <Action>(ShowIntentionActions) |" show a[K]tions [shorthand]
+map <leader>h <Plug>(easymotion-s) |" [H]op
+map <leader>s <Action>(SearchEverywhere)
 
 "" Basic
 map <leader><CR> <Action>(ShowIntentionActions) |" alt + enter but with leader
@@ -104,7 +106,7 @@ map <leader>jn <Action>(ShowNavBar) |" Jump (to) Navbar
 map <leader>jr <Action>(ParameterInfo) |" Jump (to) paRameter
 map <leader>jq <Action>(QuickJavaDoc) |" Jump (to) doQumentation 
 map <leader>jm <Action>(FileStructurePopup) |" Jump (to) Members
-map <leader>jf <Action>(LocateInSolutionView)|" Jump (to) Filesystem
+map <leader>jf <Action>(LocateInSolutionView) |" Jump (to) Filesystem
 
 "" Refactor
 map <leader>rr <Action>(Refactorings.QuickListPopupAction) |" Refactor
@@ -163,16 +165,12 @@ map <C-S-t> <Action>(ResizeToolWindowUp) |" TOOL (window)
 map <C-t> <Action>(ResizeToolWindowDown) |" tool (window)
 
 "" VCS / Git
-map <leader>cw <Action>(ActivateVersionControlToolWindow) |" vCs Window
-map <leader>cc <Action>(ActivateCommitToolWindow) |" vCs Commit
-map <leader>cp <Action>(Vcs.Push) |" vCs Push
-
+map <leader>cw <Action>(ActivateVersionControlToolWindow) |" v[C]s [W]indow
+map <leader>cc <Action>(ActivateCommitToolWindow) |" v[C]s [C]ommit
+map <leader>cp <Action>(Vcs.Push) |" v[C]s Push
 
 " Macros
 " Currently none
-
-" Quicker easymotion
-map <leader>s <leader><leader>s
 
 " Vim marks & IDE bookmarks integration
 map m0 <Action>(ToggleBookmark0) 
