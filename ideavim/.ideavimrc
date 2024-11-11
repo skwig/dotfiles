@@ -94,6 +94,9 @@ map [m <Action>(MethodDown)
 map [E <Action>(GotoPreviousError)
 map [e <Action>(GotoNextError)
 
+map [C <Action>(VcsShowPrevChangeMarker)
+map [c <Action>(VcsShowNextChangeMarker)
+
 "" Jump
 map <leader>jh <Action>(GotoDeclaration) |" Jump (to)
 map <leader>ji <Action>(GotoImplementation) |" Jump (to) Implementation
