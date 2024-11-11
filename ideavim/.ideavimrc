@@ -74,7 +74,6 @@ map <leader>u <Action>(ShowUsages) |" (jump to) Usages [shorthand]
 map <leader>q <Action>(QuickJavaDoc) |" (jump to) doQumentation [shorthand]
 map <leader>k <Action>(ShowIntentionActions) |" show a[K]tions [shorthand]
 map <leader>h <Plug>(easymotion-s) |" [H]op
-map <leader>s <Action>(SearchEverywhere)
 
 "" Basic
 map <leader><CR> <Action>(ShowIntentionActions) |" alt + enter but with leader
@@ -107,6 +106,13 @@ map <leader>jr <Action>(ParameterInfo) |" Jump (to) paRameter
 map <leader>jq <Action>(QuickJavaDoc) |" Jump (to) doQumentation 
 map <leader>jm <Action>(FileStructurePopup) |" Jump (to) Members
 map <leader>jf <Action>(LocateInSolutionView) |" Jump (to) Filesystem
+
+" Search
+map <leader>ss <Action>(GotoSymbol) |" [S]earch [S]ymbol
+map <leader>st <Action>(TextSearchAction) |" [S]earch [T]ext
+map <leader>s. <Action>(RecentFiles) |" [S]earch recent ('.' for repeat)
+map <leader>s, <Action>(RecentChangedFiles) |" [S]earch recently changed
+map <leader>s/ <Action>(Switcher) |" [S]earch open files ('/' for vim search)
 
 "" Refactor
 map <leader>rr <Action>(Refactorings.QuickListPopupAction) |" Refactor
