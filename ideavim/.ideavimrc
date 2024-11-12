@@ -112,6 +112,7 @@ map <leader>jf <Action>(LocateInSolutionView) |" Jump (to) Filesystem
 
 " Search
 map <leader>ss <Action>(GotoSymbol) |" [S]earch [S]ymbol
+map <leader>sf <Action>(GotoFile) |" [S]earch [F]iles
 map <leader>st <Action>(TextSearchAction) |" [S]earch [T]ext
 map <leader>s. <Action>(RecentFiles) |" [S]earch recent ('.' for repeat)
 map <leader>s, <Action>(RecentChangedFiles) |" [S]earch recently changed
