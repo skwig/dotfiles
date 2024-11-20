@@ -88,13 +88,13 @@ map <leader>ak <Action>(EditorCloneCaretAbove)
 map <leader>aj <Action>(EditorCloneCaretBelow)
 
 "" IDE motions
-map [M <Action>(MethodUp)
+map ]m <Action>(MethodUp)
 map [m <Action>(MethodDown)
 
-map [E <Action>(GotoPreviousError)
-map [e <Action>(GotoNextError)
+map ]d <Action>(GotoPreviousError)
+map [d <Action>(GotoNextError)
 
-map [C <Action>(VcsShowPrevChangeMarker)
+map ]c <Action>(VcsShowPrevChangeMarker)
 map [c <Action>(VcsShowNextChangeMarker)
 
 "" Jump
@@ -142,7 +142,7 @@ map <leader>bc <Action>(CancelBuildAction) |" Build cancel BROKEN
 map <leader>bl <Action>(CleanSolutionAction) |" Build cLean
 
 "" Breakpoint
-map <leader>kk <Action>(ToggleLineBreakpoint) |" breaKpoint
+"map <leader>kk <Action>(ToggleLineBreakpoint) |" breaKpoint
 
 "" Tests
 map <leader>tt <Action>(RiderUnitTestRunContextAction) |" Test
