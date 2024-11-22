@@ -91,11 +91,14 @@ map <leader>aj <Action>(EditorCloneCaretBelow)
 map ]m <Action>(MethodUp)
 map [m <Action>(MethodDown)
 
-map ]d <Action>(GotoPreviousError)
-map [d <Action>(GotoNextError)
+map ]b <Action>(PreviousOccurence)
+map [b <Action>(NextOccurence)
 
 map ]c <Action>(VcsShowPrevChangeMarker)
 map [c <Action>(VcsShowNextChangeMarker)
+
+map ]d <Action>(GotoPreviousError)
+map [d <Action>(GotoNextError)
 
 "" Jump
 map <leader>jh <Action>(GotoDeclaration) |" Jump (to)
