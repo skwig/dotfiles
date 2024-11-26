@@ -181,6 +181,7 @@ map <C-t> <Action>(ResizeToolWindowDown) |" tool (window)
 map <leader>cw <Action>(ActivateVersionControlToolWindow) |" v[C]s [W]indow
 map <leader>cc <Action>(ActivateCommitToolWindow) |" v[C]s [C]ommit
 map <leader>cp <Action>(Vcs.Push) |" v[C]s Push
+map <leader>ca <Action>(Annotate) |" v[C]s [A]nnotate
 
 " Macros
 " Currently none
