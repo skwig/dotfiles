@@ -14,6 +14,7 @@ set NERDTree
 " General settings
 set scrolloff=10
 set incsearch
+set hlsearch
 set ignorecase
 set relativenumber number
 set clipboard^=ideaput
@@ -30,6 +31,7 @@ nnoremap <leader> <NOP>
 map <S-u> <C-r> |" Redo with shift
 map Y y$ |" Sane yank
 map Q gq |" Don't use Ex mode, use Q for formatting.
+nnoremap <CR> :noh<CR>
 
 " Clipboard
 map <leader>y "*y
@@ -70,7 +72,7 @@ map <leader>m <Action>(ExtractMethod) |" refactor Method [shorthand]
 map <leader>v <Action>(IntroduceVariable) |" refactor Variable [shorthand]
 map <leader>i <Action>(Inline) |" refactor Inline [shorthand]
 map <leader>n <Action>(RenameElement) |" refactor reName [shorthand]
-map <leader>u <Action>(ShowUsages) |" (jump to) Usages [shorthand]
+map <leader>u <Action>(ShowUsages) |" (jump to) [U]sages [shorthand]
 map <leader>q <Action>(QuickJavaDoc) |" (jump to) doQumentation [shorthand]
 map <leader>k <Action>(ShowIntentionActions) |" show a[K]tions [shorthand]
 map <leader>h <Plug>(easymotion-s) |" [H]op
@@ -116,6 +118,7 @@ map <leader>jf <Action>(LocateInSolutionView) |" Jump (to) Filesystem
 " Search
 map <leader>ss <Action>(GotoSymbol) |" [S]earch [S]ymbol
 map <leader>sf <Action>(GotoFile) |" [S]earch [F]iles
+map <leader>su <Action>(FindUsages) |" [S]earch [U]sages
 map <leader>st <Action>(TextSearchAction) |" [S]earch [T]ext
 map <leader>s. <Action>(RecentFiles) |" [S]earch recent ('.' for repeat)
 map <leader>s, <Action>(RecentChangedFiles) |" [S]earch recently changed
