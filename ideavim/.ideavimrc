@@ -76,6 +76,7 @@ map <leader>n <Action>(RenameElement) |" refactor reName [shorthand]
 map <leader>u <Action>(ShowUsages) |" (jump to) [U]sages [shorthand]
 map <leader>q <Action>(QuickJavaDoc) |" (jump to) doQumentation [shorthand]
 map <leader>k <Action>(ShowIntentionActions) |" show a[K]tions [shorthand]
+map <leader>, <Action>(CodeCompletion) |"
 map <leader>h <Plug>(easymotion-s) |" [H]op
 
 "" Basic
