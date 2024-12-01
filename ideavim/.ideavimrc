@@ -68,12 +68,9 @@ map <A-o> <Action>(NextTab)
 " IDE features
 
 "" Shorthands - most commonly used things
-map <leader>d <Action>(GotoDeclaration) |" (jump to) Declaration [shorthand]
-map <leader>m <Action>(ExtractMethod) |" refactor Method [shorthand]
-map <leader>v <Action>(IntroduceVariable) |" refactor Variable [shorthand]
-map <leader>i <Action>(Inline) |" refactor Inline [shorthand]
-map <leader>n <Action>(RenameElement) |" refactor reName [shorthand]
+map <leader>d <Action>(GotoDeclaration) |" (jump to) [D]efinition [shorthand]
 map <leader>u <Action>(ShowUsages) |" (jump to) [U]sages [shorthand]
+map <leader>n <Action>(RenameElement) |" refactor reName [shorthand]
 map <leader>q <Action>(QuickJavaDoc) |" (jump to) doQumentation [shorthand]
 map <leader>k <Action>(ShowIntentionActions) |" show a[K]tions [shorthand]
 map <leader>, <Action>(CodeCompletion) |"
@@ -95,8 +92,8 @@ map <leader>aj <Action>(EditorCloneCaretBelow)
 map ]m <Action>(MethodUp)
 map [m <Action>(MethodDown)
 
-map ]b <Action>(PreviousOccurence)
-map [b <Action>(NextOccurence)
+map ]f <Action>(PreviousOccurence)
+map [f <Action>(NextOccurence)
 
 map ]c <Action>(VcsShowPrevChangeMarker)
 map [c <Action>(VcsShowNextChangeMarker)
@@ -105,17 +102,17 @@ map ]d <Action>(GotoPreviousError)
 map [d <Action>(GotoNextError)
 
 "" Jump
-map <leader>jh <Action>(GotoDeclaration) |" Jump (to)
-map <leader>ji <Action>(GotoImplementation) |" Jump (to) Implementation
-map <leader>js <Action>(GotoSuperMethod) |" Jump (to) Super (method)
-map <leader>jt <Action>(RiderGoToLinkedTypesAction) |" Jump (to) Tests
-map <leader>ju <Action>(ShowUsages) |" Jump (to) Usages
-map <leader>jp <Action>(QuickPreview) |" Jump (to) Preview
-map <leader>jn <Action>(ShowNavBar) |" Jump (to) Navbar
-map <leader>jr <Action>(ParameterInfo) |" Jump (to) paRameter
-map <leader>jq <Action>(QuickJavaDoc) |" Jump (to) doQumentation 
-map <leader>jm <Action>(FileStructurePopup) |" Jump (to) Members
-map <leader>jf <Action>(LocateInSolutionView) |" Jump (to) Filesystem
+map <leader>jj <Action>(GotoDeclaration) |" [J]ump to [D]efinition
+map <leader>ji <Action>(GotoImplementation) |" [J]ump to Implementation
+map <leader>js <Action>(GotoSuperMethod) |" [J]ump to Super (method)
+map <leader>jt <Action>(RiderGoToLinkedTypesAction) |" [J]ump to Tests
+map <leader>ju <Action>(ShowUsages) |" [J]ump to Usages
+map <leader>jp <Action>(QuickPreview) |" [J]ump to Preview
+map <leader>jn <Action>(ShowNavBar) |" [J]ump to Navbar
+map <leader>jr <Action>(ParameterInfo) |" [J]ump to paRameter
+map <leader>jq <Action>(QuickJavaDoc) |" [J]ump to doQumentation 
+map <leader>jm <Action>(FileStructurePopup) |" [J]ump to Members
+map <leader>jf <Action>(LocateInSolutionView) |" [J]ump to Filesystem
 
 " Search
 map <leader>ss <Action>(GotoSymbol) |" [S]earch [S]ymbol
