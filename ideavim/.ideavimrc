@@ -127,11 +127,11 @@ map <leader>so <Action>(Switcher) |" [S]earch [O]pen files
 map <leader>rr <Action>(Refactorings.QuickListPopupAction) |" Refactor
 map <leader>rm <Action>(ExtractMethod) |" Refactor Method
 map <leader>rv <Action>(IntroduceVariable) |" Refactor Variable
+map <leader>ri <Action>(Inline) |" Refactor Inline
+map <leader>rn <Action>(RenameElement) |" Refactor reName
 map <leader>rp <Action>(IntroduceParameter) |" Refactor Parameter
 map <leader>rc <Action>(IntroduceConstant) |" Refactor Constant
 map <leader>rf <Action>(IntroduceField) |" Refactor Field
-map <leader>ri <Action>(Inline) |" Refactor Inline
-map <leader>rn <Action>(RenameElement) |" Refactor reName
 
 "" Generate
 map <leader>gg <Action>(Generate) |" Generate

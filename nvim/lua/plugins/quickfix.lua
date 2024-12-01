@@ -54,5 +54,8 @@ return {
 		end
 
 		vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
+
+		vim.keymap.set("n", "[f", ":cnext<CR>", { desc = "Next Quick[F]ix" })
+		vim.keymap.set("n", "]f", ":cprev<CR>", { desc = "Prev Quick[F]ix" })
 	end,
 }
