@@ -121,10 +121,10 @@ map <leader>jf <Action>(LocateInSolutionView) |" Jump (to) Filesystem
 map <leader>ss <Action>(GotoSymbol) |" [S]earch [S]ymbol
 map <leader>sf <Action>(GotoFile) |" [S]earch [F]iles
 map <leader>su <Action>(FindUsages) |" [S]earch [U]sages
-map <leader>st <Action>(TextSearchAction) |" [S]earch [T]ext
+map <leader>sg <Action>(TextSearchAction) |" [S]earch [T]ext
 map <leader>s. <Action>(RecentFiles) |" [S]earch recent ('.' for repeat)
 map <leader>s, <Action>(RecentChangedFiles) |" [S]earch recently changed
-map <leader>s/ <Action>(Switcher) |" [S]earch open files ('/' for vim search)
+map <leader>so <Action>(Switcher) |" [S]earch [O]pen files
 
 "" Refactor
 map <leader>rr <Action>(Refactorings.QuickListPopupAction) |" Refactor

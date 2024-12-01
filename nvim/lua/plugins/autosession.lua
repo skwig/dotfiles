@@ -31,6 +31,6 @@ return {
 		})
 
 		local sessionLens = require("auto-session.session-lens")
-		vim.keymap.set("n", "<leader>so", sessionLens.search_session, { desc = "[S]earch Sessi[O]n" })
+		vim.keymap.set("n", "<leader>si", sessionLens.search_session, { desc = "[S]earch Sess[I]on" })
 	end,
 }
