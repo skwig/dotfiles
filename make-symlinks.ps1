@@ -13,3 +13,8 @@ cmd /c MKLINK "%UserProfile%\.ideavimrc" "$PSScriptRoot\ideavim\.ideavimrc"
 
 cmd /c IF EXIST "%UserProfile%\AppData\Local\nvim" RMDIR "%UserProfile%\AppData\Local\nvim"
 cmd /c MKLINK /D "%UserProfile%\AppData\Local\nvim" "$PSScriptRoot\nvim\"
+
+# $Profile is the path to the powershell profile. Usually ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+New-Item "$Profile" -Type File -Force
+cmd /c IF EXIST "$Profile" DEL "$Profile"
+cmd /c MKLINK "$Profile" "$PSScriptRoot\powershell\Microsoft.Powershell_profile.ps1"
