@@ -9,10 +9,9 @@ return {
         Down = "<Down> ",
         Left = "<Left> ",
         Right = "<Right> ",
-        C = "<C-…> ",
-        M = "<M-…> ",
-        D = "<D-…> ",
+        R = "<R-…> ",
         S = "<S-…> ",
+        J = "<J-…> ",
         CR = "<CR> ",
         Esc = "<Esc> ",
         ScrollWheelDown = "<ScrollWheelDown> ",
@@ -37,13 +36,9 @@ return {
     },
 
     spec = {
-      { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
-      { "<leader>d", group = "[D]ocument" },
-      { "<leader>r", group = "[R]ename" },
+      { "<leader>r", group = "[R]efactor" },
       { "<leader>s", group = "[S]earch" },
-      { "<leader>w", group = "[W]orkspace" },
-      { "<leader>t", group = "[T]oggle" },
-      { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
+      { "<leader>j", group = "[J]ump" },
     },
   },
 }

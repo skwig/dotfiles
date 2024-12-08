@@ -30,10 +30,15 @@ return {
           map("<leader>d", vim.lsp.buf.definition, "(jump to) [D]efinition")
           map("<leader>u", require("telescope.builtin").lsp_references, "(jump to) [U]sages")
           map("<leader>n", vim.lsp.buf.rename, "Re[n]ame")
-          map("<leader>k", vim.lsp.buf.code_action, "Show A[k]tions", { "n", "x" })
+          map("<leader>k", vim.lsp.buf.code_action, "Show A[k]tions")
+          map("<leader>v", vim.lsp.buf.hover, "Ho[V]er")
 
           map("<leader>ji", require("telescope.builtin").lsp_implementations, "[J]ump to [I]mplementation")
           map("<leader>jm", require("telescope.builtin").lsp_document_symbols, "[J]ump to [M]embers")
+          map("<leader>jr", vim.lsp.buf.signature_help, "[J]ump to Pa[R]ameters")
+
+          -- vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+          -- vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
 
           -- Highlight references of the word under the cursor on hold
           local client = vim.lsp.get_client_by_id(event.data.client_id)

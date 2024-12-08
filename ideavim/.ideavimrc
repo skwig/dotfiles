@@ -71,9 +71,8 @@ map <A-o> <Action>(NextTab)
 map <leader>d <Action>(GotoDeclaration) |" (jump to) [D]efinition [shorthand]
 map <leader>u <Action>(ShowUsages) |" (jump to) [U]sages [shorthand]
 map <leader>n <Action>(RenameElement) |" refactor reName [shorthand]
-map <leader>q <Action>(QuickJavaDoc) |" (jump to) doQumentation [shorthand]
 map <leader>k <Action>(ShowIntentionActions) |" show a[K]tions [shorthand]
-map <leader>, <Action>(CodeCompletion) |"
+map <leader>v <Action>(ShowHoverInfo) |" Ho[V]er
 map <leader>h <Plug>(easymotion-s) |" [H]op
 
 "" Basic
@@ -102,7 +101,6 @@ map ]d <Action>(GotoPreviousError)
 map [d <Action>(GotoNextError)
 
 "" Jump
-map <leader>jj <Action>(GotoDeclaration) |" [J]ump to [D]efinition
 map <leader>ji <Action>(GotoImplementation) |" [J]ump to Implementation
 map <leader>js <Action>(GotoSuperMethod) |" [J]ump to Super (method)
 map <leader>jt <Action>(RiderGoToLinkedTypesAction) |" [J]ump to Tests
@@ -268,7 +266,7 @@ map `z <Action>(GotoBookmarkZ)
 sethandler <C-B> a:vim
 sethandler <C-C> a:ide
 sethandler <C-D> a:vim
-sethandler <C-E> a:ide
+sethandler <C-E> a:vim
 sethandler <C-F> a:ide
 sethandler <C-G> a:ide
 sethandler <C-H> a:ide
@@ -283,5 +281,5 @@ sethandler <C-P> a:vim
 sethandler <C-R> a:ide
 sethandler <C-S> a:vim
 sethandler <C-V> a:ide
-sethandler <C-W> a:ide
+sethandler <C-W> a:vim
 sethandler <C-X> a:ide
