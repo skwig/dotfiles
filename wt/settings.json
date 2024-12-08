@@ -48,7 +48,8 @@
         {
             "font": 
             {
-                "face": "JetBrainsMono Nerd Font"
+                "face": "JetBrainsMono Nerd Font",
+                "size": 11
             }
         },
         "list": 

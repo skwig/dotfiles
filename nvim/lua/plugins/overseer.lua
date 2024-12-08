@@ -1,15 +1,15 @@
 return {
-	"stevearc/overseer.nvim",
-	config = function()
-		local overseer = require("overseer")
+  "stevearc/overseer.nvim",
+  config = function()
+    local overseer = require("overseer")
 
-		overseer.setup({
-			bundles = {
-				autostart_on_load = false,
-			},
-		})
+    overseer.setup({
+      bundles = {
+        autostart_on_load = false,
+      },
+    })
 
-		vim.keymap.set("n", "<leader>ff", ":OverseerRun run<CR>", { desc = "[FF] Run" })
-		vim.keymap.set("n", "<leader>bb", ":OverseerRun build<CR>", { desc = "[B]uild" })
-	end,
+    vim.keymap.set("n", "<leader>ff", ":OverseerRun run<CR>", { desc = "[FF] Run" })
+    vim.keymap.set("n", "<leader>bb", ":OverseerRun build<CR>", { desc = "[B]uild" })
+  end,
 }
