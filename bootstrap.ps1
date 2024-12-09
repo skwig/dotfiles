@@ -5,6 +5,7 @@ winget install nvim
 winget install fzf
 winget install sharkdp.fd
 winget install BurntSushi.ripgrep.MSVC
+winget install jqlang.jq
 
 # https://scoop.sh/
 # Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
