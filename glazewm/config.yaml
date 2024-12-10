@@ -1,10 +1,10 @@
 general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
-  startup_commands: []
+  startup_commands: ['shell-exec %UserProfile%\dotfiles\glazewm\glazewm-systrayindicator.exe']
 
   # Commands to run just before the WM is shutdown.
-  shutdown_commands: []
+  shutdown_commands: ['shell-exec taskkill /IM glazewm-systrayindicator.exe /F']
 
   # Commands to run after the WM config is reloaded.
   config_reload_commands: []
@@ -24,6 +24,9 @@ general:
     # - 'monitor_focus': Jump when focus changes between monitors.
     # - 'window_focus': Jump when focus changes between windows.
     trigger: 'monitor_focus'
+
+  hide_method: 'cloak'
+  show_all_in_taskbar: true
 
 gaps:
   # Whether to scale the gaps with the DPI of the monitor.
@@ -160,6 +163,17 @@ window_rules:
         window_class: { equals: 'SunAwtDialog' }
       - window_process: { equals: 'TOTALCMD64' }
         window_class: { regex: 'TDLG.*' }
+
+  - commands: ['move --workspace 1']
+    match:
+      - window_process: { equals: 'chrome' }
+        window_class: { equals: 'Chrome_WidgetWin_1' }
+      - window_process: { equals: 'msedge' }
+        window_class: { equals: 'Chrome_WidgetWin_1' }
+
+  - commands: ['move --workspace 2']
+    match:
+      - window_process: { equals: 'rider64' }
 
 binding_modes:
   # When enabled, all keybindings are disabled except for alt+shift+p which
