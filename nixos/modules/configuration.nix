@@ -67,6 +67,10 @@
     chromium firefox
     neovim git gh lazygit gcc gnumake cmake coreutils fzf ripgrep cargo
     greetd.tuigreet
+    hyprlock
+    cliphist
+    hyprshot
+    rofi-wayland
   ];
 
   fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono"]; }) ];
