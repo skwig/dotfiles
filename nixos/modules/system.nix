@@ -40,17 +40,16 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    wget
     lf
     wget
 
     chromium
     firefox
 
+    discord
+
     fastfetch
     coreutils 
-    neovim git gh lazygit gcc gnumake cmake fzf ripgrep cargo
-    stow
   ];
 
   fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono"]; }) ];

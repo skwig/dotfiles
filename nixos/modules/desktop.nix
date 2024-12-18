@@ -18,6 +18,11 @@
     alacritty
   ];
 
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1"; # chromium, electron
+    MOZ_ENABLE_WAYLAND = "1"; # firefox
+  };
+
   programs.hyprland.enable = true;
 
   services.greetd = {

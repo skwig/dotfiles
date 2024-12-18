@@ -11,6 +11,7 @@
         ./modules/system.nix
         ./modules/desktop.nix
         ./modules/user.nix
+        ./modules/dev.nix
         ./modules/hardware-configuration.nix
       ];
     };
