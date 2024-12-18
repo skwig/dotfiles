@@ -9,9 +9,11 @@
     hyprland
     hyprlock
     hyprshot
+    hypridle
     waybar
     rofi-wayland
     greetd.tuigreet
+    wl-clipboard
     cliphist
     dunst
     foot
