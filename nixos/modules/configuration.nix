@@ -57,20 +57,26 @@
     wget
     lf
     wget
-    dunst
-    waybar
-    kitty
-    alacritty
+
+    # Desktop
     hyprland
-    foot
-    fastfetch
-    chromium firefox
-    neovim git gh lazygit gcc gnumake cmake coreutils fzf ripgrep cargo
-    greetd.tuigreet
     hyprlock
-    cliphist
     hyprshot
+    waybar
     rofi-wayland
+    greetd.tuigreet
+    cliphist
+    dunst
+    foot
+    alacritty
+
+    chromium
+    firefox
+
+    fastfetch
+    coreutils 
+    neovim git gh lazygit gcc gnumake cmake fzf ripgrep cargo
+    stow
   ];
 
   fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono"]; }) ];
