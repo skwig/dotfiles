@@ -5,11 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
@@ -40,15 +35,6 @@
     variant = "";
   };
 
-  users.users.skwig = {
-    isNormalUser = true;
-    description = "skwig";
-    shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-
-  programs.zsh.enable = true;
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nixpkgs.config.allowUnfree = true;
@@ -57,18 +43,6 @@
     wget
     lf
     wget
-
-    # Desktop
-    hyprland
-    hyprlock
-    hyprshot
-    waybar
-    rofi-wayland
-    greetd.tuigreet
-    cliphist
-    dunst
-    foot
-    alacritty
 
     chromium
     firefox
@@ -82,23 +56,6 @@
   fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono"]; }) ];
 
   virtualisation.vmware.guest.enable = true;
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd Hyprland";
-      };
-    };
-  };
-
-  services.logind = {
-    extraConfig = ''
-      HandlePowerKey=suspend
-    '';
-  };
-
-  programs.hyprland.enable = true;
 
   programs.neovim = {
     enable = true;

@@ -8,7 +8,10 @@
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
-        ./modules/configuration.nix
+        ./modules/system.nix
+        ./modules/desktop.nix
+        ./modules/user.nix
+        ./modules/hardware-configuration.nix
       ];
     };
   };
