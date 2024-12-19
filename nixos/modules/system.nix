@@ -50,6 +50,7 @@
 
     fastfetch
     coreutils 
+    unzip
   ];
 
   fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono"]; }) ];

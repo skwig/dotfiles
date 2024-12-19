@@ -9,7 +9,7 @@
     isNormalUser = true;
     description = "skwig";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
   };
 
   programs.zsh.enable = true;

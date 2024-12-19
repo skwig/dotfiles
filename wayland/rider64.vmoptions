@@ -1,0 +1,4 @@
+# ~/.config/JetBrains/Rider2024.3/rider64.vmoptions
+#
+# custom JetBrains Rider VM options (expand/override 'bin/rider64.vmoptions')
+-Dawt.toolkit.name=WLToolkit

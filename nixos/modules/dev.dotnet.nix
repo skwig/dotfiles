@@ -6,31 +6,14 @@
 
 {
   environment.systemPackages = with pkgs; [
-    neovim
+    jetbrains.rider
 
-    git 
-    gh 
-    lazygit 
+    (with dotnetCorePackages; combinePackages [
+      sdk_8_0_3xx
 
-    docker
-    lazydocker
-
-    gcc 
-    gnumake 
-    cmake 
-
-    fzf 
-    ripgrep 
-
-    cargo
+      # These packages dont work on their own without sdk_8_0_3xx
+      dotnet_8.sdk
+      dotnet_9.sdk
+    ])
   ];
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
-  virtualisation.docker = {
-    enable = true;
-  };
 }

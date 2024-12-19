@@ -18,6 +18,7 @@
     dunst
     foot
     alacritty
+    htop
   ];
 
   environment.sessionVariables = {

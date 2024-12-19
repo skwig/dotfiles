@@ -6,31 +6,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    neovim
-
-    git 
-    gh 
-    lazygit 
-
-    docker
-    lazydocker
-
-    gcc 
-    gnumake 
-    cmake 
-
-    fzf 
-    ripgrep 
-
-    cargo
+    go
+    delve
   ];
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
-  virtualisation.docker = {
-    enable = true;
-  };
 }

@@ -12,6 +12,8 @@
         ./modules/desktop.nix
         ./modules/user.nix
         ./modules/dev.nix
+        ./modules/dev.dotnet.nix
+        ./modules/dev.go.nix
         ./modules/hardware-configuration.nix
       ];
     };
