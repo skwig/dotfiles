@@ -1,6 +1,8 @@
+winget install Microsoft.Powershell
 winget install GlazeWM
 winget install DEVCOM.JetBrainsMonoNerdFont
 winget install nvim
+winget install JesseDuffield.lazygit
 
 winget install fzf
 winget install sharkdp.fd
