@@ -5,6 +5,7 @@ return {
     init = function()
       vim.cmd.colorscheme("tokyonight-night")
       vim.cmd.hi("Comment gui=none")
+      vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, fg = "#db4b4b" })
     end,
   },
   {

@@ -94,6 +94,8 @@ return {
           map("<leader>k", vim.lsp.buf.code_action, "Show A[k]tions")
           map("<leader>v", vim.lsp.buf.hover, "Ho[V]er")
 
+          map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+
           map("<leader>ji", telescope_builtin.lsp_implementations, "[J]ump to [I]mplementation")
           map("<leader>jm", telescope_builtin.lsp_document_symbols, "[J]ump to [M]embers")
           map("<leader>jr", vim.lsp.buf.signature_help, "[J]ump to Pa[R]ameters")

@@ -4,6 +4,11 @@ return {
     local flash = require("flash")
 
     flash.setup({
+      modes = {
+        char = {
+          enabled = false,
+        },
+      },
       label = {
         before = true,
         after = false,
