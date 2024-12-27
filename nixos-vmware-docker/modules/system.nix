@@ -64,5 +64,8 @@
     defaultEditor = true;
   };
 
+  # services.getty.autologinUser = "dockeragent";
+  services.openssh.enable = true;
+
   system.stateVersion = "24.11";
 }
