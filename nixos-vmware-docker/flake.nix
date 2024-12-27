@@ -9,7 +9,6 @@
       specialArgs = attrs;
       modules = [
         ./modules/system.nix
-        ./modules/user.nix
         ./modules/hardware-configuration.nix
       ];
     };
