@@ -57,8 +57,6 @@
   };
   virtualisation.vmware.guest.enable = true;
 
-  programs.bash.enable = true;
- 
   programs.neovim = {
     enable = true;
     defaultEditor = true;
