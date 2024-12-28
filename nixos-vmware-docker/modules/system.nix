@@ -48,6 +48,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    git
     neovim
     docker
     lazydocker
