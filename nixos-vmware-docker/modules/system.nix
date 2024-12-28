@@ -43,7 +43,7 @@
     isNormalUser = true;
     description = "dockeragent";
     shell = pkgs.bash;
-    password = "$y$j9T$OCtL4Y./evV6HVT6NNse0/$wckCq0MXBzOyY8Mq2qnTh6kMPhpicOmkMhBKIag6Uj5"; # 123
+    password = null;
     extraGroups = [ "networkmanager" "wheel" "docker"];
   };
 
@@ -74,6 +74,11 @@
   services.getty.autologinUser = "dockeragent";
   services.openssh = {
     enable = true;
+    extraConfig = ''
+      PasswordAuthentication no
+      PubkeyAuthentication no
+      PermitEmptyPasswords yes
+    '';
   };
 
   system.stateVersion = "24.11";
