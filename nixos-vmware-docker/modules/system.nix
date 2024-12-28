@@ -75,8 +75,17 @@
   ];
 
   services.getty.autologinUser = "dockeragent";
+
   services.openssh = {
     enable = true;
+    permitRootLogin = "yes";
+    passwordAuthentication = false;
+    extraConfig = ''
+      PermitRootLogin yes
+      PermitEmptyPasswords yes
+      AuthenticationMethods none
+      UsePAM no
+    '';
   };
 
   system.stateVersion = "24.11";
