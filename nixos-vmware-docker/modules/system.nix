@@ -78,14 +78,10 @@
 
   services.openssh = {
     enable = true;
-    permitRootLogin = "yes";
-    passwordAuthentication = false;
-    extraConfig = ''
-      PermitRootLogin yes
-      PermitEmptyPasswords yes
-      AuthenticationMethods none
-      UsePAM no
-    '';
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    }
   };
 
   system.stateVersion = "24.11";
