@@ -43,8 +43,11 @@
     isNormalUser = true;
     description = "dockeragent";
     shell = pkgs.bash;
-    password = null;
+    password = "$y$j9T$3znsHd5QKB64lEL1i4Kzc.$S.Wc7OCEzsgihxQ0YQCEzl7YzXTG198UOpNdsVkJEEC"; # 123
     extraGroups = [ "networkmanager" "wheel" "docker"];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqhTEtdEa+VqK91EXmdxYBHCAUl9JgigzdA6upEaDo4"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -66,7 +69,7 @@
 
   security.sudo.extraRules = [
     {
-      users = [ "dockeruseragent" ];
+      users = [ "dockeragent" ];
       commands = [ { command = "ALL"; options = [ "NOPASSWD" ]; } ];
     }
   ];
@@ -74,9 +77,6 @@
   services.getty.autologinUser = "dockeragent";
   services.openssh = {
     enable = true;
-    extraConfig = ''
-      PermitEmptyPasswords yes
-    '';
   };
 
   system.stateVersion = "24.11";
