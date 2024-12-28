@@ -81,7 +81,7 @@
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
-    }
+    };
   };
 
   system.stateVersion = "24.11";
