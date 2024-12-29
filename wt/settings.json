@@ -48,7 +48,12 @@
         {
             "font": 
             {
+                "builtinGlyphs": true,
                 "face": "JetBrainsMono Nerd Font",
+                "features": 
+                {
+                    "calt": 0
+                },
                 "size": 11
             }
         },
