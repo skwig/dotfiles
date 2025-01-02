@@ -176,12 +176,6 @@ window_rules:
       - window_process: { equals: 'rider64' }
 
 binding_modes:
-  # When enabled, all keybindings are disabled except for alt+shift+p which
-  # returns to default keybindings.
-  - name: 'pause'
-    keybindings:
-      - commands: ['wm-disable-binding-mode --name pause']
-        bindings: ['lwin+alt+shift+p']
 
 keybindings:
   # Shift focus in a given direction.
@@ -214,8 +208,9 @@ keybindings:
   - commands: ['resize --height -2%']
     bindings: ['lwin+alt+i']
 
-  # Disables all keybindings until alt+shift+p is pressed again.
-  - commands: ['wm-enable-binding-mode --name pause']
+  # Disables window management and all other keybindings until alt+shift+p
+  # is pressed again.
+  - commands: ['wm-toggle-pause']
     bindings: ['lwin+alt+shift+p']
 
   # Change tiling direction. This determines where new tiling windows will
