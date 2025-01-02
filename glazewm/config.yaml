@@ -273,19 +273,19 @@ keybindings:
 
   # Applications
   - commands: ['shell-exec wt']
-    bindings: ['lwin+alt+ctrl+enter']
+    bindings: ['lwin+alt+m']
 
   - commands: ['shell-exec wt wsl']
-    bindings: ['lwin+alt+shift+enter']
+    bindings: ['lwin+alt+shift+m']
 
   - commands: ['shell-exec wt nvim']
-    bindings: ['lwin+alt+ctrl+e']
+    bindings: ['lwin+alt+e']
 
   - commands: ['shell-exec wt -d ./dotfiles nvim .']
-    bindings: ['lwin+alt+ctrl+.']
+    bindings: ['lwin+alt+.']
 
   - commands: ['shell-exec chrome']
-    bindings: ['lwin+alt+ctrl+c']
+    bindings: ['lwin+alt+c']
   
   - commands: ['shell-exec C:\Program Files\totalcmd\TOTALCMD64.EXE']
-    bindings: ['lwin+alt+ctrl+t']
+    bindings: ['lwin+alt+t']
