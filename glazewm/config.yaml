@@ -198,37 +198,14 @@ keybindings:
   - commands: ['move --direction down']
     bindings: ['lwin+alt+shift+j', 'lwin+alt+shift+down']
 
-  # Resize focused window by a percentage or pixel amount.
-  - commands: ['resize --width -2%']
-    bindings: ['lwin+alt+u']
-  - commands: ['resize --width +2%']
-    bindings: ['lwin+alt+p']
-  - commands: ['resize --height +2%']
-    bindings: ['lwin+alt+o']
-  - commands: ['resize --height -2%']
-    bindings: ['lwin+alt+i']
-
   # Disables window management and all other keybindings until alt+shift+p
   # is pressed again.
   - commands: ['wm-toggle-pause']
     bindings: ['lwin+alt+shift+p']
 
-  # Change tiling direction. This determines where new tiling windows will
-  # be inserted.
-  - commands: ['toggle-tiling-direction']
-    bindings: ['lwin+alt+v']
-
-  # Change focus from tiling windows -> floating -> fullscreen.
-  - commands: ['wm-cycle-focus']
-    bindings: ['lwin+alt+space']
-
   # Change the focused window to be floating.
   - commands: ['toggle-floating --centered']
     bindings: ['lwin+alt+shift+space']
-
-  # Change the focused window to be tiling.
-  - commands: ['toggle-tiling']
-    bindings: ['lwin+alt+t']
 
   # Change the focused window to be fullscreen.
   - commands: ['toggle-fullscreen']
@@ -236,7 +213,7 @@ keybindings:
 
   # Minimize focused window.
   - commands: ['toggle-minimized']
-    bindings: ['lwin+alt+m']
+    bindings: ['lwin+alt+shift+f']
 
   # Close focused window.
   - commands: ['close']
@@ -293,13 +270,6 @@ keybindings:
     bindings: ['lwin+alt+shift+8']
   - commands: ['move --workspace 9', 'focus --workspace 9']
     bindings: ['lwin+alt+shift+9']
-
-  # Zebar
-  - commands: ['shell-exec zebar']
-    bindings: ['lwin+alt+`']
-
-  - commands: ['shell-exec taskkill /IM zebar.exe /F']
-    bindings: ['lwin+alt+shift+`']
 
   # Applications
   - commands: ['shell-exec wt']
