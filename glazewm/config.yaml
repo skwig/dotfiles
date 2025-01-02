@@ -175,6 +175,10 @@ window_rules:
     match:
       - window_process: { equals: 'rider64' }
 
+  - commands: ['move --workspace 6']
+    match:
+      - window_process: { equals: 'Discord' }
+
 binding_modes:
 
 keybindings:
@@ -252,31 +256,34 @@ keybindings:
     bindings: ['lwin+alt+9']
 
   # Move focused window to a workspace defined in `workspaces` config.
-  - commands: ['move --workspace 1', 'focus --workspace 1']
+  - commands: ['move --workspace 1']
     bindings: ['lwin+alt+shift+1']
-  - commands: ['move --workspace 2', 'focus --workspace 2']
+  - commands: ['move --workspace 2']
     bindings: ['lwin+alt+shift+2']
-  - commands: ['move --workspace 3', 'focus --workspace 3']
+  - commands: ['move --workspace 3']
     bindings: ['lwin+alt+shift+3']
-  - commands: ['move --workspace 4', 'focus --workspace 4']
+  - commands: ['move --workspace 4']
     bindings: ['lwin+alt+shift+4']
-  - commands: ['move --workspace 5', 'focus --workspace 5']
+  - commands: ['move --workspace 5']
     bindings: ['lwin+alt+shift+5']
-  - commands: ['move --workspace 6', 'focus --workspace 6']
+  - commands: ['move --workspace 6']
     bindings: ['lwin+alt+shift+6']
-  - commands: ['move --workspace 7', 'focus --workspace 7']
+  - commands: ['move --workspace 7']
     bindings: ['lwin+alt+shift+7']
-  - commands: ['move --workspace 8', 'focus --workspace 8']
+  - commands: ['move --workspace 8']
     bindings: ['lwin+alt+shift+8']
-  - commands: ['move --workspace 9', 'focus --workspace 9']
+  - commands: ['move --workspace 9']
     bindings: ['lwin+alt+shift+9']
 
   # Applications
   - commands: ['shell-exec wt']
     bindings: ['lwin+alt+m']
 
-  - commands: ['shell-exec wt wsl']
+  - commands: ['shell-exec powershell -Command "Start-Process wt -Verb RunAs"'] # Admin wt
     bindings: ['lwin+alt+shift+m']
+
+  # - commands: ['shell-exec wt wsl']
+  #   bindings: ['lwin+alt+shift+m']
 
   - commands: ['shell-exec wt nvim']
     bindings: ['lwin+alt+e']
@@ -287,5 +294,8 @@ keybindings:
   - commands: ['shell-exec chrome']
     bindings: ['lwin+alt+c']
   
+  - commands: ['shell-exec msedge']
+    bindings: ['lwin+alt+shift+c']
+
   - commands: ['shell-exec C:\Program Files\totalcmd\TOTALCMD64.EXE']
     bindings: ['lwin+alt+t']
