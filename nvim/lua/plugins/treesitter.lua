@@ -18,4 +18,31 @@ return {
       })
     end,
   },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    config = function()
+      local config = require("nvim-treesitter.configs")
+      config.setup({
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ["aa"] = "@parameter.outer",
+              ["ia"] = "@parameter.inner",
+            },
+          },
+          swap = {
+            enable = true,
+            swap_next = {
+              ["gl"] = "@parameter.inner",
+            },
+            swap_previous = {
+              ["gh"] = "@parameter.inner",
+            },
+          },
+        },
+      })
+    end,
+  },
 }
