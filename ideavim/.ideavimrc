@@ -40,6 +40,10 @@ map <leader>Y "*Y
 map <leader>p "*p
 map <leader>P "*P
 
+" Swap camelCase motions to be more similar to standard vim ] motions
+nnoremap ]w [w
+nnoremap [w ]w
+
 " Collapsing everything doesnt seem to work out of the box
 map zr <Action>(CollapseAllRegions)
 map zR <Action>(ExpandAllRegions)
@@ -88,17 +92,17 @@ map <leader>ak <Action>(EditorCloneCaretAbove)
 map <leader>aj <Action>(EditorCloneCaretBelow)
 
 "" IDE motions
-map ]m <Action>(MethodUp)
-map [m <Action>(MethodDown)
+map [m <Action>(MethodUp)
+map ]m <Action>(MethodDown)
 
-map ]f <Action>(PreviousOccurence)
-map [f <Action>(NextOccurence)
+map [f <Action>(PreviousOccurence)
+map ]f <Action>(NextOccurence)
 
-map ]c <Action>(VcsShowPrevChangeMarker)
-map [c <Action>(VcsShowNextChangeMarker)
+map [c <Action>(VcsShowPrevChangeMarker)
+map ]c <Action>(VcsShowNextChangeMarker)
 
-map ]d <Action>(GotoPreviousError)
-map [d <Action>(GotoNextError)
+map [d <Action>(GotoPreviousError)
+map ]d <Action>(GotoNextError)
 
 "" Jump
 map <leader>ji <Action>(GotoImplementation) |" [J]ump to Implementation
