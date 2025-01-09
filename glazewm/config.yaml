@@ -1,7 +1,7 @@
 general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
-  startup_commands: ['shell-exec %UserProfile%\dotfiles\glazewm\glazewm-systrayindicator.exe']
+  startup_commands: ['shell-exec --hide-window %UserProfile%\dotfiles\glazewm\glazewm-systrayindicator.exe']
 
   # Commands to run just before the WM is shutdown.
   shutdown_commands: ['shell-exec taskkill /IM glazewm-systrayindicator.exe /F']
