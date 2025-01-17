@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\open-with-neovim]
+@="Open with Neovim"
+
+[HKEY_CLASSES_ROOT\*\shell\open-with-neovim\command]
+@="\"C:\\Program Files\\Neovim\\bin\\nvim.exe\" \"%1\""
