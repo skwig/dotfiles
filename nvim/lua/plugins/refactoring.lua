@@ -4,7 +4,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  lazy = false,
+  event = "VeryLazy",
   config = function()
     local refactoring = require("refactoring")
     refactoring.setup({
@@ -20,7 +20,7 @@ return {
         cpp = true,
         c = true,
         java = true,
-      }
+      },
     })
 
     local telescope = require("telescope")

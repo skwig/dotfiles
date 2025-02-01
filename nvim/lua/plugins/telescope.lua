@@ -1,6 +1,5 @@
 return {
   "nvim-telescope/telescope.nvim",
-  event = "VimEnter",
   branch = "0.1.x",
   dependencies = {
     "junegunn/fzf",
@@ -15,6 +14,7 @@ return {
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
   },
+  event = "VeryLazy",
   config = function()
     local telescope = require("telescope")
 

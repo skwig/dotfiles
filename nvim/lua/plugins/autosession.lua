@@ -1,5 +1,6 @@
 return {
   "rmagatti/auto-session",
+  event = "VeryLazy",
   config = function()
     local function get_cwd_as_name()
       local dir = vim.fn.getcwd(0)

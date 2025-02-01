@@ -6,6 +6,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
+  event = "VeryLazy",
   config = function()
     local neotree = require("neo-tree")
     neotree.setup({

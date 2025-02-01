@@ -1,5 +1,8 @@
 return {
   "mfussenegger/nvim-dap",
+  ft = { "go" },
+  enabled = false,
+  -- event = "VeryLazy",
   dependencies = {
     "rcarriga/nvim-dap-ui",
 
@@ -46,22 +49,7 @@ return {
       },
     })
 
-    dapui.setup({
-      icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
-      controls = {
-        icons = {
-          pause = "⏸",
-          play = "▶",
-          step_into = "⏎",
-          step_over = "⏭",
-          step_out = "⏮",
-          step_back = "b",
-          run_last = "▶▶",
-          terminate = "⏹",
-          disconnect = "⏏",
-        },
-      },
-    })
+    dapui.setup({})
 
     -- Change breakpoint icons
     vim.api.nvim_set_hl(0, "DapBreak", { fg = "#e51400" })

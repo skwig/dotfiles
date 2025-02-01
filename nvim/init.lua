@@ -14,4 +14,10 @@ vim.opt.rtp:prepend(lazypath)
 require("autocmd")
 require("vim-options")
 require("excommands")
-require("lazy").setup("plugins")
+require("windows")
+require("lazy").setup("plugins", {
+  install = {
+    missing = true,
+    colorscheme = { "tokyonight-night" },
+  },
+})

@@ -8,6 +8,7 @@ return {
       { "j-hui/fidget.nvim", opts = {} },
       { "hrsh7th/cmp-nvim-lsp" },
     },
+    event = "VeryLazy",
     config = function()
       local lspconfig = require("lspconfig")
       local telescope_builtin = require("telescope.builtin")
@@ -133,6 +134,7 @@ return {
   },
   {
     "folke/lazydev.nvim",
+    event = "VeryLazy",
     ft = "lua",
     opts = {
       library = {
@@ -140,5 +142,9 @@ return {
       },
     },
   },
-  { "Bilal2453/luvit-meta", lazy = true },
+  { 
+    "Bilal2453/luvit-meta", 
+    lazy = true,
+    event = "VeryLazy"
+  },
 }
