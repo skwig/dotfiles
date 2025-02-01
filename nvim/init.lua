@@ -18,6 +18,6 @@ require("windows")
 require("lazy").setup("plugins", {
   install = {
     missing = true,
-    colorscheme = { "tokyonight-night" },
+    colorscheme = { "vscode" },
   },
 })

@@ -1,10 +1,15 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "Mofiqul/vscode.nvim",
     priority = 1000,
     init = function()
-      vim.cmd.colorscheme("tokyonight-night")
-      vim.cmd.hi("Comment gui=none")
+      local vscode = require("vscode")
+
+      vscode.setup({
+        style = "dark",
+      })
+
+      vim.cmd.colorscheme("vscode")
       vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, fg = "#db4b4b" })
     end,
   },

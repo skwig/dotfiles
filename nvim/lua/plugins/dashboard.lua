@@ -20,12 +20,12 @@ return {
     }
 
     dashboard.section.top_buttons.val = {
-      dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-      dashboard.button(".", "  Recently used files", ":Telescope oldfiles<CR>"),
-      dashboard.button("f", "󰱼  Find file", ":Telescope find_files<CR>"),
-      dashboard.button("g", "󰊄  Find text", ":Telescope live_grep <CR>"),
-      dashboard.button("u", "󰚰  Update", ":Lazy update <CR>"),
-      dashboard.button("q", "󰩈  Quit NVIM", ":qa<CR>"),
+      dashboard.button("e", "  New file", "<cmd>ene <BAR> startinsert <CR>"),
+      dashboard.button(".", "  Recently used files", "<cmd>Telescope oldfiles<CR>"),
+      dashboard.button("f", "󰱼  Find file", "<cmd>Telescope find_files<CR>"),
+      dashboard.button("g", "󰊄  Find text", "<cmd>Telescope live_grep <CR>"),
+      dashboard.button("u", "󰚰  Update", "<cmd>Lazy update <CR>"),
+      dashboard.button("q", "󰩈  Quit NVIM", "<cmd>qa<CR>"),
     }
 
     dashboard.section.mru_cwd.val = {}

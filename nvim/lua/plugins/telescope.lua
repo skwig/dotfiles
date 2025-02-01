@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
+  branch = "master",
   dependencies = {
     "junegunn/fzf",
     "nvim-lua/plenary.nvim",
@@ -17,11 +17,15 @@ return {
   event = "VeryLazy",
   config = function()
     local telescope = require("telescope")
+    local themes = require("telescope.themes")
 
     telescope.setup({
+      defaults = {
+        path_display = { "filename_first" },
+      },
       extensions = {
         ["ui-select"] = {
-          require("telescope.themes").get_dropdown(),
+          themes.get_dropdown(),
         },
       },
     })
