@@ -44,27 +44,12 @@ return {
             },
           },
         }
-        -- dashboard.section.footer.type = "text"
-        -- dashboard.section.footer.val =
-        --
-        -- dashboard.section.footer.val =
-        --   { " ", " ", " ", " Loaded " .. stats.count .. " plugins  in " .. ms .. " ms " }
-        -- dashboard.section.header.opts.hl = "DashboardFooter"
-        -- dashboard.section.footer.opts.hl = "Comment"
-        -- dashboard.section.footer = {
-        --   type = "text",
-        --   val = { "󱐌 Lazy-loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" },
-        --   -- opts = {
-        --   --   hl = "Comment",
-        --   --   -- shrink_margin = false,
-        --   --   -- wrap = "overflow";
-        --   -- },
-        -- }
 
         pcall(vim.cmd.AlphaRedraw)
       end,
     })
     dashboard.opts.opts.noautocmd = true
+
     alpha.setup(dashboard.opts)
   end,
 }
