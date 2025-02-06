@@ -74,10 +74,14 @@ map <A-o> <Action>(NextTab)
 "" Shorthands - most commonly used things
 map <leader>d <Action>(GotoDeclaration) |" (jump to) [D]efinition [shorthand]
 map <leader>u <Action>(ShowUsages) |" (jump to) [U]sages [shorthand]
-map <leader>n <Action>(RenameElement) |" refactor reName [shorthand]
 map <leader>k <Action>(ShowIntentionActions) |" show a[K]tions [shorthand]
 map <leader>v <Action>(ShowHoverInfo) |" Ho[V]er
 map <leader>h <Plug>(easymotion-s) |" [H]op
+
+map <C-j> <Action>(CodeCompletion)
+imap <C-j> <Action>(CodeCompletion)
+map <C-k> <Action>(ParameterInfo)
+imap <C-k> <Action>(ParameterInfo)
 
 "" Basic
 map <leader><CR> <Action>(ShowIntentionActions) |" alt + enter but with leader
@@ -275,8 +279,8 @@ sethandler <C-F> a:ide
 sethandler <C-G> a:ide
 sethandler <C-H> a:ide
 sethandler <C-I> a:vim
-sethandler <C-J> a:ide
-sethandler <C-K> a:ide
+sethandler <C-J> a:vim
+sethandler <C-K> a:vim
 sethandler <C-L> a:ide
 sethandler <C-M> a:vim
 sethandler <C-N> a:vim
