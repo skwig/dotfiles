@@ -12,6 +12,10 @@ cmd /c mklink "%UserProfile%\AppData\Local\Packages\Microsoft.WindowsTerminal_8w
 cmd /c IF EXIST "%UserProfile%\.glzr\glazewm\config.yaml" DEL "%UserProfile%\.glzr\glazewm\config.yaml"
 cmd /c mklink "%UserProfile%\.glzr\glazewm\config.yaml" "$PSScriptRoot\glazewm\config.yaml"
 
+New-Item "~\.config\wezterm\wezterm.lua" -Type File -Force
+cmd /c IF EXIST "%UserProfile%\.config\wezterm\wezterm.lua" DEL "%UserProfile%\.config\wezterm\wezterm.lua"
+cmd /c mklink "%UserProfile%\.config\wezterm\wezterm.lua" "$PSScriptRoot\wezterm\wezterm.lua"
+
 cmd /c IF EXIST "%UserProfile%\.ideavimrc" DEL "%UserProfile%\.ideavimrc"
 cmd /c MKLINK "%UserProfile%\.ideavimrc" "$PSScriptRoot\ideavim\.ideavimrc"
 
