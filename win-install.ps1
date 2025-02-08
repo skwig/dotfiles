@@ -1,20 +1,12 @@
-winget install Microsoft.Powershell
-winget install GlazeWM
-winget install DEVCOM.JetBrainsMonoNerdFont
-winget install nvim
-winget install JesseDuffield.lazygit
-winget install fastfetch
-
-winget install fzf
-winget install sharkdp.fd
-winget install BurntSushi.ripgrep.MSVC
-winget install jqlang.jq
-
-# https://chocolatey.org/install
-choco install mingw
-choco install make
-
 # https://scoop.sh/
 # Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
-scoop bucket add extras
-scoop install extras/psfzf
+
+# https://chocolatey.org/install
+try {
+  Set-PSDebug -Trace 1
+
+  & "$PSScriptRoot/win-install.nonelevated.ps1"
+  Start-Process -FilePath powershell.exe -Verb Runas -ArgumentList "-NoExit -File $PSScriptRoot/win-install.elevated.ps1"
+} finally {
+  Set-PSDebug -Trace 0
+}
