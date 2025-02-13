@@ -7,6 +7,7 @@ return {
       { "WhoIsSethDaniel/mason-tool-installer.nvim" },
       { "j-hui/fidget.nvim", opts = {} },
       { "hrsh7th/cmp-nvim-lsp" },
+      { "someone-stole-my-name/yaml-companion.nvim" },
     },
     event = "VeryLazy",
     config = function()
@@ -16,8 +17,9 @@ return {
       local mason_tool_installer = require("mason-tool-installer")
       local mason_lspconfig = require("mason-lspconfig")
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
+      local yaml_companion = require("yaml-companion")
 
-      local lsps = { "gopls", "lua_ls", "stylua", "omnisharp" }
+      local lsps = { "gopls", "lua_ls", "stylua", "omnisharp", "yamlls" }
       local capabilities =
         vim.tbl_deep_extend("force", lspconfig.util.default_config.capabilities, cmp_nvim_lsp.default_capabilities())
 
@@ -67,6 +69,51 @@ return {
 
           omnisharp = function()
             lspconfig.omnisharp.setup({})
+          end,
+
+          yamlls = function()
+            local cfg = yaml_companion.setup({
+              builtin_matchers = {
+                kubernetes = { enabled = false },
+                cloud_init = { enabled = false },
+              },
+              schemas = {
+                {
+                  name = "Flux",
+                  uri = "https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/refs/heads/main/all.json",
+                },
+                {
+                  name = "kubernetes",
+                  uri = "kubernetes",
+                },
+              },
+              lspconfig = {
+                settings = {
+                  yaml = {
+                    validate = true,
+                    hover = true,
+                    completion = true,
+                    -- schemas = {
+                    --   kubernetes = "*.yaml",
+                    --   ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+                    --   ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+                    --   ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+                    --   ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+                    --   ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+                    --   ["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
+                    --   ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+                    --   ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
+                    --   ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
+                    --   ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
+                    --   ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
+                    --   ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
+                    -- },
+                  },
+                },
+              },
+            })
+
+            lspconfig.yamlls.setup(cfg)
           end,
         },
       })
@@ -142,9 +189,9 @@ return {
       },
     },
   },
-  { 
-    "Bilal2453/luvit-meta", 
+  {
+    "Bilal2453/luvit-meta",
     lazy = true,
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
 }

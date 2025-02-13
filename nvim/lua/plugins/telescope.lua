@@ -33,6 +33,7 @@ return {
     -- Enable Telescope extensions if they are installed
     pcall(telescope.load_extension, "fzf")
     pcall(telescope.load_extension, "ui-select")
+    pcall(telescope.load_extension, "yaml_schema")
 
     -- See `:help telescope.builtin`
     local builtin = require("telescope.builtin")
@@ -48,6 +49,7 @@ return {
     vim.keymap.set("n", "<leader>st", builtin.builtin, { desc = "[S]earch [T]elescope" })
     vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
     vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
+    vim.keymap.set("n", "<leader>sy", ":Telescope yaml_schema<CR>", { desc = "[S]earch [Y]AML" })
 
     vim.keymap.set("n", "<leader>s/", function()
       builtin.live_grep({
