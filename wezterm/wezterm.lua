@@ -11,26 +11,29 @@ config.font = wezterm.font({
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 })
 config.font_size = 11
-config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.color_scheme = "Vs Code Dark+ (Gogh)"
-config.window_decorations = "RESIZE"
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.use_fancy_tab_bar = true
+config.window_frame = {
+  font = wezterm.font("JetBrainsMono Nerd Font", { bold = false }),
+  font_size = 11,
+}
 
 if OS() == "win" then
   config.default_prog = { "pwsh" }
 end
 
 config.keys = {
-  { key = "1", mods = "ALT",        action = act.ActivateTab(0) },
-  { key = "2", mods = "ALT",        action = act.ActivateTab(1) },
-  { key = "3", mods = "ALT",        action = act.ActivateTab(2) },
-  { key = "4", mods = "ALT",        action = act.ActivateTab(3) },
-  { key = "5", mods = "ALT",        action = act.ActivateTab(4) },
-  { key = "6", mods = "ALT",        action = act.ActivateTab(5) },
-  { key = "7", mods = "ALT",        action = act.ActivateTab(6) },
-  { key = "8", mods = "ALT",        action = act.ActivateTab(7) },
-  { key = "9", mods = "ALT",        action = act.ActivateTab(8) },
-
   { key = "F", mods = "CTRL|SHIFT", action = wezterm.action.Search({ CaseInSensitiveString = "" }) },
+}
+
+config.colors = {
+  tab_bar = {
+    active_tab = {
+      bg_color = "#1e1e1e",
+      fg_color = "#c0c0c0",
+    }
+  }
 }
 
 return config
