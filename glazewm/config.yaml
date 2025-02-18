@@ -1,10 +1,13 @@
 general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
-  startup_commands: ['shell-exec --hide-window %UserProfile%\dotfiles\glazewm\glazewm-systrayindicator.exe']
+  startup_commands:
+    [
+      'shell-exec --hide-window %UserProfile%\dotfiles\glazewm\glazewm-systrayindicator.exe',
+    ]
 
   # Commands to run just before the WM is shutdown.
-  shutdown_commands: ['shell-exec taskkill /IM glazewm-systrayindicator.exe /F']
+  shutdown_commands: ["shell-exec taskkill /IM glazewm-systrayindicator.exe /F"]
 
   # Commands to run after the WM config is reloaded.
   config_reload_commands: []
@@ -23,9 +26,9 @@ general:
     # Trigger for cursor jump:
     # - 'monitor_focus': Jump when focus changes between monitors.
     # - 'window_focus': Jump when focus changes between windows.
-    trigger: 'monitor_focus'
+    trigger: "monitor_focus"
 
-  hide_method: 'cloak'
+  hide_method: "cloak"
   show_all_in_taskbar: true
 
 gaps:
@@ -33,14 +36,14 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: '5px'
+  inner_gap: "5px"
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '5px'
-    right: '5px'
-    bottom: '5px'
-    left: '5px'
+    top: "5px"
+    right: "5px"
+    bottom: "5px"
+    left: "5px"
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -49,7 +52,7 @@ window_effects:
     # ** Exclusive to Windows 11 due to API limitations.
     border:
       enabled: true
-      color: '#8dbcff'
+      color: "#8dbcff"
 
     # Remove the title bar from the window's frame. Note that this can
     # cause rendering issues for some applications.
@@ -61,23 +64,23 @@ window_effects:
     corner_style:
       enabled: false
       # Allowed values: 'square', 'rounded', 'small_rounded'.
-      style: 'square'
+      style: "square"
 
   # Visual effects to apply to non-focused windows.
   other_windows:
     border:
       enabled: true
-      color: '#a1a1a1'
+      color: "#a1a1a1"
     hide_title_bar:
       enabled: false
     corner_style:
       enabled: false
-      style: 'square'
+      style: "square"
 
 window_behavior:
   # New windows are created in this state whenever possible.
   # Allowed values: 'tiling', 'floating'.
-  initial_state: 'tiling'
+  initial_state: "tiling"
 
   # Sets the default options for when a new window is created. This also
   # changes the defaults for when the state change commands, like
@@ -99,212 +102,212 @@ window_behavior:
       shown_on_top: true
 
 workspaces:
-  - name: '1'
-    display_name: '1'
+  - name: "1"
+    display_name: "1"
     bind_to_monitor: 1
     keep_alive: true
-  - name: '2'
-    display_name: '2'
+  - name: "2"
+    display_name: "2"
     bind_to_monitor: 1
     keep_alive: true
-  - name: '3'
-    display_name: '3'
+  - name: "3"
+    display_name: "3"
     bind_to_monitor: 1
     keep_alive: true
-  - name: '4'
-    display_name: '4'
-    bind_to_monitor: 1
-    keep_alive: true 
-  - name: '5'
-    display_name: '5'
+  - name: "4"
+    display_name: "4"
     bind_to_monitor: 1
     keep_alive: true
-  - name: '6'
-    display_name: '6'
+  - name: "5"
+    display_name: "5"
+    bind_to_monitor: 1
+    keep_alive: true
+  - name: "6"
+    display_name: "6"
     bind_to_monitor: 0
     keep_alive: true
-  - name: '7'
-    display_name: '7'
+  - name: "7"
+    display_name: "7"
     bind_to_monitor: 0
     keep_alive: true
-  - name: '8'
-    display_name: '8'
+  - name: "8"
+    display_name: "8"
     bind_to_monitor: 2
     keep_alive: true
-  - name: '9'
-    display_name: '9'
+  - name: "9"
+    display_name: "9"
     bind_to_monitor: 2
     keep_alive: true
 
 window_rules:
-  - commands: ['ignore']
+  - commands: ["ignore"]
     match:
       # Ignores any Zebar windows.
-      - window_process: { equals: 'zebar' }
+      - window_process: { equals: "zebar" }
 
       # Ignores picture-in-picture windows for browsers.
-      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
-        window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
+      - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
+        window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
 
       # Ignore rules for various 3rd-party apps.
-      - window_process: { equals: 'PowerToys' }
+      - window_process: { equals: "PowerToys" }
         window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
-      - window_process: { equals: 'PowerToys' }
-        window_title: { regex: '.*? - Peek' }
-      - window_process: { equals: 'Lively' }
-        window_class: { regex: 'HwndWrapper' }
-      - window_process: { equals: 'cloud-drive-ui' }
-        window_class: { regex: 'Qt5QWindow' }
-      - window_process: { equals: 'rider64' }
-        window_class: { equals: 'SunAwtDialog' }
+      - window_process: { equals: "PowerToys" }
+        window_title: { regex: ".*? - Peek" }
+      - window_process: { equals: "Lively" }
+        window_class: { regex: "HwndWrapper" }
+      - window_process: { equals: "cloud-drive-ui" }
+        window_class: { regex: "Qt5QWindow" }
+      - window_process: { equals: "rider64" }
+        window_class: { equals: "SunAwtDialog" }
 
-  - commands: ['set-floating']
+  - commands: ["set-floating"]
     match:
-      - window_process: { equals: 'vmplayer' }
-      - window_process: { equals: 'TOTALCMD64' }
-        window_class: { regex: 'TDLG.*' }
+      - window_process: { equals: "vmplayer" }
+      - window_process: { equals: "TOTALCMD64" }
+        window_class: { regex: "TDLG.*" }
 
-  - commands: ['move --workspace 1']
+  - commands: ["move --workspace 1"]
     match:
-      - window_process: { equals: 'chrome' }
-        window_class: { equals: 'Chrome_WidgetWin_1' }
-      - window_process: { equals: 'msedge' }
-        window_class: { equals: 'Chrome_WidgetWin_1' }
+      - window_process: { equals: "chrome" }
+        window_class: { equals: "Chrome_WidgetWin_1" }
+      - window_process: { equals: "msedge" }
+        window_class: { equals: "Chrome_WidgetWin_1" }
 
-  - commands: ['move --workspace 2']
+  - commands: ["move --workspace 2"]
     match:
-      - window_process: { equals: 'rider64' }
+      - window_process: { equals: "rider64" }
 
-  - commands: ['move --workspace 5']
+  - commands: ["move --workspace 5"]
     match:
-      - window_process: { equals: 'azuredatastudio' }
-      - window_process: { equals: 'Postman' }
-      - window_process: { equals: 'Lens' }
-      - window_process: { equals: 'RedisInsight' }
-      - window_process: { equals: 'Docker Desktop' }
-      - window_process: { equals: 'dbeaver' }
+      - window_process: { equals: "azuredatastudio" }
+      - window_process: { equals: "Postman" }
+      - window_process: { equals: "Lens" }
+      - window_process: { equals: "RedisInsight" }
+      - window_process: { equals: "Docker Desktop" }
+      - window_process: { equals: "dbeaver" }
 
-  - commands: ['move --workspace 6']
+  - commands: ["move --workspace 6"]
     match:
-      - window_process: { equals: 'Discord' }
+      - window_process: { equals: "Discord" }
 
 binding_modes:
 
 keybindings:
   # Shift focus in a given direction.
-  - commands: ['focus --direction left']
-    bindings: ['lwin+alt+h', 'lwin+alt+left']
-  - commands: ['focus --direction right']
-    bindings: ['lwin+alt+l', 'lwin+alt+right']
-  - commands: ['focus --direction up']
-    bindings: ['lwin+alt+k', 'lwin+alt+up']
-  - commands: ['focus --direction down']
-    bindings: ['lwin+alt+j', 'lwin+alt+down']
+  - commands: ["focus --direction left"]
+    bindings: ["lwin+alt+h", "lwin+alt+left"]
+  - commands: ["focus --direction right"]
+    bindings: ["lwin+alt+l", "lwin+alt+right"]
+  - commands: ["focus --direction up"]
+    bindings: ["lwin+alt+k", "lwin+alt+up"]
+  - commands: ["focus --direction down"]
+    bindings: ["lwin+alt+j", "lwin+alt+down"]
 
   # Move focused window in a given direction.
-  - commands: ['move --direction left']
-    bindings: ['lwin+alt+shift+h', 'lwin+alt+shift+left']
-  - commands: ['move --direction right']
-    bindings: ['lwin+alt+shift+l', 'lwin+alt+shift+right']
-  - commands: ['move --direction up']
-    bindings: ['lwin+alt+shift+k', 'lwin+alt+shift+up']
-  - commands: ['move --direction down']
-    bindings: ['lwin+alt+shift+j', 'lwin+alt+shift+down']
+  - commands: ["move --direction left"]
+    bindings: ["lwin+alt+shift+h", "lwin+alt+shift+left"]
+  - commands: ["move --direction right"]
+    bindings: ["lwin+alt+shift+l", "lwin+alt+shift+right"]
+  - commands: ["move --direction up"]
+    bindings: ["lwin+alt+shift+k", "lwin+alt+shift+up"]
+  - commands: ["move --direction down"]
+    bindings: ["lwin+alt+shift+j", "lwin+alt+shift+down"]
 
   # Disables window management and all other keybindings until alt+shift+p
   # is pressed again.
-  - commands: ['wm-toggle-pause']
-    bindings: ['lwin+alt+shift+p']
+  - commands: ["wm-toggle-pause"]
+    bindings: ["lwin+alt+shift+p"]
 
   # Change the focused window to be floating.
-  - commands: ['toggle-floating --centered']
-    bindings: ['lwin+alt+shift+space']
+  - commands: ["toggle-floating --centered"]
+    bindings: ["lwin+alt+shift+space"]
 
   # Change the focused window to be fullscreen.
-  - commands: ['toggle-fullscreen']
-    bindings: ['lwin+alt+f']
+  - commands: ["toggle-fullscreen"]
+    bindings: ["lwin+alt+f"]
 
   # Minimize focused window.
-  - commands: ['toggle-minimized']
-    bindings: ['lwin+alt+shift+f']
+  - commands: ["toggle-minimized"]
+    bindings: ["lwin+alt+shift+f"]
 
   # Close focused window.
-  - commands: ['close']
-    bindings: ['lwin+alt+shift+q']
+  - commands: ["close"]
+    bindings: ["lwin+alt+shift+q"]
 
   # Kill GlazeWM process safely.
-  - commands: ['wm-exit']
-    bindings: ['lwin+alt+shift+x']
+  - commands: ["wm-exit"]
+    bindings: ["lwin+alt+shift+x"]
 
   # Re-evaluate configuration file.
-  - commands: ['wm-reload-config']
-    bindings: ['lwin+alt+shift+r']
+  - commands: ["wm-reload-config"]
+    bindings: ["lwin+alt+shift+r"]
 
   # Redraw all windows.
-  - commands: ['wm-redraw']
-    bindings: ['lwin+alt+shift+w']
+  - commands: ["wm-redraw"]
+    bindings: ["lwin+alt+shift+w"]
 
   # Change focus to a workspace defined in `workspaces` config.
-  - commands: ['focus --workspace 1']
-    bindings: ['lwin+alt+1']
-  - commands: ['focus --workspace 2']
-    bindings: ['lwin+alt+2']
-  - commands: ['focus --workspace 3']
-    bindings: ['lwin+alt+3']
-  - commands: ['focus --workspace 4']
-    bindings: ['lwin+alt+4']
-  - commands: ['focus --workspace 5']
-    bindings: ['lwin+alt+5']
-  - commands: ['focus --workspace 6']
-    bindings: ['lwin+alt+6']
-  - commands: ['focus --workspace 7']
-    bindings: ['lwin+alt+7']
-  - commands: ['focus --workspace 8']
-    bindings: ['lwin+alt+8']
-  - commands: ['focus --workspace 9']
-    bindings: ['lwin+alt+9']
+  - commands: ["focus --workspace 1"]
+    bindings: ["lwin+alt+1"]
+  - commands: ["focus --workspace 2"]
+    bindings: ["lwin+alt+2"]
+  - commands: ["focus --workspace 3"]
+    bindings: ["lwin+alt+3"]
+  - commands: ["focus --workspace 4"]
+    bindings: ["lwin+alt+4"]
+  - commands: ["focus --workspace 5"]
+    bindings: ["lwin+alt+5"]
+  - commands: ["focus --workspace 6"]
+    bindings: ["lwin+alt+6"]
+  - commands: ["focus --workspace 7"]
+    bindings: ["lwin+alt+7"]
+  - commands: ["focus --workspace 8"]
+    bindings: ["lwin+alt+8"]
+  - commands: ["focus --workspace 9"]
+    bindings: ["lwin+alt+9"]
 
   # Move focused window to a workspace defined in `workspaces` config.
-  - commands: ['move --workspace 1']
-    bindings: ['lwin+alt+shift+1']
-  - commands: ['move --workspace 2']
-    bindings: ['lwin+alt+shift+2']
-  - commands: ['move --workspace 3']
-    bindings: ['lwin+alt+shift+3']
-  - commands: ['move --workspace 4']
-    bindings: ['lwin+alt+shift+4']
-  - commands: ['move --workspace 5']
-    bindings: ['lwin+alt+shift+5']
-  - commands: ['move --workspace 6']
-    bindings: ['lwin+alt+shift+6']
-  - commands: ['move --workspace 7']
-    bindings: ['lwin+alt+shift+7']
-  - commands: ['move --workspace 8']
-    bindings: ['lwin+alt+shift+8']
-  - commands: ['move --workspace 9']
-    bindings: ['lwin+alt+shift+9']
+  - commands: ["move --workspace 1"]
+    bindings: ["lwin+alt+shift+1"]
+  - commands: ["move --workspace 2"]
+    bindings: ["lwin+alt+shift+2"]
+  - commands: ["move --workspace 3"]
+    bindings: ["lwin+alt+shift+3"]
+  - commands: ["move --workspace 4"]
+    bindings: ["lwin+alt+shift+4"]
+  - commands: ["move --workspace 5"]
+    bindings: ["lwin+alt+shift+5"]
+  - commands: ["move --workspace 6"]
+    bindings: ["lwin+alt+shift+6"]
+  - commands: ["move --workspace 7"]
+    bindings: ["lwin+alt+shift+7"]
+  - commands: ["move --workspace 8"]
+    bindings: ["lwin+alt+shift+8"]
+  - commands: ["move --workspace 9"]
+    bindings: ["lwin+alt+shift+9"]
 
   # Applications
-  - commands: ['shell-exec wt']
-    bindings: ['lwin+alt+m']
+  - commands: ["shell-exec --hide-window wezterm"]
+    bindings: ["lwin+alt+m"]
 
-  - commands: ['shell-exec powershell -Command "Start-Process wt -Verb RunAs"'] # Admin wt
-    bindings: ['lwin+alt+shift+m']
+  - commands:
+      [
+        'shell-exec --hide-window powershell -Command "Start-Process wezterm -Verb RunAs"',
+      ]
+    bindings: ["lwin+alt+shift+m"]
 
-  # - commands: ['shell-exec wt wsl']
-  #   bindings: ['lwin+alt+shift+m']
+  - commands: ["shell-exec --hide-window wezterm start nvim"]
+    bindings: ["lwin+alt+e"]
 
-  - commands: ['shell-exec wt nvim']
-    bindings: ['lwin+alt+e']
+  - commands: ["shell-exec --hide-window wezterm start --cwd ./dotfiles nvim ."]
+    bindings: ["lwin+alt+."]
 
-  - commands: ['shell-exec wt -d ./dotfiles nvim .']
-    bindings: ['lwin+alt+.']
+  - commands: ["shell-exec chrome"]
+    bindings: ["lwin+alt+c"]
 
-  - commands: ['shell-exec chrome']
-    bindings: ['lwin+alt+c']
-  
-  - commands: ['shell-exec msedge']
-    bindings: ['lwin+alt+shift+c']
+  - commands: ["shell-exec msedge"]
+    bindings: ["lwin+alt+shift+c"]
 
   - commands: ['shell-exec C:\Program Files\totalcmd\TOTALCMD64.EXE']
-    bindings: ['lwin+alt+t']
+    bindings: ["lwin+alt+t"]
