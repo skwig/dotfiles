@@ -4,6 +4,7 @@ winget install DEVCOM.JetBrainsMonoNerdFont
 winget install nvim
 winget install JesseDuffield.lazygit
 winget install fastfetch
+winget install JanDeDobbeleer.OhMyPosh
 
 winget install fzf
 winget install sharkdp.fd
