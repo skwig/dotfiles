@@ -24,6 +24,9 @@ config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.enable_scroll_bar = true
 
+-- emulate vim insert mode style for easier context switching
+config.default_cursor_style = "SteadyBar"
+
 config.window_decorations = "RESIZE|TITLE"
 config.window_padding = {
   left = "1cell",
