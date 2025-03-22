@@ -86,9 +86,12 @@ imap <C-k> <Action>(ParameterInfo)
 "" Basic
 map <leader><CR> <Action>(ShowIntentionActions) |" alt + enter but with leader
 
-"" Run
+"" Tasks
 map <leader>ff <Action>(Run)
-map <leader>fd <Action>(Debug)
+map <leader>fe <Action>(Debug)
+map <leader>fb <Action>(BuildSelection) |" Build
+map <leader>fc <Action>(CancelBuildAction) |" build [C]ancel BROKEN
+map <leader>fl <Action>(CleanSolutionAction) |" build c[L]ean
 
 "" Multicursor
 map <leader>aa <Action>(EditorAddCaretPerSelectedLine)<Home>
@@ -145,31 +148,19 @@ map <leader>gt <Action>(RiderGenerateUnitTestAction) |" Generate Test [copy of t
 map <leader>gs <Action>(SurroundWith) |" Generate Surround
 map <leader>gn <Action>(NewElement) |" Generate New (class, directory, file etc)
 
-"" Build
-map <leader>bb <Action>(BuildSelection) |" Build
-map <leader>bw <Action>(ActivateBuildToolWindow) |" Build Window
-map <leader>bs <Action>(BuildSolutionAction) |" Build Solution
-map <leader>bc <Action>(CancelBuildAction) |" Build cancel BROKEN
-map <leader>bl <Action>(CleanSolutionAction) |" Build cLean
-
 "" Breakpoint
-"map <leader>kk <Action>(ToggleLineBreakpoint) |" breaKpoint
+map <leader>ee <Action>(ToggleLineBreakpoint) |" Br[E]akpoint
 
 "" Tests
 map <leader>tt <Action>(RiderUnitTestRunContextAction) |" Test
 map <leader>tw <Action>(ActivateTestsToolWindow) |" Test Window
-map <leader>td <Action>(RiderUnitTestDebugContextAction) |" Test Debug (this)
+map <leader>te <Action>(RiderUnitTestDebugContextAction) |" Test d[E]bug
 map <leader>ts <Action>(RiderUnitTestRunCurrentSessionAction) |" Test Session
 map <leader>tr <Action>(RiderUnitTestRepeatPreviousRunAction) |" Test Repeat
 map <leader>tc <Action>(RiderUnitTestSessionAbortAction) |" Test Cancel
 map <leader>tf <Action>(RiderUnitTestRerunBrokenSplitAction) |" Test Generate [copy of gt]
 map <leader>tg <Action>(RiderGenerateUnitTestAction) |" Test Generate [copy of gt]
 map <leader>tm <Action>(Rider.UnitTesting.MainMenu) |" Test Menu
-
-"" Editor
-map <leader>eq <Action>(CloseEditor) |" Editor Quit
-map <leader>eoq <Action>(CloseAllEditorsButActive) |" Editor Others Quit
-map <leader>ep <Action>(PinActiveTabToggle) |" Editor Pin
 
 "" Tool window
 map <leader>wq <Action>(HideActiveWindow) |" (tool) Window Quit
@@ -190,6 +181,9 @@ map <leader>cw <Action>(ActivateVersionControlToolWindow) |" v[C]s [W]indow
 map <leader>cc <Action>(ActivateCommitToolWindow) |" v[C]s [C]ommit
 map <leader>cp <Action>(Vcs.Push) |" v[C]s Push
 map <leader>ca <Action>(Annotate) |" v[C]s [A]nnotate
+map <leader>cu <Action>(Vcs.RollbackChangedLines) |" v[C]s [U]ndo
+map <leader>cd <Action>(VcsShowCurrentChangeMarker) |" v[C]s [D]iff
+
 
 " Macros
 " Currently none
