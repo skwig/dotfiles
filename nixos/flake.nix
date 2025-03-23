@@ -8,13 +8,14 @@
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
-        ./hardware-configuration.nix
-        ../../modules/system.nix
-        ../../modules/desktop.nix
-        ../../modules/user.nix
-        ../../modules/dev.nix
-        ../../modules/dev.dotnet.nix
-        ../../modules/dev.go.nix
+        ./hosts/blackbox/system.nix
+        ./hosts/blackbox/hardware-configuration.nix
+        ./modules/system.nix
+        ./modules/desktop.nix
+        ./modules/user.nix
+        ./modules/dev.nix
+        ./modules/dev.dotnet.nix
+        ./modules/dev.go.nix
       ];
     };
   };

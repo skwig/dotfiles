@@ -5,24 +5,9 @@
 { config, pkgs, ... }:
 
 {
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "blackbox";
   networking.networkmanager.enable = true;
-
-  hardware.graphics = {
-    enable = true;
-  };
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    open = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
-  services.xserver.videoDrivers = [ "nvidia" ];
 
   time.timeZone = "Europe/Bratislava";
 
@@ -53,19 +38,12 @@
     lf
     wget
 
-    chromium
-    firefox
-
-    discord
-
     fastfetch
     coreutils 
     unzip
   ];
 
   fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono"]; }) ];
-
-  # virtualisation.vmware.guest.enable = true;
 
   programs.neovim = {
     enable = true;
