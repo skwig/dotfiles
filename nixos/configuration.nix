@@ -5,10 +5,28 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+        ./modules/desktop.nix
+        ./modules/user.nix
+        ./modules/dev.nix
+        ./modules/dev.dotnet.nix
+        ./modules/dev.go.nix
+        ./hosts/blackbox/hardware-configuration.nix
+  ];
   # Bootloader.
   # boot.loader.grub.enable = true;
   # boot.loader.grub.device = "/dev/sda";
   # boot.loader.grub.useOSProber = true;
+  hardware.graphics = {
+    enable = true;
+  };
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = false;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

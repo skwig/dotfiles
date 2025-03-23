@@ -1,4 +1,4 @@
-vim.cmd("language en_US")
+-- vim.cmd("language en_US")
 vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.softtabstop = 4
