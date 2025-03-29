@@ -61,5 +61,7 @@
     brave
 
     discord
+
+    mesa-demos
   ];
 }
