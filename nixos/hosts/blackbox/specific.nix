@@ -21,8 +21,9 @@
   hardware.nvidia = {
     modesetting.enable = true;
     open = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.vgpu_17_3;
   };
+  hardware.nvidia.vgpu.patcher.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
