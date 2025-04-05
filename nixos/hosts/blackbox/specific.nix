@@ -24,6 +24,15 @@
     package = config.boot.kernelPackages.nvidiaPackages.vgpu_17_3;
   };
   hardware.nvidia.vgpu.patcher.enable = true;
+  # hardware.nvidia.vgpu.patcher.profileOverrides = {
+  #   "333" = {
+  #     vramAllocation = 3584; # 3.5GiB
+  #     heads = 1;
+  #     display.width = 1920;
+  #     display.height = 1080;
+  #     framerateLimit = 144;
+  #   };
+  # };
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -50,8 +59,20 @@
     # spiceUSBRedirection.enable = true;
   };
 
-  programs.steam.enable = true;
+  virtualisation.kvmfr = {
+    enable = true;
+    shm = {
+      enable = true;
+      size = 512;
+      user = "skwig";
+      group = "qemu-libvirtd";
+      mode = "0666";
+    };
+  };
 
+  programs.steam.enable = true;
+  programs.mdevctl.enable = true;
+  
   environment.systemPackages = with pkgs; [
     nvtop
 
