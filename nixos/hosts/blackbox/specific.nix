@@ -42,7 +42,7 @@
 
   boot.extraModprobeConfig = ''
     options kvm_amd nested=1
-    options nvidia vup_swrlwar=1
+    options nvidia vup_qmode=1 vup_swrlwar=1 vup_sunlock=1 #vup_gspvgpu=1
   '';
 
   virtualisation.libvirtd = {
@@ -75,10 +75,19 @@
   };
 
   programs.steam.enable = true;
-  programs.mdevctl.enable = true;
+  programs.mdevctl = {
+    enable = true;
+    # mdevs = {
+    #   "0000:01:00.0" = {
+    #     # win10 vm
+    #     "00000000-0000-0000-0000-000000000001".mdev_type = "nvidia-256";
+    #   };
+    # };
+  };
   
   environment.systemPackages = with pkgs; [
-    nvtop
+    looking-glass-client
+    nvtopPackages.full
 
     vscodium
 
