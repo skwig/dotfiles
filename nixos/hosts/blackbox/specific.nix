@@ -14,6 +14,26 @@
   networking.hostName = "blackbox";
   networking.networkmanager.enable = true;
 
+  time.timeZone = "Europe/Bratislava";
+
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "sk_SK.UTF-8";
+    LC_IDENTIFICATION = "sk_SK.UTF-8";
+    LC_MEASUREMENT = "sk_SK.UTF-8";
+    LC_MONETARY = "sk_SK.UTF-8";
+    LC_NAME = "sk_SK.UTF-8";
+    LC_NUMERIC = "sk_SK.UTF-8";
+    LC_PAPER = "sk_SK.UTF-8";
+    LC_TELEPHONE = "sk_SK.UTF-8";
+    LC_TIME = "sk_SK.UTF-8";
+  };
+
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
   hardware.graphics = {
     enable = true;
   };
@@ -24,15 +44,15 @@
     package = config.boot.kernelPackages.nvidiaPackages.vgpu_17_3;
   };
   hardware.nvidia.vgpu.patcher.enable = true;
-  # hardware.nvidia.vgpu.patcher.profileOverrides = {
-  #   "333" = {
-  #     vramAllocation = 3584; # 3.5GiB
-  #     heads = 1;
-  #     display.width = 1920;
-  #     display.height = 1080;
-  #     framerateLimit = 144;
-  #   };
-  # };
+  hardware.nvidia.vgpu.patcher.profileOverrides = {
+    "440" = {
+      vramAllocation = 3584; # 3.5GiB
+      heads = 1;
+      display.width = 1920;
+      display.height = 1080;
+      framerateLimit = 144;
+    };
+  };
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -42,8 +62,9 @@
 
   boot.extraModprobeConfig = ''
     options kvm_amd nested=1
-    options nvidia vup_qmode=1 vup_swrlwar=1 vup_sunlock=1 #vup_gspvgpu=1
+    options nvidia vup_swrlwar=1
   '';
+    # options nvidia vup_qmode=1 vup_swrlwar=1 vup_sunlock=1 #vup_gspvgpu=1
 
   virtualisation.libvirtd = {
     enable = true;

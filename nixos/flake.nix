@@ -18,7 +18,20 @@
         ./modules/dev.nix
         ./modules/dev.dotnet.nix
         ./modules/dev.go.nix
-        vgpu4nixos.nixosModules.host # Use nixosModules.guest for VMs
+        vgpu4nixos.nixosModules.host
+      ];
+    };
+
+    nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = attrs;
+      modules = [
+        ./hosts/vm/specific.nix
+        ./hosts/vm/hardware-configuration.nix
+        ./modules/system.nix
+        ./modules/desktop.nix
+        ./modules/user.nix
+        vgpu4nixos.nixosModules.guest
       ];
     };
   };

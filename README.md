@@ -10,8 +10,8 @@ nix-store --add-fixed sha256 ~/Downloads/NVIDIA-GRID-Linux-KVM-550.90.05-550.90.
 UUID=6ece0115-ff26-4bd0-958e-9ee30cf22fe7
 PCI_ADDRESS=01:00.0
 
-sudo mdevctl start -u $UUID1 -p 0000:$PCI_ADDRESS -t nvidia-334
-sudo mdevctl define -a -u $UUID1
+sudo mdevctl start -u $UUID -p 0000:$PCI_ADDRESS -t nvidia-334
+sudo mdevctl define -a -u $UUID
 ```
 
 ## Installing
