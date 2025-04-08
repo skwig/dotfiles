@@ -26,11 +26,12 @@
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
-        ./hosts/vm/specific.nix
+        ./hosts/vm/configuration.nix
         ./hosts/vm/hardware-configuration.nix
         ./modules/system.nix
         ./modules/desktop.nix
         ./modules/user.nix
+        ./modules/dev.nix
         vgpu4nixos.nixosModules.guest
       ];
     };
