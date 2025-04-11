@@ -13,6 +13,7 @@
 
   networking.hostName = "blackbox";
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [ 9999 ];
 
   time.timeZone = "Europe/Bratislava";
 
@@ -106,14 +107,12 @@
     # };
   };
 
-   services.fastapi-dls = {
+  services.fastapi-dls = {
     enable = true;
 
-    debug = true;                # DEBUG
-    # listen.ip = "localhost";      # DLS_URL
-    # listen.ip = "192.168.100.7";  # DLS_URL
-    # listen.ip = "192.168.122.1";  # DLS_URL
-    listen.ip = "0.0.0.0";  # DLS_URL
+    debug = false;                # DEBUG
+    listen.ip = "192.168.100.7";  # DLS_URL
+    # listen.ip = "0.0.0.0";        # DLS_URL
     listen.port = 9999;           # DLS_PORT
     authTokenExpire = 1;          # TOKEN_EXPIRE_DAYS
     lease.expire = 90;            # LEASE_EXPIRE_DAYS
@@ -137,5 +136,6 @@
     discord
 
     mesa-demos
+    python3
   ];
 }
