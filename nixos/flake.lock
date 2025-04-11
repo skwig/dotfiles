@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "fastapi-dls-nixos": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741286554,
+        "narHash": "sha256-CL2+yHt7ZGqzwTXwSytBhusDBGCORksEkk94/X+WNyM=",
+        "owner": "mrzenc",
+        "repo": "fastapi-dls-nixos",
+        "rev": "7503072ec72f10d4d6994e2757a3788e5fe73e7f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mrzenc",
+        "repo": "fastapi-dls-nixos",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1742754969,
@@ -34,6 +54,7 @@
     },
     "root": {
       "inputs": {
+        "fastapi-dls-nixos": "fastapi-dls-nixos",
         "nixpkgs": "nixpkgs",
         "vgpu4nixos": "vgpu4nixos"
       }

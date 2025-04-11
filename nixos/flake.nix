@@ -1,10 +1,18 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=3404205"; # 24.11 as of 2025-03-23
-    vgpu4nixos.url = "github:mrzenc/vgpu4nixos"; # TODO: Define commit
+    nixpkgs = {
+      url = "github:nixos/nixpkgs?ref=3404205"; # 24.11 as of 2025-03-23
+    };
+    vgpu4nixos = {
+      url = "github:mrzenc/vgpu4nixos"; # TODO: Define commit
+    };
+    fastapi-dls-nixos = {
+      url = "github:mrzenc/fastapi-dls-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, vgpu4nixos, ... }@attrs: {
+  outputs = { self, nixpkgs, vgpu4nixos, fastapi-dls-nixos, ... }@attrs: {
     nixosConfigurations.blackbox = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
@@ -19,6 +27,7 @@
         ./modules/dev.dotnet.nix
         ./modules/dev.go.nix
         vgpu4nixos.nixosModules.host
+        fastapi-dls-nixos.nixosModules.default
       ];
     };
 
