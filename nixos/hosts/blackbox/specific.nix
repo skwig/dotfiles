@@ -46,9 +46,9 @@
   };
   hardware.nvidia.vgpu.patcher.enable = true;
   hardware.nvidia.vgpu.patcher.profileOverrides = {
-    "440" = {
+    "256" = {
       vramAllocation = 3584; # 3.5GiB
-      heads = 1;
+      heads = 2;
       display.width = 1920;
       display.height = 1080;
       framerateLimit = 144;
@@ -137,5 +137,7 @@
 
     mesa-demos
     python3
+
+    moonlight-qt
   ];
 }
