@@ -45,15 +45,15 @@
     package = config.boot.kernelPackages.nvidiaPackages.vgpu_17_3;
   };
   hardware.nvidia.vgpu.patcher.enable = true;
-  hardware.nvidia.vgpu.patcher.profileOverrides = {
-    "256" = {
-      vramAllocation = 3584; # 3.5GiB
-      heads = 2;
-      display.width = 1920;
-      display.height = 1080;
-      framerateLimit = 144;
-    };
-  };
+  # hardware.nvidia.vgpu.patcher.profileOverrides = {
+  #   "256" = {
+  #     vramAllocation = 3584; # 3.5GiB
+  #     heads = 2;
+  #     display.width = 1920;
+  #     display.height = 1080;
+  #     framerateLimit = 144;
+  #   };
+  # };
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -139,5 +139,7 @@
     python3
 
     moonlight-qt
+
+    # vmware-workstation
   ];
 }
