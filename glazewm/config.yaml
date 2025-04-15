@@ -184,6 +184,7 @@ window_rules:
       - window_process: { equals: "azuredatastudio" }
       - window_process: { equals: "Postman" }
       - window_process: { equals: "Lens" }
+      - window_process: { equals: "Freelens" }
       - window_process: { equals: "RedisInsight" }
       - window_process: { equals: "Docker Desktop" }
       - window_process: { equals: "dbeaver" }
