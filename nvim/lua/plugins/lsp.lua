@@ -2,10 +2,10 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      { "williamboman/mason.nvim",                  config = true },
+      { "williamboman/mason.nvim", config = true },
       { "williamboman/mason-lspconfig.nvim" },
       { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-      { "j-hui/fidget.nvim",                        opts = {} },
+      { "j-hui/fidget.nvim", opts = {} },
       { "hrsh7th/cmp-nvim-lsp" },
       { "someone-stole-my-name/yaml-companion.nvim" },
     },
@@ -19,9 +19,9 @@ return {
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
       local yaml_companion = require("yaml-companion")
 
-      local lsps = { "gopls", "lua_ls", "stylua", "omnisharp", "yamlls", "terraformls" }
+      local lsps = { "gopls", "lua_ls", "stylua", "omnisharp", "yamlls", "terraformls", "nil" }
       local capabilities =
-          vim.tbl_deep_extend("force", lspconfig.util.default_config.capabilities, cmp_nvim_lsp.default_capabilities())
+        vim.tbl_deep_extend("force", lspconfig.util.default_config.capabilities, cmp_nvim_lsp.default_capabilities())
 
       lspconfig.util.default_config.capabilities = capabilities
 

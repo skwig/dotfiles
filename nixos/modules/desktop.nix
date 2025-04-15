@@ -10,6 +10,8 @@
     hyprlock
     hyprshot
     hypridle
+    hyprcursor
+    rose-pine-hyprcursor
     waybar
     rofi-wayland
     greetd.tuigreet
@@ -42,5 +44,4 @@
       HandlePowerKey=suspend
     '';
   };
-
 }
