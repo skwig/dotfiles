@@ -1,4 +1,5 @@
 winget install Microsoft.Powershell
+winget install wezterm
 winget install GlazeWM
 winget install DEVCOM.JetBrainsMonoNerdFont
 winget install nvim
