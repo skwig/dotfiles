@@ -64,8 +64,18 @@
   boot.extraModprobeConfig = ''
     options kvm_amd nested=1
     options nvidia vup_swrlwar=1
+    options kvmfr static_size_mb=128
   '';
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    kvmfr
+  ];
+  boot.kernelModules = [ "kvmfr" ];
     # options nvidia vup_qmode=1 vup_swrlwar=1 vup_sunlock=1 #vup_gspvgpu=1
+  services = {
+    udev.extraRules = ''
+      SUBSYSTEM=="kvmfr", OWNER="skwig", GROUP="libvirtd", MODE="0660"
+    '';
+  };
 
   virtualisation.libvirtd = {
     enable = true;
@@ -85,16 +95,19 @@
     # spiceUSBRedirection.enable = true;
   };
 
-  virtualisation.kvmfr = {
-    enable = true;
-    shm = {
-      enable = true;
-      size = 512;
-      user = "skwig";
-      group = "qemu-libvirtd";
-      mode = "0666";
-    };
-  };
+  # virtualisation.kvmfr = {
+  #   enable = true;
+  #   shm = {
+  #     enable = true;
+  #     # size = 512;
+  #     size = 128;
+  #     user = "skwig";
+  #     # group = "qemu-libvirtd";
+  #     group = "libvirtd";
+  #     # mode = "0666";
+  #     mode = "0660";
+  #   };
+  # };
 
   programs.steam.enable = true;
   programs.mdevctl = {
@@ -139,6 +152,7 @@
     python3
 
     moonlight-qt
+    htop
 
     # vmware-workstation
   ];

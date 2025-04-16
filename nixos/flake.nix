@@ -20,8 +20,9 @@
         ./hosts/blackbox/specific.nix
         ./hosts/blackbox/hardware-configuration.nix
         ./modules/system.nix
-        ./modules/kvmfr-options.nix
-        ./modules/desktop.nix
+        # ./modules/kvmfr-options.nix
+        # ./modules/desktop.nix
+        ./modules/kde.nix
         ./modules/user.nix
         ./modules/dev.nix
         ./modules/dev.dotnet.nix
