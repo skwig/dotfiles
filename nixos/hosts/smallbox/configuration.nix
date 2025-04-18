@@ -41,4 +41,34 @@
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
   };
+
+  # TODO: Better way? home manager?
+  system.activationScripts.symlink = {
+    text = ''
+      mkdir -p ~/.config/
+
+      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/nvim/
+      chown -h skwig:users /home/skwig/.config/nvim
+
+      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/hypr/
+      chown -h skwig:users /home/skwig/.config/hypr
+
+      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/waybar/
+      chown -h skwig:users /home/skwig/.config/waybar
+
+      ln -sf -t /home/skwig/ /home/skwig/dotfiles/ideavim/.ideavimrc
+      chown -h skwig:users /home/skwig/.ideavimrc
+    '';
+  };
+
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs; };
+  #   users.skwig = import ./home.nix;
+  #   useGlobalPkgs = true;
+  #   useUserPackages = true;
+  #   backupFileExtension = "backup";
+  # };
+
+  environment.systemPackages = with pkgs; [
+  ];
 }

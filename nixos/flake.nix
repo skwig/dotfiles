@@ -3,10 +3,6 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs?ref=3404205"; # 24.11 as of 2025-03-23
     };
-    home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@attrs: {
@@ -48,7 +44,7 @@
         ./modules/system.nix
         ./modules/gnome.nix
         ./modules/dev.nix
-        # ./modules/dev.dotnet.nix
+        ./modules/dev.dotnet.nix
       ];
     };
   };
