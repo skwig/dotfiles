@@ -18,7 +18,7 @@
     wl-clipboard
     cliphist
     dunst
-    foot
+    brightnessctl
   ];
 
   environment.sessionVariables = {
@@ -27,6 +27,19 @@
   };
 
   programs.hyprland.enable = true;
+
+  services.printing.enable = true;
+
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+
+    alsa.enable = true;
+    alsa.support32Bit = true;
+
+    pulse.enable = true;
+  };
 
   services.greetd = {
     enable = true;

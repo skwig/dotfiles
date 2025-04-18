@@ -18,6 +18,8 @@
     coreutils 
     unzip
 
+    nnn
+
     brave
     wezterm
   ];

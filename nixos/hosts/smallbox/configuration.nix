@@ -56,18 +56,13 @@
       ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/waybar/
       chown -h skwig:users /home/skwig/.config/waybar
 
+      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/wezterm/
+      chown -h skwig:users /home/skwig/.config/wezterm
+
       ln -sf -t /home/skwig/ /home/skwig/dotfiles/ideavim/.ideavimrc
       chown -h skwig:users /home/skwig/.ideavimrc
     '';
   };
-
-  # home-manager = {
-  #   extraSpecialArgs = { inherit inputs; };
-  #   users.skwig = import ./home.nix;
-  #   useGlobalPkgs = true;
-  #   useUserPackages = true;
-  #   backupFileExtension = "backup";
-  # };
 
   environment.systemPackages = with pkgs; [
   ];

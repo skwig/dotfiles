@@ -42,7 +42,7 @@
         ./hosts/smallbox/configuration.nix
         ./hosts/smallbox/hardware-configuration.nix
         ./modules/system.nix
-        ./modules/gnome.nix
+        ./modules/hyprland.nix
         ./modules/dev.nix
         ./modules/dev.dotnet.nix
       ];
