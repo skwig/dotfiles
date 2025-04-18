@@ -38,5 +38,18 @@
         ./modules/dev.dotnet.nix
       ];
     };
+
+    nixosConfigurations.smallbox = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = attrs;
+      modules = [
+        ./hosts/smallbox/configuration.nix
+        ./hosts/smallbox/hardware-configuration.nix
+        ./modules/system.nix
+        ./modules/gnome.nix
+        ./modules/dev.nix
+        # ./modules/dev.dotnet.nix
+      ];
+    };
   };
 }

@@ -17,6 +17,9 @@
     fastfetch
     coreutils 
     unzip
+
+    brave
+    wezterm
   ];
 
   fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono"]; }) ];
@@ -25,6 +28,8 @@
     enable = true;
     defaultEditor = true;
   };
+
+  programs.zsh.enable = true;
 
   system.stateVersion = "24.11";
 }
