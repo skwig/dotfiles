@@ -12,7 +12,6 @@
     gh 
     lazygit 
 
-    docker
     lazydocker
 
     gcc 
@@ -23,6 +22,9 @@
     ripgrep 
 
     cargo
+
+    jq
+    yq
   ];
 
   programs.neovim = {

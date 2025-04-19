@@ -18,13 +18,17 @@
     coreutils 
     unzip
 
-    nnn
+    yazi
+
+    # TODO: Some sort of "desktop" section? These dont work in TTY or headless mode
+    networkmanagerapplet
 
     brave
     wezterm
   ];
 
   fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono"]; }) ];
+  time.hardwareClockInLocalTime = true;
 
   programs.neovim = {
     enable = true;

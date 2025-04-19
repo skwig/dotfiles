@@ -19,6 +19,9 @@
     cliphist
     dunst
     brightnessctl
+
+    wlogout
+    hyprpolkitagent
   ];
 
   environment.sessionVariables = {
