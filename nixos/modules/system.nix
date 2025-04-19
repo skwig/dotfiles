@@ -25,6 +25,8 @@
 
     brave
     wezterm
+    dolphin
+    vscodium
   ];
 
   fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono"]; }) ];

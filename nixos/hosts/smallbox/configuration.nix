@@ -64,6 +64,8 @@
     '';
   };
 
+  # services.fprintd.enable = true;
+
   # TODO: Move to personal
   environment.systemPackages = with pkgs; [
     discord
