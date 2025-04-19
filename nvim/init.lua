@@ -15,6 +15,7 @@ require("autocmd")
 require("vim-options")
 require("excommands")
 require("windows")
+require("filetypes")
 require("lazy").setup("plugins", {
   install = {
     missing = true,

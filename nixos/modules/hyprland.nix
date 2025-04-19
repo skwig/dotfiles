@@ -19,6 +19,7 @@
     cliphist
     dunst
     brightnessctl
+    playerctl
 
     wlogout
     hyprpolkitagent

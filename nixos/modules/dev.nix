@@ -23,6 +23,8 @@
 
     cargo
 
+    nodejs_23
+
     jq
     yq
   ];

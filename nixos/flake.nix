@@ -45,6 +45,7 @@
         ./modules/hyprland.nix
         ./modules/dev.nix
         ./modules/dev.dotnet.nix
+        ./modules/dev.go.nix
       ];
     };
   };
