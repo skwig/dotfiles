@@ -11,6 +11,7 @@
     hyprshot
     hypridle
     hyprcursor
+    hyprpaper
     rose-pine-hyprcursor
     waybar
     rofi-wayland
