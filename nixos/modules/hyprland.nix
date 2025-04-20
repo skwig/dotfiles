@@ -28,6 +28,12 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # chromium, electron
     MOZ_ENABLE_WAYLAND = "1"; # firefox
+
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_SCREENSHOTS_DIR = "$HOME/Pictures/screenshots";
   };
 
   programs.hyprland.enable = true;

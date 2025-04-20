@@ -59,6 +59,15 @@
       ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/wezterm/
       chown -h skwig:users /home/skwig/.config/wezterm
 
+      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/gtk-3.0/
+      chown -h skwig:users /home/skwig/.config/gtk-3.0
+
+      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/gtk-4.0/
+      chown -h skwig:users /home/skwig/.config/gtk-4.0
+
+      ln -sf -t /home/skwig/ /home/skwig/dotfiles/Xresources/.Xresources
+      chown -h skwig:users /home/skwig/.Xresouces
+
       ln -sf -t /home/skwig/ /home/skwig/dotfiles/ideavim/.ideavimrc
       chown -h skwig:users /home/skwig/.ideavimrc
     '';

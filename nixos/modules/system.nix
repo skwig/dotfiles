@@ -19,6 +19,18 @@
     unzip
 
     yazi
+    imagemagick
+
+    # TMP
+    gum
+    eza
+    kitty
+    pywal
+    oh-my-posh
+    sway
+    swaynotificationcenter
+    grimblast
+    libnotify
 
     # TODO: Some sort of "desktop" section? These dont work in TTY or headless mode
     networkmanagerapplet
