@@ -12,7 +12,7 @@
 
 	"modules-left": ["custom/left","custom/rofi","backlight","pulseaudio","battery","custom/right"],
 	"modules-center": ["custom/left","hyprland/workspaces","custom/right"],
-	"modules-right": ["custom/left","tray", "clock","custom/right"],
+	"modules-right": ["custom/left","tray", "clock", "custom/wlogout", "custom/right"],
 
  
    "network": {
@@ -38,7 +38,14 @@
 
     "custom/rofi": {
         "format": "  {}",
-        "on-click": "rofi -show drun"
+        "on-click": "rofi -show drun",
+        "tooltip": false
+    },
+
+    "custom/wlogout": {
+        "format": " ⏻ ",
+        "on-click": "wlogout",
+        "tooltip": false
     },
 
     "hyprland/workspaces": {

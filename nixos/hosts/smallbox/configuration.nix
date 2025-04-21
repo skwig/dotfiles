@@ -59,6 +59,9 @@
       ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/wezterm/
       chown -h skwig:users /home/skwig/.config/wezterm
 
+      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/wlogout/
+      chown -h skwig:users /home/skwig/.config/wlogout
+
       ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/gtk-3.0/
       chown -h skwig:users /home/skwig/.config/gtk-3.0
 
@@ -78,6 +81,7 @@
   # TODO: Move to personal
   environment.systemPackages = with pkgs; [
     discord
+    spotify
   ];
 
   programs.steam.enable = true;

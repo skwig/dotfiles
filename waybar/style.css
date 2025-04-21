@@ -16,6 +16,7 @@ window#waybar {
 #clock,
 #workspaces,
 #custom-rofi,
+#custom-wlogout,
 #tray,
 #pulseaudio,
 #backlight,
@@ -78,6 +79,11 @@ tooltip {
   color: #ea9a97; /* Rose Pine Moon - Rose */
   padding-left: 0px;
   padding-right: 10px;
+}
+
+#custom-wlogout {
+  padding-left: 10px;
+  padding-right: 0px;
 }
 
 #temperature {
