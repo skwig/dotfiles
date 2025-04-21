@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -79,10 +75,9 @@
   # services.fprintd.enable = true;
 
   # TODO: Move to personal
-  environment.systemPackages = with pkgs; [
-    discord
-    spotify
-  ];
+  environment.systemPackages = with pkgs; [ discord spotify ];
+
+  services.cloudflare-warp = { enable = true; };
 
   programs.steam.enable = true;
 }
