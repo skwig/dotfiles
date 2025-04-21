@@ -23,6 +23,11 @@ return {
       defaults = {
         path_display = { "filename_first" },
       },
+      pickers = {
+        find_files = {
+          hidden = true
+        }
+      },
       extensions = {
         ["ui-select"] = {
           themes.get_dropdown(),
