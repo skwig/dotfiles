@@ -28,10 +28,12 @@
         ./hosts/blackbox2/configuration.nix
         ./hosts/blackbox2/hardware-configuration.nix
         ./modules/system.nix
+        # ./modules/bluetooth.nix
         ./modules/nvidia.nix
-        ./modules/gnome.nix
+        ./modules/hyprland.nix
         ./modules/dev.nix
         ./modules/dev.dotnet.nix
+        ./modules/dev.go.nix
       ];
     };
 
