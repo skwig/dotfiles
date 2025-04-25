@@ -53,6 +53,8 @@ map zR <Action>(ExpandAllRegions)
 map <S-k> 10k
 map <S-j> 10j
 
+nnoremap <silent> z. :<C-u>normal!zszH<CR> |" Center horizontally
+
 " Basic text manipulation
 map gj <Action>(EditorJoinLines) |" Generate Join
 map gs <Action>(EditorSplitLine) |" Generate Split
