@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
-{
+let username = "skwig";
+in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
@@ -33,7 +34,7 @@
 
   programs.virt-manager.enable = true;
 
-  users.groups.libvirtd.members = [ "skwig" ];
+  users.groups.libvirtd.members = [ username ];
 
   virtualisation.libvirtd = {
     enable = true;
@@ -55,65 +56,49 @@
     # spiceUSBRedirection.enable = true;
   };
 
-  users.users.skwig = {
+  users.users.${username} = {
     isNormalUser = true;
-    description = "skwig";
+    description = username;
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
+
+  services.gnome.gnome-keyring.enable = true;
 
   system.activationScripts.symlink = {
     text = ''
       mkdir -p ~/.config/
 
-      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/nvim/
-      chown -h skwig:users /home/skwig/.config/nvim
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/nvim/
+      chown -h ${username}:users /home/${username}/.config/nvim
 
-      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/hypr/
-      chown -h skwig:users /home/skwig/.config/hypr
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/hypr/
+      chown -h ${username}:users /home/${username}/.config/hypr
 
-      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/waybar/
-      chown -h skwig:users /home/skwig/.config/waybar
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/waybar/
+      chown -h ${username}:users /home/${username}/.config/waybar
 
-      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/wezterm/
-      chown -h skwig:users /home/skwig/.config/wezterm
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/wezterm/
+      chown -h ${username}:users /home/${username}/.config/wezterm
 
-      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/wlogout/
-      chown -h skwig:users /home/skwig/.config/wlogout
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/wlogout/
+      chown -h ${username}:users /home/${username}/.config/wlogout
 
-      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/gtk-3.0/
-      chown -h skwig:users /home/skwig/.config/gtk-3.0
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/gtk-3.0/
+      chown -h ${username}:users /home/${username}/.config/gtk-3.0
 
-      ln -sf -t /home/skwig/.config/ /home/skwig/dotfiles/gtk-4.0/
-      chown -h skwig:users /home/skwig/.config/gtk-4.0
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/gtk-4.0/
+      chown -h ${username}:users /home/${username}/.config/gtk-4.0
 
-      ln -sf -t /home/skwig/ /home/skwig/dotfiles/Xresources/.Xresources
-      chown -h skwig:users /home/skwig/.Xresources
+      ln -sf -t /home/${username}/ /home/${username}/dotfiles/Xresources/.Xresources
+      chown -h ${username}:users /home/${username}/.Xresources
 
-      ln -sf -t /home/skwig/ /home/skwig/dotfiles/ideavim/.ideavimrc
-      chown -h skwig:users /home/skwig/.ideavimrc
+      ln -sf -t /home/${username}/ /home/${username}/dotfiles/ideavim/.ideavimrc
+      chown -h ${username}:users /home/${username}/.ideavimrc
     '';
   };
 
   # services.fprintd.enable = true;
 
-  # TODO: Move to personal
-  environment.systemPackages = with pkgs; [
-    nvtopPackages.full
-
-    imgcat
-
-    chromium
-    firefox
-    brave
-
-    discord
-
-    mesa-demos
-    python3
-    discord
-    spotify
-  ];
-
-  programs.steam.enable = true;
+  environment.systemPackages = with pkgs; [ imgcat mesa-demos python3 ];
 }

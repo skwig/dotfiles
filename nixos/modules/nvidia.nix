@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   hardware.graphics = { enable = true; };
@@ -10,4 +10,6 @@
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  environment.systemPackages = with pkgs; [ nvtopPackages.full ];
 }

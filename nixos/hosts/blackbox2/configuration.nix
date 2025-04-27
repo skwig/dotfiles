@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
-{
+let username = "mbr";
+in {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -29,9 +30,9 @@
     variant = "";
   };
 
-  users.users.mbr = {
+  users.users.${username} = {
     isNormalUser = true;
-    description = "mbr";
+    description = "${username}";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs;
       [
@@ -43,32 +44,32 @@
     text = ''
       mkdir -p ~/.config/
 
-      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/nvim/
-      chown -h mbr:users /home/mbr/.config/nvim
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/nvim/
+      chown -h ${username}:users /home/${username}/.config/nvim
 
-      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/hypr/
-      chown -h mbr:users /home/mbr/.config/hypr
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/hypr/
+      chown -h ${username}:users /home/${username}/.config/hypr
 
-      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/waybar/
-      chown -h mbr:users /home/mbr/.config/waybar
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/waybar/
+      chown -h ${username}:users /home/${username}/.config/waybar
 
-      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/wezterm/
-      chown -h mbr:users /home/mbr/.config/wezterm
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/wezterm/
+      chown -h ${username}:users /home/${username}/.config/wezterm
 
-      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/wlogout/
-      chown -h mbr:users /home/mbr/.config/wlogout
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/wlogout/
+      chown -h ${username}:users /home/${username}/.config/wlogout
 
-      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/gtk-3.0/
-      chown -h mbr:users /home/mbr/.config/gtk-3.0
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/gtk-3.0/
+      chown -h ${username}:users /home/${username}/.config/gtk-3.0
 
-      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/gtk-4.0/
-      chown -h mbr:users /home/mbr/.config/gtk-4.0
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/gtk-4.0/
+      chown -h ${username}:users /home/${username}/.config/gtk-4.0
 
-      ln -sf -t /home/mbr/ /home/mbr/dotfiles/Xresources/.Xresources
-      chown -h mbr:users /home/mbr/.Xresources
+      ln -sf -t /home/${username}/ /home/${username}/dotfiles/Xresources/.Xresources
+      chown -h ${username}:users /home/${username}/.Xresources
 
-      ln -sf -t /home/mbr/ /home/mbr/dotfiles/ideavim/.ideavimrc
-      chown -h mbr:users /home/mbr/.ideavimrc
+      ln -sf -t /home/${username}/ /home/${username}/dotfiles/ideavim/.ideavimrc
+      chown -h ${username}:users /home/${username}/.ideavimrc
     '';
   };
 
