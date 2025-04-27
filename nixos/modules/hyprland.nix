@@ -9,6 +9,7 @@
     hyprcursor
     hyprpaper
     rose-pine-hyprcursor
+    papirus-icon-theme
     waybar
     rofi-wayland
     greetd.tuigreet
@@ -19,6 +20,7 @@
     playerctl
 
     wlogout
+    wtype
     hyprpolkitagent
   ];
 
