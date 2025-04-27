@@ -7,12 +7,13 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    lf
-    wget
+    nix-search-cli
 
-    fastfetch
     coreutils
-    unzip
+    fastfetch
+    wget
+    htop
+    zip
 
     yazi
     imagemagick
