@@ -1,19 +1,14 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+{ pkgs, ... }:
 
-{ config, pkgs, ... }:
+let
+  dotnetCombined = with pkgs.dotnetCorePackages;
+    combinePackages [ sdk_9_0_1xx sdk_8_0_3xx sdk_7_0_3xx ];
+in {
+  nixpkgs.config.permittedInsecurePackages = [ "dotnet-sdk-7.0.317" ];
 
-{
-  environment.systemPackages = with pkgs; [
-    jetbrains.rider
+  environment.systemPackages = with pkgs; [ jetbrains.rider dotnetCombined ];
 
-    (with dotnetCorePackages; combinePackages [
-      sdk_8_0_3xx
-
-      # These packages dont work on their own without sdk_8_0_3xx
-      dotnet_8.sdk
-      dotnet_9.sdk
-    ])
-  ];
+  environment.sessionVariables = {
+    DOTNET_ROOT = "${dotnetCombined}/share/dotnet";
+  };
 }

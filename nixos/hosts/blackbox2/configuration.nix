@@ -1,15 +1,11 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, ... }:
 
 {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "blackbox2";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Bratislava";
@@ -33,32 +29,60 @@
     variant = "";
   };
 
-  # services.pipewire = {
-  #   enable = true;
-  #   alsa.enable = true;
-  #   alsa.support32Bit = true;
-  #   pulse.enable = true;
-  #   # If you want to use JACK applications, uncomment this
-  #   #jack.enable = true;
-  #
-  #   # use the example session manager (no others are packaged yet so this is enabled by default,
-  #   # no need to redefine it in your config for now)
-  #   #media-session.enable = true;
-  # };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mbr = {
     isNormalUser = true;
     description = "mbr";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    packages = with pkgs;
+      [
+        #  thunderbird
+      ];
   };
 
-  # home.file.mbr = {
-  #   ".config/nvim" = "~/dotfiles/nvim"
-  # };
+  system.activationScripts.symlink = {
+    text = ''
+      mkdir -p ~/.config/
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/nvim/
+      chown -h mbr:users /home/mbr/.config/nvim
+
+      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/hypr/
+      chown -h mbr:users /home/mbr/.config/hypr
+
+      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/waybar/
+      chown -h mbr:users /home/mbr/.config/waybar
+
+      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/wezterm/
+      chown -h mbr:users /home/mbr/.config/wezterm
+
+      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/wlogout/
+      chown -h mbr:users /home/mbr/.config/wlogout
+
+      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/gtk-3.0/
+      chown -h mbr:users /home/mbr/.config/gtk-3.0
+
+      ln -sf -t /home/mbr/.config/ /home/mbr/dotfiles/gtk-4.0/
+      chown -h mbr:users /home/mbr/.config/gtk-4.0
+
+      ln -sf -t /home/mbr/ /home/mbr/dotfiles/Xresources/.Xresources
+      chown -h mbr:users /home/mbr/.Xresources
+
+      ln -sf -t /home/mbr/ /home/mbr/dotfiles/ideavim/.ideavimrc
+      chown -h mbr:users /home/mbr/.ideavimrc
+    '';
+  };
+
+  services.gnome.gnome-keyring.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    google-chrome
+    git-credential-manager
+  ];
+
+  programs.git = {
+    enable = true;
+    package = pkgs.gitFull;
+    config.credential.credentialStore = "secretservice";
+    config.credential.helper = "manager";
+  };
 }

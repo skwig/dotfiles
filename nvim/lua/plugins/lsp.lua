@@ -9,7 +9,6 @@ return {
       { "hrsh7th/cmp-nvim-lsp" },
       { "someone-stole-my-name/yaml-companion.nvim" },
     },
-    event = "VeryLazy",
     config = function()
       local lspconfig = require("lspconfig")
       local telescope_builtin = require("telescope.builtin")
@@ -19,7 +18,7 @@ return {
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
       local yaml_companion = require("yaml-companion")
 
-      local lsps = { "gopls", "lua_ls", "stylua", "omnisharp", "yamlls", "terraformls", "nil" }
+      local lsps = { "gopls", "lua_ls", "stylua", "omnisharp", "yamlls", "terraformls", "nil", "hyprls", "prettierd", "nixfmt" }
       local capabilities =
         vim.tbl_deep_extend("force", lspconfig.util.default_config.capabilities, cmp_nvim_lsp.default_capabilities())
 
@@ -43,10 +42,6 @@ return {
                 },
               },
             })
-          end,
-
-          stylua = function()
-            lspconfig.stylua.setup({})
           end,
 
           gopls = function()

@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -15,16 +11,42 @@
     wget
 
     fastfetch
-    coreutils 
+    coreutils
     unzip
+
+    yazi
+    imagemagick
+
+    # TMP
+    gum
+    eza
+    kitty
+    pywal
+    oh-my-posh
+    sway
+    swaynotificationcenter
+    grimblast
+    libnotify
+
+    # TODO: Some sort of "desktop" section? These dont work in TTY or headless mode
+    networkmanagerapplet
+
+    brave
+    wezterm
+    dolphin
+    vscodium
   ];
 
-  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono"]; }) ];
+  fonts.packages = with pkgs;
+    [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+  time.hardwareClockInLocalTime = true;
 
   programs.neovim = {
     enable = true;
     defaultEditor = true;
   };
+
+  programs.zsh.enable = true;
 
   system.stateVersion = "24.11";
 }
