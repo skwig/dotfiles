@@ -48,6 +48,7 @@
         ./modules/system.nix
         ./modules/bluetooth.nix
         ./modules/hyprland.nix
+        ./modules/personal.nix
         ./modules/dev.nix
         ./modules/dev.dotnet.nix
         ./modules/dev.go.nix

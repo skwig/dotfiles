@@ -74,10 +74,5 @@
 
   # services.fprintd.enable = true;
 
-  # TODO: Move to personal
-  environment.systemPackages = with pkgs; [ discord spotify ];
-
   services.cloudflare-warp = { enable = true; };
-
-  programs.steam.enable = true;
 }
