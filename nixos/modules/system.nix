@@ -21,7 +21,6 @@
     # TMP
     gum
     eza
-    kitty
     pywal
     oh-my-posh
     sway

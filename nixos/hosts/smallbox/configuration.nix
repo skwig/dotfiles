@@ -65,6 +65,9 @@ in {
       ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/gtk-4.0/
       chown -h ${username}:users /home/${username}/.config/gtk-4.0
 
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/rofi/
+      chown -h ${username}:users /home/${username}/.config/rofi
+
       ln -sf -t /home/${username}/ /home/${username}/dotfiles/Xresources/.Xresources
       chown -h ${username}:users /home/${username}/.Xresources
 
