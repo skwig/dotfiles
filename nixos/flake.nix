@@ -19,6 +19,7 @@
         ./modules/personal.nix
         ./modules/dev.nix
         ./modules/dev.dotnet.nix
+        ./modules/dev.k8s.nix
         ./modules/dev.go.nix
       ];
     };
@@ -35,6 +36,7 @@
         ./modules/hyprland.nix
         ./modules/dev.nix
         ./modules/dev.dotnet.nix
+        ./modules/dev.k8s.nix
         ./modules/dev.go.nix
       ];
     };
@@ -51,6 +53,7 @@
         ./modules/personal.nix
         ./modules/dev.nix
         ./modules/dev.dotnet.nix
+        ./modules/dev.k8s.nix
         ./modules/dev.go.nix
       ];
     };
