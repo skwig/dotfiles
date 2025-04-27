@@ -6,8 +6,6 @@ vim.o.shiftwidth = 4
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.keymap.set("n", "<leader>", "<NOP>", {})
-vim.keymap.set("n", "<BS>", "<NOP>", {})
 
 vim.g.have_nerd_font = true
 

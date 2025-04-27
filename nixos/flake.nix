@@ -10,11 +10,13 @@
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
-        ./hosts/blackbox/specific.nix
+        ./hosts/blackbox/configuration.nix
         ./hosts/blackbox/hardware-configuration.nix
         ./modules/system.nix
-        ./modules/desktop.nix
-        ./modules/user.nix
+        # ./modules/bluetooth.nix
+        ./modules/nvidia.nix
+        ./modules/hyprland.nix
+        ./modules/personal.nix
         ./modules/dev.nix
         ./modules/dev.dotnet.nix
         ./modules/dev.go.nix

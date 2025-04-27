@@ -1,17 +1,19 @@
 { config, pkgs, ... }:
 
 {
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
 
-  networking.hostName = "smallbox";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  boot.supportedFilesystems = [ "ntfs" ];
+
+  networking.hostName = "blackbox";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Bratislava";
 
   i18n.defaultLocale = "en_US.UTF-8";
+
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "sk_SK.UTF-8";
     LC_IDENTIFICATION = "sk_SK.UTF-8";
@@ -29,16 +31,37 @@
     variant = "";
   };
 
-  # services.printing.enable = true;
+  programs.virt-manager.enable = true;
+
+  users.groups.libvirtd.members = [ "skwig" ];
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          }).fd
+        ];
+      };
+    };
+
+    # spiceUSBRedirection.enable = true;
+  };
 
   users.users.skwig = {
     isNormalUser = true;
     description = "skwig";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
-  # TODO: Better way? home manager?
   system.activationScripts.symlink = {
     text = ''
       mkdir -p ~/.config/
@@ -75,9 +98,22 @@
   # services.fprintd.enable = true;
 
   # TODO: Move to personal
-  environment.systemPackages = with pkgs; [ discord spotify ];
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.full
 
-  services.cloudflare-warp = { enable = true; };
+    imgcat
+
+    chromium
+    firefox
+    brave
+
+    discord
+
+    mesa-demos
+    python3
+    discord
+    spotify
+  ];
 
   programs.steam.enable = true;
 }
