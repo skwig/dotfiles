@@ -6,7 +6,11 @@ let
 in {
   nixpkgs.config.permittedInsecurePackages = [ "dotnet-sdk-7.0.317" ];
 
-  environment.systemPackages = with pkgs; [ jetbrains.rider dotnetCombined ];
+  environment.systemPackages = with pkgs; [
+    jetbrains.rider
+    dotnetCombined
+    powershell
+  ];
 
   environment.sessionVariables = {
     DOTNET_ROOT = "${dotnetCombined}/share/dotnet";
