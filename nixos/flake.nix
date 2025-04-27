@@ -13,7 +13,7 @@
         ./hosts/blackbox/configuration.nix
         ./hosts/blackbox/hardware-configuration.nix
         ./modules/system.nix
-        # ./modules/bluetooth.nix
+        ./modules/bluetooth.nix
         ./modules/nvidia.nix
         ./modules/hyprland.nix
         ./modules/personal.nix
