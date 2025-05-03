@@ -18,6 +18,7 @@
     dunst
     brightnessctl
     playerctl
+    pavucontrol
 
     wlogout
     wtype
