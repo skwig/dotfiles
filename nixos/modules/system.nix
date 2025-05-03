@@ -17,12 +17,12 @@
 
     yazi
     imagemagick
+    oh-my-posh
 
     # TMP
     gum
     eza
     pywal
-    oh-my-posh
     sway
     swaynotificationcenter
     grimblast
@@ -44,9 +44,17 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    vimAlias = true;
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    ohMyZsh = {
+      enable = true;
+      plugins = [ "sudo" "kubectl" "web-search" "fzf" ];
+    };
+    syntaxHighlighting = { enable = true; };
+  };
 
   system.stateVersion = "24.11";
 }

@@ -93,8 +93,14 @@ in {
       ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/rofi/
       chown -h ${username}:users /home/${username}/.config/rofi
 
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/dunst/
+      chown -h ${username}:users /home/${username}/.config/dunst
+
       ln -sf -t /home/${username}/ /home/${username}/dotfiles/Xresources/.Xresources
       chown -h ${username}:users /home/${username}/.Xresources
+
+      ln -sf -t /home/${username}/ /home/${username}/dotfiles/zsh/.zshrc
+      chown -h ${username}:users /home/${username}/.zshrc
 
       ln -sf -t /home/${username}/ /home/${username}/dotfiles/ideavim/.ideavimrc
       chown -h ${username}:users /home/${username}/.ideavimrc
