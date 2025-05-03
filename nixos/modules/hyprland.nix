@@ -33,6 +33,10 @@
     XDG_STATE_HOME = "$HOME/.local/state";
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_SCREENSHOTS_DIR = "$HOME/Pictures/screenshots";
+
+    XDG_SESSION_TYPE = "wayland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
   };
 
   programs.hyprland.enable = true;
