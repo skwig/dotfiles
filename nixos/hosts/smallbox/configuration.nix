@@ -68,6 +68,9 @@ in {
       ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/rofi/
       chown -h ${username}:users /home/${username}/.config/rofi
 
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/dunst/
+      chown -h ${username}:users /home/${username}/.config/dunst
+
       ln -sf -t /home/${username}/ /home/${username}/dotfiles/Xresources/.Xresources
       chown -h ${username}:users /home/${username}/.Xresources
 
