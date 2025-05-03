@@ -202,7 +202,6 @@ element-icon {
 
 element-text {
   background-color: transparent;
-  font: "JetBrainsMono Nerd Font Mono 12";
   text-color: inherit;
   cursor: inherit;
   vertical-align: 0.5;

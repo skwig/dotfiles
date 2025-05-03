@@ -1,0 +1,5 @@
+@import "~/dotfiles/rofi/config.rasi"
+
+listview {
+  columns: 1;
+}
