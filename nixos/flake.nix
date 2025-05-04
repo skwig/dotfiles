@@ -16,7 +16,6 @@
         ./modules/bluetooth.nix
         ./modules/nvidia.nix
         ./modules/hyprland.nix
-        # ./modules/kde.nix
         ./modules/personal.nix
         ./modules/dev.nix
         ./modules/dev.dotnet.nix
