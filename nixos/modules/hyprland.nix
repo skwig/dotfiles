@@ -41,6 +41,7 @@
   };
 
   programs.hyprland.enable = true;
+  programs.hyprland.xwayland.enable = true;
 
   services.printing.enable = true;
 
