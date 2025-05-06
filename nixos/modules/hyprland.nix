@@ -40,6 +40,11 @@
     XDG_SESSION_DESKTOP = "Hyprland";
   };
 
+  # services.xserver.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
+  # services.displayManager.sddm.enableHidpi = true;
+
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
 
