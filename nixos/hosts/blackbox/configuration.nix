@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, freelensPkg, ... }:
 
 let username = "skwig";
 in {
@@ -96,6 +96,9 @@ in {
       ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/dunst/
       chown -h ${username}:users /home/${username}/.config/dunst
 
+      ln -sf -t /home/${username}/.config/JetBrains/Rider2024.3/ /home/${username}/dotfiles/wayland/rider64.vmoptions
+      chown -h ${username}:users /home/${username}/.config/JetBrains/Rider2024.3/rider64.vmoptions
+
       ln -sf -t /home/${username}/ /home/${username}/dotfiles/Xresources/.Xresources
       chown -h ${username}:users /home/${username}/.Xresources
 
@@ -109,5 +112,10 @@ in {
 
   # services.fprintd.enable = true;
 
-  environment.systemPackages = with pkgs; [ imgcat mesa-demos python3 ];
+  environment.systemPackages = with pkgs; [
+    imgcat
+    mesa-demos
+    python3
+    freelensPkg
+  ];
 }
