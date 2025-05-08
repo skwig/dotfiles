@@ -1,106 +1,130 @@
 {
-    "layer": "top",
-    "position": "top",
-    "mod": "dock",
-    "height": 40,
-    "exclusive": true,
-    "passthrough": false,
-    "gtk-layer-shell": true,
+    "height": 30,
+    "margin": 8,
+    "spacing": 4,
     "modules-left": [
-        "custom/left",
-        "custom/rofi",
-        "backlight",
-        "pulseaudio",
-        "battery",
-        "custom/right"
-    ],
-    "modules-center": [
-        "custom/left",
+        "custom/distrologo",
+        "custom/media",
         "hyprland/workspaces",
-        "custom/right"
-    ],
-    "modules-right": [
-        "custom/left",
         "tray",
-        "clock",
-        "custom/wlogout",
-        "custom/right"
+        "hyprland/window"
     ],
-    "hovno": 123,
-    "network": {
-        "tooltip": true,
-        "format-wifi": "<span foreground='#FF8B49'> {bandwidthDownBytes}</span> <span foreground='#FF6962'> {bandwidthUpBytes}</span>",
-        "format-ethernet": "<span foreground='#FF8B49'> {bandwidthDownBytes}</span> <span foreground='#FF6962'> {bandwidthUpBytes}</span>",
-        "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
-        "format-linked": "󰈀 {ifname} (No IP)",
-        "format-disconnected": " 󰖪 ",
-        "tooltip-format-disconnected": "Disconnected",
-        "interval": 2,
-        "on-click-right": "~/.config/waybar/network.py"
-    },
-    "temperature": {
-        "format": "{temperatureC}°C "
-    },
-    "custom/rofi": {
-        "format": "  {}",
-        "on-click": "rofi -show drun",
-        "tooltip": false
-    },
-    "custom/wlogout": {
-        "format": " ⏻ ",
-        "on-click": "wlogout",
-        "tooltip": false
-    },
+    "modules-center": [],
+    "modules-right": [
+        "pulseaudio",
+        "backlight",
+        "battery",
+        "power-profiles-daemon",
+        "custom/bluetooth",
+        "custom/wifi",
+        "clock",
+        "custom/power"
+    ],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "on-click": "activate",
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": []
+        "warp-on-scroll": false,
+        "format": "{name}",
+        "format-icons": {
+            "urgent": "[!]",
+            "focused": "[]",
+            "default": "[]"
         }
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 24,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%X}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "battery": {
         "states": {
-            "good": 95,
             "warning": 30,
-            "critical": 20,
-            "Fuck off Switch off": 10
+            "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         "format-icons": [
-            "󰂎",
-            "󰁺",
-            "󰁻",
-            "󰁼",
-            "󰁽",
-            "󰁾",
-            "󰁿",
-            "󰂀",
-            "󰂁",
-            "󰂂",
-            "󰁹"
+            "",
+            "",
+            "",
+            "",
+            ""
         ]
     },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "{ipaddr}/{cidr}  ",
+        "tooltip-format": "{ifname} via {gwaddr}  ",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "Disconnected ⚠ ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
     "pulseaudio": {
-        "format": "{icon} {volume}",
-        "format-muted": "󰖁",
-        "on-click": "pavucontrol -t 3",
-        "on-click-middle": "~/.config/hypr/scripts/volumecontrol.sh -o m",
-        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh -o i",
-        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh -o d",
-        "tooltip-format": "{icon} {desc} // {volume}%",
-        "scroll-step": 5,
+        "scroll-step": 1,
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
@@ -109,39 +133,41 @@
                 "",
                 ""
             ]
-        }
+        },
+        "on-click": "pavucontrol"
     },
-    "tray": {
-        "icon-size": 20,
-        "spacing": 9
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
     },
-    "clock": {
-        "format": " {:%H:%M}",
-        "on-click": "~/.config/eww/scripts/toggle_control_center.sh"
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "wlogout"
     },
-    "backlight": {
-        "device": "intel_backlight",
-        "on-scroll-up": "light -A 7",
-        "on-scroll-down": "light -U 7",
-        "format": "{icon} {percent}%",
-        "format-icons": [
-            "󱩎",
-            "󱩏",
-            "󱩐",
-            "󱩑",
-            "󱩒",
-            "󱩓",
-            "󰛨"
-        ]
+    "custom/wifi": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "nm-connection-editor"
     },
-    "custom/left": {
-        "format": " ",
-        "interval": "once",
-        "tooltip": false
+    "custom/bluetooth": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "blueberry"
     },
-    "custom/right": {
-        "format": " ",
-        "interval": "once",
-        "tooltip": false
+    "custom/distrologo": {
+        "format": "{icon}",
+        "tooltip": false,
+        "format-icons": {
+            "default": ""
+        },
+        "on-click": "rofi -show drun"
     }
 }

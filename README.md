@@ -7,6 +7,7 @@
 sudo nixos-rebuild switch --flake ~/dotfiles/nixos#blackbox
 ```
 
-## Credits
-Nix config inspired by [vasujain275](https://github.com/vasujain275/rudra)
-https://github.com/Cybersnake223/Hypr
+## Credits & Inspirations
+- [vasujain275](https://github.com/vasujain275/rudra)
+- [Cybersnake223](https://github.com/Cybersnake223/Hypr)
+- [SeniorMatt](https://github.com/SeniorMatt/Mattthew-s-Dotfiles)

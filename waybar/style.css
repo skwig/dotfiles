@@ -1,145 +1,275 @@
+@import "theme.css";
+/* Replace the path with your USERNAME */
+
 * {
-  border: none;
-  border-radius: 0px;
-  font-family: "JetBrainsMono Nerd Font";
-  font-weight: bold;
-  font-size: 15px;
-  min-height: 13px;
+  font-family: JetBrainsMono, awesome-terminal-fonts;
+  font-size: 20px;
+  transition-duration: 0.5s;
+  transition-property: background-color;
+  padding: 2px 2px;
 }
 
 window#waybar {
-  background-color: rgba(0, 0, 0, 0);
+  border-radius: 12px;
+  background-color: @background;
+  border: 2px solid @color13;
+  color: @color4;
+  transition-duration: 0.5s;
+  transition-property: background-color;
 }
 
-#battery,
-#temperature,
-#clock,
-#workspaces,
-#custom-rofi,
-#custom-wlogout,
-#tray,
-#pulseaudio,
-#backlight,
-#network,
-#custom-right,
-#custom-left {
-  color: #e0def4; /* Rose Pine Moon - Text */
-  background: #232136; /* Rose Pine Moon - Base */
-  margin: 4px 0px 4px 0px;
-  opacity: 1;
-  border: 0px solid #181825;
+window#waybar.hidden {
+  opacity: 0.2;
 }
 
-tooltip {
-  background: #232136; /* Rose Pine Moon - Base */
-  color: #e0def4; /* Rose Pine Moon - Text */
-  border-radius: 22px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #393552; /* Rose Pine Moon - Overlay */
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+  background-color: #3f3f3f;
 }
 
-#workspaces button {
-  box-shadow: none;
-  text-shadow: none;
-  padding: 0px;
-  border-radius: 9px;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  padding-left: 3px;
-  padding-right: 3px;
-  color: #e0def4; /* Rose Pine Moon - Text */
-  animation: gradient_f 20s ease-in infinite;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-}
-
-#workspaces button.active {
-  background: #393552; /* Rose Pine Moon - Overlay */
-  color: #c4a7e7; /* Rose Pine Moon - Iris */
-  margin-left: 3px;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-right: 3px;
-  animation: gradient_f 20s ease-in infinite;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-}
-
-#workspaces button:hover {
-  background: #2a273f; /* Rose Pine Moon - Surface */
+window#waybar.chromium {
+  background-color: #000000;
   border: none;
 }
 
-#workspaces {
-  padding: 0px;
-  padding-left: 5px;
-  padding-right: 5px;
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
 }
 
-#custom-rofi {
-  color: #ea9a97; /* Rose Pine Moon - Rose */
-  padding-left: 0px;
-  padding-right: 10px;
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background-color: @color13;
 }
 
-#custom-wlogout {
-  padding-left: 10px;
-  padding-right: 0px;
+#workspaces button {
+  padding: 0 5px;
+  color: @color14;
+  border-radius: 8px;
 }
 
-#temperature {
-  color: #9ccfd8; /* Rose Pine Moon - Foam */
-  padding-left: 0px;
-  padding-right: 19px;
+#workspaces button:hover {
+  color: @color15;
+  background-color: @color10;
 }
 
-#temperature.critical {
-  color: #eb6f92; /* Rose Pine Moon - Love */
-  padding-left: 0px;
-  padding-right: 19px;
+#workspaces button.focused {
+  background-color: @foreground;
 }
 
-#backlight {
-  color: #f6c177; /* Rose Pine Moon - Gold */
-  padding-left: 0px;
-  padding-right: 19px;
+#workspaces button.active {
+  background-color: @color10;
+  color: @foreground;
 }
 
-#pulseaudio {
-  color: #c4a7e7; /* Rose Pine Moon - Iris */
-  padding-left: 0px;
-  padding-right: 19px;
+#workspaces button.urgent {
+  background-color: @foreground;
 }
 
-#battery {
-  color: #3e8fb0; /* Rose Pine Moon - Pine */
-  padding-left: 0px;
-  padding-right: 0px;
+#mode {
+  background-color: #64727d;
+  box-shadow: inset 0 -3px #ffffff;
 }
 
-#tray {
-  padding-left: 0px;
-  padding-right: 19px;
-}
-
-#network {
-  padding-left: 0px;
-  padding-right: 19px;
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#tray,
+#power-profiles-daemon,
+#custom-power,
+#custom-distrologo,
+#custom-wifi,
+#custom-bluetooth,
+#mpd {
+  padding: 0 10px;
+  color: @foreground;
+  border-radius: 12px;
 }
 
 #clock {
-  color: #ea9a97; /* Rose Pine Moon - Rose */
-  padding-left: 0px;
-  padding-right: 0px;
+  background-color: @color1;
 }
 
-#custom-right {
-  margin-right: 9px;
-  padding-right: 3px;
-  border-radius: 0px 22px 22px 0px;
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#backlight:hover,
+#network:hover,
+#pulseaudio:hover,
+#pulseaudio.muted:hover,
+#wireplumber:hover,
+#custom-media:hover,
+#mode:hover,
+#idle_inhibitor:hover,
+#scratchpad:hover,
+#power-profiles-daemon:hover,
+#custom-power:hover,
+#custom-wifi:hover,
+#custom-bluetooth:hover,
+#mpd:hover {
+  background-color: @color13;
+  border-radius: 12px;
 }
 
-#custom-left {
-  margin-left: 9px;
-  padding-left: 3px;
-  border-radius: 22px 0px 0px 22px;
+#window {
+  margin: 0 4px;
+}
+
+/* WORKSPACES */
+
+#workspaces {
+  background: @color1;
+  margin: 0 4px;
+  border-radius: 12px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+label:focus {
+  background-color: #000000;
+}
+
+#cpu {
+  background-color: #2ecc71;
+  color: #000000;
+}
+
+#memory {
+  background-color: #9b59b6;
+}
+
+#disk {
+  background-color: #964b00;
+}
+
+#pulseaudio.muted {
+  background-color: @color1;
+  color: rgba(0, 0, 0, 1);
+}
+
+#custom-media {
+  background-color: #66cc99;
+  color: #2a5c45;
+  min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+  background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+  background-color: #ffa000;
+}
+
+#temperature {
+  background-color: #f0932b;
+}
+
+#temperature.critical {
+  background-color: #eb4d4b;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @background;
+}
+
+#idle_inhibitor {
+  background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+  background-color: #ecf0f1;
+  color: #2d3436;
+}
+
+#keyboard-state > label {
+  padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+  background-color: transparent;
+}
+
+#privacy {
+  padding: 0;
+}
+
+#privacy-item {
+  padding: 0 5px;
+  color: white;
+}
+
+#privacy-item.screenshare {
+  background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+  background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+  background-color: #0069d4;
 }

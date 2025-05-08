@@ -1,14 +1,15 @@
 {
   inputs = {
-    nixpkgs = {
-      url = "github:nixos/nixpkgs?ref=3404205"; # 24.11 as of 2025-03-23
-    };
+    nixpkgs.url = "github:nixos/nixpkgs?ref=3404205"; # 24.11 as of 2025-03-23
+    pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@attrs: {
+  outputs = { self, nixpkgs, pr-freelens, ... }@attrs: {
     nixosConfigurations.blackbox = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = attrs;
+      specialArgs = attrs // {
+        freelens = (import pr-freelens { system = "x86_64-linux"; }).freelens;
+      };
       modules = [
         ./hosts/blackbox/configuration.nix
         ./hosts/blackbox/hardware-configuration.nix
