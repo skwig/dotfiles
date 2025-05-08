@@ -1,4 +1,4 @@
-{ config, pkgs, freelensPkg, ... }:
+{ config, pkgs, freelens, ... }:
 
 let username = "skwig";
 in {
@@ -116,6 +116,6 @@ in {
     imgcat
     mesa-demos
     python3
-    freelensPkg
+    freelens
   ];
 }
