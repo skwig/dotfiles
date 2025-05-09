@@ -1,13 +1,12 @@
 {
   config,
   pkgs,
-  freelens,
+  pr-pkgs,
+  username,
+  hostname,
   ...
 }:
 
-let
-  username = "skwig";
-in
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -15,7 +14,7 @@ in
 
   boot.supportedFilesystems = [ "ntfs" ];
 
-  networking.hostName = "blackbox";
+  networking.hostName = hostname;
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Bratislava";
@@ -127,6 +126,6 @@ in
     imgcat
     mesa-demos
     python3
-    freelens
+    pr-pkgs.freelens
   ];
 }

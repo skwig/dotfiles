@@ -15,7 +15,11 @@
       nixosConfigurations.blackbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = attrs // {
-          freelens = (import pr-freelens { system = "x86_64-linux"; }).freelens;
+          pr-pkgs = {
+            freelens = (import pr-freelens { system = "x86_64-linux"; }).freelens;
+          };
+          username = "skwig";
+          hostname = "blackbox";
         };
         modules = [
           ./hosts/blackbox/configuration.nix
@@ -35,7 +39,13 @@
 
       nixosConfigurations.blackbox2 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = attrs;
+        specialArgs = attrs // {
+          pr-pkgs = {
+            freelens = (import pr-freelens { system = "x86_64-linux"; }).freelens;
+          };
+          username = "mbr";
+          hostname = "blackbox2";
+        };
         modules = [
           ./hosts/blackbox2/configuration.nix
           ./hosts/blackbox2/hardware-configuration.nix
@@ -51,7 +61,13 @@
 
       nixosConfigurations.smallbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = attrs;
+        specialArgs = attrs // {
+          pr-pkgs = {
+            freelens = (import pr-freelens { system = "x86_64-linux"; }).freelens;
+          };
+          username = "skwig";
+          hostname = "smallbox";
+        };
         modules = [
           ./hosts/smallbox/configuration.nix
           ./hosts/smallbox/hardware-configuration.nix
