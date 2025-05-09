@@ -2,3 +2,4 @@
 #
 # custom JetBrains Rider VM options (expand/override 'bin/rider64.vmoptions')
 -Dawt.toolkit.name=WLToolkit
+-Xmx8192m

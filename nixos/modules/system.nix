@@ -10,6 +10,7 @@
     nix-search-cli
 
     coreutils
+    file
     fastfetch
     wget
     htop
