@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
-let username = "skwig";
-in {
+let
+  username = "skwig";
+in
+{
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -36,7 +38,11 @@ in {
     isNormalUser = true;
     description = "${username}";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
   };
 
   # TODO: Better way? home manager?
@@ -81,5 +87,7 @@ in {
 
   # services.fprintd.enable = true;
 
-  services.cloudflare-warp = { enable = true; };
+  services.cloudflare-warp = {
+    enable = true;
+  };
 }

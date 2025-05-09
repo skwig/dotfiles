@@ -23,6 +23,9 @@
 
     jq
     yq
+
+    nixd
+    nixfmt-rfc-style
   ];
 
   programs.neovim = {
@@ -30,5 +33,7 @@
     defaultEditor = true;
   };
 
-  virtualisation.docker = { enable = true; };
+  virtualisation.docker = {
+    enable = true;
+  };
 }

@@ -2,7 +2,10 @@
 
 {
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -38,8 +41,7 @@
     vscodium
   ];
 
-  fonts.packages = with pkgs;
-    [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
   time.hardwareClockInLocalTime = true;
 
   programs.neovim = {
@@ -52,9 +54,16 @@
     enable = true;
     ohMyZsh = {
       enable = true;
-      plugins = [ "sudo" "kubectl" "web-search" "fzf" ];
+      plugins = [
+        "sudo"
+        "kubectl"
+        "web-search"
+        "fzf"
+      ];
     };
-    syntaxHighlighting = { enable = true; };
+    syntaxHighlighting = {
+      enable = true;
+    };
   };
 
   system.stateVersion = "24.11";

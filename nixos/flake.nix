@@ -4,60 +4,68 @@
     pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
   };
 
-  outputs = { self, nixpkgs, pr-freelens, ... }@attrs: {
-    nixosConfigurations.blackbox = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = attrs // {
-        freelens = (import pr-freelens { system = "x86_64-linux"; }).freelens;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      pr-freelens,
+      ...
+    }@attrs:
+    {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      nixosConfigurations.blackbox = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs // {
+          freelens = (import pr-freelens { system = "x86_64-linux"; }).freelens;
+        };
+        modules = [
+          ./hosts/blackbox/configuration.nix
+          ./hosts/blackbox/hardware-configuration.nix
+          ./modules/system.nix
+          ./modules/bluetooth.nix
+          ./modules/nvidia.nix
+          ./modules/hyprland.nix
+          ./modules/personal.nix
+          ./modules/dev.nix
+          ./modules/dev.dotnet.nix
+          ./modules/dev.az.nix
+          ./modules/dev.k8s.nix
+          ./modules/dev.go.nix
+        ];
       };
-      modules = [
-        ./hosts/blackbox/configuration.nix
-        ./hosts/blackbox/hardware-configuration.nix
-        ./modules/system.nix
-        ./modules/bluetooth.nix
-        ./modules/nvidia.nix
-        ./modules/hyprland.nix
-        ./modules/personal.nix
-        ./modules/dev.nix
-        ./modules/dev.dotnet.nix
-        ./modules/dev.az.nix
-        ./modules/dev.k8s.nix
-        ./modules/dev.go.nix
-      ];
-    };
 
-    nixosConfigurations.blackbox2 = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = attrs;
-      modules = [
-        ./hosts/blackbox2/configuration.nix
-        ./hosts/blackbox2/hardware-configuration.nix
-        ./modules/system.nix
-        # ./modules/bluetooth.nix
-        ./modules/nvidia.nix
-        ./modules/hyprland.nix
-        ./modules/dev.nix
-        ./modules/dev.dotnet.nix
-        ./modules/dev.go.nix
-      ];
-    };
+      nixosConfigurations.blackbox2 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [
+          ./hosts/blackbox2/configuration.nix
+          ./hosts/blackbox2/hardware-configuration.nix
+          ./modules/system.nix
+          # ./modules/bluetooth.nix
+          ./modules/nvidia.nix
+          ./modules/hyprland.nix
+          ./modules/dev.nix
+          ./modules/dev.dotnet.nix
+          ./modules/dev.go.nix
+        ];
+      };
 
-    nixosConfigurations.smallbox = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = attrs;
-      modules = [
-        ./hosts/smallbox/configuration.nix
-        ./hosts/smallbox/hardware-configuration.nix
-        ./modules/system.nix
-        ./modules/bluetooth.nix
-        ./modules/hyprland.nix
-        ./modules/personal.nix
-        ./modules/dev.nix
-        ./modules/dev.dotnet.nix
-        ./modules/dev.az.nix
-        ./modules/dev.k8s.nix
-        ./modules/dev.go.nix
-      ];
+      nixosConfigurations.smallbox = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [
+          ./hosts/smallbox/configuration.nix
+          ./hosts/smallbox/hardware-configuration.nix
+          ./modules/system.nix
+          ./modules/bluetooth.nix
+          ./modules/hyprland.nix
+          ./modules/personal.nix
+          ./modules/dev.nix
+          ./modules/dev.dotnet.nix
+          ./modules/dev.az.nix
+          ./modules/dev.k8s.nix
+          ./modules/dev.go.nix
+        ];
+      };
     };
-  };
 }

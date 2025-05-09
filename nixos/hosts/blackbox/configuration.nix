@@ -1,7 +1,14 @@
-{ config, pkgs, freelens, ... }:
+{
+  config,
+  pkgs,
+  freelens,
+  ...
+}:
 
-let username = "skwig";
-in {
+let
+  username = "skwig";
+in
+{
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
@@ -60,7 +67,11 @@ in {
     isNormalUser = true;
     description = username;
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
   };
 
   services.gnome.gnome-keyring.enable = true;

@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
-let username = "mbr";
-in {
+let
+  username = "mbr";
+in
+{
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -33,11 +35,14 @@ in {
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs;
-      [
-        #  thunderbird
-      ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
+    packages = with pkgs; [
+      #  thunderbird
+    ];
   };
 
   system.activationScripts.symlink = {
