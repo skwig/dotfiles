@@ -18,7 +18,7 @@ return {
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
       local yaml_companion = require("yaml-companion")
 
-      local lsps = { "gopls", "lua_ls", "stylua", "omnisharp", "yamlls", "terraformls", "nil", "hyprls", "prettierd", "fixjson", "nixfmt" }
+      local lsps = { "gopls", "lua_ls", "stylua", "omnisharp", "yamlls", "terraformls", "hyprls", "prettierd", "fixjson"  }
       local capabilities =
         vim.tbl_deep_extend("force", lspconfig.util.default_config.capabilities, cmp_nvim_lsp.default_capabilities())
 
@@ -99,7 +99,16 @@ return {
           terraformls = function()
             lspconfig.terraformls.setup({})
           end,
+
         },
+      })
+
+      -- nixd is not on mason, so it has to be initialized on its own
+      lspconfig.nixd.setup({
+         settings = {
+            nixd = {
+            },
+         },
       })
 
       if vim.g.have_nerd_font then

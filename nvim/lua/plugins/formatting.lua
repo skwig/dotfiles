@@ -41,7 +41,6 @@ return {
       end,
       formatters_by_ft = {
         lua = { "stylua" },
-        nix = { "nixfmt" },
         json = { "fixjson" },
         json5 = { "fixjson" },
         jsonc = { "fixjson" },
