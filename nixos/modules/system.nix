@@ -34,8 +34,10 @@
 
     # TODO: Some sort of "desktop" section? These dont work in TTY or headless mode
     networkmanagerapplet
+    efibootmgr
 
     brave
+    google-chrome
     wezterm
     dolphin
     vscodium

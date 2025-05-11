@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  pr-pkgs,
+  pkgs-pr,
   username,
   hostname,
   ...
@@ -126,6 +126,6 @@
     imgcat
     mesa-demos
     python3
-    pr-pkgs.freelens
+    pkgs-pr.freelens
   ];
 }

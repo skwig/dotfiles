@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=3404205"; # 24.11 as of 2025-03-23
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
   };
 
@@ -8,15 +9,17 @@
     {
       self,
       nixpkgs,
+      nixpkgs-unstable,
       pr-freelens,
       ...
     }@attrs:
     {
-      nixosConfigurations.blackbox = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.blackbox = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = attrs // {
-          pr-pkgs = {
-            freelens = (import pr-freelens { system = "x86_64-linux"; }).freelens;
+          pkgs-unstable = (import nixpkgs-unstable { inherit system; });
+          pkgs-pr = {
+            freelens = (import pr-freelens { inherit system; }).freelens;
           };
           username = "skwig";
           hostname = "blackbox";
@@ -40,7 +43,7 @@
       nixosConfigurations.blackbox2 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = attrs // {
-          pr-pkgs = {
+          pkgs-pr = {
             freelens = (import pr-freelens { system = "x86_64-linux"; }).freelens;
           };
           username = "mbr";
@@ -62,7 +65,7 @@
       nixosConfigurations.smallbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = attrs // {
-          pr-pkgs = {
+          pkgs-pr = {
             freelens = (import pr-freelens { system = "x86_64-linux"; }).freelens;
           };
           username = "skwig";

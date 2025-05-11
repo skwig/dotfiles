@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -7,6 +7,7 @@
     mpv
     vlc
     synology-drive-client
+    pkgs-unstable.bolt-launcher
   ];
 
   programs.steam.enable = true;
