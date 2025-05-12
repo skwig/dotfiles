@@ -2,6 +2,7 @@
   config,
   pkgs,
   pkgs-pr,
+  pkgs-unstable,
   username,
   hostname,
   ...
@@ -38,29 +39,32 @@
     variant = "";
   };
 
-  programs.virt-manager.enable = true;
+  # programs.virt-manager.enable = true;
+  #
+  # users.groups.libvirtd.members = [ username ];
+  #
+  # virtualisation.libvirtd = {
+  #   enable = true;
+  #   qemu = {
+  #     package = pkgs.qemu_kvm;
+  #     runAsRoot = true;
+  #     swtpm.enable = true;
+  #     ovmf = {
+  #       enable = true;
+  #       packages = [
+  #         (pkgs.OVMF.override {
+  #           secureBoot = true;
+  #           tpmSupport = true;
+  #         }).fd
+  #       ];
+  #     };
+  #   };
+  #
+  #   # spiceUSBRedirection.enable = true;
+  # };
 
-  users.groups.libvirtd.members = [ username ];
-
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      runAsRoot = true;
-      swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [
-          (pkgs.OVMF.override {
-            secureBoot = true;
-            tpmSupport = true;
-          }).fd
-        ];
-      };
-    };
-
-    # spiceUSBRedirection.enable = true;
-  };
+  virtualisation.vmware.host.enable = true;
+  virtualisation.vmware.host.package = pkgs-unstable.vmware-workstation;
 
   users.users.${username} = {
     isNormalUser = true;
@@ -126,6 +130,8 @@
     imgcat
     mesa-demos
     python3
+    # vmware-workstation
     pkgs-pr.freelens
+    # adwaita-icon-theme
   ];
 }

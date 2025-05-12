@@ -17,7 +17,12 @@
       nixosConfigurations.blackbox = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = attrs // {
-          pkgs-unstable = (import nixpkgs-unstable { inherit system; });
+          pkgs-unstable = (
+            import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            }
+          );
           pkgs-pr = {
             freelens = (import pr-freelens { inherit system; }).freelens;
           };
@@ -31,6 +36,7 @@
           ./modules/bluetooth.nix
           ./modules/nvidia.nix
           ./modules/hyprland.nix
+          # ./modules/kde.nix
           ./modules/personal.nix
           ./modules/dev.nix
           ./modules/dev.dotnet.nix

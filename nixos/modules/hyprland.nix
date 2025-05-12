@@ -9,6 +9,7 @@
     hyprcursor
     hyprpaper
     rose-pine-hyprcursor
+    adwaita-icon-theme
     papirus-icon-theme
     waybar
     rofi-wayland

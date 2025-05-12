@@ -24,12 +24,8 @@
     oh-my-posh
 
     # TMP
-    gum
     eza
     pywal
-    sway
-    swaynotificationcenter
-    grimblast
     libnotify
 
     # TODO: Some sort of "desktop" section? These dont work in TTY or headless mode
