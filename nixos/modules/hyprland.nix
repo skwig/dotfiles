@@ -41,6 +41,8 @@
     XDG_SESSION_DESKTOP = "Hyprland";
   };
 
+  xdg.icons.fallbackCursorThemes = [ "Adwaita" ];
+
   # services.xserver.enable = true;
   # services.displayManager.sddm.enable = true;
   # services.displayManager.sddm.wayland.enable = true;
