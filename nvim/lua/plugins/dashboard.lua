@@ -21,6 +21,7 @@ return {
 
     dashboard.section.top_buttons.val = {
       dashboard.button("e", "  New file", "<cmd>ene <BAR> startinsert <CR>"),
+      dashboard.button("i", "  Saved sessions", "<cmd>SessionSearch<CR>"),
       dashboard.button(".", "  Recently used files", "<cmd>Telescope oldfiles<CR>"),
       dashboard.button("f", "󰱼  Find file", "<cmd>Telescope find_files<CR>"),
       dashboard.button("g", "󰊄  Find text", "<cmd>Telescope live_grep <CR>"),
