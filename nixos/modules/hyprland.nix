@@ -20,6 +20,7 @@
     brightnessctl
     playerctl
     pavucontrol
+    pamixer
 
     wlogout
     wtype
