@@ -21,6 +21,7 @@
     playerctl
     pavucontrol
     pamixer
+    xfce.orage
 
     wlogout
     wtype
