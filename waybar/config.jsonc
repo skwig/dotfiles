@@ -70,7 +70,7 @@
             "",
             ""
         ],
-        "on-click": "pavucontrol --tab 3",
+        "on-click": "killall .pavucontrol-wr || pavucontrol --tab 3",
         "on-click-right": "pamixer --toggle-mute",
         "on-click-middle": "pamixer --toggle-mute"
     },
@@ -78,7 +78,7 @@
         "format": "{format_source}",
         "format-source": "",
         "format-source-muted": "",
-        "on-click": "pavucontrol --tab 4"
+        "on-click": "killall .pavucontrol-wr || pavucontrol --tab 4"
     },
     "custom/media": {
         "format": "{icon} {text}",
@@ -95,7 +95,7 @@
         "format-wifi": "",
         "format-ethernet": "",
         "format-disconnected": "󰤭",
-        "on-click": "nm-connection-editor"
+        "on-click": "killall .nm-connection-editor || nm-connection-editor"
     },
     "custom/bluetooth": {
         "format": "",

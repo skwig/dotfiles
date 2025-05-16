@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 
 {
 
@@ -18,6 +23,7 @@
     wget
     htop
     zip
+    killall
 
     yazi
     imagemagick
@@ -33,13 +39,24 @@
     efibootmgr
 
     brave
-    google-chrome
+    pkgs-unstable.google-chrome
     wezterm
-    dolphin
+    nautilus
     vscodium
   ];
 
-  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    twemoji-color-font
+    twitter-color-emoji
+  ];
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts.emoji = [
+      "Twitter Color Emoji"
+    ];
+  };
+
   time.hardwareClockInLocalTime = true;
 
   programs.neovim = {

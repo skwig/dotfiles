@@ -117,6 +117,10 @@ window#waybar {
   /*TODO: do this better, so hovers dont change opacity*/
   opacity: 0.5;
 }
+
+#workspaces button.urgent {
+  background-color: @color13;
+}
 /**/
 /*#hyprland-workspaces button.urgent {*/
 /*  color: #b8c0e0;*/

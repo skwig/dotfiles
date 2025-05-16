@@ -132,6 +132,5 @@
     python3
     # vmware-workstation
     pkgs-pr.freelens
-    # adwaita-icon-theme
   ];
 }
