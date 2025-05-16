@@ -38,8 +38,9 @@
         "spacing": 10
     },
     "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%X}"
+        "format": "{:%I:%M %x}",
+        "locale": "sk_SK.utf8",
+        "on-click": "killall .orage-wrapped || orage"
     },
     "pulseaudio#out": {
         "format": "{icon}",

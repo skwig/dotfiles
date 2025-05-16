@@ -69,6 +69,10 @@ window#waybar {
   padding-right: 8px;
 }
 
+#clock {
+  margin-right: 5px;
+}
+
 /*#workspaces button:hover,*/
 #pulseaudio:hover,
 #clock:hover,
@@ -121,6 +125,7 @@ window#waybar {
 #workspaces button.urgent {
   background-color: @color13;
 }
+
 /**/
 /*#hyprland-workspaces button.urgent {*/
 /*  color: #b8c0e0;*/
