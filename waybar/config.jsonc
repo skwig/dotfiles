@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "height": 34,
-    "spacing": 2,
+    "spacing": 4,
     "modules-left": [
         "custom/logo",
         "custom/media",
@@ -35,10 +35,12 @@
     },
     "tray": {
         "icon-size": 24,
-        "spacing": 10
+        "spacing": 10,
+        "show-passive-items": true
     },
     "clock": {
-        "format": "{:%I:%M %x}",
+        "format": "{:L%H:%M}",
+        "tooltip-format": "{:L%a %x}",
         "on-click": "killall .orage-wrapped || orage"
     },
     "pulseaudio#out": {
@@ -95,6 +97,9 @@
         "format-wifi": "",
         "format-ethernet": "",
         "format-disconnected": "󰤭",
+        "tooltip-format-wifi": " {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": " {ifname}",
+        "tooltip-format-disconnected": "Disconnected",
         "on-click": "killall .nm-connection-editor || nm-connection-editor"
     },
     "custom/bluetooth": {

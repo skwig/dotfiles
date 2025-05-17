@@ -4,9 +4,8 @@
 /*TODO: color invert on hover/select/whatever*/
 
 * {
-  /*border: none;*/
-  font-family: JetBrainsMono, awesome-terminal-fonts;
-  font-size: 18px;
+  font-family: "JetBrains Nerd Font";
+  font-size: 16px;
   min-height: 0;
   border-radius: 5px;
 }
@@ -17,20 +16,13 @@ window#waybar {
   border-radius: 0;
 }
 
-/**/
-/*#waybar {*/
-/*  background: transparent;*/
-/*  border-bottom: none;*/
-/*}*/
-/**/
+.modules-left {
+  margin-left: 10px;
+}
 
-/*.modules-left {*/
-/*  margin-left: 10px;*/
-/*}*/
-/**/
-/*.modules-right {*/
-/*  margin-right: 10px;*/
-/*}*/
+.modules-right {
+  margin-right: 10px;
+}
 
 /*#clock:hover,*/
 /*#battery:hover,*/
@@ -52,35 +44,48 @@ window#waybar {
 /*#custom-wifi:hover,*/
 /*#custom-bluetooth:hover,*/
 
-#custom-logo {
-  margin-left: 5px;
-}
+/*#custom-logo {*/
+/*  margin-left: 5px;*/
+/*}*/
 
 /*#custom-logo:hover {*/
 /*  background-color: @color12;*/
 /*}*/
 
+/*#pulseaudio,*/
+/*#clock,*/
+/*#network,*/
+/*#custom-wifi,*/
+/*#custom-logo {*/
+/*  padding-left: 8px;*/
+/*  padding-right: 8px;*/
+/*}*/
+
 #pulseaudio,
-#clock,
 #network,
-#custom-bluetooth,
-#custom-wifi,
+#clock,
 #custom-logo {
   padding-left: 8px;
   padding-right: 8px;
 }
 
-#clock {
-  margin-right: 5px;
+/*Special paddings to center icons*/
+#pulseaudio,
+#network,
+#custom-logo {
+  padding-right: 14px;
+}
+
+#pulseaudio.bluetooth {
+  padding-right: 8px;
 }
 
 /*#workspaces button:hover,*/
 #pulseaudio:hover,
-#clock:hover,
 #network:hover,
-#custom-bluetooth:hover,
-#custom-wifi:hover,
+#clock:hover,
 #custom-logo:hover {
+  color: @color11;
   background-color: @color12;
 }
 
