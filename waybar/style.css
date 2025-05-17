@@ -1,7 +1,6 @@
 @import "theme.css";
 
 /*TODO: privacy*/
-/*TODO: color invert on hover/select/whatever*/
 
 * {
   font-family: "JetBrains Nerd Font";
@@ -12,7 +11,7 @@
 
 window#waybar {
   background: rgba(0, 0, 0, 0.3);
-  color: #b8c0e0;
+  color: @foreground;
   border-radius: 0;
 }
 
@@ -23,43 +22,6 @@ window#waybar {
 .modules-right {
   margin-right: 10px;
 }
-
-/*#clock:hover,*/
-/*#battery:hover,*/
-/*#cpu:hover,*/
-/*#memory:hover,*/
-/*#disk:hover,*/
-/*#temperature:hover,*/
-/*#backlight:hover,*/
-/*#network:hover,*/
-/*#pulseaudio:hover,*/
-/*#pulseaudio.muted:hover,*/
-/*#wireplumber:hover,*/
-/*#custom-media:hover,*/
-/*#mode:hover,*/
-/*#idle_inhibitor:hover,*/
-/*#scratchpad:hover,*/
-/*#power-profiles-daemon:hover,*/
-/*#custom-power:hover,*/
-/*#custom-wifi:hover,*/
-/*#custom-bluetooth:hover,*/
-
-/*#custom-logo {*/
-/*  margin-left: 5px;*/
-/*}*/
-
-/*#custom-logo:hover {*/
-/*  background-color: @color12;*/
-/*}*/
-
-/*#pulseaudio,*/
-/*#clock,*/
-/*#network,*/
-/*#custom-wifi,*/
-/*#custom-logo {*/
-/*  padding-left: 8px;*/
-/*  padding-right: 8px;*/
-/*}*/
 
 #pulseaudio,
 #network,
@@ -79,48 +41,32 @@ window#waybar {
 #pulseaudio.bluetooth {
   padding-right: 8px;
 }
+/*END Special paddings to center icons*/
 
-/*#workspaces button:hover,*/
 #pulseaudio:hover,
 #network:hover,
 #clock:hover,
 #custom-logo:hover {
-  color: @color11;
-  background-color: @color12;
+  background-color: @color1;
 }
 
-/**/
-/*#clock,*/
-/*#network,*/
-/*#pulseaudio,*/
-/*#bluetooth,*/
-/*#custom-playerctl {*/
-/*  color: #b8c0e0;*/
-/*  padding: 0 12px;*/
-/*  margin: 0 2px;*/
-/*}*/
-/**/
-/**/
-/*#hyprland-workspaces button {*/
-/*  color: #b8c0e0;*/
-/*  padding: 0 8px;*/
-/*}*/
-/**/
-/*#hyprland-workspaces button.focused {*/
-/*  background-color: @color12;*/
-/*  border-radius: 5px;*/
-/*}*/
-
-/*#workspaces button.visible {*/
-/*  background-color: @color12;*/
-/*}*/
-
-/*#workspaces button {*/
-/*  font-size: 5px;*/
-/*}*/
+#workspaces button {
+  border: none;
+  background: none;
+  transition: none;
+  text-shadow: none;
+  /*Reserve space for the border in active, so activating doesnt shift the text*/
+  border-bottom: 2px solid transparent;
+}
 
 #workspaces button.active {
-  background-color: @color12;
+  border-radius: 0;
+  border-bottom: 2px solid @color1;
+}
+
+#workspaces button:hover {
+  background-color: @color1;
+  border-radius: 5px;
 }
 
 #workspaces button.empty {
@@ -131,39 +77,3 @@ window#waybar {
 #workspaces button.urgent {
   background-color: @color13;
 }
-
-/**/
-/*#hyprland-workspaces button.urgent {*/
-/*  color: #b8c0e0;*/
-/*}*/
-/**/
-/*.custom-arrow {*/
-/*  color: #b8c0e0;*/
-/*  font-size: 18px;*/
-/*  padding: 0;*/
-/*  margin: 0 -6px;*/
-/*}*/
-/**/
-/*#custom-pacman,*/
-/*#cpu,*/
-/*#memory,*/
-/*#network,*/
-/*#pulseaudio,*/
-/*#bluetooth,*/
-/*#custom-playerctl,*/
-/*#clock {*/
-/*  color: #b8c0e0;*/
-/*}*/
-/**/
-/*#network.disconnected {*/
-/*  color: #b8c0e0;*/
-/*}*/
-/*#pulseaudio.muted {*/
-/*  color: #b8c0e0;*/
-/*}*/
-/*#temperature.critical {*/
-/*  color: #b8c0e0;*/
-/*}*/
-/*#battery.critical:not(.charging) {*/
-/*  color: #b8c0e0;*/
-/*}*/

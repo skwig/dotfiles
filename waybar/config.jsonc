@@ -49,7 +49,7 @@
         "format-bluetooth": "{icon}   ",
         "format-bluetooth-muted": "   ",
         "tooltip": true,
-        "tooltip-format": "{icon} {desc} // {volume}%",
+        "tooltip-format": "{icon}  {desc} // {volume}%",
         "format-icons": [
             "",
             "",
@@ -97,8 +97,8 @@
         "format-wifi": "",
         "format-ethernet": "",
         "format-disconnected": "󰤭",
-        "tooltip-format-wifi": " {essid} ({signalStrength}%)",
-        "tooltip-format-ethernet": " {ifname}",
+        "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "  {ifname}",
         "tooltip-format-disconnected": "Disconnected",
         "on-click": "killall .nm-connection-editor || nm-connection-editor"
     },
