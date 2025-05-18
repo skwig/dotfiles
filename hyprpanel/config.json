@@ -81,5 +81,6 @@
   "bar.workspaces.showAllActive": true,
   "bar.workspaces.numbered_active_indicator": "underline",
   "theme.bar.buttons.workspaces.occupied": "#f2cdcd",
-  "theme.bar.buttons.workspaces.available": "#89dceb"
+  "notifications.showActionsOnHover": true,
+  "theme.notification.enableShadow": true
 }
