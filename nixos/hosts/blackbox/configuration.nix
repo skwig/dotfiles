@@ -89,6 +89,9 @@
       ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/hypr/
       chown -h ${username}:users /home/${username}/.config/hypr
 
+      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/hyprpanel/
+      chown -h ${username}:users /home/${username}/.config/hyprpanel
+
       ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/waybar/
       chown -h ${username}:users /home/${username}/.config/waybar
 

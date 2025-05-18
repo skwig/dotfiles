@@ -1,0 +1,63 @@
+{
+  "theme.bar.menus.enableShadow": false,
+  "scalingPriority": "gdk",
+  "theme.font.size": "14",
+  "theme.font.weight": 400,
+  "theme.bar.menus.monochrome": false,
+  "menus.clock.time.military": true,
+  "menus.clock.time.hideSeconds": true,
+  "menus.clock.weather.unit": "metric",
+  "menus.clock.weather.enabled": false,
+  "theme.bar.transparent": false,
+  "theme.bar.opacity": 30,
+  "theme.bar.buttons.style": "default",
+  "theme.bar.buttons.monochrome": false,
+  "theme.osd.orientation": "horizontal",
+  "theme.osd.muted_zero": false,
+  "theme.osd.location": "top left",
+  "theme.font.name": "JetBrainsMono Nerd Font",
+  "theme.font.label": "JetBrainsMono Nerd Font Thin",
+  "theme.bar.floating": false,
+  "bar.autoHide": "never",
+  "bar.launcher.icon": "",
+  "bar.launcher.autoDetectIcon": false,
+  "bar.layouts": {
+    "*": {
+      "left": [
+        "dashboard",
+        "systray",
+        "windowtitle"
+      ],
+      "middle": [
+        "workspaces"
+      ],
+      "right": [
+        "network",
+        "volume",
+        "bluetooth",
+        "notifications",
+        "clock"
+      ]
+    }
+  },
+  "bar.workspaces.monitorSpecific": false,
+  "bar.workspaces.show_numbered": true,
+  "bar.workspaces.workspaceMask": false,
+  "bar.volume.label": false,
+  "bar.volume.scrollDown": "",
+  "bar.volume.scrollUp": "",
+  "bar.network.label": false,
+  "bar.network.showWifiInfo": true,
+  "theme.bar.buttons.network.enableBorder": false,
+  "theme.bar.buttons.bluetooth.enableBorder": false,
+  "bar.bluetooth.label": false,
+  "bar.battery.label": false,
+  "theme.bar.buttons.systray.enableBorder": false,
+  "bar.clock.format": "%H:%M",
+  "bar.clock.showIcon": false,
+  "bar.clock.showTime": true,
+  "theme.bar.buttons.clock.spacing": "0",
+  "bar.media.show_active_only": true,
+  "bar.notifications.show_total": true,
+  "bar.notifications.hideCountWhenZero": true
+}

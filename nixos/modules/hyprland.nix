@@ -8,6 +8,7 @@
     hypridle
     hyprcursor
     hyprpaper
+    hyprpanel
     rose-pine-hyprcursor
     adwaita-icon-theme
     papirus-icon-theme

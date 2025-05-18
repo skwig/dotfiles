@@ -3,6 +3,9 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=3404205"; # 24.11 as of 2025-03-23
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
+
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -11,6 +14,7 @@
       nixpkgs,
       nixpkgs-unstable,
       pr-freelens,
+      hyprpanel,
       ...
     }@attrs:
     {
@@ -26,10 +30,14 @@
           pkgs-pr = {
             freelens = (import pr-freelens { inherit system; }).freelens;
           };
+          pkgs-hyprpanel = {
+            hyprpanel = (import hyprpanel { inherit system; }).hyprpanel;
+          };
           username = "skwig";
           hostname = "blackbox";
         };
         modules = [
+          { nixpkgs.overlays = [ hyprpanel.overlay ]; }
           ./hosts/blackbox/configuration.nix
           ./hosts/blackbox/hardware-configuration.nix
           ./modules/system.nix
