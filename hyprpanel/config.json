@@ -64,7 +64,7 @@
   "menus.dashboard.shortcuts.enabled": true,
   "menus.dashboard.directories.enabled": false,
   "theme.bar.buttons.volume.background": "#000000",
-  "theme.bar.buttons.background_opacity": 100,
+  "theme.bar.buttons.background_opacity": 0,
   "theme.bar.buttons.background_hover_opacity": 50,
   "theme.bar.buttons.icon": "#c4bfc1",
   "theme.bar.buttons.text": "#c4bfc1",

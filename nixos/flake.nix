@@ -76,16 +76,26 @@
         ];
       };
 
-      nixosConfigurations.smallbox = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.smallbox = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = attrs // {
+          pkgs-unstable = (
+            import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            }
+          );
           pkgs-pr = {
-            freelens = (import pr-freelens { system = "x86_64-linux"; }).freelens;
+            freelens = (import pr-freelens { inherit system; }).freelens;
+          };
+          pkgs-hyprpanel = {
+            hyprpanel = (import hyprpanel { inherit system; }).hyprpanel;
           };
           username = "skwig";
           hostname = "smallbox";
         };
         modules = [
+          { nixpkgs.overlays = [ hyprpanel.overlay ]; }
           ./hosts/smallbox/configuration.nix
           ./hosts/smallbox/hardware-configuration.nix
           ./modules/system.nix
