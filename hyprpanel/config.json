@@ -32,6 +32,7 @@
         "workspaces"
       ],
       "right": [
+        "battery",
         "network",
         "volume",
         "bluetooth",
