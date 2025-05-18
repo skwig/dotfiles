@@ -47,7 +47,7 @@ window#waybar {
 #network:hover,
 #clock:hover,
 #custom-logo:hover {
-  background-color: @color1;
+  background-color: @color9;
 }
 
 #workspaces button {
@@ -55,17 +55,20 @@ window#waybar {
   background: none;
   transition: none;
   text-shadow: none;
+
+  color: @foreground;
+
   /*Reserve space for the border in active, so activating doesnt shift the text*/
   border-bottom: 2px solid transparent;
 }
 
 #workspaces button.active {
   border-radius: 0;
-  border-bottom: 2px solid @color1;
+  border-bottom: 2px solid @color9;
 }
 
 #workspaces button:hover {
-  background-color: @color1;
+  background-color: @color9;
   border-radius: 5px;
 }
 
