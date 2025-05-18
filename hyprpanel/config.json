@@ -1,5 +1,5 @@
 {
-  "theme.bar.menus.enableShadow": false,
+  "theme.bar.menus.enableShadow": true,
   "scalingPriority": "gdk",
   "theme.font.size": "14",
   "theme.font.weight": 400,
@@ -66,7 +66,8 @@
   "theme.bar.buttons.volume.background": "#000000",
   "theme.bar.buttons.background_opacity": 100,
   "theme.bar.buttons.background_hover_opacity": 50,
-  "theme.bar.buttons.icon": "#b4befe",
+  "theme.bar.buttons.icon": "#c4bfc1",
+  "theme.bar.buttons.text": "#c4bfc1",
   "theme.bar.buttons.volume.enableBorder": false,
   "theme.bar.buttons.volume.spacing": "0",
   "menus.dashboard.shortcuts.left.shortcut1.command": "",
@@ -82,5 +83,6 @@
   "bar.workspaces.numbered_active_indicator": "underline",
   "theme.bar.buttons.workspaces.occupied": "#f2cdcd",
   "notifications.showActionsOnHover": true,
-  "theme.notification.enableShadow": true
+  "theme.notification.enableShadow": true,
+  "menus.transition": "crossfade"
 }

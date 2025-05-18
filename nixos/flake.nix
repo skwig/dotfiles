@@ -5,7 +5,7 @@
     pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
 
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
+    hyprpanel.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs =

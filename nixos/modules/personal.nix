@@ -1,7 +1,6 @@
 {
   pkgs,
   pkgs-unstable,
-  fonts,
   ...
 }:
 
@@ -17,6 +16,7 @@
     wine-wayland
     qbittorrent
     pywal16
+    gimp
   ];
 
   programs.steam.enable = true;
