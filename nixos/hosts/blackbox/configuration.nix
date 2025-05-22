@@ -11,7 +11,6 @@
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";
 
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -63,8 +62,8 @@
   #   # spiceUSBRedirection.enable = true;
   # };
 
-  virtualisation.vmware.host.enable = true;
-  virtualisation.vmware.host.package = pkgs-unstable.vmware-workstation;
+  # virtualisation.vmware.host.enable = true;
+  # virtualisation.vmware.host.package = pkgs-unstable.vmware-workstation;
 
   users.users.${username} = {
     isNormalUser = true;
@@ -81,7 +80,8 @@
 
   system.activationScripts.symlink = {
     text = ''
-      mkdir -p ~/.config/
+      mkdir -p /home/${username}/.config/
+      chown -h ${username}:users /home/${username}/.config/
 
       ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/nvim/
       chown -h ${username}:users /home/${username}/.config/nvim
@@ -112,6 +112,9 @@
 
       ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/dunst/
       chown -h ${username}:users /home/${username}/.config/dunst
+
+      mkdir -p /home/${username}/.config/JetBrains/Rider2024.3/
+      chown -h ${username}:users /home/${username}/.config/JetBrains/Rider2024.3/
 
       ln -sf -t /home/${username}/.config/JetBrains/Rider2024.3/ /home/${username}/dotfiles/wayland/rider64.vmoptions
       chown -h ${username}:users /home/${username}/.config/JetBrains/Rider2024.3/rider64.vmoptions
