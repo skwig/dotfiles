@@ -17,8 +17,12 @@
     qbittorrent
     pywal16
     gimp
+    gamescope
   ];
 
   programs.steam.enable = true;
   programs.steam.extraCompatPackages = with pkgs; [ proton-ge-bin ];
+  # programs.steam.gamescopeSession = true;
+
+  # ln -s ~/runelite ~/.local/share/bolt-launcher/.runelite
 }

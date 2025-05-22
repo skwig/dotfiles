@@ -85,5 +85,8 @@
   "theme.bar.buttons.workspaces.occupied": "#f2cdcd",
   "notifications.showActionsOnHover": true,
   "theme.notification.enableShadow": true,
-  "menus.transition": "crossfade"
+  "menus.transition": "crossfade",
+  "bar.battery.hideLabelWhenFull": false,
+  "theme.bar.menus.label": "#b4befe",
+  "theme.bar.menus.switch.enabled": "#b4befe"
 }
