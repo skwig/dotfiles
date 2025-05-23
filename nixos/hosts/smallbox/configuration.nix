@@ -6,6 +6,12 @@
   ...
 }:
 
+let
+  home-manager = builtins.fetchTarball {
+    url = "https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz";
+    sha256 = "1mwq9mzyw1al03z4q2ifbp6d0f0sx9f128xxazwrm62z0rcgv4na";
+  };
+in
 {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -99,7 +105,25 @@
 
   # services.fprintd.enable = true;
 
+  environment.systemPackages = with pkgs; [
+  ];
+
+  services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
+
   services.cloudflare-warp = {
     enable = true;
   };
+
+  imports = [
+    (import "${home-manager}/nixos")
+  ];
+
+  home-manager.users.${username} =
+    { config, ... }:
+    {
+      home.file."bar".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/dotfiles;
+
+      home.stateVersion = "24.11";
+    };
 }
