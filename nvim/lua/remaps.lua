@@ -5,6 +5,8 @@ vim.keymap.set("n", "<CR>", "<NOP>", {})
 
 vim.keymap.set({"n", "v", "o"}, "<S-u>", "<C-r>", {}) -- Redo with shift
 
+vim.keymap.set({"n", "v", "o"}, "gj", "J", {})
+
 -- Faster movement
 vim.keymap.set({"n", "v", "o"}, "<S-k>", "10k", {})
 vim.keymap.set({"n", "v", "o"}, "<S-j>", "10j", {})

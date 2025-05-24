@@ -4,6 +4,9 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
 
+    # home-manager.url = "github:nix-community/home-manager/master";
+    # home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     hyprpanel.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
@@ -14,6 +17,7 @@
       nixpkgs,
       nixpkgs-unstable,
       pr-freelens,
+      home-manager,
       hyprpanel,
       ...
     }@attrs:

@@ -44,6 +44,23 @@
         "type": "github"
       }
     },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1747978958,
+        "narHash": "sha256-pQQnbxWpY3IiZqgelXHIe/OAE/Yv4NSQq7fch7M6nXQ=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "7419250703fd5eb50e99bdfb07a86671939103ea",
+        "type": "github"
+      },
+      "original": {
+        "id": "home-manager",
+        "type": "indirect"
+      }
+    },
     "hyprpanel": {
       "inputs": {
         "ags": "ags",
@@ -67,16 +84,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1742754969,
-        "narHash": "sha256-pmBphBjyfYrHjt6FYG+lRbJTSZayDyiJHd/wA9u8Acs=",
-        "owner": "nixos",
+        "lastModified": 1747744144,
+        "narHash": "sha256-W7lqHp0qZiENCDwUZ5EX/lNhxjMdNapFnbErcbnP11Q=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "34042055a2c4b22d40926b4b5b544f32cf07e7fc",
+        "rev": "2795c506fe8fb7b03c36ccb51f75b6df0ab2553f",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "3404205",
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -93,6 +110,22 @@
       "original": {
         "owner": "nixos",
         "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1742754969,
+        "narHash": "sha256-pmBphBjyfYrHjt6FYG+lRbJTSZayDyiJHd/wA9u8Acs=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "34042055a2c4b22d40926b4b5b544f32cf07e7fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "3404205",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -115,8 +148,9 @@
     },
     "root": {
       "inputs": {
+        "home-manager": "home-manager",
         "hyprpanel": "hyprpanel",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pr-freelens": "pr-freelens"
       }

@@ -54,55 +54,6 @@ in
     ];
   };
 
-  # TODO: Better way? home manager?
-  system.activationScripts.symlink = {
-    text = ''
-      mkdir -p ~/.config/
-
-      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/nvim/
-      chown -h ${username}:users /home/${username}/.config/nvim
-
-      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/hypr/
-      chown -h ${username}:users /home/${username}/.config/hypr
-
-      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/hyprpanel/
-      chown -h ${username}:users /home/${username}/.config/hyprpanel
-
-      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/waybar/
-      chown -h ${username}:users /home/${username}/.config/waybar
-
-      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/wezterm/
-      chown -h ${username}:users /home/${username}/.config/wezterm
-
-      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/wlogout/
-      chown -h ${username}:users /home/${username}/.config/wlogout
-
-      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/gtk-3.0/
-      chown -h ${username}:users /home/${username}/.config/gtk-3.0
-
-      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/gtk-4.0/
-      chown -h ${username}:users /home/${username}/.config/gtk-4.0
-
-      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/rofi/
-      chown -h ${username}:users /home/${username}/.config/rofi
-
-      ln -sf -t /home/${username}/.config/ /home/${username}/dotfiles/dunst/
-      chown -h ${username}:users /home/${username}/.config/dunst
-
-      ln -sf -t /home/${username}/.config/JetBrains/Rider2024.3/ /home/${username}/dotfiles/wayland/rider64.vmoptions
-      chown -h ${username}:users /home/${username}/.config/JetBrains/Rider2024.3/rider64.vmoptions
-
-      ln -sf -t /home/${username}/ /home/${username}/dotfiles/Xresources/.Xresources
-      chown -h ${username}:users /home/${username}/.Xresources
-
-      ln -sf -t /home/${username}/ /home/${username}/dotfiles/zsh/.zshrc
-      chown -h ${username}:users /home/${username}/.zshrc
-
-      ln -sf -t /home/${username}/ /home/${username}/dotfiles/ideavim/.ideavimrc
-      chown -h ${username}:users /home/${username}/.ideavimrc
-    '';
-  };
-
   # services.fprintd.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -122,8 +73,6 @@ in
   home-manager.users.${username} =
     { config, ... }:
     {
-      home.file."bar".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/dotfiles;
-
       home.stateVersion = "24.11";
     };
 }
