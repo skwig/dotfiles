@@ -35,19 +35,6 @@
     variant = "";
   };
 
-  users.users.${username} = {
-    isNormalUser = true;
-    description = "${username}";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-    ];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
-  };
-
   services.gnome.gnome-keyring.enable = true;
 
   environment.systemPackages = with pkgs; [

@@ -65,17 +65,6 @@
   # virtualisation.vmware.host.enable = true;
   # virtualisation.vmware.host.package = pkgs-unstable.vmware-workstation;
 
-  users.users.${username} = {
-    isNormalUser = true;
-    description = username;
-    shell = pkgs.zsh;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-    ];
-  };
-
   services.gnome.gnome-keyring.enable = true;
 
   # services.fprintd.enable = true;

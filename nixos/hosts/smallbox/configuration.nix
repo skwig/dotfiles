@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   username,
   hostname,
   ...
@@ -13,6 +14,10 @@ let
   };
 in
 {
+  imports = [
+    (import "${home-manager}/nixos")
+  ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -43,20 +48,10 @@ in
 
   # services.printing.enable = true;
 
-  users.users.${username} = {
-    isNormalUser = true;
-    description = "${username}";
-    shell = pkgs.zsh;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-    ];
-  };
-
   # services.fprintd.enable = true;
 
   environment.systemPackages = with pkgs; [
+    remmina
   ];
 
   services.upower.enable = true;
@@ -66,13 +61,4 @@ in
     enable = true;
   };
 
-  imports = [
-    (import "${home-manager}/nixos")
-  ];
-
-  home-manager.users.${username} =
-    { config, ... }:
-    {
-      home.stateVersion = "24.11";
-    };
 }
