@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=3404205"; # 24.11 as of 2025-03-23
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
 
@@ -100,6 +100,7 @@
         };
         modules = [
           { nixpkgs.overlays = [ hyprpanel.overlay ]; }
+          # home-manager.nixosModules.default
           ./hosts/smallbox/configuration.nix
           ./hosts/smallbox/hardware-configuration.nix
           ./modules/system.nix

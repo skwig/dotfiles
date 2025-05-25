@@ -19,7 +19,7 @@
 
     cargo
 
-    nodejs_23
+    nodejs_24
 
     jq
     yq
