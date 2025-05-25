@@ -24,6 +24,7 @@
     jq
     yq
 
+    nix-search-cli
     nixd
     nixfmt-rfc-style
   ];

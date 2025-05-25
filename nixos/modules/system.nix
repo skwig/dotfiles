@@ -19,27 +19,19 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    nix-search-cli
-
     coreutils
     file
     fastfetch
     wget
     htop
     zip
-    killall
 
     yazi
-    imagemagick
     oh-my-posh
-
-    # TMP
-    eza
-    pywal
-    libnotify
 
     # TODO: Some sort of "desktop" section? These dont work in TTY or headless mode
     networkmanagerapplet
+    imagemagick
     efibootmgr
 
     brave
