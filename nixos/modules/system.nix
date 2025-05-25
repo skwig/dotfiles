@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   pkgs-unstable,
   username,
@@ -16,7 +17,18 @@
     options = "--delete-older-than 7d";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "cloudflare-warp"
+      "rider"
+      "discord"
+      "spotify"
+      "synology-drive-client"
+      "steam"
+      "steam-unwrapped"
+    ];
 
   environment.systemPackages = with pkgs; [
     coreutils
