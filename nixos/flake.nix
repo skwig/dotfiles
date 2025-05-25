@@ -4,8 +4,8 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
 
-    # home-manager.url = "github:nix-community/home-manager/master";
-    # home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager?ref=release-25.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     hyprpanel.inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -39,6 +39,7 @@
           };
           username = "skwig";
           hostname = "blackbox";
+          home-manager = home-manager;
         };
         modules = [
           { nixpkgs.overlays = [ hyprpanel.overlay ]; }
@@ -100,7 +101,7 @@
         };
         modules = [
           { nixpkgs.overlays = [ hyprpanel.overlay ]; }
-          # home-manager.nixosModules.default
+          home-manager.nixosModules.default
           ./hosts/smallbox/configuration.nix
           ./hosts/smallbox/hardware-configuration.nix
           ./modules/system.nix

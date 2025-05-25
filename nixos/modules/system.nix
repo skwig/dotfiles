@@ -5,9 +5,7 @@
   username,
   ...
 }:
-
 {
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -51,15 +49,18 @@
     vscodium
   ];
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    twemoji-color-font
-    twitter-color-emoji
-  ];
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts.emoji = [
-      "Twitter Color Emoji"
+  fonts = {
+    fontconfig = {
+      enable = true;
+      defaultFonts.emoji = [
+        "Twitter Color Emoji"
+      ];
+    };
+
+    packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      twemoji-color-font
+      twitter-color-emoji
     ];
   };
 
