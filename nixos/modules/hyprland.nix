@@ -46,11 +46,6 @@
 
   xdg.icons.fallbackCursorThemes = [ "Adwaita" ];
 
-  # services.xserver.enable = true;
-  # services.displayManager.sddm.enable = true;
-  # services.displayManager.sddm.wayland.enable = true;
-  # services.displayManager.sddm.enableHidpi = true;
-
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
 
@@ -67,11 +62,21 @@
     pulse.enable = true;
   };
 
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    StandardErro = "journal";
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVTDisallocate = true;
+  };
+
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd Hyprland";
       };
     };
   };
