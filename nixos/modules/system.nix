@@ -3,7 +3,6 @@
   lib,
   pkgs,
   pkgs-unstable,
-  pkgs-hyprland,
   username,
   ...
 }:
@@ -63,6 +62,7 @@
     wget
     htop
     zip
+    unzip
 
     nvtopPackages.full
 
