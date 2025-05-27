@@ -39,10 +39,10 @@
           };
           username = "skwig";
           hostname = "blackbox";
-          home-manager = home-manager;
         };
         modules = [
           { nixpkgs.overlays = [ hyprpanel.overlay ]; }
+          home-manager.nixosModules.default
           ./hosts/blackbox/configuration.nix
           ./hosts/blackbox/hardware-configuration.nix
           ./modules/system.nix
@@ -69,6 +69,8 @@
           hostname = "blackbox2";
         };
         modules = [
+          { nixpkgs.overlays = [ hyprpanel.overlay ]; }
+          home-manager.nixosModules.default
           ./hosts/blackbox2/configuration.nix
           ./hosts/blackbox2/hardware-configuration.nix
           ./modules/system.nix

@@ -3,6 +3,7 @@
   lib,
   pkgs,
   pkgs-unstable,
+  pkgs-hyprland,
   username,
   ...
 }:
@@ -22,12 +23,37 @@
     pkg:
     builtins.elem (lib.getName pkg) [
       "cloudflare-warp"
-      "rider"
       "discord"
+      "rider"
       "spotify"
-      "synology-drive-client"
       "steam"
       "steam-unwrapped"
+      "synology-drive-client"
+      # nvidia packages
+      "cuda-merged"
+      "cuda_cuobjdump"
+      "cuda_gdb"
+      "cuda_nvcc"
+      "cuda_nvdisasm"
+      "cuda_nvprune"
+      "cuda_cccl"
+      "cuda_cudart"
+      "cuda_cupti"
+      "cuda_cuxxfilt"
+      "cuda_nvml_dev"
+      "cuda_nvrtc"
+      "cuda_nvtx"
+      "cuda_profiler_api"
+      "cuda_sanitizer_api"
+      "libcublas"
+      "libcufft"
+      "libcurand"
+      "libcusolver"
+      "libnvjitlink"
+      "libcusparse"
+      "libnpp"
+      "nvidia-settings"
+      "nvidia-x11"
     ];
 
   environment.systemPackages = with pkgs; [
@@ -37,6 +63,8 @@
     wget
     htop
     zip
+
+    nvtopPackages.full
 
     yazi
     oh-my-posh
@@ -48,7 +76,7 @@
 
     brave
     pkgs-unstable.google-chrome
-    wezterm
+    pkgs.wezterm
     nautilus
     vscodium
   ];
