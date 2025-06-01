@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs-24.url = "github:nixos/nixpkgs?ref=3404205";
     pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
 
     home-manager.url = "github:nix-community/home-manager?ref=release-25.05";
@@ -16,6 +17,7 @@
       self,
       nixpkgs,
       nixpkgs-unstable,
+      nixpkgs-24,
       pr-freelens,
       home-manager,
       hyprpanel,
@@ -27,6 +29,12 @@
         specialArgs = attrs // {
           pkgs-unstable = (
             import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            }
+          );
+          pkgs-24 = (
+            import nixpkgs-24 {
               inherit system;
               config.allowUnfree = true;
             }

@@ -3,6 +3,7 @@
   lib,
   pkgs,
   pkgs-unstable,
+  pkgs-24,
   username,
   ...
 }:
@@ -74,9 +75,9 @@
     imagemagick
     efibootmgr
 
-    brave
+    pkgs-24.brave
     pkgs-unstable.google-chrome
-    pkgs.wezterm
+    wezterm
     nautilus
     vscodium
   ];
