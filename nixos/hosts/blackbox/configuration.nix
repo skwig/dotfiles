@@ -1,8 +1,6 @@
 {
-  config,
   pkgs,
   pkgs-pr,
-  pkgs-unstable,
   username,
   hostname,
   ...
@@ -64,6 +62,8 @@
 
   # virtualisation.vmware.host.enable = true;
   # virtualisation.vmware.host.package = pkgs-unstable.vmware-workstation;
+
+  hardware.keyboard.zsa.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
 
