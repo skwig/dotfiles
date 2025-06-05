@@ -8,25 +8,28 @@
     hypridle
     hyprcursor
     hyprpaper
-    hyprpanel
-    rose-pine-hyprcursor
     adwaita-icon-theme
     papirus-icon-theme
     waybar
     rofi-wayland
+    rofi-power-menu
     greetd.tuigreet
     wl-clipboard
     cliphist
-    dunst
     brightnessctl
     playerctl
     pavucontrol
     pamixer
     xfce.orage
 
+    libnotify
     wlogout
     wtype
     hyprpolkitagent
+
+    hyprpanel
+    wf-recorder
+    btop
   ];
 
   environment.sessionVariables = {
