@@ -47,6 +47,7 @@ return {
         css = { "prettierd" },
         html = { "prettierd" },
         javascript = { "prettierd" },
+        python = { "isort", "black" },
       },
     },
   },

@@ -26,6 +26,12 @@ return {
       pickers = {
         find_files = {
           hidden = true
+        },
+        live_grep = {
+          file_ignore_patterns = { '.git' },
+          additional_args = function(_)
+            return { "--hidden" }
+          end
         }
       },
       extensions = {
