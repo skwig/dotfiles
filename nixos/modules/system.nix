@@ -133,6 +133,11 @@
     ];
   };
 
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "brave-browser.desktop";
+    "text/plain" = "codium.desktop";
+  };
+
   home-manager.users.${username} =
     { config, ... }:
     let
