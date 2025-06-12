@@ -17,6 +17,7 @@
     pywal16
     gimp
     gamescope
+    syncplay
   ];
 
   programs.steam.enable = true;
