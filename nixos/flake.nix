@@ -64,6 +64,7 @@
           ./modules/dev.az.nix
           ./modules/dev.k8s.nix
           ./modules/dev.go.nix
+          ./modules/dev.embedded.nix
         ];
       };
 

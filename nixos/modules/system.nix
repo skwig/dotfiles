@@ -130,6 +130,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "dialout"
     ];
   };
 
