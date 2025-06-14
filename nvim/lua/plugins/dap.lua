@@ -1,7 +1,7 @@
 return {
   "mfussenegger/nvim-dap",
   ft = { "go" },
-  enabled = false,
+  enabled = true,
   -- event = "VeryLazy",
   dependencies = {
     "rcarriga/nvim-dap-ui",
@@ -23,7 +23,7 @@ return {
       { "<S-F8>", dap.step_out, desc = "Debug: Step Out" },
       { "<F8>", dap.step_over, desc = "Debug: Step Over" },
       { "<F9>", dapui.open, desc = "dapui open" },
-      { "<leader>b", dap.toggle_breakpoint, desc = "Debug: Toggle Breakpoint" },
+      { "<leader>ee", dap.toggle_breakpoint, desc = "Debug: Toggle Breakpoint" },
       {
         "<leader>B",
         function()

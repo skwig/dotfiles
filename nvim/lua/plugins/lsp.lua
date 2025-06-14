@@ -140,6 +140,7 @@ return {
           map("<leader>ji", telescope_builtin.lsp_implementations, "[J]ump to [I]mplementation")
           map("<leader>jm", telescope_builtin.lsp_document_symbols, "[J]ump to [M]embers")
           map("<leader>jr", vim.lsp.buf.signature_help, "[J]ump to Pa[R]ameters")
+          map("<C-k>", vim.lsp.buf.signature_help, "[J]ump to Pa[R]ameters", {"i","n"})
 
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             map("<leader>th", vim.lsp.inlay_hint.enable, "[T]oggle Inlay [H]ints")

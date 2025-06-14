@@ -4,6 +4,9 @@
   environment.systemPackages = with pkgs; [
     neovim
 
+    lua51Packages.lua
+    lua51Packages.luarocks
+
     git
     gh
     lazygit
@@ -16,6 +19,7 @@
 
     fzf
     ripgrep
+    fd
 
     cargo
 
