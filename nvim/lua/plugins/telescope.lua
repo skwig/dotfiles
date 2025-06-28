@@ -25,6 +25,7 @@ return {
       },
       pickers = {
         find_files = {
+          file_ignore_patterns = { '.git' },
           hidden = true
         },
         live_grep = {
