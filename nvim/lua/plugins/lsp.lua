@@ -18,7 +18,7 @@ return {
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
       local yaml_companion = require("yaml-companion")
 
-      local lsps = { "gopls", "lua_ls", "stylua", "omnisharp", "yamlls", "terraformls", "hyprls", "prettierd", "fixjson", "typescript-language-server"  }
+      local lsps = { "gopls", "lua_ls", "stylua", "omnisharp", "yamlls", "tofu-ls", "hyprls", "prettierd", "fixjson", "typescript-language-server"  }
       local capabilities =
         vim.tbl_deep_extend("force", lspconfig.util.default_config.capabilities, cmp_nvim_lsp.default_capabilities())
 
@@ -98,6 +98,10 @@ return {
 
           terraformls = function()
             lspconfig.terraformls.setup({})
+          end,
+
+          tofu_ls = function()
+            lspconfig.tofuls.setup({})
           end,
 
         },
