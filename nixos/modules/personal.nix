@@ -18,6 +18,7 @@
     gimp
     gamescope
     syncplay
+    obsidian
   ];
 
   programs.steam.enable = true;

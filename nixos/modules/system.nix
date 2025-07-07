@@ -24,6 +24,7 @@
     builtins.elem (lib.getName pkg) [
       "cloudflare-warp"
       "discord"
+      "obsidian"
       "rider"
       "spotify"
       "steam"
