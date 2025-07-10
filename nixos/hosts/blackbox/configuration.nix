@@ -7,6 +7,21 @@
 }:
 
 {
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/system.nix
+    ../../modules/bluetooth.nix
+    ../../modules/nvidia.nix
+    ../../modules/hyprland.nix
+    ../../modules/personal.nix
+    ../../modules/dev.nix
+    ../../modules/dev.dotnet.nix
+    ../../modules/dev.az.nix
+    ../../modules/dev.k8s.nix
+    ../../modules/dev.go.nix
+    ../../modules/dev.embedded.nix
+  ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 

@@ -52,19 +52,6 @@
           { nixpkgs.overlays = [ hyprpanel.overlay ]; }
           home-manager.nixosModules.default
           ./hosts/blackbox/configuration.nix
-          ./hosts/blackbox/hardware-configuration.nix
-          ./modules/system.nix
-          ./modules/bluetooth.nix
-          ./modules/nvidia.nix
-          ./modules/hyprland.nix
-          # ./modules/kde.nix
-          ./modules/personal.nix
-          ./modules/dev.nix
-          ./modules/dev.dotnet.nix
-          ./modules/dev.az.nix
-          ./modules/dev.k8s.nix
-          ./modules/dev.go.nix
-          ./modules/dev.embedded.nix
         ];
       };
 
@@ -81,14 +68,6 @@
           { nixpkgs.overlays = [ hyprpanel.overlay ]; }
           home-manager.nixosModules.default
           ./hosts/blackbox2/configuration.nix
-          ./hosts/blackbox2/hardware-configuration.nix
-          ./modules/system.nix
-          # ./modules/bluetooth.nix
-          ./modules/nvidia.nix
-          ./modules/hyprland.nix
-          ./modules/dev.nix
-          ./modules/dev.dotnet.nix
-          ./modules/dev.go.nix
         ];
       };
 
@@ -114,16 +93,6 @@
           { nixpkgs.overlays = [ hyprpanel.overlay ]; }
           home-manager.nixosModules.default
           ./hosts/smallbox/configuration.nix
-          ./hosts/smallbox/hardware-configuration.nix
-          ./modules/system.nix
-          ./modules/bluetooth.nix
-          ./modules/hyprland.nix
-          ./modules/personal.nix
-          ./modules/dev.nix
-          ./modules/dev.dotnet.nix
-          ./modules/dev.az.nix
-          ./modules/dev.k8s.nix
-          ./modules/dev.go.nix
         ];
       };
     };
