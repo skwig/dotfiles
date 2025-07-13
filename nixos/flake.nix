@@ -7,9 +7,6 @@
 
     home-manager.url = "github:nix-community/home-manager?ref=release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    hyprpanel.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs =
@@ -20,7 +17,6 @@
       nixpkgs-24,
       pr-freelens,
       home-manager,
-      hyprpanel,
       ...
     }@attrs:
     let
@@ -41,9 +37,6 @@
         pkgs-pr = {
           freelens = (import pr-freelens { inherit system; }).freelens;
         };
-        pkgs-hyprpanel = {
-          hyprpanel = (import hyprpanel { inherit system; }).hyprpanel;
-        };
       };
     in
     {
@@ -57,7 +50,6 @@
           modules = [
             ./hosts/blackbox/configuration.nix
             home-manager.nixosModules.default
-            { nixpkgs.overlays = [ hyprpanel.overlay ]; }
           ];
         };
 
@@ -70,7 +62,6 @@
           modules = [
             ./hosts/smallbox/configuration.nix
             home-manager.nixosModules.default
-            { nixpkgs.overlays = [ hyprpanel.overlay ]; }
           ];
         };
       };
