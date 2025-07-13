@@ -29,7 +29,6 @@
 
     hyprpanel
     wf-recorder
-    btop
   ];
 
   environment.sessionVariables = {
