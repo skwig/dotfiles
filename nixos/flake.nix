@@ -11,7 +11,6 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       nixpkgs-unstable,
       nixpkgs-24,

@@ -19,6 +19,7 @@
     gamescope
     syncplay
     obsidian
+    gnome-disk-utility
   ];
 
   programs.steam.enable = true;
