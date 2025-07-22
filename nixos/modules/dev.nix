@@ -41,4 +41,8 @@
   virtualisation.docker = {
     enable = true;
   };
+
+  # for neovim LSPs etc
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [ ];
 }
