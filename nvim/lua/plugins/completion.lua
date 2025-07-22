@@ -54,8 +54,16 @@ return {
         draw = {
           columns = {
             { "kind_icon" },
-            { "label" },
-            { "kind" },
+            { "label", "hint", gap = 1 },
+          },
+          components = {
+            hint = {
+              text = function(ctx)
+                return ctx.item.detail
+              end,
+              -- highlight = "BlinkCmpLabelDescription",
+              highlight = "BlinkCmpLabelDescription",
+            },
           },
         },
       },
@@ -69,7 +77,7 @@ return {
 
     cmdline = {
       keymap = { preset = "inherit" },
-      completion = { menu = { auto_show = true } },
+      completion = { menu = { auto_show = false } },
     },
   },
   opts_extend = { "sources.default" },
