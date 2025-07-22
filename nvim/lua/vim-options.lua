@@ -7,6 +7,8 @@ vim.o.shiftwidth = 4
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.o.winborder = "rounded"
+
 vim.g.have_nerd_font = true
 
 vim.opt.number = true

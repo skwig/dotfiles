@@ -12,7 +12,7 @@ return {
       end,
     },
     { "nvim-telescope/telescope-ui-select.nvim" },
-    { "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
+    { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
   },
   event = "VeryLazy",
   config = function()
@@ -25,15 +25,15 @@ return {
       },
       pickers = {
         find_files = {
-          file_ignore_patterns = { '.git' },
-          hidden = true
+          file_ignore_patterns = { ".git" },
+          hidden = true,
         },
         live_grep = {
-          file_ignore_patterns = { '.git' },
+          file_ignore_patterns = { ".git" },
           additional_args = function(_)
             return { "--hidden" }
-          end
-        }
+          end,
+        },
       },
       extensions = {
         ["ui-select"] = {
@@ -79,5 +79,19 @@ return {
     vim.keymap.set("n", "<leader>sn", function()
       builtin.find_files({ cwd = vim.fn.stdpath("config") })
     end, { desc = "[S]earch [N]eovim files" })
+
+    -- Workaround for when using vim.o.winborder until properly integrated https://github.com/nvim-lua/plenary.nvim/pull/649
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "TelescopeFindPre",
+      callback = function()
+        vim.opt_local.winborder = "none"
+        vim.api.nvim_create_autocmd("WinLeave", {
+          once = true,
+          callback = function()
+            vim.opt_local.winborder = "rounded"
+          end,
+        })
+      end,
+    })
   end,
 }
