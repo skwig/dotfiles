@@ -1,118 +1,56 @@
 return {
   {
-    "neovim/nvim-lspconfig",
+    "folke/lazydev.nvim",
+    event = "VeryLazy",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "luvit-meta/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+  {
+    "neovim/nvim-lspconfig", -- For OK defaults of LSP configs
     dependencies = {
       { "williamboman/mason.nvim", config = true },
-      { "williamboman/mason-lspconfig.nvim" },
       { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-      { "j-hui/fidget.nvim", opts = {} },
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "someone-stole-my-name/yaml-companion.nvim" },
+      { "j-hui/fidget.nvim", opts = {} }, -- For LSP loading notifications
+      { "williamboman/mason-lspconfig.nvim" }, -- For lspconfig names for mason-tool-installer
     },
     config = function()
-      local lspconfig = require("lspconfig")
       local telescope_builtin = require("telescope.builtin")
       local mason = require("mason")
       local mason_tool_installer = require("mason-tool-installer")
-      local mason_lspconfig = require("mason-lspconfig")
-      local cmp_nvim_lsp = require("cmp_nvim_lsp")
-      local yaml_companion = require("yaml-companion")
 
-      local lsps = { "gopls", "lua_ls", "stylua", "omnisharp", "yamlls", "tofu-ls", "hyprls", "prettierd", "fixjson", "typescript-language-server"  }
-      local capabilities =
-        vim.tbl_deep_extend("force", lspconfig.util.default_config.capabilities, cmp_nvim_lsp.default_capabilities())
+      local install_lsps = {
+        "fixjson",
+        "gopls",
+        "hyprls",
+        "lua_ls",
+        "omnisharp",
+        "prettierd",
+        "stylua",
+        "tofu-ls",
+        "typescript-language-server",
+        "yamlls",
+      }
 
-      lspconfig.util.default_config.capabilities = capabilities
+      local preinstalled_lsps = {
+        "nixd",
+      }
+
+      local lsps = vim.tbl_deep_extend("force", install_lsps, preinstalled_lsps)
 
       mason.setup()
-      mason_tool_installer.setup({ ensure_installed = lsps })
-      mason_lspconfig.setup({
-        handlers = {
-          function(server_name)
-            lspconfig[server_name].setup({})
-          end,
+      mason_tool_installer.setup({ ensure_installed = install_lsps })
 
-          lua_ls = function()
-            lspconfig.lua_ls.setup({
-              settings = {
-                Lua = {
-                  completion = {
-                    callSnippet = "Replace",
-                  },
-                },
-              },
-            })
-          end,
+      vim.lsp.enable(lsps)
 
-          gopls = function()
-            lspconfig.gopls.setup({
-              hints = {
-                assignVariableTypes = true,
-                compositeLiteralFields = true,
-                compositeLiteralTypes = true,
-                constantValues = true,
-                functionTypeParameters = true,
-                parameterNames = true,
-                rangeVariableTypes = true,
-              },
-              analyses = {
-                unusedparams = true,
-              },
-              staticcheck = true,
-            })
-          end,
-
-          omnisharp = function()
-            lspconfig.omnisharp.setup({})
-          end,
-
-          yamlls = function()
-            local cfg = yaml_companion.setup({
-              builtin_matchers = {
-                kubernetes = { enabled = false },
-                cloud_init = { enabled = false },
-              },
-              schemas = {
-                {
-                  name = "Flux",
-                  uri = "https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/refs/heads/main/all.json",
-                },
-                {
-                  name = "kubernetes",
-                  uri = "kubernetes",
-                },
-              },
-              lspconfig = {
-                settings = {
-                  yaml = {
-                    validate = true,
-                    hover = true,
-                    completion = true,
-                    trace = { server = "info" },
-                  },
-                },
-              },
-            })
-            lspconfig.yamlls.setup(cfg)
-          end,
-
-          terraformls = function()
-            lspconfig.terraformls.setup({})
-          end,
-
-          tofu_ls = function()
-            lspconfig.tofuls.setup({})
-          end,
-
-        },
-      })
-
-      -- nixd is not on mason, so it has to be initialized on its own
-      lspconfig.nixd.setup({
-         settings = {
-            nixd = {
-            },
-         },
+      vim.diagnostic.config({
+        virtual_lines = true,
+        -- virtual_lines = {
+        --   current_line = true
+        -- }
       })
 
       if vim.g.have_nerd_font then
@@ -135,7 +73,6 @@ return {
 
           map("<leader>d", vim.lsp.buf.definition, "(jump to) [D]efinition")
           map("<leader>u", telescope_builtin.lsp_references, "(jump to) [U]sages")
-          map("<leader>n", vim.lsp.buf.rename, "Re[n]ame")
           map("<leader>k", vim.lsp.buf.code_action, "Show A[k]tions")
           map("<leader>v", vim.lsp.buf.hover, "Ho[V]er")
 
@@ -143,13 +80,8 @@ return {
 
           map("<leader>ji", telescope_builtin.lsp_implementations, "[J]ump to [I]mplementation")
           map("<leader>jm", telescope_builtin.lsp_document_symbols, "[J]ump to [M]embers")
-          map("<leader>jr", vim.lsp.buf.signature_help, "[J]ump to Pa[R]ameters")
-          map("<C-k>", vim.lsp.buf.signature_help, "[J]ump to Pa[R]ameters", {"i","n"})
-
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-            map("<leader>th", vim.lsp.inlay_hint.enable, "[T]oggle Inlay [H]ints")
-          end
-
+          -- map("<C-k>", vim.lsp.buf.signature_help, "[J]ump to Pa[R]ameters", { "i", "n" })
+          --
           -- Highlight references of the word under the cursor on hold
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
@@ -176,20 +108,5 @@ return {
         end,
       })
     end,
-  },
-  {
-    "folke/lazydev.nvim",
-    event = "VeryLazy",
-    ft = "lua",
-    opts = {
-      library = {
-        { path = "luvit-meta/library", words = { "vim%.uv" } },
-      },
-    },
-  },
-  {
-    "Bilal2453/luvit-meta",
-    lazy = true,
-    event = "VeryLazy",
   },
 }
