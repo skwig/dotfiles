@@ -52,7 +52,7 @@
   "theme.bar.buttons.network.enableBorder": false,
   "theme.bar.buttons.bluetooth.enableBorder": false,
   "bar.bluetooth.label": false,
-  "bar.battery.label": false,
+  "bar.battery.label": true,
   "theme.bar.buttons.systray.enableBorder": false,
   "bar.clock.format": "%H:%M",
   "bar.clock.showIcon": false,
@@ -88,5 +88,9 @@
   "menus.transition": "crossfade",
   "bar.battery.hideLabelWhenFull": false,
   "theme.bar.menus.label": "#b4befe",
-  "theme.bar.menus.switch.enabled": "#b4befe"
+  "theme.bar.menus.switch.enabled": "#b4befe",
+  "bar.customModules.storage.paths": [
+    "/"
+  ],
+  "theme.bar.buttons.modules.power.enableBorder": false
 }
