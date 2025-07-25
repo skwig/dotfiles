@@ -77,6 +77,7 @@
     networkmanagerapplet
     imagemagick
     efibootmgr
+    file-roller
 
     pkgs-24.brave
     pkgs-unstable.google-chrome
