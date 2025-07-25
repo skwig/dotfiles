@@ -47,10 +47,10 @@ return {
       vim.lsp.enable(lsps)
 
       vim.diagnostic.config({
-        virtual_lines = true,
-        -- virtual_lines = {
-        --   current_line = true
-        -- }
+        -- virtual_lines = true,
+        virtual_lines = {
+          current_line = true,
+        },
       })
 
       if vim.g.have_nerd_font then
