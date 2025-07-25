@@ -2,7 +2,7 @@ return {
   {
     "tpope/vim-sleuth",
   },
-  { -- Autoformat
+  {
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },

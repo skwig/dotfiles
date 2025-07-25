@@ -3,14 +3,15 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local lualine = require("lualine")
-    local yaml_companion = require("yaml-companion")
+    -- local yaml_companion = require("yaml-companion")
 
     local function get_schema()
-      local schema = yaml_companion.get_buf_schema(0)
-      if schema.result[1].name == "none" then
-        return ""
-      end
-      return schema.result[1].name
+      -- local schema = yaml_companion.get_buf_schema(0)
+      -- if schema.result[1].name == "none" then
+      --   return ""
+      -- end
+      -- return schema.result[1].name
+      return ""
     end
 
     lualine.setup({

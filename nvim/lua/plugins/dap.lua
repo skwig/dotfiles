@@ -2,7 +2,6 @@ return {
   "mfussenegger/nvim-dap",
   ft = { "go" },
   enabled = true,
-  -- event = "VeryLazy",
   dependencies = {
     "rcarriga/nvim-dap-ui",
 
@@ -49,7 +48,7 @@ return {
       },
     })
 
-    dapui.setup({})
+    dapui.setup()
 
     -- Change breakpoint icons
     vim.api.nvim_set_hl(0, "DapBreak", { fg = "#e51400" })

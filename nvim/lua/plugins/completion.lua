@@ -61,7 +61,6 @@ return {
               text = function(ctx)
                 return ctx.item.detail
               end,
-              -- highlight = "BlinkCmpLabelDescription",
               highlight = "BlinkCmpLabelDescription",
             },
           },
