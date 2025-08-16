@@ -5,7 +5,8 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    discord
+    # discord
+    webcord
     spotify
     mpv
     vlc

@@ -78,7 +78,7 @@
     efibootmgr
     file-roller
 
-    pkgs-24.brave
+    brave
     pkgs-unstable.google-chrome
     wezterm
     nautilus
