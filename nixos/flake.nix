@@ -63,23 +63,35 @@
             home-manager.nixosModules.default
           ];
         };
+
+        vmbox = nixpkgs.lib.nixosSystem {
+          system = system;
+          specialArgs = specialArgs // {
+            username = "skwig";
+            hostname = "nixos";
+          };
+          modules = [
+            ./hosts/vmbox/configuration.nix
+            home-manager.nixosModules.default
+          ];
+        };
       };
 
-      nixosModules = {
-        bluetooth = import ./modules/bluetooth.nix;
-        desktop = import ./modules/desktop.nix;
-        dev-az = import ./modules/dev-az.nix;
-        dev-dotnet = import ./modules/dev-dotnet.nix;
-        dev-embedded = import ./modules/dev-embedded.nix;
-        dev-go = import ./modules/dev-go.nix;
-        dev-k8s = import ./modules/dev-k8s.nix;
-        dev = import ./modules/dev.nix;
-        gnome = import ./modules/gnome.nix;
-        hyprland = import ./modules/hyprland.nix;
-        kde = import ./modules/kde.nix;
-        nvidia = import ./modules/nvidia.nix;
-        personal = import ./modules/personal.nix;
-        system = import ./modules/system.nix;
-      };
+      # nixosModules = {
+      #   bluetooth = import ./modules/bluetooth.nix;
+      #   desktop = import ./modules/desktop.nix;
+      #   dev-az = import ./modules/dev-az.nix;
+      #   dev-dotnet = import ./modules/dev-dotnet.nix;
+      #   dev-embedded = import ./modules/dev-embedded.nix;
+      #   dev-go = import ./modules/dev-go.nix;
+      #   dev-k8s = import ./modules/dev-k8s.nix;
+      #   dev = import ./modules/dev.nix;
+      #   gnome = import ./modules/gnome.nix;
+      #   hyprland = import ./modules/hyprland.nix;
+      #   kde = import ./modules/kde.nix;
+      #   nvidia = import ./modules/nvidia.nix;
+      #   personal = import ./modules/personal.nix;
+      #   system = import ./modules/system.nix;
+      # };
     };
 }
