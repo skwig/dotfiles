@@ -17,6 +17,8 @@
     gnumake
     cmake
 
+    go
+
     fzf
     ripgrep
     fd

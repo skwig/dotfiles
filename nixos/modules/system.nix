@@ -167,5 +167,6 @@
 
       home.stateVersion = "24.11";
     };
+  home-manager.backupFileExtension = "backup";
   system.stateVersion = "24.11";
 }

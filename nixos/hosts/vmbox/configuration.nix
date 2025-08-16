@@ -5,10 +5,12 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../modules/system.nix
+    ../../modules/dev.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -61,10 +63,13 @@
   users.users.skwig = {
     isNormalUser = true;
     description = "skwig";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -75,17 +80,9 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    neovim
-    nvtopPackages.full
     pciutils
-    git
-    gh
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
   ];
 
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
-
-  system.stateVersion = "25.05"; # Did you read the comment?
 }
