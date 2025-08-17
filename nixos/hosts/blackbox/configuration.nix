@@ -23,6 +23,8 @@
     ../../modules/dev-embedded.nix
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_6_16;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -52,29 +54,29 @@
     variant = "";
   };
 
-  # programs.virt-manager.enable = true;
-  #
-  # users.groups.libvirtd.members = [ username ];
-  #
-  # virtualisation.libvirtd = {
-  #   enable = true;
-  #   qemu = {
-  #     package = pkgs.qemu_kvm;
-  #     runAsRoot = true;
-  #     swtpm.enable = true;
-  #     ovmf = {
-  #       enable = true;
-  #       packages = [
-  #         (pkgs.OVMF.override {
-  #           secureBoot = true;
-  #           tpmSupport = true;
-  #         }).fd
-  #       ];
-  #     };
-  #   };
-  #
-  #   # spiceUSBRedirection.enable = true;
-  # };
+  programs.virt-manager.enable = true;
+
+  users.groups.libvirtd.members = [ username ];
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      # package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      # swtpm.enable = true;
+      # ovmf = {
+      #   enable = true;
+      #   packages = [
+      #     (pkgs.OVMF.override {
+      #       secureBoot = true;
+      #       tpmSupport = true;
+      #     }).fd
+      #   ];
+      # };
+    };
+
+    # spiceUSBRedirection.enable = true;
+  };
 
   # virtualisation.vmware.host.enable = true;
   # virtualisation.vmware.host.package = pkgs-unstable.vmware-workstation;
@@ -84,6 +86,7 @@
   services.gnome.gnome-keyring.enable = true;
 
   services.fprintd.enable = true;
+  services.printing.enable = true;
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -98,5 +101,6 @@
     python3
     # vmware-workstation
     pkgs-pr.freelens
+    virglrenderer
   ];
 }
