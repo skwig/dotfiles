@@ -5,8 +5,10 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/system.nix
-    ../../modules/kde.nix
+    ../../modules/hyprland.nix
+    # ../../modules/kde.nix
     ../../modules/dev.nix
+    ../../modules/dev-dotnet.nix
   ];
 
   boot.loader.grub.enable = true;
@@ -57,6 +59,13 @@
     pciutils
   ];
 
+  hardware.graphics = {
+    enable = true;
+  };
+
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
+
+  programs.steam.enable = true;
+  programs.steam.extraCompatPackages = with pkgs; [ proton-ge-bin ];
 }
