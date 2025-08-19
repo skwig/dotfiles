@@ -8,6 +8,10 @@
   </metadata>
   <memory unit='KiB'>20971520</memory>
   <currentMemory unit='KiB'>20971520</currentMemory>
+  <memoryBacking>
+    <source type='memfd'/>
+    <access mode='shared'/>
+  </memoryBacking>
   <vcpu placement='static'>16</vcpu>
   <os>
     <type arch='x86_64' machine='pc-q35-9.2'>hvm</type>
@@ -143,21 +147,16 @@
       <target type='virtio' name='org.qemu.guest_agent.0'/>
       <address type='virtio-serial' controller='0' bus='0' port='1'/>
     </channel>
-    <channel type='spicevmc'>
-      <target type='virtio' name='com.redhat.spice.0'/>
-      <address type='virtio-serial' controller='0' bus='0' port='2'/>
-    </channel>
     <input type='mouse' bus='ps2'/>
     <input type='keyboard' bus='ps2'/>
     <graphics type='spice'>
       <listen type='none'/>
-      <image compression='off'/>
       <gl enable='yes' rendernode='/dev/dri/by-path/pci-0000:03:00.0-render'/>
     </graphics>
     <sound model='ich9'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x1b' function='0x0'/>
     </sound>
-    <audio id='1' type='spice'/>
+    <audio id='1' type='none'/>
     <video>
       <model type='virtio' heads='1' primary='yes'>
         <acceleration accel3d='yes'/>
@@ -165,10 +164,7 @@
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x0'/>
     </video>
     <redirdev bus='usb' type='spicevmc'>
-      <address type='usb' bus='0' port='2'/>
-    </redirdev>
-    <redirdev bus='usb' type='spicevmc'>
-      <address type='usb' bus='0' port='3'/>
+      <address type='usb' bus='0' port='1'/>
     </redirdev>
     <watchdog model='itco' action='reset'/>
     <memballoon model='virtio'>
