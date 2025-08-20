@@ -21,6 +21,7 @@
     ../../modules/dev-k8s.nix
     ../../modules/dev-go.nix
     ../../modules/dev-embedded.nix
+    ../../modules/kvmfr-options.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_16;
@@ -61,21 +62,34 @@
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
-      # package = pkgs.qemu_kvm;
+      package = pkgs-pr.qemu_kvm;
       runAsRoot = true;
-      # swtpm.enable = true;
-      # ovmf = {
-      #   enable = true;
-      #   packages = [
-      #     (pkgs.OVMF.override {
-      #       secureBoot = true;
-      #       tpmSupport = true;
-      #     }).fd
-      #   ];
-      # };
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        # packages = [
+        #   (pkgs.OVMF.override {
+        #     secureBoot = true;
+        #     tpmSupport = true;
+        #   }).fd
+        # ];
+      };
     };
+  };
 
-    # spiceUSBRedirection.enable = true;
+  virtualisation.kvmfr = {
+    enable = true;
+    shm = {
+      enable = true;
+      size = 512;
+      user = username;
+      group = "qemu-libvirtd";
+      mode = "0666";
+    };
+  };
+
+  virtualisation.spiceUSBRedirection = {
+    enable = true;
   };
 
   # virtualisation.vmware.host.enable = true;
@@ -102,5 +116,6 @@
     # vmware-workstation
     pkgs-pr.freelens
     virglrenderer
+    pkgs-unstable.looking-glass-client
   ];
 }
