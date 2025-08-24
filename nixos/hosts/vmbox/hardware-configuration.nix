@@ -25,7 +25,7 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
   boot.kernelParams = [
-    "video=Virtual-1:2560x1440@60,Virtual-1:2560x1440@75,Virtual-1:2560x1440@144"
+    "video=Virtual-1:2560x1440@144"
   ];
 
   fileSystems."/" = {
