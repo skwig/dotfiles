@@ -1,12 +1,15 @@
 { config, pkgs, ... }:
 
+let
+  looking-glass-host = pkgs.callPackage ../../modules/looking-glass-host-package.nix { };
+in
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/system.nix
-    ../../modules/hyprland.nix
-    # ../../modules/kde.nix
+    # ../../modules/hyprland.nix
+    ../../modules/kde.nix
     ../../modules/dev.nix
     ../../modules/dev-dotnet.nix
   ];
@@ -16,6 +19,7 @@
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
+  networking.firewall.enable = false;
 
   networking.networkmanager.enable = true;
 
@@ -57,6 +61,8 @@
 
   environment.systemPackages = with pkgs; [
     pciutils
+    gimp
+    looking-glass-host
   ];
 
   hardware.graphics = {
