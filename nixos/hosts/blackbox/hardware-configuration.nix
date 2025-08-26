@@ -60,6 +60,11 @@
     ];
   };
 
+  fileSystems."/mnt/VM1ext4" = {
+    device = "/dev/disk/by-label/VM1ext4";
+    fsType = "ext4";
+  };
+
   fileSystems."/mnt/VM2" = {
     device = "/dev/disk/by-label/VM2";
     fsType = "ntfs-3g";
