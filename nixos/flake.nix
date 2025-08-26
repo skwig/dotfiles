@@ -66,6 +66,18 @@
             home-manager.nixosModules.default
           ];
         };
+
+        vmbox = nixpkgs.lib.nixosSystem {
+          system = system;
+          specialArgs = specialArgs // {
+            username = "skwig";
+            hostname = "nixos";
+          };
+          modules = [
+            ./hosts/vmbox/configuration.nix
+            home-manager.nixosModules.default
+          ];
+        };
       };
 
       nixosModules = {
