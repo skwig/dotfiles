@@ -15,6 +15,7 @@
     ../../modules/amd.nix
     # ../../modules/nvidia.nix
     ../../modules/hyprland.nix
+    # ../../modules/kde.nix
     ../../modules/personal.nix
     ../../modules/dev.nix
     ../../modules/dev-dotnet.nix
@@ -56,12 +57,16 @@
     variant = "";
   };
 
-  programs.virt-manager.enable = true;
+  programs.virt-manager = {
+    enable = true;
+    package = pkgs-unstable.virt-manager;
+  };
 
   users.groups.libvirtd.members = [ username ];
 
   virtualisation.libvirtd = {
     enable = true;
+    package = pkgs-unstable.libvirt;
     qemu = {
       package = pkgs-pr.qemu_kvm;
       runAsRoot = true;
@@ -95,17 +100,6 @@
     };
   };
 
-  virtualisation.kvmfr = {
-    enable = true;
-    shm = {
-      enable = true;
-      size = 64;
-      user = username;
-      group = "qemu-libvirtd";
-      mode = "0666";
-    };
-  };
-
   virtualisation.spiceUSBRedirection = {
     enable = true;
   };
@@ -134,6 +128,6 @@
     # vmware-workstation
     pkgs-pr.freelens
     virglrenderer
-    pkgs-unstable.looking-glass-client
+    pkgs-unstable.virt-viewer
   ];
 }
