@@ -78,7 +78,7 @@
     efibootmgr
     file-roller
 
-    pkgs-24.brave
+    brave
     pkgs-unstable.google-chrome
     wezterm
     nautilus
@@ -106,6 +106,7 @@
     enable = true;
     defaultEditor = true;
     vimAlias = true;
+    viAlias = true;
   };
 
   programs.zsh = {
@@ -167,5 +168,8 @@
 
       home.stateVersion = "24.11";
     };
+
+  home-manager.backupFileExtension = "backup";
+
   system.stateVersion = "24.11";
 }
