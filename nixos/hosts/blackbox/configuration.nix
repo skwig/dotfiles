@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   pkgs-pr,
   username,
   hostname,
@@ -11,9 +12,12 @@
     ./hardware-configuration.nix
     ../../modules/system.nix
     ../../modules/bluetooth.nix
+    # ../../modules/amd.nix
     ../../modules/nvidia.nix
     ../../modules/hyprland.nix
+    # ../../modules/kde.nix
     ../../modules/personal.nix
+    ../../modules/libvirt.nix
     ../../modules/dev.nix
     ../../modules/dev-dotnet.nix
     ../../modules/dev-az.nix
@@ -21,6 +25,8 @@
     ../../modules/dev-go.nix
     ../../modules/dev-embedded.nix
   ];
+
+  boot.kernelPackages = pkgs.linuxPackages_6_16;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -51,30 +57,6 @@
     variant = "";
   };
 
-  # programs.virt-manager.enable = true;
-  #
-  # users.groups.libvirtd.members = [ username ];
-  #
-  # virtualisation.libvirtd = {
-  #   enable = true;
-  #   qemu = {
-  #     package = pkgs.qemu_kvm;
-  #     runAsRoot = true;
-  #     swtpm.enable = true;
-  #     ovmf = {
-  #       enable = true;
-  #       packages = [
-  #         (pkgs.OVMF.override {
-  #           secureBoot = true;
-  #           tpmSupport = true;
-  #         }).fd
-  #       ];
-  #     };
-  #   };
-  #
-  #   # spiceUSBRedirection.enable = true;
-  # };
-
   # virtualisation.vmware.host.enable = true;
   # virtualisation.vmware.host.package = pkgs-unstable.vmware-workstation;
 
@@ -83,6 +65,7 @@
   services.gnome.gnome-keyring.enable = true;
 
   services.fprintd.enable = true;
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;
