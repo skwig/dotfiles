@@ -12,8 +12,12 @@
     ./hardware-configuration.nix
     ../../modules/system.nix
     ../../modules/bluetooth.nix
+    ../../modules/amd.nix
+    # ../../modules/nvidia.nix
     ../../modules/hyprland.nix
+    # ../../modules/kde.nix
     ../../modules/personal.nix
+    ../../modules/libvirt.nix
     ../../modules/dev.nix
     ../../modules/dev-dotnet.nix
     ../../modules/dev-az.nix
