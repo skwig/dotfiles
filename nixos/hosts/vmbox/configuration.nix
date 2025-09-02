@@ -5,9 +5,12 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/system.nix
+    ../../modules/hyprland.nix
     ../../modules/kde.nix
     ../../modules/dev.nix
   ];
+
+  boot.kernelPackages = pkgs.linuxPackages_6_16;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda";
@@ -16,6 +19,12 @@
   networking.hostName = "nixos"; # Define your hostname.
 
   networking.networkmanager.enable = true;
+  networking.interfaces.enp1s0 = {
+    ipAddress = "192.168.122.50";
+    subnetMask = "255.255.255.0";
+    useDHCP = false;
+  };
+  networking.nameservers = [ "1.1.1.1" ];
 
   time.timeZone = "Europe/Bratislava";
 
@@ -55,6 +64,7 @@
 
   environment.systemPackages = with pkgs; [
     pciutils
+    virglrenderer
   ];
 
   services.qemuGuest.enable = true;
