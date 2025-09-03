@@ -87,16 +87,16 @@
     },
     "pr-qemu": {
       "locked": {
-        "lastModified": 1756312696,
-        "narHash": "sha256-DUHhf5vxoGl4eemphX/wa7s/cpszwby/j2o1OJ8tqmY=",
-        "owner": "alyssais",
+        "lastModified": 1756930028,
+        "narHash": "sha256-tyti2NE+WEySb4zHG6+ESB7xbUz+9BooFSKL0ZPVqHo=",
+        "owner": "skwig",
         "repo": "nixpkgs",
-        "rev": "f350386dcb7e70eb2afd5294c5fa819817ff7458",
+        "rev": "e254202efb1b8fb0a7b4091ef62892509428a21b",
         "type": "github"
       },
       "original": {
-        "owner": "alyssais",
-        "ref": "qemu-10.1",
+        "owner": "skwig",
+        "ref": "native-qemu",
         "repo": "nixpkgs",
         "type": "github"
       }
