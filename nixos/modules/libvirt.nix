@@ -55,7 +55,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    virglrenderer
+    pkgs-pr.virglrenderer
     pkgs-unstable.virt-viewer
   ];
 }

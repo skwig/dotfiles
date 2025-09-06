@@ -40,6 +40,7 @@
         pkgs-pr = {
           freelens = (import pr-freelens { inherit system; }).freelens;
           qemu_kvm = (import pr-qemu { inherit system; }).qemu_kvm;
+          virglrenderer = (import pr-qemu { inherit system; }).qemu_kvm;
         };
       };
     in
