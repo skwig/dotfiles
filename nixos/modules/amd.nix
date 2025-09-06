@@ -2,12 +2,13 @@
   config,
   pkgs,
   pkgs-unstable,
+  pkgs-pr,
   ...
 }:
 
 {
   hardware.graphics = {
     enable = true;
-    package = pkgs-unstable.mesa;
+    package = pkgs-pr.mesa;
   };
 }

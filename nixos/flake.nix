@@ -41,6 +41,7 @@
           freelens = (import pr-freelens { inherit system; }).freelens;
           qemu_kvm = (import pr-qemu { inherit system; }).qemu_kvm;
           virglrenderer = (import pr-qemu { inherit system; }).qemu_kvm;
+          mesa = (import pr-qemu { inherit system; }).mesa;
         };
       };
     in
