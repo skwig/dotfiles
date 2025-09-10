@@ -1,11 +1,17 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  pkgs-pr,
+  ...
+}:
 
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/system.nix
-    ../../modules/hyprland.nix
+    # ../../modules/amd.nix
+    # ../../modules/hyprland.nix
     ../../modules/kde.nix
     ../../modules/dev.nix
   ];
