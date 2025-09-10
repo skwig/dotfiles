@@ -11,8 +11,8 @@
     ./hardware-configuration.nix
     ../../modules/system.nix
     # ../../modules/amd.nix
-    # ../../modules/hyprland.nix
-    ../../modules/kde.nix
+    ../../modules/hyprland.nix
+    # ../../modules/kde.nix
     ../../modules/dev.nix
   ];
 
