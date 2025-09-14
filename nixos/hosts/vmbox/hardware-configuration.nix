@@ -24,7 +24,8 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.kernelParams = [
-    "video=Virtual-2:1920x1080@60D"
+    "video=Virtual-1:2880x1800@90"
+    "video=Virtual-2:2880x1800@90D"
   ];
   boot.extraModulePackages = [ ];
 
