@@ -5,6 +5,7 @@
     nixpkgs-24.url = "github:nixos/nixpkgs?ref=3404205";
     pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
     pr-qemu.url = "github:skwig/nixpkgs?ref=fps-patch-qemu";
+    # pr-qemu.url = "github:skwig/nixpkgs?ref=native-qemu";
 
     home-manager.url = "github:nix-community/home-manager?ref=release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
