@@ -4,9 +4,8 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-24.url = "github:nixos/nixpkgs?ref=3404205";
     pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
-    # pr-qemu.url = "github:skwig/nixpkgs?ref=fps-patch-qemu";
-    # pr-qemu.url = "github:alyssais/nixpkgs?ref=qemu-10.1";
-    pr-qemu.url = "github:skwig/nixpkgs?ref=native-qemu";
+    pr-qemu.url = "github:skwig/nixpkgs?ref=fps-patch-qemu";
+    # pr-qemu.url = "github:skwig/nixpkgs?ref=native-qemu";
 
     home-manager.url = "github:nix-community/home-manager?ref=release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -40,8 +39,6 @@
         pkgs-pr = {
           freelens = (import pr-freelens { inherit system; }).freelens;
           qemu_kvm = (import pr-qemu { inherit system; }).qemu_kvm;
-          virglrenderer = (import pr-qemu { inherit system; }).qemu_kvm;
-          mesa = (import pr-qemu { inherit system; }).mesa;
         };
       };
     in

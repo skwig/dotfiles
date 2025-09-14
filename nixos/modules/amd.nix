@@ -9,6 +9,6 @@
 {
   hardware.graphics = {
     enable = true;
-    package = pkgs-pr.mesa;
+    # package = pkgs-pr.mesa;
   };
 }
