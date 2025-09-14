@@ -74,5 +74,6 @@
   ];
 
   services.qemuGuest.enable = true;
+  services.qemuGuest.package = pkgs-pr.qemu_kvm.ga;
   services.spice-vdagentd.enable = true;
 }
