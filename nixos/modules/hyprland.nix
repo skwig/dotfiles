@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     hyprland
     hyprlock
     hyprshot
@@ -11,9 +11,9 @@
     adwaita-icon-theme
     papirus-icon-theme
     waybar
-    rofi-wayland
+    rofi
     rofi-power-menu
-    greetd.tuigreet
+    tuigreet
     wl-clipboard
     cliphist
     brightnessctl
