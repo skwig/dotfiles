@@ -80,7 +80,8 @@
 
     brave
     pkgs-unstable.google-chrome
-    wezterm
+    pkgs-unstable.wezterm
+    xterm
     nautilus
     vscodium
   ];
