@@ -11,9 +11,9 @@
     adwaita-icon-theme
     papirus-icon-theme
     waybar
-    rofi-wayland
+    rofi
     rofi-power-menu
-    greetd.tuigreet
+    tuigreet
     wl-clipboard
     cliphist
     brightnessctl

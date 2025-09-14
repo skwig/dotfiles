@@ -164,7 +164,7 @@
       home.file.".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wezterm;
       home.file.".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wlogout;
 
-      home.file.".config/JetBrains/Rider2025.1/rider64.vmoptions".source =
+      home.file.".config/JetBrains/Rider2025.2/rider64.vmoptions".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wayland/rider64.vmoptions;
 
       home.stateVersion = "24.11";

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 let
   dotnetCombined =
@@ -13,7 +13,7 @@ in
   nixpkgs.config.permittedInsecurePackages = [ "dotnet-sdk-7.0.317" ];
 
   environment.systemPackages = with pkgs; [
-    jetbrains.rider
+    pkgs-unstable.jetbrains.rider
     dotnetCombined
     powershell
   ];
