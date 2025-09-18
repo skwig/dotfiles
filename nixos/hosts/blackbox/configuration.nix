@@ -12,8 +12,8 @@
     ./hardware-configuration.nix
     ../../modules/system.nix
     ../../modules/bluetooth.nix
-    # ../../modules/amd.nix
-    ../../modules/nvidia.nix
+    ../../modules/amd.nix
+    # ../../modules/nvidia.nix
     ../../modules/hyprland.nix
     # ../../modules/kde.nix
     ../../modules/personal.nix
