@@ -24,13 +24,13 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.kernelParams = [
-    "video=Virtual-1:2880x1800@90"
-    "video=Virtual-2:2880x1800@90D"
+    "video=Virtual-1:2560x1440@144"
+    "video=Virtual-2:2560x1440@144D"
   ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/478c30a3-7b8a-46e2-80d1-a271feb79289";
+    device = "/dev/disk/by-uuid/e09f1253-e1c9-425b-b91d-5a0778e87465";
     fsType = "ext4";
   };
 

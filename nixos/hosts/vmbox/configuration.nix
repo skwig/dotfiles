@@ -25,12 +25,6 @@
   networking.hostName = "nixos"; # Define your hostname.
 
   networking.networkmanager.enable = true;
-  networking.interfaces.enp1s0 = {
-    ipAddress = "192.168.122.50";
-    subnetMask = "255.255.255.0";
-    useDHCP = false;
-  };
-  networking.nameservers = [ "1.1.1.1" ];
 
   time.timeZone = "Europe/Bratislava";
 
