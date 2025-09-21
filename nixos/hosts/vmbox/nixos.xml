@@ -1,4 +1,4 @@
-<domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
+<domain type='kvm'>
   <name>nixos</name>
   <uuid>cd1e8571-83d8-40da-846a-b8a21fa0309d</uuid>
   <metadata>
@@ -6,8 +6,8 @@
       <libosinfo:os id="http://nixos.org/nixos/unknown"/>
     </libosinfo:libosinfo>
   </metadata>
-  <memory unit='KiB'>20971520</memory>
-  <currentMemory unit='KiB'>20971520</currentMemory>
+  <memory unit='KiB'>33554432</memory>
+  <currentMemory unit='KiB'>33554432</currentMemory>
   <memoryBacking>
     <source type='memfd'/>
     <access mode='shared'/>
@@ -158,26 +158,27 @@
     </channel>
     <input type='mouse' bus='ps2'/>
     <input type='keyboard' bus='ps2'/>
-    <input type='tablet' bus='usb'>
-      <address type='usb' bus='0' port='2'/>
+    <input type='tablet' bus='virtio'>
+      <address type='pci' domain='0x0000' bus='0x08' slot='0x00' function='0x0'/>
     </input>
     <graphics type='spice'>
       <listen type='none'/>
+      <image compression='auto_glz'/>
+      <jpeg compression='auto'/>
+      <zlib compression='auto'/>
+      <playback compression='on'/>
+      <streaming mode='filter'/>
+      <clipboard copypaste='yes'/>
+      <filetransfer enable='yes'/>
       <gl enable='yes' rendernode='/dev/dri/by-path/pci-0000:03:00.0-render'/>
     </graphics>
-    <sound model='ich9'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x1b' function='0x0'/>
-    </sound>
     <audio id='1' type='none'/>
     <video>
-      <model type='virtio' heads='1' primary='yes'>
+      <model type='virtio' heads='2' primary='yes'>
         <acceleration accel3d='yes'/>
       </model>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x0'/>
     </video>
-    <redirdev bus='usb' type='spicevmc'>
-      <address type='usb' bus='0' port='1'/>
-    </redirdev>
     <watchdog model='itco' action='reset'/>
     <memballoon model='none'/>
     <rng model='virtio'>
@@ -185,11 +186,5 @@
       <address type='pci' domain='0x0000' bus='0x06' slot='0x00' function='0x0'/>
     </rng>
   </devices>
-  <qemu:commandline>
-    <qemu:arg value='-device'/>
-    <qemu:arg value='{&quot;driver&quot;:&quot;ivshmem-plain&quot;,&quot;id&quot;:&quot;shmem0&quot;,&quot;memdev&quot;:&quot;looking-glass&quot;}'/>
-    <qemu:arg value='-object'/>
-    <qemu:arg value='{&quot;qom-type&quot;:&quot;memory-backend-file&quot;,&quot;id&quot;:&quot;looking-glass&quot;,&quot;mem-path&quot;:&quot;/dev/kvmfr0&quot;,&quot;size&quot;:67108864,&quot;share&quot;:true}'/>
-  </qemu:commandline>
 </domain>
 
