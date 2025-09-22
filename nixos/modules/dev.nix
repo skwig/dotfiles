@@ -47,4 +47,10 @@
   # for neovim LSPs etc
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [ ];
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    enableZshIntegration = true;
+  };
 }
