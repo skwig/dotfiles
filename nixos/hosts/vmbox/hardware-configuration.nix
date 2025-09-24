@@ -24,8 +24,16 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.kernelParams = [
+    # as-is -> kinda laggy
+    # only 1 monitor
+    # 2 monitors, 75fps
+    # 1 monitor, 75fps
+    # 2 monitors, 60fps
+    # 1 monitor, 60fps
+    # unpatched
     "video=Virtual-1:2560x1440@144"
-    "video=Virtual-2:2560x1440@144D"
+    # "video=Virtual-1:800x600@75"
+    # "video=Virtual-2:2560x1440@144D"
   ];
   boot.extraModulePackages = [ ];
 

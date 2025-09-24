@@ -14,6 +14,7 @@
     ../../modules/hyprland.nix
     # ../../modules/kde.nix
     ../../modules/dev.nix
+    ../../modules/dev-dotnet.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_16;

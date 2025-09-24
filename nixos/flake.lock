@@ -85,6 +85,22 @@
         "type": "github"
       }
     },
+    "pr-hyprland": {
+      "locked": {
+        "lastModified": 1758649714,
+        "narHash": "sha256-xTKEcAfr5gDAsDn67rwQvnNUMnshyuxCzaPUANQ52M4=",
+        "owner": "skwig",
+        "repo": "nixpkgs",
+        "rev": "242c84a529f9e3decc920a721542531955b92bcb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "skwig",
+        "ref": "feature/vm-hw-cursor-debugging",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pr-qemu": {
       "locked": {
         "lastModified": 1757846059,
@@ -108,6 +124,7 @@
         "nixpkgs-24": "nixpkgs-24",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pr-freelens": "pr-freelens",
+        "pr-hyprland": "pr-hyprland",
         "pr-qemu": "pr-qemu"
       }
     }

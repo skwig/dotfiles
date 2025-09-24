@@ -1,12 +1,16 @@
-{ pkgs, pkgs-unstable, ... }:
+{
+  pkgs,
+  pkgs-pr,
+  pkgs-unstable,
+  ...
+}:
 
 {
   environment.systemPackages = with pkgs-unstable; [
-    hyprland
     hyprlock
     hyprshot
     hypridle
-    hyprcursor
+    # hyprcursor
     hyprpaper
     adwaita-icon-theme
     papirus-icon-theme
@@ -29,6 +33,8 @@
 
     hyprpanel
     wf-recorder
+
+    rose-pine-hyprcursor
   ];
 
   environment.sessionVariables = {
@@ -44,12 +50,18 @@
     XDG_SESSION_TYPE = "wayland";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
+
+    # HYPRLAND_DEBUG = "1";
   };
 
-  xdg.icons.fallbackCursorThemes = [ "Adwaita" ];
+  # xdg.icons.fallbackCursorThemes = [ "Adwaita" ];
 
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
+  programs.hyprland.package = pkgs-unstable.hyprland;
+  # programs.hyprland.package = pkgs-pr.hyprland;
+
+  programs.sway.enable = true;
 
   services.printing.enable = true;
 
