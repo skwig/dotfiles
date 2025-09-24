@@ -187,6 +187,7 @@ window_rules:
       - window_process: { equals: "Freelens" }
       - window_process: { equals: "RedisInsight" }
       - window_process: { equals: "Docker Desktop" }
+      - window_process: { equals: "Rancher Desktop" }
       - window_process: { equals: "dbeaver" }
 
   - commands: ["move --workspace 6"]
