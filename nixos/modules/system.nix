@@ -67,6 +67,7 @@
     btop
     zip
     unzip
+    socat
 
     nvtopPackages.full
 
@@ -173,6 +174,8 @@
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/gaming.sh;
       home.file.".local/bin/setup-git".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/setup-git.sh;
+      home.file.".local/bin/vm-submap-on-vm-focus".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/vm-submap-on-vm-focus.sh;
 
       home.stateVersion = "24.11";
     };
