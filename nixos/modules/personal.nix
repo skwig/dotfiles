@@ -5,7 +5,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    # discord
+    discord
     webcord
     spotify
     mpv
@@ -21,6 +21,7 @@
     syncplay
     obsidian
     gnome-disk-utility
+    signal-desktop
   ];
 
   programs.steam.enable = true;
