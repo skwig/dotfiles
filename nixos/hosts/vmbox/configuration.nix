@@ -10,10 +10,10 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/system.nix
-    # ../../modules/amd.nix
     ../../modules/hyprland.nix
     # ../../modules/kde.nix
     ../../modules/dev.nix
+    ../../modules/dev-dotnet.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_16;
@@ -68,6 +68,6 @@
   ];
 
   services.qemuGuest.enable = true;
-  services.qemuGuest.package = pkgs-pr.qemu_kvm.ga;
+  services.qemuGuest.package = pkgs-unstable.qemu_kvm.ga;
   services.spice-vdagentd.enable = true;
 }
