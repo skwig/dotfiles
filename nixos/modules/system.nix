@@ -29,6 +29,7 @@
       "steam"
       "steam-unwrapped"
       "synology-drive-client"
+      "vmware-workstation"
       # nvidia packages
       "cuda-merged"
       "cuda_cuobjdump"
