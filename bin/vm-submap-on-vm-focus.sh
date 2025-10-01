@@ -1,11 +1,11 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 handle() {
   case $1 in
   "activewindow>>"*)
     payload=${line#*>>}
     IFS=',' read -r wclass wtitle <<<"$payload"
-    if [[ $wclass == ".qemu-system-x86_64-wrapped" ]]; then
+    if [[ $wclass == ".qemu-system-x86_64-wrapped" || $wclass == "Vmware" ]]; then
       hyprctl dispatch submap vm
     else
       hyprctl dispatch submap reset
