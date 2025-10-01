@@ -36,7 +36,7 @@
 
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   time.timeZone = "Europe/Bratislava";
 
@@ -59,12 +59,7 @@
     variant = "";
   };
 
-  # virtualisation.vmware.host.enable = true;
-  # virtualisation.vmware.host.package = pkgs-unstable.vmware-workstation;
-
   hardware.keyboard.zsa.enable = true;
-
-  services.gnome.gnome-keyring.enable = true;
 
   services.fprintd.enable = true;
 
@@ -73,8 +68,6 @@
     nssmdns4 = true;
     openFirewall = true;
   };
-
-  # hardware.nvidia-container-toolkit.enable = true;
 
   services.udev.extraRules = ''
     # allow active seat user to access THIS USB device
