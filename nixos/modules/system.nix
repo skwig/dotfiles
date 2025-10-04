@@ -84,6 +84,7 @@
     file-roller
 
     brave
+    chromium
     pkgs-unstable.google-chrome
     pkgs-unstable.wezterm
     xterm
@@ -174,6 +175,8 @@
 
       home.file.".local/bin/gaming".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/gaming.sh;
+      home.file.".local/bin/rider-picker".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/rider-picker.sh;
       home.file.".local/bin/setup-git".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/setup-git.sh;
       home.file.".local/bin/vm-submap-on-vm-focus".source =
