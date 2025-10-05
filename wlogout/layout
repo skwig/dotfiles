@@ -1,8 +1,20 @@
 {
+  "label" : "suspend",
+  "action" : "systemctl suspend",
+  "text" : "Suspend",
+  "keybind" : "u"
+}
+{
   "label" : "shutdown",
   "action" : "systemctl poweroff",
   "text" : "Shutdown",
   "keybind" : "s"
+}
+{
+  "label" : "lock",
+  "action" : "loginctl lock-session",
+  "text" : "Lock",
+  "keybind" : "l"
 }
 {
   "label" : "reboot",
@@ -15,18 +27,6 @@
   "action" : "loginctl terminate-user $USER",
   "text" : "Exit",
   "keybind" : "e"
-}
-{
-  "label" : "suspend",
-  "action" : "systemctl suspend",
-  "text" : "Suspend",
-  "keybind" : "u"
-}
-{
-  "label" : "lock",
-  "action" : "loginctl lock-session",
-  "text" : "Lock",
-  "keybind" : "l"
 }
 {
   "label" : "hibernate",
