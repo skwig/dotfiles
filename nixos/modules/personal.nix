@@ -22,6 +22,7 @@
     obsidian
     gnome-disk-utility
     signal-desktop
+    bitwarden-desktop
   ];
 
   programs.steam.enable = true;
