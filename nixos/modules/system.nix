@@ -182,6 +182,12 @@
       home.file.".local/bin/vm-submap-on-vm-focus".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/vm-submap-on-vm-focus.sh;
 
+      dconf.settings = {
+        "org/gnome/desktop/interface" = {
+          color-scheme = "prefer-dark";
+        };
+      };
+
       home.stateVersion = "24.11";
     };
 
