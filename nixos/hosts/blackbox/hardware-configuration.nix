@@ -51,17 +51,8 @@
     ];
   };
 
-  fileSystems."/mnt/VM1" = {
-    device = "/dev/disk/by-label/VM1";
-    fsType = "ntfs-3g";
-    options = [
-      "rw"
-      "uid=1000"
-    ];
-  };
-
-  fileSystems."/mnt/VM1ext4" = {
-    device = "/dev/disk/by-label/VM1ext4";
+  fileSystems."/mnt/VM" = {
+    device = "/dev/disk/by-label/VM";
     fsType = "ext4";
   };
 
