@@ -7,7 +7,7 @@ end
 
 config.font = wezterm.font({
   family = "JetBrainsMono Nerd Font",
-  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+  harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 })
 config.font_size = 11
 config.color_scheme = "Vs Code Dark+ (Gogh)"
@@ -16,8 +16,8 @@ config.colors = {
     active_tab = {
       bg_color = "#1e1e1e",
       fg_color = "#c0c0c0",
-    }
-  }
+    },
+  },
 }
 
 config.use_fancy_tab_bar = false
