@@ -66,7 +66,7 @@ inputbar {
   border-radius: 25px;
   orientation: horizontal;
   children: [entry, dummy, mode-switcher];
-  background-image: url("~/dotfiles/assets/wallpaper.jpg", width);
+  background-image: url("~/dotfiles/assets/fuji.jpg", width);
 }
 
 entry {
