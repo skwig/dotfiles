@@ -173,6 +173,16 @@
       home.file.".config/JetBrains/Rider2025.2/rider64.vmoptions".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wayland/rider64.vmoptions;
 
+      home.file.".local/bin/dots-cliphist".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-cliphist.sh;
+      home.file.".local/bin/dots-launcher".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-launcher.sh;
+      home.file.".local/bin/dots-rider-picker".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-rider-picker.sh;
+      home.file.".local/bin/dots-script-picker".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-script-picker.sh;
+      home.file.".local/bin/dots-terminal".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-terminal.sh;
       home.file.".local/bin/gaming".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/gaming.sh;
       home.file.".local/bin/rider-picker".source =
