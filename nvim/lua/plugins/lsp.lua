@@ -33,6 +33,7 @@ return {
         "tofu-ls",
         "typescript-language-server",
         "yamlls",
+        "bashls",
       }
 
       local preinstalled_lsps = {
