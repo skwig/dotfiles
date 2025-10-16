@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 
-$SHELL ~/.local/bin/$(ls ~/.local/bin | rofi -dmenu -i)
+file=$(ls ~/.local/bin | rofi -dmenu -i) || exit
+$SHELL ~/.local/bin/$file

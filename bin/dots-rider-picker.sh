@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 
-rider ~/Projects/$(rider-picker ~/Projects | rofi -dmenu -i)
+file=$(rider-picker ~/Projects | rofi -dmenu -i) || exit
+rider ~/Projects/$file
