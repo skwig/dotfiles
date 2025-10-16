@@ -177,6 +177,8 @@
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-cliphist.sh;
       home.file.".local/bin/dots-launcher".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-launcher.sh;
+      home.file.".local/bin/dots-rider-fzf".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-rider-fzf.sh;
       home.file.".local/bin/dots-rider-picker".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-rider-picker.sh;
       home.file.".local/bin/dots-script-picker".source =
