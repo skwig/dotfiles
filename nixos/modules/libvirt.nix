@@ -9,7 +9,7 @@
 {
   programs.virt-manager = {
     enable = true;
-    package = pkgs-unstable.virt-manager;
+    package = pkgs-pr.virt-manager;
   };
 
   users.groups.libvirtd.members = [ username ];
@@ -18,7 +18,7 @@
 
   virtualisation.libvirtd = {
     enable = true;
-    package = pkgs-unstable.libvirt;
+    package = pkgs-pr.libvirt;
     qemu = {
       package = pkgs-pr.qemu_kvm;
       runAsRoot = true;
@@ -57,7 +57,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    pkgs-unstable.virglrenderer
-    pkgs-unstable.virt-viewer
+    pkgs-pr.virglrenderer
+    pkgs-pr.virt-viewer
   ];
 }
