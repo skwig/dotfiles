@@ -6,7 +6,7 @@
 {
   environment.systemPackages = with pkgs; [
     discord
-    webcord
+    pkgs-unstable.webcord
     spotify
     mpv
     vlc
