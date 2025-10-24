@@ -24,6 +24,7 @@
     gnome-disk-utility
     signal-desktop
     bitwarden-desktop
+    remmina
   ];
 
   programs.steam.enable = true;
