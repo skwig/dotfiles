@@ -78,7 +78,6 @@
     ncdu
 
     # TODO: Some sort of "desktop" section? These dont work in TTY or headless mode
-    networkmanagerapplet
     imagemagick
     efibootmgr
     file-roller

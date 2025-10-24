@@ -5,9 +5,6 @@
   hardware.bluetooth.powerOnBoot = true;
 
   environment.systemPackages = with pkgs; [
-    overskride
-    blueberry
-    blueman
   ];
 
   # Disallows mic+audio combo on BT headset,
