@@ -35,10 +35,10 @@ map Q gq |" Don't use Ex mode, use Q for formatting.
 nnoremap <CR> :noh<CR>
 
 " Clipboard
-map <leader>y "*y
-map <leader>Y "*Y
-map <leader>p "*p
-map <leader>P "*P
+map <leader>y "+y
+map <leader>Y "+Y
+map <leader>p "+p
+map <leader>P "+P
 
 " Swap camelCase motions to be more similar to standard vim ] motions
 nnoremap ]w [w
