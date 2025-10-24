@@ -1,6 +1,7 @@
 {
   pkgs,
   pkgs-unstable,
+  username,
   ...
 }:
 {
@@ -30,4 +31,8 @@
   # programs.steam.gamescopeSession = true;
 
   # ln -s ~/runelite ~/.local/share/bolt-launcher/.runelite
+
+  environment.sessionVariables = {
+    SSH_AUTH_SOCK = "/home/${username}/.bitwarden-ssh-agent.sock";
+  };
 }
