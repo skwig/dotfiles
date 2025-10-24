@@ -19,11 +19,12 @@
     ../../modules/personal.nix
     ../../modules/libvirt.nix
     ../../modules/dev.nix
-    ../../modules/dev-dotnet.nix
+    ../../modules/dev-ai.nix
     ../../modules/dev-az.nix
-    ../../modules/dev-k8s.nix
+    ../../modules/dev-dotnet.nix
+    # ../../modules/dev-embedded.nix
     ../../modules/dev-go.nix
-    ../../modules/dev-embedded.nix
+    ../../modules/dev-k8s.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -58,7 +59,7 @@
   # services.fprintd.enable = true;
 
   environment.systemPackages = with pkgs; [
-    remmina
+    impala
   ];
 
   services.upower.enable = true;
