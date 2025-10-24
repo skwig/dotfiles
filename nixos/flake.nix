@@ -84,6 +84,7 @@
       nixosModules = {
         bluetooth = import ./modules/bluetooth.nix;
         desktop = import ./modules/desktop.nix;
+        dev-ai = import ./modules/dev-ai.nix;
         dev-az = import ./modules/dev-az.nix;
         dev-dotnet = import ./modules/dev-dotnet.nix;
         dev-embedded = import ./modules/dev-embedded.nix;
