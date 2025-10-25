@@ -172,6 +172,8 @@
       home.file.".config/JetBrains/Rider2025.2/rider64.vmoptions".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wayland/rider64.vmoptions;
 
+      home.file.".local/bin/dots-browser".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-browser.sh;
       home.file.".local/bin/dots-cliphist".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-cliphist.sh;
       home.file.".local/bin/dots-launcher".source =
