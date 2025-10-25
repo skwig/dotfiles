@@ -184,6 +184,8 @@
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-rider-picker.sh;
       home.file.".local/bin/dots-script-picker".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-script-picker.sh;
+      home.file.".local/bin/dots-start".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-start.sh;
       home.file.".local/bin/dots-terminal".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-terminal.sh;
       home.file.".local/bin/gaming".source =

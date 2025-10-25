@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-wezterm start $@
+dots-start wezterm start $@
