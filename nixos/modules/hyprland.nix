@@ -1,4 +1,9 @@
-{ pkgs, pkgs-unstable, ... }:
+{
+  pkgs,
+  pkgs-unstable,
+  username,
+  ...
+}:
 
 {
   environment.systemPackages = with pkgs-unstable; [
@@ -78,8 +83,7 @@
       };
       # initial_session = {
       #   command = "uwsm start hyprland-uwsm.desktop";
-      #   # command = "Hyprland";
-      #   user = "skwig";
+      #   user = username;
       # };
       # default_session = initial_session;
     };
