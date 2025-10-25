@@ -48,20 +48,16 @@
 
   xdg.icons.fallbackCursorThemes = [ "Adwaita" ];
 
-  programs.hyprland.enable = true;
-  programs.hyprland.xwayland.enable = true;
-
-  services.printing.enable = true;
-
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
+  programs.hyprland = {
     enable = true;
+    xwayland.enable = true;
+    withUWSM = true;
+    package = pkgs-unstable.hyprland;
+  };
 
-    alsa.enable = true;
-    alsa.support32Bit = true;
-
-    pulse.enable = true;
+  programs.hyprlock = {
+    enable = true;
+    package = pkgs-unstable.hyprlock;
   };
 
   systemd.services.greetd.serviceConfig = {
@@ -78,8 +74,14 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd 'uwsm start -- hyprland-uwsm.desktop'";
       };
+      # initial_session = {
+      #   command = "uwsm start hyprland-uwsm.desktop";
+      #   # command = "Hyprland";
+      #   user = "skwig";
+      # };
+      # default_session = initial_session;
     };
   };
 
@@ -91,4 +93,15 @@
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
+
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+
+    alsa.enable = true;
+    alsa.support32Bit = true;
+
+    pulse.enable = true;
+  };
 }
