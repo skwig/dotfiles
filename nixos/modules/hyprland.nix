@@ -65,6 +65,11 @@
     package = pkgs-unstable.hyprlock;
   };
 
+  programs.uwsm = {
+    enable = true;
+    package = pkgs-unstable.uwsm;
+  };
+
   systemd.services.greetd.serviceConfig = {
     Type = "idle";
     StandardInput = "tty";
