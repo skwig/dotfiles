@@ -18,6 +18,7 @@
     # ../../modules/kde.nix
     ../../modules/personal.nix
     ../../modules/libvirt.nix
+    ../../modules/vmware.nix
     ../../modules/dev.nix
     ../../modules/dev-ai.nix
     ../../modules/dev-az.nix
@@ -26,6 +27,8 @@
     ../../modules/dev-go.nix
     ../../modules/dev-k8s.nix
   ];
+
+  boot.kernelPackages = pkgs.linuxPackages_6_15;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
