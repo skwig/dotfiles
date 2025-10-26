@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
-dots-start webcord
-dots-start bolt-launcher
-dots-start brave
+uwsm app -- bolt-launcher &
+uwsm app -- brave &
+uwsm app -- webcord &
