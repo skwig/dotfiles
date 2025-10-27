@@ -11,6 +11,7 @@
     spotify
     mpv
     vlc
+    yt-dlp
     synology-drive-client
     pkgs-unstable.bolt-launcher
     lutris
