@@ -38,6 +38,10 @@
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
+  networking.interfaces."enp8s0".wakeOnLan = {
+    enable = true;
+    policy = [ "magic" ];
+  };
 
   time.timeZone = "Europe/Bratislava";
 
