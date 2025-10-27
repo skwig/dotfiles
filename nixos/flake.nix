@@ -7,8 +7,9 @@
     pr-qemu.url = "github:skwig/nixpkgs?ref=fps-patch-qemu";
     # pr-qemu.url = "github:skwig/nixpkgs?ref=native-qemu";
 
-    home-manager.url = "github:nix-community/home-manager?ref=release-25.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # only until 25.11 comes out
+    home-manager.url = "github:nix-community/home-manager?ref=master";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs =
