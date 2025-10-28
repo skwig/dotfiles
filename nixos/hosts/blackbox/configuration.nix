@@ -19,6 +19,8 @@
     ../../modules/personal.nix
     ../../modules/libvirt.nix
     ../../modules/vmware.nix
+    ../../modules/openssh.nix
+    ../../modules/wayvnc.nix
     ../../modules/dev.nix
     ../../modules/dev-ai.nix
     ../../modules/dev-az.nix
@@ -69,35 +71,4 @@
     # vmware-workstation
     pkgs-pr.freelens
   ];
-
-  users.users.${username}.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINKBYbvBqHC1HbBgrSXPVc3UDqMjCqjr/k1jqQIpnPJR skwig@blackbox"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDfbf7RIFcpdW+9ryqeDoRYEeors8vMRj2ILh+UC66xm skwig@smallbox"
-  ];
-
-  services.openssh = {
-    enable = true;
-    ports = [ 17937 ];
-    openFirewall = true;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-      AllowUsers = [ username ];
-    };
-  };
-
-  home-manager.users.${username} =
-    { config, ... }:
-    {
-      home.enableNixpkgsReleaseCheck = false;
-      services.wayvnc = {
-        enable = true;
-        autoStart = true;
-        settings = {
-          address = "localhost";
-          port = 17938;
-        };
-      };
-    };
 }

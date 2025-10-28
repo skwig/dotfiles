@@ -19,6 +19,8 @@
     ../../modules/personal.nix
     ../../modules/libvirt.nix
     ../../modules/vmware.nix
+    # ../../modules/openssh.nix
+    # ../../modules/wayvnc.nix
     ../../modules/dev.nix
     ../../modules/dev-ai.nix
     ../../modules/dev-az.nix
