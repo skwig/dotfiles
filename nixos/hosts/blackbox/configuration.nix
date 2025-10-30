@@ -68,7 +68,5 @@
     imgcat
     mesa-demos
     python3
-    # vmware-workstation
-    pkgs-pr.freelens
   ];
 }
