@@ -71,11 +71,11 @@
     },
     "pr-freelens": {
       "locked": {
-        "lastModified": 1754734615,
-        "narHash": "sha256-zLaVP2XOJiooX/1RdLaihm2GDE5YTjDnQadBJ+KL40Y=",
+        "lastModified": 1761776716,
+        "narHash": "sha256-UdWI6hAgR9dLgjurm8L+VH4Rfq5+oQFfeT0Ch38ybCs=",
         "owner": "skwig",
         "repo": "nixpkgs",
-        "rev": "fc2c4aa3aa6fcd7a18e9a5b1080b3b33ddacb078",
+        "rev": "a52c90da61a012e7be9a3ba98fa9d7ffacbfabce",
         "type": "github"
       },
       "original": {

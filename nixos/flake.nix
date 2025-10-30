@@ -38,7 +38,7 @@
           }
         );
         pkgs-pr = {
-          freelens = (import pr-freelens { inherit system; }).freelens;
+          freelens-bin = (import pr-freelens { inherit system; }).freelens-bin;
           qemu_kvm = (import pr-qemu { inherit system; }).qemu_kvm;
         };
       };
