@@ -162,6 +162,11 @@
     ];
   };
 
+  environment.sessionVariables = {
+    TERMINAL = "wezterm";
+    BROWSER = "brave";
+  };
+
   xdg.mime.defaultApplications = {
     "application/pdf" = "brave-browser.desktop";
     "text/plain" = "codium.desktop";
