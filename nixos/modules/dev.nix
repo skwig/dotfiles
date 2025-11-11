@@ -33,6 +33,8 @@
     nix-search-cli
     nixd
     nixfmt-rfc-style
+
+    nushell
   ];
 
   programs.neovim = {
