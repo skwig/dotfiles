@@ -54,6 +54,17 @@
     enable = true;
   };
 
+  security.pam.services = {
+    greetd = {
+      fprintAuth = true;
+      unixAuth = true;
+    };
+    sudo = {
+      fprintAuth = false;
+      unixAuth = true;
+    };
+  };
+
   services.cloudflare-warp = {
     enable = true;
   };
