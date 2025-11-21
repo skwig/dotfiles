@@ -37,29 +37,13 @@
         "type": "github"
       }
     },
-    "nixpkgs-24": {
-      "locked": {
-        "lastModified": 1742754969,
-        "narHash": "sha256-pmBphBjyfYrHjt6FYG+lRbJTSZayDyiJHd/wA9u8Acs=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "34042055a2c4b22d40926b4b5b544f32cf07e7fc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "3404205",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1760878510,
-        "narHash": "sha256-K5Osef2qexezUfs0alLvZ7nQFTGS9DL2oTVsIXsqLgs=",
+        "lastModified": 1763421233,
+        "narHash": "sha256-Stk9ZYRkGrnnpyJ4eqt9eQtdFWRRIvMxpNRf4sIegnw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5e2a59a5b1a82f89f2c7e598302a9cacebb72a67",
+        "rev": "89c2b2330e733d6cdb5eae7b899326930c2c0648",
         "type": "github"
       },
       "original": {
@@ -105,7 +89,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-24": "nixpkgs-24",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pr-freelens": "pr-freelens",
         "pr-qemu": "pr-qemu"

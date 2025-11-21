@@ -2,7 +2,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-24.url = "github:nixos/nixpkgs?ref=3404205";
     pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
     pr-qemu.url = "github:skwig/nixpkgs?ref=fps-patch-qemu";
     # pr-qemu.url = "github:skwig/nixpkgs?ref=native-qemu";
@@ -16,7 +15,6 @@
     {
       nixpkgs,
       nixpkgs-unstable,
-      nixpkgs-24,
       pr-freelens,
       pr-qemu,
       home-manager,
@@ -29,12 +27,9 @@
           import nixpkgs-unstable {
             inherit system;
             config.allowUnfree = true;
-          }
-        );
-        pkgs-24 = (
-          import nixpkgs-24 {
-            inherit system;
-            config.allowUnfree = true;
+            config.permittedInsecurePackages = [
+              "electron-36.9.5"
+            ];
           }
         );
         pkgs-pr = {
