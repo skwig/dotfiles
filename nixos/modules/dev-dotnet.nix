@@ -2,11 +2,12 @@
 
 let
   dotnetCombined =
-    with pkgs.dotnetCorePackages;
+    with pkgs-unstable.dotnetCorePackages;
     combinePackages [
+      sdk_10_0
       sdk_9_0_1xx
       sdk_8_0_3xx
-      sdk_7_0_3xx
+      pkgs.dotnetCorePackages.sdk_7_0_3xx
     ];
 in
 {
