@@ -65,9 +65,14 @@
     package = pkgs-unstable.hyprlock;
   };
 
+  services.hypridle = {
+    enable = true;
+    package = pkgs-unstable.hypridle;
+  };
+
   programs.uwsm = {
     enable = true;
-    package = pkgs-unstable.uwsm;
+    package = pkgs.uwsm;
   };
 
   systemd.services.greetd.serviceConfig = {
