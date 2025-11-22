@@ -26,7 +26,7 @@
             inherit system;
             config.allowUnfree = true;
             config.permittedInsecurePackages = [
-              "electron-36.9.5"
+              "electron-36.9.5" # webcord
             ];
           }
         );
