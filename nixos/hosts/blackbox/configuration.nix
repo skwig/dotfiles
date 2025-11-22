@@ -1,7 +1,6 @@
 {
   pkgs,
   pkgs-unstable,
-  pkgs-pr,
   username,
   hostname,
   ...

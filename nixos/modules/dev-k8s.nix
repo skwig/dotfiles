@@ -1,10 +1,10 @@
-{ pkgs, pkgs-pr, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   environment.systemPackages = with pkgs; [
     kubectl
     k9s
     kubelogin
-    pkgs-pr.freelens-bin
+    pkgs-unstable.freelens-bin
   ];
 }

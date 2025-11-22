@@ -2,7 +2,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    pr-freelens.url = "github:skwig/nixpkgs?ref=init-freelens";
     pr-qemu.url = "github:skwig/nixpkgs?ref=fps-patch-qemu";
     # pr-qemu.url = "github:skwig/nixpkgs?ref=native-qemu";
 
@@ -15,7 +14,6 @@
     {
       nixpkgs,
       nixpkgs-unstable,
-      pr-freelens,
       pr-qemu,
       home-manager,
       ...
@@ -33,7 +31,6 @@
           }
         );
         pkgs-pr = {
-          freelens-bin = (import pr-freelens { inherit system; }).freelens-bin;
           qemu_kvm = (import pr-qemu { inherit system; }).qemu_kvm;
         };
       };
