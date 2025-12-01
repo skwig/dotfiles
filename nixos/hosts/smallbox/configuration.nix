@@ -45,6 +45,7 @@
 
   environment.systemPackages = with pkgs; [
     impala
+    moonlight-qt
   ];
 
   services.upower.enable = true;
