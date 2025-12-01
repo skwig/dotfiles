@@ -69,4 +69,20 @@
   services.cloudflare-warp = {
     enable = true;
   };
+
+  home-manager.users.${username} =
+    { config, ... }:
+    let
+      dotfiles = /home/${username}/dotfiles;
+    in
+    {
+      home.file.".config/wallpaper.jpg".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/assets/fuji.jpg;
+
+      home.file.".config/hypr-custom/hyprland.globals.conf".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/hypr/hyprland.globals.${hostname}.conf;
+
+      home.file.".config/hypr-custom/hyprland.monitors.conf".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/hypr/hyprland.monitors.${hostname}.conf;
+    };
 }
