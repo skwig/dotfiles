@@ -45,6 +45,13 @@ return {
       mason.setup()
       mason_tool_installer.setup({ ensure_installed = install_lsps })
 
+      -- tofu-ls doesnt want to work on its own for some reason
+      vim.lsp.config("tofu-ls", {
+        cmd = { "tofu-ls", "serve" },
+        filetypes = { "opentofu", "opentofu-vars", "terraform" },
+        root_markers = { ".terraform", ".git" },
+      })
+
       vim.lsp.enable(lsps)
 
       vim.diagnostic.config({
