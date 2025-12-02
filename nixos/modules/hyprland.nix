@@ -72,7 +72,7 @@
 
   programs.uwsm = {
     enable = true;
-    package = pkgs.uwsm;
+    package = pkgs-unstable.uwsm;
   };
 
   systemd.services.greetd.serviceConfig = {
@@ -89,7 +89,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd 'uwsm start -- hyprland-uwsm.desktop'";
+        command = "${pkgs-unstable.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd 'uwsm start -- hyprland-uwsm.desktop'";
       };
       # initial_session = {
       #   command = "uwsm start hyprland-uwsm.desktop";
@@ -100,9 +100,11 @@
   };
 
   services.logind = {
-    extraConfig = ''
-      HandlePowerKey=suspend
-    '';
+    settings = {
+      Login = {
+        HandlePowerKey = "suspend";
+      };
+    };
   };
 
   services.gnome.gnome-keyring.enable = true;
