@@ -42,9 +42,6 @@ config.window_frame = {
 if OS() == "win" then
   config.default_prog = { "pwsh" }
   config.font_size = 11
-else
-  config.enable_wayland = false
-  config.font_size = 13
 end
 
 config.keys = {
