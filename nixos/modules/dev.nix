@@ -34,6 +34,7 @@
     nixd
     nixfmt-rfc-style
 
+    k6
     nushell
   ];
 
