@@ -10,7 +10,6 @@ return {
       suppressed_dirs = { "~", "~/", "~/Downloads" },
     })
 
-    local sessionLens = require("auto-session.session-lens")
-    vim.keymap.set("n", "<leader>si", sessionLens.search_session, { desc = "[S]earch Sess[I]on" })
+    vim.keymap.set("n", "<leader>si", "<CMD>AutoSession search<CR>", { desc = "[S]earch Sess[I]on" })
   end,
 }
