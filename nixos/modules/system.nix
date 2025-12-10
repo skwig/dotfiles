@@ -23,6 +23,7 @@
     builtins.elem (lib.getName pkg) [
       "cloudflare-warp"
       "discord"
+      "google-chrome"
       "obsidian"
       "rider"
       "spotify"
@@ -30,31 +31,6 @@
       "steam-unwrapped"
       "synology-drive-client"
       "vmware-workstation"
-      # nvidia packages
-      "cuda-merged"
-      "cuda_cuobjdump"
-      "cuda_gdb"
-      "cuda_nvcc"
-      "cuda_nvdisasm"
-      "cuda_nvprune"
-      "cuda_cccl"
-      "cuda_cudart"
-      "cuda_cupti"
-      "cuda_cuxxfilt"
-      "cuda_nvml_dev"
-      "cuda_nvrtc"
-      "cuda_nvtx"
-      "cuda_profiler_api"
-      "cuda_sanitizer_api"
-      "libcublas"
-      "libcufft"
-      "libcurand"
-      "libcusolver"
-      "libnvjitlink"
-      "libcusparse"
-      "libnpp"
-      "nvidia-settings"
-      "nvidia-x11"
     ];
 
   environment.localBinInPath = true;
@@ -70,7 +46,7 @@
     unzip
     socat
 
-    nvtopPackages.full
+    nvtopPackages.amd
 
     yazi
     oh-my-posh
@@ -84,8 +60,8 @@
 
     brave
     chromium
-    pkgs-unstable.google-chrome
-    pkgs-unstable.wezterm
+    google-chrome
+    wezterm
     xterm
     nautilus
     vscodium

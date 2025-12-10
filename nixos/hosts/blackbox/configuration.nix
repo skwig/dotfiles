@@ -70,9 +70,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    imgcat
-    mesa-demos
-    python3
   ];
 
   home-manager.users.${username} =
