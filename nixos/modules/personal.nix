@@ -26,6 +26,7 @@
     signal-desktop
     bitwarden-desktop
     remmina
+    prismlauncher
   ];
 
   programs.steam.enable = true;
