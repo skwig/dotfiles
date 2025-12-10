@@ -4,6 +4,7 @@
   pkgs-unstable,
   pkgs-24,
   username,
+  allowUnfreePredicate,
   ...
 }:
 {
@@ -18,20 +19,7 @@
   };
 
   # nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "cloudflare-warp"
-      "discord"
-      "google-chrome"
-      "obsidian"
-      "rider"
-      "spotify"
-      "steam"
-      "steam-unwrapped"
-      "synology-drive-client"
-      "vmware-workstation"
-    ];
+  nixpkgs.config.allowUnfreePredicate = allowUnfreePredicate;
 
   environment.localBinInPath = true;
 

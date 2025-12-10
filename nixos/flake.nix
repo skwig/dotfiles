@@ -22,17 +22,35 @@
     }@attrs:
     let
       system = "x86_64-linux";
+
+      allowUnfreePredicate =
+        pkg:
+        builtins.elem (nixpkgs.lib.getName pkg) [
+          "claude-code"
+          "cloudflare-warp"
+          "discord"
+          "google-chrome"
+          "obsidian"
+          "rider"
+          "spotify"
+          "steam"
+          "steam-unwrapped"
+          "synology-drive-client"
+          "vmware-workstation"
+        ];
+
       specialArgs = attrs // {
+        inherit allowUnfreePredicate;
         pkgs-unstable = (
           import nixpkgs-unstable {
             inherit system;
-            config.allowUnfree = true;
+            config.allowUnfreePredicate = allowUnfreePredicate;
           }
         );
         pkgs-cuttingedge = (
           import nixpkgs-cuttingedge {
             inherit system;
-            config.allowUnfree = true;
+            config.allowUnfreePredicate = allowUnfreePredicate;
           }
         );
         pkgs-pr = {
