@@ -37,6 +37,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-cuttingedge": {
+      "locked": {
+        "lastModified": 1765186076,
+        "narHash": "sha256-hM20uyap1a0M9d344I692r+ik4gTMyj60cQWO+hAYP8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1765186076,
@@ -73,6 +89,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-cuttingedge": "nixpkgs-cuttingedge",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pr-qemu": "pr-qemu"
       }

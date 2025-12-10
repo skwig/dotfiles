@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs-cuttingedge.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     pr-qemu.url = "github:skwig/nixpkgs?ref=fps-patch-qemu";
     # pr-qemu.url = "github:skwig/nixpkgs?ref=native-qemu";
 
@@ -14,6 +15,7 @@
     {
       nixpkgs,
       nixpkgs-unstable,
+      nixpkgs-cuttingedge,
       pr-qemu,
       home-manager,
       ...
@@ -23,6 +25,12 @@
       specialArgs = attrs // {
         pkgs-unstable = (
           import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          }
+        );
+        pkgs-cuttingedge = (
+          import nixpkgs-cuttingedge {
             inherit system;
             config.allowUnfree = true;
           }
