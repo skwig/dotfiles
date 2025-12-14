@@ -75,15 +75,15 @@
     package = pkgs-unstable.uwsm;
   };
 
-  systemd.services.greetd.serviceConfig = {
-    Type = "idle";
-    StandardInput = "tty";
-    StandardOutput = "tty";
-    StandardErro = "journal";
-    TTYReset = true;
-    TTYVHangup = true;
-    TTYVTDisallocate = true;
-  };
+  # systemd.services.greetd.serviceConfig = {
+  #   Type = "idle";
+  #   StandardInput = "tty";
+  #   StandardOutput = "tty";
+  #   StandardErro = "journal";
+  #   TTYReset = true;
+  #   TTYVHangup = true;
+  #   TTYVTDisallocate = true;
+  # };
 
   services.greetd = {
     enable = true;
@@ -97,6 +97,7 @@
       # };
       # default_session = initial_session;
     };
+    useTextGreeter = true;
   };
 
   services.logind = {
