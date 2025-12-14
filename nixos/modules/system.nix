@@ -157,11 +157,18 @@
       home.file.".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wezterm;
       home.file.".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wlogout;
 
-      home.file.".config/sunshine/sunshine.conf".source =
-        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/sunshine/sunshine.conf;
-
       home.file.".config/JetBrains/Rider2025.3/rider64.vmoptions".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wayland/rider64.vmoptions;
+
+      home.file.".config/opencode/opencode.json".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/opencode/opencode.json;
+      home.file.".config/opencode/command".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/opencode/command;
+      home.file.".config/opencode/skills".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/opencode/skills;
+
+      home.file.".config/sunshine/sunshine.conf".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/sunshine/sunshine.conf;
 
       home.file.".local/bin/dots-browser".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-browser.sh;
