@@ -39,9 +39,9 @@ else
     # Use temp file to store releases JSON (avoids bash variable issues with JSON control characters)
     RELEASES_TEMP=$(mktemp)
     trap 'rm -f "$RELEASES_TEMP"' EXIT
-    
+
     curl -s -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/sst/opencode/releases?per_page=5" > "$RELEASES_TEMP"
-    
+
     LATEST_VERSION=$(jq -r '.[0].tag_name' "$RELEASES_TEMP")
 
     # Validate the fetched version
@@ -54,33 +54,33 @@ else
 
         # Display changelogs for new releases (up to 5, stop at OLD_VERSION)
         RELEASE_COUNT=$(jq 'length' "$RELEASES_TEMP")
-        
+
         if [ "$RELEASE_COUNT" -gt 0 ]; then
             echo "=========================================="
-            echo "OpenCode - Recent Releases"
+            echo "OpenCode - Recent Releases (https://github.com/sst/opencode/releases)"
             echo "=========================================="
             echo ""
-            
+
             for i in $(seq 0 $((RELEASE_COUNT - 1))); do
                 VERSION=$(jq -r ".[$i].tag_name" "$RELEASES_TEMP")
-                
+
                 # Stop if we've reached the previously cached version
                 if [ -n "$OLD_VERSION" ] && [ "$VERSION" = "$OLD_VERSION" ]; then
                     break
                 fi
-                
+
                 PUBLISHED=$(jq -r ".[$i].published_at" "$RELEASES_TEMP")
                 BODY=$(jq -r ".[$i].body // \"No release notes available\"" "$RELEASES_TEMP")
-                
+
                 # Format the date (extract just the date part)
                 PUBLISH_DATE=$(echo "$PUBLISHED" | cut -d'T' -f1)
-                
+
                 echo "📦 $VERSION ($PUBLISH_DATE)"
                 echo "----------------------------------------"
                 extract_changelog "$BODY"
                 echo ""
             done
-            
+
             echo "=========================================="
             echo ""
         fi
