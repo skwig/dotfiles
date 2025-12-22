@@ -139,7 +139,6 @@
   home-manager.users.${username} =
     { config, ... }:
     let
-      home-config = /home/${username}/.config;
       dotfiles = /home/${username}/dotfiles;
     in
     {
@@ -160,15 +159,6 @@
 
       home.file.".config/JetBrains/Rider2025.3/rider64.vmoptions".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wayland/rider64.vmoptions;
-
-      home.file.".config/opencode/opencode.json".source =
-        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/opencode/opencode.json;
-      home.file.".config/opencode/command".source =
-        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/opencode/command;
-      home.file.".config/opencode/plugin/superpowers.js".source =
-        config.lib.file.mkOutOfStoreSymlink /${home-config}/opencode/superpowers/.opencode/plugin/superpowers.js;
-      home.file.".config/opencode/skills".source =
-        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/opencode/skills;
 
       home.file.".config/sunshine/sunshine.conf".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/sunshine/sunshine.conf;
