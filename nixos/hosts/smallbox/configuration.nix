@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
+  pkgs-pr,
   username,
   hostname,
   ...
@@ -46,6 +46,7 @@
   environment.systemPackages = with pkgs; [
     impala
     moonlight-qt
+    pkgs-pr.librepods
   ];
 
   services.upower.enable = true;

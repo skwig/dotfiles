@@ -9,6 +9,9 @@
     # only until 25.11 comes out
     home-manager.url = "github:nix-community/home-manager?ref=release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    librepods.url = "github:kavishdevar/librepods/linux/rust";
+    librepods.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs =
@@ -18,6 +21,7 @@
       nixpkgs-cuttingedge,
       pr-qemu,
       home-manager,
+      librepods,
       ...
     }@attrs:
     let
@@ -55,6 +59,7 @@
         );
         pkgs-pr = {
           qemu_kvm = (import pr-qemu { inherit system; }).qemu_kvm;
+          librepods = librepods.packages.${system}.default;
         };
       };
     in
