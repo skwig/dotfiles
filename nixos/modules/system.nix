@@ -139,6 +139,7 @@
   home-manager.users.${username} =
     { config, ... }:
     let
+      home-config = /home/${username}/.config;
       dotfiles = /home/${username}/dotfiles;
     in
     {
@@ -164,6 +165,8 @@
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/opencode/opencode.json;
       home.file.".config/opencode/command".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/opencode/command;
+      home.file.".config/opencode/plugin/superpowers.js".source =
+        config.lib.file.mkOutOfStoreSymlink /${home-config}/opencode/superpowers/.opencode/plugin/superpowers.js;
       home.file.".config/opencode/skills".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/opencode/skills;
 
