@@ -4,6 +4,7 @@
   pkgs-unstable,
   pkgs-24,
   username,
+  dotfiles,
   allowUnfreePredicate,
   ...
 }:
@@ -138,9 +139,6 @@
 
   home-manager.users.${username} =
     { config, ... }:
-    let
-      dotfiles = /home/${username}/dotfiles;
-    in
     {
       home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink /${dotfiles}/zsh/.zshrc;
       home.file.".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink /${dotfiles}/ideavim/.ideavimrc;

@@ -2,6 +2,7 @@
   pkgs,
   pkgs-cuttingedge,
   username,
+  dotfiles,
   ...
 }:
 
@@ -15,8 +16,6 @@
   home-manager.users.${username} =
     { config, ... }:
     let
-      dotfiles = /home/${username}/dotfiles;
-
       superpowers = pkgs.fetchFromGitHub {
         owner = "obra";
         repo = "superpowers";

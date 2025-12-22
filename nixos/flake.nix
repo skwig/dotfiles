@@ -67,9 +67,10 @@
       nixosConfigurations = {
         blackbox = nixpkgs.lib.nixosSystem {
           system = system;
-          specialArgs = specialArgs // {
+          specialArgs = specialArgs // rec {
             username = "skwig";
             hostname = "blackbox";
+            dotfiles = "/home/${username}/dotfiles";
           };
           modules = [
             ./hosts/blackbox/configuration.nix
@@ -79,9 +80,10 @@
 
         smallbox = nixpkgs.lib.nixosSystem {
           system = system;
-          specialArgs = specialArgs // {
+          specialArgs = specialArgs // rec {
             username = "skwig";
             hostname = "smallbox";
+            dotfiles = "/home/${username}/dotfiles";
           };
           modules = [
             ./hosts/smallbox/configuration.nix
@@ -91,9 +93,10 @@
 
         vmbox = nixpkgs.lib.nixosSystem {
           system = system;
-          specialArgs = specialArgs // {
+          specialArgs = specialArgs // rec {
             username = "skwig";
             hostname = "nixos";
+            dotfiles = "/home/${username}/dotfiles";
           };
           modules = [
             ./hosts/vmbox/configuration.nix

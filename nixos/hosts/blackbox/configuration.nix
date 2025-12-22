@@ -3,6 +3,7 @@
   pkgs-unstable,
   username,
   hostname,
+  dotfiles,
   ...
 }:
 
@@ -74,9 +75,6 @@
 
   home-manager.users.${username} =
     { config, ... }:
-    let
-      dotfiles = /home/${username}/dotfiles;
-    in
     {
       home.file.".config/wallpaper.jpg".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/assets/fuji.jpg;
