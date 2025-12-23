@@ -48,6 +48,7 @@
     impala
     moonlight-qt
     pkgs-pr.librepods
+    sshfs
   ];
 
   services.upower.enable = true;
