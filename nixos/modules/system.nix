@@ -127,6 +127,9 @@
     ];
   };
 
+  # for USBs
+  services.udisks2.enable = true;
+
   environment.sessionVariables = {
     TERMINAL = "wezterm";
     BROWSER = "brave";
