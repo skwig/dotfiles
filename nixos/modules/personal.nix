@@ -27,6 +27,7 @@
     bitwarden-desktop
     remmina
     prismlauncher
+    yubioath-flutter
   ];
 
   programs.steam.enable = true;
@@ -38,4 +39,6 @@
   environment.sessionVariables = {
     SSH_AUTH_SOCK = "/home/${username}/.bitwarden-ssh-agent.sock";
   };
+
+  services.pcscd.enable = true;
 }
