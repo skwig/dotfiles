@@ -45,8 +45,6 @@
     policy = [ "magic" ];
   };
 
-  hardware.keyboard.zsa.enable = true;
-
   services.fprintd.enable = true;
 
   # services.avahi = {
