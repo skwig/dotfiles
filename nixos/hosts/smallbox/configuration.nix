@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-pr,
   username,
   hostname,
   dotfiles,
@@ -47,7 +46,6 @@
   environment.systemPackages = with pkgs; [
     impala
     moonlight-qt
-    pkgs-pr.librepods
     sshfs
   ];
 

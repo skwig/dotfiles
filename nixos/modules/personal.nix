@@ -1,6 +1,7 @@
 {
   pkgs,
   pkgs-unstable,
+  pkgs-pr,
   username,
   ...
 }:
@@ -28,6 +29,7 @@
     remmina
     prismlauncher
     yubioath-flutter
+    pkgs-pr.librepods
   ];
 
   programs.steam.enable = true;
