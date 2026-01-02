@@ -25,7 +25,6 @@
     playerctl
     pavucontrol
     pamixer
-    xfce.orage
 
     libnotify
     wlogout
