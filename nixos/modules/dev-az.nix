@@ -1,5 +1,5 @@
-{ pkgs, ... }:
+{ pkgs-unstable, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ azure-cli ];
+  environment.systemPackages = with pkgs-unstable; [ azure-cli ];
 }
