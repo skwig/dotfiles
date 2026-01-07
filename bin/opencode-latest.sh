@@ -2,7 +2,7 @@
 
 CACHE_FILE="$HOME/.cache/opencode-latest"
 CACHE_MAX_AGE=43200 # 12 hours in seconds
-FALLBACK_VERSION="v1.0.223"
+FALLBACK_VERSION="v1.1.4"
 
 # Extract and format bullet points from markdown changelog
 extract_changelog() {
@@ -40,7 +40,7 @@ else
     RELEASES_TEMP=$(mktemp)
     trap 'rm -f "$RELEASES_TEMP"' EXIT
 
-    curl -s -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/sst/opencode/releases?per_page=5" > "$RELEASES_TEMP"
+    curl -s -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/anomalyco/opencode/releases?per_page=5" > "$RELEASES_TEMP"
 
     LATEST_VERSION=$(jq -r '.[0].tag_name' "$RELEASES_TEMP")
 
@@ -57,7 +57,7 @@ else
 
         if [ "$RELEASE_COUNT" -gt 0 ]; then
             echo "================================================================================"
-            echo "OpenCode - Recent Releases (https://github.com/sst/opencode/releases)"
+            echo "OpenCode - Recent Releases (https://github.com/anomalyco/opencode/releases)"
             echo "================================================================================"
             echo ""
 
@@ -90,4 +90,4 @@ else
 fi
 
 # Run opencode with the determined version
-nix run "github:sst/opencode/${LATEST_VERSION}"
+nix run "github:anomalyco/opencode/${LATEST_VERSION}"
