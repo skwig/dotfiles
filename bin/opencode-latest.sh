@@ -2,7 +2,7 @@
 
 CACHE_FILE="$HOME/.cache/opencode-latest"
 CACHE_MAX_AGE=43200 # 12 hours in seconds
-FALLBACK_VERSION="v1.0.162"
+FALLBACK_VERSION="v1.0.223"
 
 # Extract and format bullet points from markdown changelog
 extract_changelog() {
