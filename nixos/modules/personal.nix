@@ -15,6 +15,9 @@
     yt-dlp
     synology-drive-client
     pkgs-unstable.bolt-launcher
+    pkgs-unstable.runelite
+    framesh
+    foundry
     lutris
     wine-wayland
     qbittorrent
@@ -25,7 +28,7 @@
     obsidian
     gnome-disk-utility
     signal-desktop
-    bitwarden-desktop
+    pkgs-unstable.bitwarden-desktop
     remmina
     prismlauncher
     yubioath-flutter
