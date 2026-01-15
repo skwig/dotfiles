@@ -34,6 +34,7 @@ return {
         "typescript-language-server",
         "yamlls",
         "bashls",
+        "pyright",
       }
 
       local preinstalled_lsps = {
