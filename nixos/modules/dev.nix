@@ -8,6 +8,7 @@
     lua51Packages.luarocks
 
     git
+    git-lfs
     gh
     lazygit
 
