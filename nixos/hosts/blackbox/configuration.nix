@@ -56,7 +56,7 @@
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="0951", ATTR{idProduct}=="170f", GROUP="users", MODE="0660"
     SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="09da", ATTR{idProduct}=="72b2", TAG+="uaccess"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="145f", ATTR{idProduct}=="02e7", TAG+="uaccess"
+    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="145f", ATTR{idProduct}=="02e7", GROUP="users", MODE="0660"
 
     SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="3142", ATTR{idProduct}=="17a8", TAG+="uaccess"
     SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="046d", ATTR{idProduct}=="c077", TAG+="uaccess"
