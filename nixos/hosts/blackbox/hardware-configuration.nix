@@ -42,13 +42,18 @@
     ];
   };
 
+  # fileSystems."/mnt/Storage" = {
+  #   device = "/dev/disk/by-label/Storage";
+  #   fsType = "ntfs-3g";
+  #   options = [
+  #     "rw"
+  #     "uid=1000"
+  #   ];
+  # };
+
   fileSystems."/mnt/Storage" = {
-    device = "/dev/disk/by-label/Storage";
-    fsType = "ntfs-3g";
-    options = [
-      "rw"
-      "uid=1000"
-    ];
+    device = "/dev/disk/by-uuid/ff767782-70ad-4a1b-b383-16bdb6f94e3a";
+    fsType = "ext4";
   };
 
   fileSystems."/mnt/VM" = {
