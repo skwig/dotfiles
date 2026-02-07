@@ -3,5 +3,26 @@
   "plugin": [
     "opencode-skills",
     "@franlol/opencode-md-table-formatter@0.0.3"
-  ]
+  ],
+  "compaction": {
+    "auto": false,
+    "prune": true
+  },
+  "agent": {
+    "explore": {
+      "model": "github-copilot/gpt-5-mini"
+    },
+    "general": {
+      "model": "github-copilot/gpt-5-mini"
+    },
+    "title": {
+      "model": "github-copilot/gpt-4.1"
+    },
+    "summary": {
+      "model": "github-copilot/gpt-5-mini"
+    },
+    "compaction": {
+      "model": "github-copilot/gpt-5-mini"
+    }
+  }
 }
