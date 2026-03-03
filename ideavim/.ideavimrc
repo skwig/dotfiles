@@ -92,7 +92,7 @@ map <leader><CR> <Action>(ShowIntentionActions) |" alt + enter but with leader
 "" Tasks
 map <leader>ff <Action>(Run)
 map <leader>fe <Action>(Debug)
-map <leader>fb <Action>(BuildSelection) |" Build
+map <leader>fb <Action>(BuildWholeSolutionAction) |" Build
 map <leader>fc <Action>(CancelBuildAction) |" build [C]ancel BROKEN
 map <leader>fl <Action>(CleanSolutionAction) |" build c[L]ean
 
@@ -122,7 +122,7 @@ map <leader>ju <Action>(ShowUsages) |" [J]ump to Usages
 map <leader>jp <Action>(QuickPreview) |" [J]ump to Preview
 map <leader>jn <Action>(ShowNavBar) |" [J]ump to Navbar
 map <leader>jr <Action>(ParameterInfo) |" [J]ump to paRameter
-map <leader>jq <Action>(QuickJavaDoc) |" [J]ump to doQumentation 
+map <leader>jq <Action>(QuickJavaDoc) |" [J]ump to doQumentation
 map <leader>jm <Action>(FileStructurePopup) |" [J]ump to Members
 map <leader>jf <Action>(LocateInSolutionView) |" [J]ump to Filesystem
 
@@ -167,7 +167,7 @@ map <leader>tm <Action>(Rider.UnitTesting.MainMenu) |" Test Menu
 
 "" Tool window
 map <leader>wq <Action>(HideActiveWindow) |" (tool) Window Quit
-map <leader>wo <Action>(JumpToLastWindow) |" (tool) Window Outer 
+map <leader>wo <Action>(JumpToLastWindow) |" (tool) Window Outer
 map <leader>wp <Action>(ActivateProblemsViewToolWindow) |" (tool) Window Problems
 map <leader>wc <Action>(ActivateVersionControlToolWindow) |" (tool) Window Vcs [copy of cw]
 map <leader>wt <Action>(ActivateTestsToolWindow) |" (tool) Window Test [copy of tw]
@@ -192,7 +192,7 @@ map <leader>cd <Action>(VcsShowCurrentChangeMarker) |" v[C]s [D]iff
 " Currently none
 
 " Vim marks & IDE bookmarks integration
-map m0 <Action>(ToggleBookmark0) 
+map m0 <Action>(ToggleBookmark0)
 map m1 <Action>(ToggleBookmark1)
 map m2 <Action>(ToggleBookmark2)
 map m3 <Action>(ToggleBookmark3)
@@ -230,7 +230,7 @@ map my <Action>(ToggleBookmarkY)
 map mz <Action>(ToggleBookmarkZ)
 
 map <C-m> <Action>(ShowBookmarks)
-map `0 <Action>(GotoBookmark0) 
+map `0 <Action>(GotoBookmark0)
 map `1 <Action>(GotoBookmark1)
 map `2 <Action>(GotoBookmark2)
 map `3 <Action>(GotoBookmark3)
