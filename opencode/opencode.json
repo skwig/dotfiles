@@ -2,7 +2,8 @@
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
     "opencode-skills",
-    "@franlol/opencode-md-table-formatter@0.0.3"
+    "@franlol/opencode-md-table-formatter@0.0.6",
+    "@mohak34/opencode-notifier@0.1.34"
   ],
   "compaction": {
     "auto": false,
