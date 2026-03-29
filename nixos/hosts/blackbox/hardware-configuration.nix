@@ -23,8 +23,14 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "amdgpu"
+  ];
   boot.extraModulePackages = [ ];
+  boot.extraModprobeConfig = ''
+    options amdgpu hdmi_hpd_debounce_delay_ms=1500
+  '';
 
   # boot.initrd.systemd.enable = true;
 
