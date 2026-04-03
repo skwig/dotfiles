@@ -3,6 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-cuttingedge.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs-hypr.url = "github:nixos/nixpkgs?ref=62dc67aa6a52b4364dd75994ec00b51fbf474e50"; # 0.54.1
     pr-qemu.url = "github:skwig/nixpkgs?ref=fps-patch-qemu";
     # pr-qemu.url = "github:skwig/nixpkgs?ref=native-qemu";
 
@@ -19,6 +20,7 @@
       nixpkgs,
       nixpkgs-unstable,
       nixpkgs-cuttingedge,
+      nixpkgs-hypr,
       pr-qemu,
       home-manager,
       librepods,
@@ -53,6 +55,12 @@
         );
         pkgs-cuttingedge = (
           import nixpkgs-cuttingedge {
+            inherit system;
+            config.allowUnfreePredicate = allowUnfreePredicate;
+          }
+        );
+        pkgs-hypr = (
+          import nixpkgs-hypr {
             inherit system;
             config.allowUnfreePredicate = allowUnfreePredicate;
           }

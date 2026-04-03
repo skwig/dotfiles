@@ -126,6 +126,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-hypr": {
+      "locked": {
+        "lastModified": 1773122722,
+        "narHash": "sha256-FIqHByVqxCprNjor1NqF80F2QQoiiyqanNNefdlvOg4=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "62dc67aa6a52b4364dd75994ec00b51fbf474e50",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "62dc67aa6a52b4364dd75994ec00b51fbf474e50",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1761765539,
@@ -195,6 +211,7 @@
         "librepods": "librepods",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-cuttingedge": "nixpkgs-cuttingedge",
+        "nixpkgs-hypr": "nixpkgs-hypr",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pr-qemu": "pr-qemu"
       }

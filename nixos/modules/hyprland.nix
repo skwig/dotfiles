@@ -1,12 +1,13 @@
 {
   pkgs,
   pkgs-unstable,
+  pkgs-hypr,
   username,
   ...
 }:
 
 {
-  environment.systemPackages = with pkgs-unstable; [
+  environment.systemPackages = with pkgs-hypr; [
     hyprland
     hyprlock
     hyprshot
@@ -56,22 +57,22 @@
     enable = true;
     xwayland.enable = true;
     withUWSM = true;
-    package = pkgs-unstable.hyprland;
+    package = pkgs-hypr.hyprland;
   };
 
   programs.hyprlock = {
     enable = true;
-    package = pkgs-unstable.hyprlock;
+    package = pkgs-hypr.hyprlock;
   };
 
   services.hypridle = {
     enable = true;
-    package = pkgs-unstable.hypridle;
+    package = pkgs-hypr.hypridle;
   };
 
   programs.uwsm = {
     enable = true;
-    package = pkgs-unstable.uwsm;
+    package = pkgs-hypr.uwsm;
   };
 
   # systemd.services.greetd.serviceConfig = {
@@ -88,7 +89,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs-unstable.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd 'uwsm start -- hyprland-uwsm.desktop'";
+        command = "${pkgs-hypr.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd 'uwsm start -- hyprland-uwsm.desktop'";
       };
       # initial_session = {
       #   command = "uwsm start hyprland-uwsm.desktop";
@@ -109,6 +110,9 @@
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
+  security.pam.services.hyprlock.enableGnomeKeyring = true;
+  security.pam.services.login.enableGnomeKeyring = true;
+  security.pam.services.polkit-1.enableGnomeKeyring = true;
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
