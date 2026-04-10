@@ -4,6 +4,17 @@ CACHE_FILE="$HOME/.cache/opencode-latest"
 CACHE_MAX_AGE=43200 # 12 hours in seconds
 FALLBACK_VERSION="v1.3.0"
 
+# Parse --no-update flag (consume it, don't pass to opencode)
+NO_UPDATE=false
+PASSTROUGH_ARGS=()
+for arg in "$@"; do
+  if [ "$arg" = "--no-update" ]; then
+    NO_UPDATE=true
+  else
+    PASSTROUGH_ARGS+=("$arg")
+  fi
+done
+
 # Extract and format bullet points from markdown changelog
 extract_changelog() {
     local release_body="$1"
@@ -22,9 +33,17 @@ if [ -f "$CACHE_FILE" ]; then
     OLD_VERSION=$(cat "$CACHE_FILE")
 fi
 
-# Check if cache exists and is fresh
+# Check if cache exists and is fresh (or --no-update forces cache use)
 use_cache=false
-if [ -f "$CACHE_FILE" ]; then
+if [ "$NO_UPDATE" = true ]; then
+  if [ -f "$CACHE_FILE" ]; then
+    use_cache=true
+  else
+    echo "Warning: --no-update specified but no cached version found, using fallback: $FALLBACK_VERSION" >&2
+    LATEST_VERSION="$FALLBACK_VERSION"
+    use_cache=skip
+  fi
+elif [ -f "$CACHE_FILE" ]; then
     cache_age=$(($(date +%s) - $(stat -c %Y "$CACHE_FILE")))
     if [ "$cache_age" -lt "$CACHE_MAX_AGE" ]; then
         use_cache=true
@@ -90,4 +109,4 @@ else
 fi
 
 # Run opencode with the determined version
-nix run "github:anomalyco/opencode/${LATEST_VERSION}" -- "$@"
+nix run "github:anomalyco/opencode/${LATEST_VERSION}" -- "${PASSTROUGH_ARGS[@]}"
