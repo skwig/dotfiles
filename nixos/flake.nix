@@ -114,6 +114,7 @@
       };
 
       nixosModules = {
+        amd = import ./modules/amd.nix;
         bluetooth = import ./modules/bluetooth.nix;
         desktop = import ./modules/desktop.nix;
         dev-ai = import ./modules/dev-ai.nix;
@@ -127,8 +128,11 @@
         hyprland = import ./modules/hyprland.nix;
         kde = import ./modules/kde.nix;
         nvidia = import ./modules/nvidia.nix;
+        openssh = import ./modules/openssh.nix;
         personal = import ./modules/personal.nix;
         system = import ./modules/system.nix;
+        vmware = import ./modules/vmware.nix;
+        wayvnc = import ./modules/wayvnc.nix;
       };
     };
 }
