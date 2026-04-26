@@ -48,8 +48,8 @@
     ];
   };
 
-  # fileSystems."/mnt/Storage" = {
-  #   device = "/dev/disk/by-label/Storage";
+  # fileSystems."/mnt/StorageNtfs" = {
+  #   device = "/dev/disk/by-uuid/A08270A782708396";
   #   fsType = "ntfs-3g";
   #   options = [
   #     "rw"
