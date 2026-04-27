@@ -10,21 +10,16 @@
     "auto": false,
     "prune": true
   },
-  "agent": {
-    "explore": {
-      "model": "github-copilot/gpt-5-mini"
+  "mcp": {
+    "jira": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.atlassian.com/v1/mcp"
     },
-    "general": {
-      "model": "github-copilot/gpt-5-mini"
-    },
-    "title": {
-      "model": "github-copilot/gpt-4.1"
-    },
-    "summary": {
-      "model": "github-copilot/gpt-5-mini"
-    },
-    "compaction": {
-      "model": "github-copilot/gpt-5-mini"
+    "linear": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.linear.app/mcp"
     }
   }
 }
