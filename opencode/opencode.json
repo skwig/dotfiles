@@ -20,6 +20,11 @@
       "enabled": true,
       "type": "remote",
       "url": "https://mcp.linear.app/mcp"
+    },
+    "notion": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp"
     }
   }
 }
