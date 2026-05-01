@@ -39,7 +39,10 @@
   programs.steam.extraCompatPackages = with pkgs; [ proton-ge-bin ];
   # programs.steam.gamescopeSession = true;
 
-  # ln -s ~/runelite ~/.local/share/bolt-launcher/.runelite
+  programs.localsend = {
+    enable = true;
+    openFirewall = true;
+  };
 
   environment.sessionVariables = {
     SSH_AUTH_SOCK = "/home/${username}/.bitwarden-ssh-agent.sock";
