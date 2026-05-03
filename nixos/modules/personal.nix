@@ -33,6 +33,7 @@
     prismlauncher
     yubioath-flutter
     pkgs-pr.librepods
+    trayscale
   ];
 
   programs.steam.enable = true;
@@ -42,6 +43,10 @@
   programs.localsend = {
     enable = true;
     openFirewall = true;
+  };
+
+  services.tailscale = {
+    enable = true;
   };
 
   environment.sessionVariables = {
