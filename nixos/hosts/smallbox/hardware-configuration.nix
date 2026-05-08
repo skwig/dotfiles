@@ -24,9 +24,17 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
+    device = "/dev/mapper/luks-c60430df-1dfb-4b7d-bdad-091a19acc5b8";
+    fsType = "ext4";
+  };
+
+  fileSystems."/mnt/old" = {
     device = "/dev/disk/by-uuid/0d4cc689-9999-41a3-9365-0d3b032c629c";
     fsType = "ext4";
   };
+
+  boot.initrd.luks.devices."luks-c60430df-1dfb-4b7d-bdad-091a19acc5b8".device =
+    "/dev/disk/by-uuid/c60430df-1dfb-4b7d-bdad-091a19acc5b8";
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/72DB-CADD";
