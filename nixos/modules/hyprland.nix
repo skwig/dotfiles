@@ -34,6 +34,8 @@
 
     hyprpanel
     wf-recorder
+
+    pkgs-unstable.wayle
   ];
 
   environment.sessionVariables = {

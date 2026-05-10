@@ -1,0 +1,111 @@
+[general]
+font-sans = "JetBrainsMono Nerd Font"
+
+[bar]
+bg = "bg-base"
+background-opacity = 55
+button-variant = "basic"
+button-bg-opacity = 0
+button-icon-size = 0.8999999761581421
+button-label-weight = "normal"
+button-border-location = "bottom"
+
+[[bar.layout]]
+monitor = "*"
+show = true
+left = [
+    "dashboard",
+    "systray",
+    "window-title",
+]
+center = ["hyprland-workspaces"]
+right = [
+    "keybind-mode",
+    "battery",
+    "network",
+    "bluetooth",
+    "volume",
+    "notifications",
+    "clock",
+]
+
+[styling]
+scale = 1.0
+
+[styling.palette]
+fg = "#c4bfc1"
+primary = "#78a0e0"
+
+[modules.battery]
+border-color = "fg-default"
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+
+[modules.bluetooth]
+border-color = "fg-default"
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-show = false
+label-color = "fg-default"
+
+[modules.clock]
+format = "%H:%M"
+icon-name = ""
+border-color = "fg-default"
+icon-show = false
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+
+[modules.dashboard]
+border-color = "fg-default"
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+
+[modules.hyprland-workspaces]
+min-workspace-count = 5
+monitor-specific = false
+active-indicator = "underline"
+active-color = "fg-default"
+
+[modules.keybind-mode]
+border-color = "fg-default"
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+
+[modules.network]
+border-color = "fg-default"
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-show = false
+label-color = "fg-default"
+
+[modules.notification]
+border-color = "fg-default"
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+
+[modules.systray]
+border-color = "fg-default"
+
+[modules.volume]
+border-color = "fg-default"
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-show = false
+label-color = "fg-default"
+
+[modules.weather]
+location = "Bratislava"
+
+[modules.window-title]
+border-color = "fg-default"
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+
+[osd]
+position = "top-left"
+margin = 0.0
