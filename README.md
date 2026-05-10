@@ -1,6 +1,10 @@
 # dotfiles
 
-# NixOs
+My collection of dotfiles and configs for everyday dev, homelab and gaming
+
+# NixOS
+
+![](assets/screenshot.png)
 
 ## Installing
 ```sh
