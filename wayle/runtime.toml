@@ -2,8 +2,8 @@
 font-sans = "JetBrainsMono Nerd Font"
 
 [bar]
-bg = "bg-base"
-background-opacity = 60
+bg = "#000000"
+background-opacity = 40
 button-variant = "basic"
 button-bg-opacity = 0
 button-icon-size = 0.9
