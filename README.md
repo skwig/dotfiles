@@ -2,11 +2,11 @@
 
 My collection of dotfiles and configs for everyday dev, homelab and gaming
 
-# NixOS
+## NixOS
 
 ![](assets/screenshot.png)
 
-## Installing
+### Installing
 ```sh
 sudo nixos-rebuild switch --flake ~/dotfiles/nixos#blackbox
 ```
@@ -15,3 +15,11 @@ sudo nixos-rebuild switch --flake ~/dotfiles/nixos#blackbox
 - [vasujain275](https://github.com/vasujain275/rudra)
 - [Cybersnake223](https://github.com/Cybersnake223/Hypr)
 - [SeniorMatt](https://github.com/SeniorMatt/Mattthew-s-Dotfiles)
+
+## Windows
+
+### Installing
+```ps1
+./win-install.ps1
+./win-symlink.ps1
+```
