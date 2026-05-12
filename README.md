@@ -20,6 +20,8 @@ sudo nixos-rebuild switch --flake ~/dotfiles/nixos#blackbox
 
 ### Installing
 ```ps1
+# Non-elevated shell
 .\win-install.ps1
+# Elevated shell
 .\win-symlink.ps1
 ```

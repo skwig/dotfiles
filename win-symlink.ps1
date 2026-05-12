@@ -1,4 +1,4 @@
-﻿echo $PSScriptRoot
+echo $PSScriptRoot
 
 cmd /c IF EXIST "%UserProfile%\AppData\Local\Microsoft\PowerToys\Keyboard Manager\default.json" DEL "%UserProfile%\AppData\Local\Microsoft\PowerToys\Keyboard Manager\default.json"
 cmd /c mklink "%UserProfile%\AppData\Local\Microsoft\PowerToys\Keyboard Manager\default.json" "$PSScriptRoot\PowerToys\Keyboard Manager\default.json"
@@ -26,3 +26,6 @@ cmd /c MKLINK /D "%UserProfile%\AppData\Local\nvim" "$PSScriptRoot\nvim\"
 New-Item "$Profile" -Type File -Force
 cmd /c IF EXIST "$Profile" DEL "$Profile"
 cmd /c MKLINK "$Profile" "$PSScriptRoot\powershell\Microsoft.Powershell_profile.ps1"
+
+cmd /c IF EXIST "%UserProfile%\.config\opencode\opencode.json" DEL "%UserProfile%\.config\opencode\opencode.json"
+cmd /c mklink "%UserProfile%\.config\opencode\opencode.json" "$PSScriptRoot\opencode\opencode.json"
