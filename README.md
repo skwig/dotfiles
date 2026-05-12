@@ -11,7 +11,7 @@ My collection of dotfiles and configs for everyday dev, homelab and gaming
 sudo nixos-rebuild switch --flake ~/dotfiles/nixos#blackbox
 ```
 
-## Credits & Inspirations
+### Credits & Inspirations
 - [vasujain275](https://github.com/vasujain275/rudra)
 - [Cybersnake223](https://github.com/Cybersnake223/Hypr)
 - [SeniorMatt](https://github.com/SeniorMatt/Mattthew-s-Dotfiles)
@@ -20,6 +20,6 @@ sudo nixos-rebuild switch --flake ~/dotfiles/nixos#blackbox
 
 ### Installing
 ```ps1
-./win-install.ps1
-./win-symlink.ps1
+.\win-install.ps1
+.\win-symlink.ps1
 ```
