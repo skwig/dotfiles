@@ -1,0 +1,46 @@
+{
+    "buckets": [
+        {
+            "Name": "main",
+            "Source": "https://github.com/ScoopInstaller/Main.git",
+            "Updated": "2026-05-12T19:03:24+02:00",
+            "Manifests": 1531
+        },
+        {
+            "Name": "extras",
+            "Source": "https://github.com/ScoopInstaller/Extras",
+            "Updated": "2026-05-12T19:04:10+02:00",
+            "Manifests": 2306
+        }
+    ],
+    "apps": [
+        {
+            "Source": "main",
+            "Updated": "2025-01-08T09:20:22.7045912+01:00",
+            "Version": "24.09",
+            "Info": "",
+            "Name": "7zip"
+        },
+        {
+            "Source": "main",
+            "Updated": "2026-03-13T16:18:26.1237465+01:00",
+            "Version": "4.4.1",
+            "Info": "",
+            "Name": "make"
+        },
+        {
+            "Source": "main",
+            "Updated": "2026-05-12T09:45:34.5203225+02:00",
+            "Version": "1.14.48",
+            "Info": "",
+            "Name": "opencode"
+        },
+        {
+            "Source": "extras",
+            "Updated": "2025-01-08T09:20:23.4882631+01:00",
+            "Version": "2.6.7",
+            "Info": "",
+            "Name": "psfzf"
+        }
+    ]
+}

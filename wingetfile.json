@@ -1,0 +1,73 @@
+{
+	"$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate": "2026-05-12T22:49:04.427-00:00",
+	"Sources": [
+		{
+			"Packages": [
+				{
+					"PackageIdentifier": "GitHub.cli",
+					"Version": "2.89.0"
+				},
+				{
+					"PackageIdentifier": "glzr-io.glazewm",
+					"Version": "3.9.1"
+				},
+				{
+					"PackageIdentifier": "JanDeDobbeleer.OhMyPosh",
+					"Version": "29.13.1"
+				},
+				{
+					"PackageIdentifier": "Neovim.Neovim",
+					"Version": "0.12.2"
+				},
+				{
+					"PackageIdentifier": "wez.wezterm",
+					"Version": "20240203-110809-5046fc22"
+				},
+				{
+					"PackageIdentifier": "DEVCOM.JetBrainsMonoNerdFont",
+					"Version": "3.3.0"
+				},
+				{
+					"PackageIdentifier": "Freelensapp.Freelens",
+					"Version": "1.8.1"
+				},
+				{
+					"PackageIdentifier": "BurntSushi.ripgrep.MSVC",
+					"Version": "15.1.0"
+				},
+				{
+					"PackageIdentifier": "Derailed.k9s",
+					"Version": "0.40.5"
+				},
+				{
+					"PackageIdentifier": "Fastfetch-cli.Fastfetch",
+					"Version": "2.62.1"
+				},
+				{
+					"PackageIdentifier": "JesseDuffield.lazygit",
+					"Version": "0.61.1"
+				},
+				{
+					"PackageIdentifier": "jqlang.jq",
+					"Version": "1.8.1"
+				},
+				{
+					"PackageIdentifier": "junegunn.fzf",
+					"Version": "0.72.0"
+				},
+				{
+					"PackageIdentifier": "sharkdp.fd",
+					"Version": "10.4.2"
+				}
+			],
+			"SourceDetails": {
+				"Argument": "https://cdn.winget.microsoft.com/cache",
+				"Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name": "winget",
+				"Type": "Microsoft.PreIndexed.Package"
+			}
+		}
+	],
+	"WinGetVersion": "1.28.240"
+}
