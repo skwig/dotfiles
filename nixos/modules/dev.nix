@@ -18,6 +18,8 @@
     gnumake
     cmake
 
+    just
+
     go
 
     fzf
