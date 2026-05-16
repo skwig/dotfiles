@@ -9,3 +9,5 @@ setopt SHARE_HISTORY
 eval "$(oh-my-posh init zsh --config ~/dotfiles/powershell/theme.omp.json)"
 alias ns=nix-search
 alias lg=lazygit
+alias j=just
+alias m=make
