@@ -76,7 +76,7 @@ $config = Set-ConfigLine $config "^#?PermitRootLogin\s+.*" "PermitRootLogin no"
 $config = Set-ConfigLine $config "^#?PasswordAuthentication\s+.*" "PasswordAuthentication no"
 $config = Set-ConfigLine $config "^#?KbdInteractiveAuthentication\s+.*" "KbdInteractiveAuthentication no"
 $config = Set-ConfigLine $config "^#?PubkeyAuthentication\s+.*" "PubkeyAuthentication yes"
-$config = Set-ConfigLine $config "^#?AuthorizedKeysFile\s+.*" "AuthorizedKeysFile .ssh/authorized_keys"
+$config = Set-ConfigLine $config "^#?AuthorizedKeysFile\s+.*" "AuthorizedKeysFile %h/.ssh/authorized_keys"
 
 $config | Set-Content $sshdConfig -Encoding ascii
 
@@ -111,21 +111,28 @@ if (!(Test-Path $sshDir)) {
     New-Item -ItemType Directory -Path $sshDir | Out-Null
 }
 
-icacls $sshDir /inheritance:r | Out-Null
-icacls $sshDir /grant "$($env:USERNAME):(F)" | Out-Null
-icacls $authKeys /inheritance:r | Out-Null
-icacls $authKeys /grant "$($env:USERNAME):(F)" | Out-Null
+takeown /F $sshDir /A | Out-Null
+takeown /F $authKeys /A | Out-Null
 
 $desired = ($AuthorizedKeys -join "`n").Trim()
 $desired | Set-Content $authKeys -Encoding ascii
 
+takeown /F $sshDir /A | Out-Null
 takeown /F $authKeys /A | Out-Null
+
+icacls $sshDir /setowner "$env:USERNAME" | Out-Null
 icacls $authKeys /setowner "$env:USERNAME" | Out-Null
 
-icacls $authKeys /inheritance:r | Out-Null
-icacls $authKeys /grant "$($env:USERNAME):(F)" | Out-Null
+icacls $sshDir /inheritance:r | Out-Null
+icacls $sshDir /grant "$env:USERNAME:(F)" | Out-Null
+icacls $sshDir /remove "Users" 2>$null | Out-Null
+icacls $sshDir /remove "Authenticated Users" 2>$null | Out-Null
+icacls $sshDir /remove "SYSTEM" 2>$null | Out-Null
 
-icacls $authKeys /remove "Administrators" 2>$null | Out-Null
+icacls $authKeys /inheritance:r | Out-Null
+icacls $authKeys /grant "$env:USERNAME:(F)" | Out-Null
+icacls $authKeys /remove "Users" 2>$null | Out-Null
+icacls $authKeys /remove "Authenticated Users" 2>$null | Out-Null
 icacls $authKeys /remove "SYSTEM" 2>$null | Out-Null
 
 # -------------------------
