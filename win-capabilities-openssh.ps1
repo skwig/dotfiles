@@ -57,20 +57,24 @@ if (!(Test-Path $sshdConfig)) {
 
 $config = Get-Content $sshdConfig
 
-function Set-ConfigLine($pattern, $replacement) {
-    param($pattern, $replacement)
+function Set-ConfigLine {
+    param (
+        [string[]]$config,
+        [string]$pattern,
+        [string]$replacement
+    )
 
     if ($config -match $pattern) {
-        $script:config = $config -replace $pattern, $replacement
+        return ($config -replace $pattern, $replacement)
     } else {
-        $script:config += "`n$replacement"
+        return $config + $replacement
     }
 }
 
-Set-ConfigLine "^#?Port\s+.*" "Port $SSHD_PORT"
-Set-ConfigLine "^#?PermitRootLogin\s+.*" "PermitRootLogin no"
-Set-ConfigLine "^#?PasswordAuthentication\s+.*" "PasswordAuthentication no"
-Set-ConfigLine "^#?KbdInteractiveAuthentication\s+.*" "KbdInteractiveAuthentication no"
+$config = Set-ConfigLine $config "^#?Port\s+.*" "Port $SSHD_PORT"
+$config = Set-ConfigLine $config "^#?PermitRootLogin\s+.*" "PermitRootLogin no"
+$config = Set-ConfigLine $config "^#?PasswordAuthentication\s+.*" "PasswordAuthentication no"
+$config = Set-ConfigLine $config "^#?KbdInteractiveAuthentication\s+.*" "KbdInteractiveAuthentication no"
 
 $config | Set-Content $sshdConfig -Encoding ascii
 
