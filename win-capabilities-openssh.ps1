@@ -124,13 +124,13 @@ icacls $sshDir /setowner "$env:USERNAME" | Out-Null
 icacls $authKeys /setowner "$env:USERNAME" | Out-Null
 
 icacls $sshDir /inheritance:r | Out-Null
-icacls $sshDir /grant "$env:USERNAME:(F)" | Out-Null
+icacls $sshDir /grant "$($env:USERNAME):(F)" | Out-Null
 icacls $sshDir /remove "Users" 2>$null | Out-Null
 icacls $sshDir /remove "Authenticated Users" 2>$null | Out-Null
 icacls $sshDir /remove "SYSTEM" 2>$null | Out-Null
 
 icacls $authKeys /inheritance:r | Out-Null
-icacls $authKeys /grant "$env:USERNAME:(F)" | Out-Null
+icacls $authKeys /grant "$($env:USERNAME):(F)" | Out-Null
 icacls $authKeys /remove "Users" 2>$null | Out-Null
 icacls $authKeys /remove "Authenticated Users" 2>$null | Out-Null
 icacls $authKeys /remove "SYSTEM" 2>$null | Out-Null
