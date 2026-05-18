@@ -75,6 +75,8 @@ $config = Set-ConfigLine $config "^#?Port\s+.*" "Port $SSHD_PORT"
 $config = Set-ConfigLine $config "^#?PermitRootLogin\s+.*" "PermitRootLogin no"
 $config = Set-ConfigLine $config "^#?PasswordAuthentication\s+.*" "PasswordAuthentication no"
 $config = Set-ConfigLine $config "^#?KbdInteractiveAuthentication\s+.*" "KbdInteractiveAuthentication no"
+$config = Set-ConfigLine $config "^#?PubkeyAuthentication\s+.*" "PubkeyAuthentication yes"
+$config = Set-ConfigLine $config "^#?AuthorizedKeysFile\s+.*" "AuthorizedKeysFile .ssh/authorized_keys"
 
 $config | Set-Content $sshdConfig -Encoding ascii
 
@@ -109,27 +111,15 @@ if (!(Test-Path $sshDir)) {
     New-Item -ItemType Directory -Path $sshDir | Out-Null
 }
 
-# Write keys only if changed
-$desired = ($AuthorizedKeys -join "`n").Trim()
-
-$current = ""
-if (Test-Path $authKeys) {
-    $current = (Get-Content $authKeys -Raw).Trim()
-}
-
-if ($current -ne $desired) {
-    $desired | Set-Content $authKeys -Encoding ascii
-}
-
-# -------------------------
-# 6. Fix permissions (critical for OpenSSH on Windows)
-# -------------------------
-
 icacls $sshDir /inheritance:r | Out-Null
-icacls $sshDir /grant "$env:USERNAME:F" | Out-Null
+icacls $sshDir /grant "$($env:USERNAME):(F)" | Out-Null
 
 icacls $authKeys /inheritance:r | Out-Null
-icacls $authKeys /grant "$env:USERNAME:F" | Out-Null
+icacls $authKeys /grant "$($env:USERNAME):(F)" | Out-Null
+
+$desired = ($AuthorizedKeys -join "`n").Trim()
+
+$desired | Set-Content $authKeys -Encoding ascii
 
 # -------------------------
 # DONE
@@ -137,4 +127,3 @@ icacls $authKeys /grant "$env:USERNAME:F" | Out-Null
 
 Write-Host "`n=== SSH Bootstrap Complete ==="
 Write-Host "Port: $SSHD_PORT"
-Write-Host "Test: ssh -p $SSHD_PORT $env:USERNAME@localhost"
