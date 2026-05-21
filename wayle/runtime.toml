@@ -6,7 +6,7 @@ bg = "#000000"
 background-opacity = 40
 button-variant = "basic"
 button-bg-opacity = 0
-button-icon-size = 0.9
+button-icon-size = 0.8999999761581421
 button-label-weight = "normal"
 button-border-location = "bottom"
 
@@ -105,6 +105,7 @@ border-color = "fg-default"
 icon-color = "fg-default"
 icon-bg-color = "fg-default"
 label-color = "fg-default"
+label-max-length = 42
 
 [osd]
 position = "top-left"
