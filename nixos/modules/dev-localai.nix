@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   pkgs-unstable,
   pkgs-cuttingedge,
@@ -20,6 +21,9 @@
       ENABLE_AUTOCOMPLETE_GENERATION = "False";
     };
   };
+
+  # disable autostart. Start manually by `systemctl start/stop open-webui.service`
+  systemd.services.open-webui.wantedBy = lib.mkForce [ ];
 
   services.ollama = {
     enable = true;
