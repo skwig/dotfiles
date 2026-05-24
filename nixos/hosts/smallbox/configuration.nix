@@ -28,6 +28,7 @@
     # ../../modules/dev-embedded.nix
     ../../modules/dev-go.nix
     ../../modules/dev-k8s.nix
+    ../../modules/dev-localai.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_18;
