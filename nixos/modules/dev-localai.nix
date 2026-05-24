@@ -26,11 +26,7 @@
     package = pkgs-cuttingedge.ollama-rocm;
   };
 
-  # ollama create qwen3.5:2b-4k -f <(printf "FROM qwen3.5:2b\nPARAMETER num_ctx 4096\n")
   # ollama create qwen3.5:2b-8k -f <(printf "FROM qwen3.5:2b\nPARAMETER num_ctx 8192\n")
-  # ollama create qwen3.5:4b-4k -f <(printf "FROM qwen3.5:4b\nPARAMETER num_ctx 4096\n")
   # ollama create qwen3.5:4b-8k -f <(printf "FROM qwen3.5:4b\nPARAMETER num_ctx 8192\n")
-  # ollama create qwen3.5:9b-4k -f <(printf "FROM qwen3.5:9b\nPARAMETER num_ctx 4096\n")
-  # ollama create qwen3.5:9b-8k -f <(printf "FROM qwen3.5:9b\nPARAMETER num_ctx 8192\n")
   # ollama create qwen3.5:9b-16k -f <(printf "FROM qwen3.5:9b\nPARAMETER num_ctx 16384\n")
 }
