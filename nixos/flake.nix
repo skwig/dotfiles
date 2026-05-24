@@ -43,6 +43,7 @@
           "steam-unwrapped"
           "synology-drive-client"
           "vmware-workstation"
+          "open-webui"
         ];
 
       specialArgs = attrs // {
@@ -123,6 +124,7 @@
         dev-embedded = import ./modules/dev-embedded.nix;
         dev-go = import ./modules/dev-go.nix;
         dev-k8s = import ./modules/dev-k8s.nix;
+        dev-localai = import ./modules/dev-ai.nix;
         dev = import ./modules/dev.nix;
         gnome = import ./modules/gnome.nix;
         hyprland = import ./modules/hyprland.nix;
