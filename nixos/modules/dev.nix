@@ -35,7 +35,7 @@
 
     nix-search-cli
     nixd
-    nixfmt-rfc-style
+    nixfmt
 
     k6
     nushell
