@@ -65,7 +65,7 @@
 
   services.sunshine = {
     enable = true;
-    autoStart = false;
+    autoStart = true;
     openFirewall = true;
   };
 
