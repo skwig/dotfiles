@@ -3,9 +3,8 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-cuttingedge.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-hypr.url = "github:nixos/nixpkgs?ref=62dc67aa6a52b4364dd75994ec00b51fbf474e50"; # 0.54.1
+    nixpkgs-hypr.url = "github:skwig/nixpkgs?ref=nixos-unstable-libxkbcommon-1.11.0";
     pr-qemu.url = "github:skwig/nixpkgs?ref=fps-patch-qemu";
-    # pr-qemu.url = "github:skwig/nixpkgs?ref=native-qemu";
 
     # only until 25.11 comes out
     home-manager.url = "github:nix-community/home-manager?ref=release-25.11";

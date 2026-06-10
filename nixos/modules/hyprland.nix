@@ -2,13 +2,13 @@
   pkgs,
   pkgs-unstable,
   pkgs-hypr,
+  pkgs-pr,
   username,
   ...
 }:
 
 {
   environment.systemPackages = with pkgs-hypr; [
-    hyprland
     hyprlock
     hyprshot
     hypridle

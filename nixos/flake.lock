@@ -128,16 +128,16 @@
     },
     "nixpkgs-hypr": {
       "locked": {
-        "lastModified": 1773122722,
-        "narHash": "sha256-FIqHByVqxCprNjor1NqF80F2QQoiiyqanNNefdlvOg4=",
-        "owner": "nixos",
+        "lastModified": 1781130614,
+        "narHash": "sha256-H0uX0SgnI0COXGIKswsotywAb+sTZsaV1E2s/LiTkcA=",
+        "owner": "skwig",
         "repo": "nixpkgs",
-        "rev": "62dc67aa6a52b4364dd75994ec00b51fbf474e50",
+        "rev": "2dd40036dca243bbe1019528438571ac7c104fa4",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "62dc67aa6a52b4364dd75994ec00b51fbf474e50",
+        "owner": "skwig",
+        "ref": "nixos-unstable-libxkbcommon-1.11.0",
         "repo": "nixpkgs",
         "type": "github"
       }
