@@ -3,7 +3,13 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-cuttingedge.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-hypr.url = "github:nixos/nixpkgs?ref=62dc67aa6a52b4364dd75994ec00b51fbf474e50"; # 0.54.1
+    # nixpkgs-hypr.url = "github:nixos/nixpkgs?ref=nixos-25.06"; # 0.55.2 broken
+    # pr-hypr.url = "github:nixos/nixpkgs?ref=38eccbbf297c50f304d58cbbe921833d3d3967d8"; # 0.54.3 broken
+    # pr-hypr.url = "github:nixos/nixpkgs?ref=fff2daea4891d20ef28d5cb4556f4e2766faa267"; # first broken commit
+    pr-hypr.url = "github:skwig/nixpkgs?ref=nixos-unstable"; # experimenting
+    # pr-hypr.url = "github:nixos/nixpkgs?ref=271b8f7a93bb"; # experimenting
+    nixpkgs-hypr.url = "github:nixos/nixpkgs?ref=28c3e5a582924fcb734c7e4b6f0b428607af227a"; # 0.54.2 working
+    # nixpkgs-hypr.url = "github:nixos/nixpkgs?ref=62dc67aa6a52b4364dd75994ec00b51fbf474e50"; # 0.54.1 working
     pr-qemu.url = "github:skwig/nixpkgs?ref=fps-patch-qemu";
     # pr-qemu.url = "github:skwig/nixpkgs?ref=native-qemu";
 
@@ -22,6 +28,7 @@
       nixpkgs-cuttingedge,
       nixpkgs-hypr,
       pr-qemu,
+      pr-hypr,
       home-manager,
       librepods,
       ...
@@ -69,6 +76,7 @@
         pkgs-pr = {
           qemu_kvm = (import pr-qemu { inherit system; }).qemu_kvm;
           librepods = librepods.packages.${system}.default;
+          hyprland = (import pr-hypr { inherit system; }).hyprland;
         };
       };
     in

@@ -2,13 +2,13 @@
   pkgs,
   pkgs-unstable,
   pkgs-hypr,
+  pkgs-pr,
   username,
   ...
 }:
 
 {
   environment.systemPackages = with pkgs-hypr; [
-    hyprland
     hyprlock
     hyprshot
     hypridle
@@ -59,7 +59,7 @@
     enable = true;
     xwayland.enable = true;
     withUWSM = true;
-    package = pkgs-hypr.hyprland;
+    package = pkgs-pr.hyprland;
   };
 
   programs.hyprlock = {

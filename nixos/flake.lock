@@ -128,16 +128,16 @@
     },
     "nixpkgs-hypr": {
       "locked": {
-        "lastModified": 1773122722,
-        "narHash": "sha256-FIqHByVqxCprNjor1NqF80F2QQoiiyqanNNefdlvOg4=",
+        "lastModified": 1773151792,
+        "narHash": "sha256-VP+ns4pG3gRbK8wuBoBIKpdXnwm49kSYMARIk9YlKtM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "62dc67aa6a52b4364dd75994ec00b51fbf474e50",
+        "rev": "28c3e5a582924fcb734c7e4b6f0b428607af227a",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "62dc67aa6a52b4364dd75994ec00b51fbf474e50",
+        "ref": "28c3e5a582924fcb734c7e4b6f0b428607af227a",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -189,6 +189,22 @@
         "type": "github"
       }
     },
+    "pr-hypr": {
+      "locked": {
+        "lastModified": 1780783929,
+        "narHash": "sha256-j+xaySI2pM9LQ1gD4s44gBNyUo6ZgBMLkVg+qmXTy2Y=",
+        "owner": "skwig",
+        "repo": "nixpkgs",
+        "rev": "b10181c3b239a1b3f0b6030b0545ddbd69eaa86f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "skwig",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pr-qemu": {
       "locked": {
         "lastModified": 1757846059,
@@ -213,6 +229,7 @@
         "nixpkgs-cuttingedge": "nixpkgs-cuttingedge",
         "nixpkgs-hypr": "nixpkgs-hypr",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "pr-hypr": "pr-hypr",
         "pr-qemu": "pr-qemu"
       }
     },
