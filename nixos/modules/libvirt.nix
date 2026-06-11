@@ -20,7 +20,7 @@
     enable = true;
     package = pkgs-unstable.libvirt;
     qemu = {
-      package = pkgs-pr.qemu_kvm;
+      package = pkgs-unstable.qemu_kvm;
       runAsRoot = true;
       swtpm.enable = true;
       # ovmf = {

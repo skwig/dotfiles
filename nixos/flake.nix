@@ -5,7 +5,6 @@
     nixpkgs-cuttingedge.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-hypr.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     # nixpkgs-hypr.url = "github:skwig/nixpkgs?ref=nixos-unstable-libxkbcommon-1.11.0";
-    pr-qemu.url = "github:skwig/nixpkgs?ref=fps-patch-qemu";
 
     # only until 25.11 comes out
     home-manager.url = "github:nix-community/home-manager?ref=release-26.05";
@@ -21,7 +20,6 @@
       nixpkgs-unstable,
       nixpkgs-cuttingedge,
       nixpkgs-hypr,
-      pr-qemu,
       home-manager,
       librepods,
       ...
@@ -74,7 +72,6 @@
           }
         );
         pkgs-pr = {
-          qemu_kvm = (import pr-qemu { inherit system; }).qemu_kvm;
           librepods = librepods.packages.${system}.default;
         };
       };

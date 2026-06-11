@@ -189,22 +189,6 @@
         "type": "github"
       }
     },
-    "pr-qemu": {
-      "locked": {
-        "lastModified": 1757846059,
-        "narHash": "sha256-H6xG2oTToS7ZBYedflpgyJMiSwi6yg0ZUojP1W3U/PM=",
-        "owner": "skwig",
-        "repo": "nixpkgs",
-        "rev": "cedf455e621353d9c05c7be9b6640f143fe420d2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "skwig",
-        "ref": "fps-patch-qemu",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -212,8 +196,7 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-cuttingedge": "nixpkgs-cuttingedge",
         "nixpkgs-hypr": "nixpkgs-hypr",
-        "nixpkgs-unstable": "nixpkgs-unstable",
-        "pr-qemu": "pr-qemu"
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
     "systems": {
