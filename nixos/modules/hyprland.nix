@@ -9,9 +9,7 @@
 
 {
   environment.systemPackages = with pkgs-hypr; [
-    hyprlock
     hyprshot
-    hypridle
     hyprcursor
     hyprpaper
     adwaita-icon-theme
@@ -31,9 +29,6 @@
     wlogout
     wtype
     pkgs-unstable.hyprpolkitagent
-
-    hyprpanel
-    wf-recorder
 
     pkgs-unstable.wayle
   ];
