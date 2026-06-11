@@ -2,6 +2,7 @@
 font-sans = "JetBrainsMono Nerd Font"
 
 [bar]
+scale = 0.8999999761581421
 bg = "#000000"
 background-opacity = 40
 button-variant = "basic"
@@ -65,6 +66,7 @@ icon-bg-color = "fg-default"
 [modules.hyprland-workspaces]
 min-workspace-count = 5
 monitor-specific = false
+label-size = 1.100000023841858
 active-indicator = "underline"
 active-color = "fg-default"
 
@@ -81,7 +83,7 @@ icon-bg-color = "fg-default"
 label-show = false
 label-color = "fg-default"
 
-[modules.notification]
+[modules.notifications]
 border-color = "fg-default"
 icon-color = "fg-default"
 icon-bg-color = "fg-default"
