@@ -3,10 +3,9 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-cuttingedge.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-hypr.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    # nixpkgs-hypr.url = "github:skwig/nixpkgs?ref=nixos-unstable-libxkbcommon-1.11.0";
+    # nixpkgs-hypr.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs-hypr.url = "github:skwig/nixpkgs?ref=nixos-unstable-libxkbcommon-1.11.0";
 
-    # only until 25.11 comes out
     home-manager.url = "github:nix-community/home-manager?ref=release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
