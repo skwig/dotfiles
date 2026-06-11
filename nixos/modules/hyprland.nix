@@ -59,7 +59,7 @@
     enable = true;
     xwayland.enable = true;
     withUWSM = true;
-    package = pkgs-pr.hyprland;
+    package = pkgs-hypr.hyprland;
   };
 
   programs.hyprlock = {
