@@ -1,13 +1,14 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-cuttingedge.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-hypr.url = "github:skwig/nixpkgs?ref=nixos-unstable-libxkbcommon-1.11.0";
+    nixpkgs-hypr.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    # nixpkgs-hypr.url = "github:skwig/nixpkgs?ref=nixos-unstable-libxkbcommon-1.11.0";
     pr-qemu.url = "github:skwig/nixpkgs?ref=fps-patch-qemu";
 
     # only until 25.11 comes out
-    home-manager.url = "github:nix-community/home-manager?ref=release-25.11";
+    home-manager.url = "github:nix-community/home-manager?ref=release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     librepods.url = "github:kavishdevar/librepods/linux/rust";
@@ -45,24 +46,31 @@
           "open-webui"
         ];
 
+      permittedInsecurePackages = [
+        "electron-39.8.10" # bitwarden https://github.com/bitwarden/clients/pull/20448
+      ];
+
       specialArgs = attrs // {
         inherit allowUnfreePredicate;
         pkgs-unstable = (
           import nixpkgs-unstable {
             inherit system;
             config.allowUnfreePredicate = allowUnfreePredicate;
+            config.permittedInsecurePackages = permittedInsecurePackages;
           }
         );
         pkgs-cuttingedge = (
           import nixpkgs-cuttingedge {
             inherit system;
             config.allowUnfreePredicate = allowUnfreePredicate;
+            config.permittedInsecurePackages = permittedInsecurePackages;
           }
         );
         pkgs-hypr = (
           import nixpkgs-hypr {
             inherit system;
             config.allowUnfreePredicate = allowUnfreePredicate;
+            config.permittedInsecurePackages = permittedInsecurePackages;
           }
         );
         pkgs-pr = {

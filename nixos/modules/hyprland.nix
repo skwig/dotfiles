@@ -30,7 +30,7 @@
     libnotify
     wlogout
     wtype
-    hyprpolkitagent
+    pkgs-unstable.hyprpolkitagent
 
     hyprpanel
     wf-recorder

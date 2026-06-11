@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  pkgs-unstable,
   pkgs-cuttingedge,
   ...
 }:
@@ -13,7 +12,7 @@
 
   services.open-webui = {
     enable = true;
-    package = pkgs-unstable.open-webui;
+    package = pkgs-cuttingedge.open-webui;
     environment = {
       ENABLE_TITLE_GENERATION = "False";
       ENABLE_TAGS_GENERATION = "False";
