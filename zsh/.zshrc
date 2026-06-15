@@ -6,6 +6,8 @@ setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 
+source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+
 eval "$(oh-my-posh init zsh --config ~/dotfiles/powershell/theme.omp.json)"
 alias ns=nix-search
 alias lg=lazygit
