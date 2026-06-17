@@ -92,13 +92,6 @@
     variant = "";
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    viAlias = true;
-  };
-
   programs.zsh = {
     enable = true;
     ohMyZsh = {
