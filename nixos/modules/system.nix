@@ -108,6 +108,11 @@
     };
   };
 
+  programs.nh = {
+    enable = true;
+    flake = "/${dotfiles}/nixos/";
+  };
+
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
