@@ -13,10 +13,7 @@
     hyprcursor
     hyprpaper
     adwaita-icon-theme
-    papirus-icon-theme
-    waybar
     rofi
-    rofi-power-menu
     tuigreet
     wl-clipboard
     cliphist
