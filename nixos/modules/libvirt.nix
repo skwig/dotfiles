@@ -22,7 +22,11 @@
     qemu = {
       package = pkgs-unstable.qemu_kvm;
       runAsRoot = true;
-      swtpm.enable = true;
+      swtpm = {
+        enable = true;
+        package = pkgs-unstable.swtpm;
+
+      };
       # ovmf = {
       #   enable = true;
       #   # packages = [
@@ -59,5 +63,6 @@
   environment.systemPackages = with pkgs; [
     passt
     pkgs-unstable.virglrenderer
+    pkgs-unstable.swtpm
   ];
 }
