@@ -9,6 +9,7 @@
 
 {
   environment.systemPackages = with pkgs-hypr; [
+    hyprls
     hyprshot
     hyprcursor
     hyprpaper

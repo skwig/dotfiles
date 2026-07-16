@@ -3,9 +3,20 @@
 {
   environment.systemPackages = with pkgs; [
     neovim
+    tree-sitter
+
+    nixd
+    nixfmt
+
+    prettierd
+    fixjson
+    tofu-ls
+    bash-language-server
 
     lua51Packages.lua
     lua51Packages.luarocks
+    lua-language-server
+    stylua
 
     git
     git-lfs
@@ -32,10 +43,6 @@
 
     jq
     yq
-
-    nix-search-cli
-    nixd
-    nixfmt
 
     k6
     nushell

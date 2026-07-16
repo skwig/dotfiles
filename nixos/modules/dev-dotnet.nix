@@ -15,6 +15,7 @@ in
 
   environment.systemPackages = with pkgs; [
     pkgs-unstable.jetbrains.rider
+    roslyn-ls
     dotnetCombined
     powershell
   ];

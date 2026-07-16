@@ -1,8 +1,11 @@
-return {
-  "hat0uma/csvview.nvim",
+vim.pack.add({
+  { src = "https://github.com/hat0uma/csvview.nvim" },
+})
+
+require("csvview").setup(
   ---@module "csvview"
   ---@type CsvView.Options
-  opts = {
+  {
     parser = { comments = { "#", "//" } },
     keymaps = {
       -- Text objects for selecting fields
@@ -17,6 +20,5 @@ return {
       jump_next_row = { "<Enter>", mode = { "n", "v" } },
       jump_prev_row = { "<S-Enter>", mode = { "n", "v" } },
     },
-  },
-  cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
-}
+  }
+)

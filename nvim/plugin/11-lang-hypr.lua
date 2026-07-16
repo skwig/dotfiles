@@ -1,3 +1,5 @@
+vim.lsp.enable({ "hyprls" })
+
 vim.filetype.add({
   pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
 })
@@ -7,8 +9,4 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.bo.commentstring = "# %s"
   end,
-})
-
-vim.filetype.add({
-  extension = { rasi = "rasi" },
 })
