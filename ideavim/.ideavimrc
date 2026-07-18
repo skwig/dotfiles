@@ -17,7 +17,6 @@ set scrolloff=10
 set incsearch
 set hlsearch
 set ignorecase
-set relativenumber number
 set clipboard^=ideaput
 set keymodel=startsel,stopsel
 
