@@ -3,17 +3,20 @@ import Quickshell.Hyprland
 import QtQuick
 
 Row {
-    id: wsRow
+    id: workspaces
 
     required property int minCount
+    required property Theme theme
 
     anchors.verticalCenter: parent.verticalCenter
     spacing: 4
 
     Repeater {
-        model: Math.max(wsRow.minCount, Hyprland.workspaces.values.length)
+        model: Math.max(workspaces.minCount, Hyprland.workspaces.values.length)
 
         Rectangle {
+            id: workspace
+
             property int wsIndex: index + 1
             property var ws: {
                 var vals = Hyprland.workspaces.values;
@@ -33,9 +36,9 @@ Row {
 
             Text {
                 anchors.centerIn: parent
-                text: wsIndex.toString()
-                color: isActive ? "#000000" : Qt.rgba(1, 1, 1, 0.5)
-                font: Config.fontBase
+                text: workspace.wsIndex.toString()
+                color: workspace.isActive ? "#000000" : Qt.rgba(1, 1, 1, 0.5)
+                font: workspaces.theme.font
             }
 
             MouseArea {

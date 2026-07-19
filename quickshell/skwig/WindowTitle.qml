@@ -5,6 +5,8 @@ import QtQuick
 Item {
     id: windowTitle
 
+    required property Theme theme
+
     anchors.verticalCenter: parent.verticalCenter
 
     implicitWidth: label.implicitWidth + 20
@@ -20,8 +22,8 @@ Item {
                 return toplevel.title;
             return "Desktop";
         }
-        color: Config.fontColor
-        font: Config.fontBase
+        color: theme.fontColor
+        font: theme.font
         elide: Text.ElideRight
         width: 200
     }

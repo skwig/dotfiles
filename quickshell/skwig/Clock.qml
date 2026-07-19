@@ -5,6 +5,7 @@ Item {
     id: clock
 
     required property string format
+    required property Theme theme
 
     anchors.verticalCenter: parent.verticalCenter
 
@@ -21,7 +22,7 @@ Item {
         anchors.right: parent.right
         anchors.rightMargin: 10
         text: Qt.formatDateTime(sysclock.date, clock.format)
-        color: Config.fontColor
-        font: Config.fontBase
+        color: theme.fontColor
+        font: theme.font
     }
 }
