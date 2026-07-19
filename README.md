@@ -23,6 +23,7 @@ sudo nixos-rebuild switch --flake ~/dotfiles/nixos#blackbox
 - https://github.com/bdebiase/nixos-config
 - https://github.com/Nautilus4K/Hyprland-Configs
 - https://github.com/weldros/dotfiles
+- https://github.com/octagonemusic/octashell - dobry clipboard / img preview
 
 ## Windows
 
