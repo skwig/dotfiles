@@ -10,11 +10,14 @@ PanelWindow {
         right: true
     }
 
-    implicitHeight: 32
+    implicitHeight: 40
     color: "transparent"
 
     readonly property Theme theme: Theme {
-        font: ({ family: "JetBrainsMono Nerd Font", pixelSize: 13 })
+        font: ({
+                family: "JetBrainsMono Nerd Font",
+                pixelSize: 16
+            })
         fontColor: "#ffffff"
     }
 
