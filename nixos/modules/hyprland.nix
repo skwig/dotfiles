@@ -30,6 +30,7 @@
     pkgs-unstable.hyprpolkitagent
 
     pkgs-unstable.wayle
+    pkgs-unstable.quickshell
   ];
 
   environment.sessionVariables = {

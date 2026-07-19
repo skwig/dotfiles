@@ -156,6 +156,7 @@
       home.file.".config/wayle".source = config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wayle;
       home.file.".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wezterm;
       home.file.".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wlogout;
+      home.file.".config/quickshell".source = config.lib.file.mkOutOfStoreSymlink /${dotfiles}/quickshell;
 
       home.file.".config/JetBrains/Rider2026.1/rider64.vmoptions".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/wayland/rider64.vmoptions;

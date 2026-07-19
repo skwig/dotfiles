@@ -16,6 +16,14 @@ sudo nixos-rebuild switch --flake ~/dotfiles/nixos#blackbox
 - [Cybersnake223](https://github.com/Cybersnake223/Hypr)
 - [SeniorMatt](https://github.com/SeniorMatt/Mattthew-s-Dotfiles)
 
+### Mood board
+- https://github.com/jtrull/dotfiles
+- https://github.com/pgagnidze/dotfiles/commit/5f62664146338d06a9228ebc0795de21cadf0ad7
+- https://www.reddit.com/r/unixporn/comments/1umjovz/hyprland_first_rice_quickshell/
+- https://github.com/bdebiase/nixos-config
+- https://github.com/Nautilus4K/Hyprland-Configs
+- https://github.com/weldros/dotfiles
+
 ## Windows
 
 ### Installing

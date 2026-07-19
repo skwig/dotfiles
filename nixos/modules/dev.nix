@@ -5,6 +5,8 @@
     neovim
     tree-sitter
 
+    qt6.qtdeclarative
+
     nixd
     nixfmt
 

@@ -1,6 +1,7 @@
 vim.lsp.enable({
   "bash-language-server",
   "lua_ls",
+  "qmlls",
 })
 
 local conform = require("conform")
