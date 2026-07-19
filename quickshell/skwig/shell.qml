@@ -1,5 +1,5 @@
-import Quickshell // for PanelWindow
-import QtQuick // for Text
+import Quickshell
+import QtQuick
 
 PanelWindow {
     anchors {
@@ -8,12 +8,15 @@ PanelWindow {
         right: true
     }
 
+    // WlrLayershell.layer: WlrLayer.Top
+    // WlrLayershell.exclusiveZone: -1
+
     implicitHeight: 30
 
-    Text {
-        // center the bar in its parent component (the window)
-        anchors.centerIn: parent
+    color: "transparent"
 
-        text: "hello world"
+    Rectangle {
+        anchors.fill: parent
+        color: Qt.rgba(0, 0, 0, 0.4)
     }
 }
