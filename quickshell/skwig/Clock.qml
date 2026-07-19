@@ -10,19 +10,29 @@ Item {
     anchors.verticalCenter: parent.verticalCenter
 
     implicitWidth: label.implicitWidth + 20
+    implicitHeight: label.implicitHeight + 10
 
     SystemClock {
         id: sysclock
-        precision: SystemClock.Seconds
+        precision: SystemClock.Minutes
     }
 
-    Text {
-        id: label
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.right: parent.right
-        anchors.rightMargin: 10
-        text: Qt.formatDateTime(sysclock.date, clock.format)
-        color: theme.fontColor
-        font: theme.font
+    Rectangle {
+        id: bg
+        anchors.fill: parent
+        radius: clock.theme.radius
+        color: hoverHandler.hovered ? Qt.rgba(1, 1, 1, 0.1) : "transparent"
+
+        HoverHandler {
+            id: hoverHandler
+        }
+
+        Text {
+            id: label
+            anchors.centerIn: parent
+            text: Qt.formatDateTime(sysclock.date, clock.format)
+            color: clock.theme.fontColor
+            font: clock.theme.font
+        }
     }
 }
