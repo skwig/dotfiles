@@ -1,17 +1,8 @@
 import Quickshell
 import QtQuick
 
-PanelWindow {
+ShellRoot {
     id: root
-
-    anchors {
-        top: true
-        left: true
-        right: true
-    }
-
-    implicitHeight: 40
-    color: "transparent"
 
     readonly property Theme theme: Theme {
         font: ({
@@ -22,25 +13,44 @@ PanelWindow {
         radius: 4
     }
 
-    Rectangle {
-        anchors.fill: parent
-        color: Qt.rgba(0, 0, 0, 0.4)
-
-        Workspaces {
-            anchors.horizontalCenter: parent.horizontalCenter
-            minCount: 5
-            theme: root.theme
+    PanelWindow {
+        anchors {
+            top: true
+            left: true
+            right: true
         }
 
-        WindowTitle {
-            anchors.left: parent.left
-            theme: root.theme
-        }
+        implicitHeight: 40
+        color: "transparent"
 
-        Clock {
-            anchors.right: parent.right
-            format: "HH:mm"
-            theme: root.theme
+        Rectangle {
+            anchors.fill: parent
+            color: Qt.rgba(0, 0, 0, 0.4)
+
+            Workspaces {
+                anchors.horizontalCenter: parent.horizontalCenter
+                minCount: 5
+                theme: root.theme
+            }
+
+            WindowTitle {
+                anchors.left: parent.left
+                theme: root.theme
+            }
+
+            Clock {
+                id: clock
+                anchors.right: parent.right
+                format: "HH:mm"
+                theme: root.theme
+                onClicked: calendarPopup.visible = !calendarPopup.visible
+            }
         }
+    }
+
+    CalendarPopup {
+        id: calendarPopup
+        theme: root.theme
+        anchorItem: clock
     }
 }

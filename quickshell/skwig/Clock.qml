@@ -7,6 +7,8 @@ Item {
     required property string format
     required property Theme theme
 
+    signal clicked()
+
     anchors.verticalCenter: parent.verticalCenter
 
     implicitWidth: label.implicitWidth + 20
@@ -25,6 +27,12 @@ Item {
 
         HoverHandler {
             id: hoverHandler
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            cursorShape: Qt.PointingHandCursor
+            onClicked: clock.clicked()
         }
 
         Text {
