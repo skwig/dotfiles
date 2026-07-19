@@ -18,5 +18,14 @@ PanelWindow {
     Rectangle {
         anchors.fill: parent
         color: Qt.rgba(0, 0, 0, 0.4)
+
+        Workspaces {
+            anchors.horizontalCenter: parent.horizontalCenter
+            minCount: 5
+        }
+
+        WindowTitle {
+            anchors.left: parent.left
+        }
     }
 }
