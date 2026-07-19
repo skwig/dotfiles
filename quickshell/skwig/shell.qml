@@ -2,6 +2,7 @@ import Quickshell
 import QtQuick
 
 PanelWindow {
+    id: root
     anchors {
         top: true
         left: true
@@ -23,6 +24,11 @@ PanelWindow {
 
         WindowTitle {
             anchors.left: parent.left
+        }
+
+        Clock {
+            anchors.right: parent.right
+            format: "HH:mm"
         }
     }
 }

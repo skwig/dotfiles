@@ -1,1 +1,4 @@
 singleton Config Config.qml
+Clock Clock.qml
+WindowTitle WindowTitle.qml
+Workspaces Workspaces.qml

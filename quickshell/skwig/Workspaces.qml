@@ -5,7 +5,7 @@ import QtQuick
 Row {
     id: wsRow
 
-    property int minCount: 5
+    required property int minCount
 
     anchors.verticalCenter: parent.verticalCenter
     spacing: 4
@@ -16,11 +16,12 @@ Row {
         Rectangle {
             property int wsIndex: index + 1
             property var ws: {
-                var vals = Hyprland.workspaces.values
+                var vals = Hyprland.workspaces.values;
                 for (var i = 0; i < vals.length; i++) {
-                    if (vals[i].id === wsIndex) return vals[i]
+                    if (vals[i].id === wsIndex)
+                        return vals[i];
                 }
-                return null
+                return null;
             }
             property bool isActive: ws && Hyprland.focusedWorkspace === ws
             property bool isOccupied: ws && ws.lastIpcObject && ws.lastIpcObject.windows > 0
@@ -41,13 +42,17 @@ Row {
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
                 onClicked: {
-                    if (ws) ws.activate()
-                    else Hyprland.dispatch("workspace " + wsIndex)
+                    if (ws)
+                        ws.activate();
+                    else
+                        Hyprland.dispatch("workspace " + wsIndex);
                 }
             }
 
             Behavior on color {
-                ColorAnimation { duration: 150 }
+                ColorAnimation {
+                    duration: 150
+                }
             }
         }
     }

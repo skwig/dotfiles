@@ -8,4 +8,5 @@ Singleton {
             family: fontFamily,
             pixelSize: 13
         })
+    readonly property color fontColor: "#ffffff"
 }
