@@ -24,6 +24,8 @@ sudo nixos-rebuild switch --flake ~/dotfiles/nixos#blackbox
 - https://github.com/Nautilus4K/Hyprland-Configs
 - https://github.com/weldros/dotfiles
 - https://github.com/octagonemusic/octashell - dobry clipboard / img preview
+- https://github.com/AvengeMedia/DankMaterialShell - greeter, lockscreen, launcher, music player, calendar
+- https://github.com/tripathiji1312/quickshell/tree/main - strukturovany config, pywal integracia, gnome-esque 1 panel s wifi, bt, brightness, notif etc
 
 ## Windows
 
