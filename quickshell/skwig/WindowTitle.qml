@@ -21,7 +21,7 @@ Item {
             return "Desktop"
         }
         color: Qt.rgba(1, 1, 1, 0.7)
-        font.pixelSize: 12
+        font: Config.fontBase
         elide: Text.ElideRight
         width: 200
     }

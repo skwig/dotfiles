@@ -34,7 +34,7 @@ Row {
                 anchors.centerIn: parent
                 text: wsIndex.toString()
                 color: isActive ? "#000000" : Qt.rgba(1, 1, 1, 0.5)
-                font.pixelSize: 11
+                font: Config.fontBase
             }
 
             MouseArea {
