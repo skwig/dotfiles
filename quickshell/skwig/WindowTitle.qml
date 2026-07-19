@@ -14,7 +14,12 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 10
-        text: Hyprland.activeToplevel ? Hyprland.activeToplevel.title : ""
+        text: {
+            var toplevel = Hyprland.activeToplevel
+            if (toplevel && toplevel.workspace && toplevel.workspace === Hyprland.focusedWorkspace)
+                return toplevel.title
+            return "Desktop"
+        }
         color: Qt.rgba(1, 1, 1, 0.7)
         font.pixelSize: 12
         elide: Text.ElideRight
