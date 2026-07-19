@@ -31,6 +31,7 @@
 
     pkgs-unstable.wayle
     pkgs-unstable.quickshell
+    kdePackages.qt5compat
   ];
 
   environment.sessionVariables = {
