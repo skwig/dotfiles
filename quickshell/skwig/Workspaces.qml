@@ -29,16 +29,30 @@ Row {
             property bool isActive: ws && Hyprland.focusedWorkspace === ws
             property bool isOccupied: ws && ws.lastIpcObject && ws.lastIpcObject.windows > 0
 
-            width: 20
-            height: 20
-            radius: 4
-            color: isActive ? "#ffffff" : isOccupied ? Qt.rgba(1, 1, 1, 0.3) : Qt.rgba(1, 1, 1, 0.15)
+            width: 22
+            height: 38
+            radius: workspaces.theme.radius
+            color: hoverHandler.hovered ? Qt.rgba(1, 1, 1, 0.1) : "transparent"
 
             Text {
                 anchors.centerIn: parent
                 text: workspace.wsIndex.toString()
-                color: workspace.isActive ? "#000000" : Qt.rgba(1, 1, 1, 0.5)
+                color: workspace.isActive ? workspaces.theme.fontColor : Qt.rgba(1, 1, 1, 0.4)
                 font: workspaces.theme.font
+            }
+
+            Rectangle {
+                anchors.bottom: parent.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width
+                height: 2
+                radius: 1
+                color: workspaces.theme.fontColor
+                visible: workspace.isActive
+            }
+
+            HoverHandler {
+                id: hoverHandler
             }
 
             MouseArea {
@@ -49,12 +63,6 @@ Row {
                         ws.activate();
                     else
                         Hyprland.dispatch("workspace " + wsIndex);
-                }
-            }
-
-            Behavior on color {
-                ColorAnimation {
-                    duration: 150
                 }
             }
         }

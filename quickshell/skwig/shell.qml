@@ -19,6 +19,7 @@ PanelWindow {
                 pixelSize: 16
             })
         fontColor: "#ffffff"
+        radius: 4
     }
 
     Rectangle {
