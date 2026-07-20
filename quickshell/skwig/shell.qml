@@ -38,12 +38,23 @@ ShellRoot {
                 theme: root.theme
             }
 
-            Clock {
-                id: clock
+            Row {
+                id: rightModules
                 anchors.right: parent.right
-                format: "HH:mm"
-                theme: root.theme
-                onClicked: calendarPopup.visible = !calendarPopup.visible
+                anchors.verticalCenter: parent.verticalCenter
+
+                Volume {
+                    id: volume
+                    theme: root.theme
+                    onClicked: volumePopup.visible = !volumePopup.visible
+                }
+
+                Clock {
+                    id: clock
+                    format: "HH:mm"
+                    theme: root.theme
+                    onClicked: calendarPopup.visible = !calendarPopup.visible
+                }
             }
         }
     }
@@ -52,5 +63,11 @@ ShellRoot {
         id: calendarPopup
         theme: root.theme
         anchorItem: clock
+    }
+
+    VolumePopup {
+        id: volumePopup
+        theme: root.theme
+        anchorItem: volume
     }
 }
