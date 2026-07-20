@@ -43,6 +43,12 @@ ShellRoot {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
 
+                Network {
+                    id: network
+                    theme: root.theme
+                    onClicked: networkPopup.visible = !networkPopup.visible
+                }
+
                 Volume {
                     id: volume
                     theme: root.theme
@@ -70,4 +76,11 @@ ShellRoot {
         theme: root.theme
         anchorItem: volume
     }
+
+    NetworkPopup {
+        id: networkPopup
+        theme: root.theme
+        anchorItem: network
+    }
+
 }

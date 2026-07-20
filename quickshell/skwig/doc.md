@@ -22,8 +22,10 @@
 9. sound OSD
 0. ?mic osd?
 10. notification OSD
+--- design round ---
 11. launcher
 12. clipboard manager
 13. music player
 14. lockscreen
 15. greeter
+16. low battery alert
