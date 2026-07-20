@@ -13,6 +13,14 @@ ShellRoot {
         radius: 4
     }
 
+    function togglePopup(popup) {
+        const nextVisible = !popup.visible;
+        calendarPopup.visible = false;
+        volumePopup.visible = false;
+        networkPopup.visible = false;
+        popup.visible = nextVisible;
+    }
+
     PanelWindow {
         anchors {
             top: true
@@ -46,20 +54,20 @@ ShellRoot {
                 Network {
                     id: network
                     theme: root.theme
-                    onClicked: networkPopup.visible = !networkPopup.visible
+                    onClicked: root.togglePopup(networkPopup)
                 }
 
                 Volume {
                     id: volume
                     theme: root.theme
-                    onClicked: volumePopup.visible = !volumePopup.visible
+                    onClicked: root.togglePopup(volumePopup)
                 }
 
                 Clock {
                     id: clock
                     format: "HH:mm"
                     theme: root.theme
-                    onClicked: calendarPopup.visible = !calendarPopup.visible
+                    onClicked: root.togglePopup(calendarPopup)
                 }
             }
         }
@@ -82,5 +90,4 @@ ShellRoot {
         theme: root.theme
         anchorItem: network
     }
-
 }
