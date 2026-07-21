@@ -19,7 +19,6 @@ PopupWindow {
     implicitHeight: 360
 
     visible: false
-
     color: "transparent"
 
     SystemClock {
@@ -96,7 +95,9 @@ PopupWindow {
                         font.pixelSize: theme.font.pixelSize - 2
                     }
 
-                    HoverHandler { id: todayHover }
+                    HoverHandler {
+                        id: todayHover
+                    }
 
                     MouseArea {
                         anchors.fill: parent
@@ -122,15 +123,17 @@ PopupWindow {
                         font.pixelSize: theme.font.pixelSize
                     }
 
-                    HoverHandler { id: prevHover }
+                    HoverHandler {
+                        id: prevHover
+                    }
 
                     MouseArea {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            var d = new Date(root.currentDate)
-                            d.setMonth(d.getMonth() - 1)
-                            root.currentDate = d
+                            var d = new Date(root.currentDate);
+                            d.setMonth(d.getMonth() - 1);
+                            root.currentDate = d;
                         }
                     }
                 }
@@ -152,15 +155,17 @@ PopupWindow {
                         font.pixelSize: theme.font.pixelSize
                     }
 
-                    HoverHandler { id: nextHover }
+                    HoverHandler {
+                        id: nextHover
+                    }
 
                     MouseArea {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            var d = new Date(root.currentDate)
-                            d.setMonth(d.getMonth() + 1)
-                            root.currentDate = d
+                            var d = new Date(root.currentDate);
+                            d.setMonth(d.getMonth() + 1);
+                            root.currentDate = d;
                         }
                     }
                 }
@@ -196,10 +201,7 @@ PopupWindow {
 
                     property bool isCurrentMonth: model.month === grid.month
                     property bool isToday: model.today
-                    property bool isSelected: root.selectedDate !== null
-                                              && model.date.getFullYear() === root.selectedDate.getFullYear()
-                                              && model.date.getMonth() === root.selectedDate.getMonth()
-                                              && model.date.getDate() === root.selectedDate.getDate()
+                    property bool isSelected: root.selectedDate !== null && model.date.getFullYear() === root.selectedDate.getFullYear() && model.date.getMonth() === root.selectedDate.getMonth() && model.date.getDate() === root.selectedDate.getDate()
 
                     Rectangle {
                         anchors.fill: parent
@@ -225,16 +227,18 @@ PopupWindow {
                         }
                     }
 
-                    HoverHandler { id: dayHover }
+                    HoverHandler {
+                        id: dayHover
+                    }
 
                     MouseArea {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
                             if (isSelected)
-                                root.selectedDate = null
+                                root.selectedDate = null;
                             else
-                                root.selectedDate = model.date
+                                root.selectedDate = model.date;
                         }
                     }
                 }

@@ -1,6 +1,7 @@
 //@ pragma UseQApplication
 
 import Quickshell
+import Quickshell.Hyprland
 import QtQuick
 import "services" as Services
 
@@ -16,20 +17,27 @@ ShellRoot {
         radius: 4
     }
     readonly property var notificationService: notificationServiceInstance
+    readonly property var popups: [calendarPopup, volumePopup, networkPopup, bluetoothPopup, batteryPopup, systemTrayPopup, notificationHistoryPopup]
+    property bool switchingPopup: false
+
+    function closePopups(except) {
+        for (const popup of popups) {
+            if (popup !== except)
+                popup.visible = false;
+        }
+    }
 
     function togglePopup(popup) {
+        switchingPopup = true;
         const nextVisible = !popup.visible;
-        calendarPopup.visible = false;
-        volumePopup.visible = false;
-        networkPopup.visible = false;
-        bluetoothPopup.visible = false;
-        batteryPopup.visible = false;
-        systemTrayPopup.visible = false;
-        notificationHistoryPopup.visible = false;
+        closePopups(popup);
         popup.visible = nextVisible;
+        Qt.callLater(() => switchingPopup = false);
     }
 
     PanelWindow {
+        id: barWindow
+
         anchors {
             top: true
             left: true
@@ -130,6 +138,15 @@ ShellRoot {
     NotificationsOsd {
         theme: root.theme
         notificationService: root.notificationService
+    }
+
+    HyprlandFocusGrab {
+        active: root.popups.some(popup => popup.visible)
+        windows: [barWindow].concat(root.popups.filter(popup => popup.visible))
+        onCleared: {
+            if (!root.switchingPopup)
+                root.closePopups(null);
+        }
     }
 
     CalendarPopup {
