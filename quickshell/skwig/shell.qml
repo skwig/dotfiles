@@ -52,6 +52,11 @@ ShellRoot {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
 
+                Submap {
+                    theme: root.theme
+                    hideWhenDefault: true
+                }
+
                 Network {
                     id: network
                     theme: root.theme
