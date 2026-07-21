@@ -117,6 +117,10 @@ ShellRoot {
         }
     }
 
+    VolumeOsd {
+        theme: root.theme
+    }
+
     CalendarPopup {
         id: calendarPopup
         theme: root.theme
