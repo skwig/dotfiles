@@ -23,6 +23,7 @@ ShellRoot {
         bluetoothPopup.visible = false;
         batteryPopup.visible = false;
         systemTrayPopup.visible = false;
+        notificationHistoryPopup.visible = false;
         popup.visible = nextVisible;
     }
 
@@ -99,6 +100,13 @@ ShellRoot {
                     onClicked: root.togglePopup(volumePopup)
                 }
 
+                Notifications {
+                    id: notifications
+                    theme: root.theme
+                    count: notificationHistoryPopup.notificationCount
+                    onClicked: root.togglePopup(notificationHistoryPopup)
+                }
+
                 Clock {
                     id: clock
                     format: "HH:mm"
@@ -143,5 +151,11 @@ ShellRoot {
         id: systemTrayPopup
         theme: root.theme
         anchorItem: systemTray
+    }
+
+    NotificationsPopup {
+        id: notificationHistoryPopup
+        theme: root.theme
+        anchorItem: notifications
     }
 }
