@@ -18,6 +18,7 @@ ShellRoot {
         calendarPopup.visible = false;
         volumePopup.visible = false;
         networkPopup.visible = false;
+        bluetoothPopup.visible = false;
         popup.visible = nextVisible;
     }
 
@@ -57,6 +58,12 @@ ShellRoot {
                     onClicked: root.togglePopup(networkPopup)
                 }
 
+                Bluetooth {
+                    id: bluetooth
+                    theme: root.theme
+                    onClicked: root.togglePopup(bluetoothPopup)
+                }
+
                 Volume {
                     id: volume
                     theme: root.theme
@@ -89,5 +96,11 @@ ShellRoot {
         id: networkPopup
         theme: root.theme
         anchorItem: network
+    }
+
+    BluetoothPopup {
+        id: bluetoothPopup
+        theme: root.theme
+        anchorItem: bluetooth
     }
 }
