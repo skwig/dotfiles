@@ -7,9 +7,8 @@ Item {
 
     required property Theme theme
 
-    anchors.verticalCenter: parent.verticalCenter
-
     implicitWidth: label.implicitWidth + 20
+    implicitHeight: label.implicitHeight + 10
 
     Text {
         id: label

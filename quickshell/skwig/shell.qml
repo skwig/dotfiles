@@ -1,3 +1,5 @@
+//@ pragma UseQApplication
+
 import Quickshell
 import QtQuick
 
@@ -20,6 +22,7 @@ ShellRoot {
         networkPopup.visible = false;
         bluetoothPopup.visible = false;
         batteryPopup.visible = false;
+        systemTrayPopup.visible = false;
         popup.visible = nextVisible;
     }
 
@@ -43,9 +46,22 @@ ShellRoot {
                 theme: root.theme
             }
 
-            WindowTitle {
+            Row {
+                id: leftModules
                 anchors.left: parent.left
-                theme: root.theme
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: 0
+
+                SystemTray {
+                    id: systemTray
+                    theme: root.theme
+                    hideWhenEmpty: false
+                    onClicked: root.togglePopup(systemTrayPopup)
+                }
+
+                WindowTitle {
+                    theme: root.theme
+                }
             }
 
             Row {
@@ -121,5 +137,11 @@ ShellRoot {
         id: batteryPopup
         theme: root.theme
         anchorItem: battery
+    }
+
+    SystemTrayPopup {
+        id: systemTrayPopup
+        theme: root.theme
+        anchorItem: systemTray
     }
 }
