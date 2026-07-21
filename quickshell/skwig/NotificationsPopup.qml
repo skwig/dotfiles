@@ -1,18 +1,17 @@
 import QtQuick
 import Quickshell
 import Quickshell.Services.Notifications
+import Quickshell.Widgets
 
 PopupWindow {
     id: root
 
     required property Theme theme
     required property Item anchorItem
+    required property var notificationService
 
-    readonly property var notifications: server.trackedNotifications.values
-    readonly property int notificationCount: notifications.length
-    readonly property var groups: groupedNotifications()
-
-    property var receivedTimes: ({})
+    readonly property int notificationCount: notificationService.notificationCount
+    readonly property var groups: notificationService.groupedNotifications()
 
     anchor.item: anchorItem
     anchor.rect.x: anchorItem.width / 2 - implicitWidth / 2
@@ -22,79 +21,6 @@ PopupWindow {
     implicitHeight: Math.min(520, content.implicitHeight + 20)
     visible: false
     color: "transparent"
-
-    NotificationServer {
-        id: server
-
-        bodySupported: true
-        bodyMarkupSupported: false
-        imageSupported: true
-        persistenceSupported: true
-
-        onNotification: notification => {
-            root.receivedTimes[root.notificationKey(notification)] = Date.now();
-            notification.tracked = true;
-        }
-    }
-
-    SystemClock {
-        id: clock
-        precision: SystemClock.Seconds
-    }
-
-    function notificationKey(notification) {
-        return [notification.appName, notification.id, notification.summary, notification.body].join("|");
-    }
-
-    function receivedTime(notification) {
-        const key = notificationKey(notification);
-        if (!root.receivedTimes[key])
-            root.receivedTimes[key] = Date.now();
-        return root.receivedTimes[key];
-    }
-
-    function appName(notification) {
-        return notification.appName || notification.desktopEntry || "Unknown";
-    }
-
-    function relativeTime(notification) {
-        const seconds = Math.max(0, Math.floor((clock.date.getTime() - receivedTime(notification)) / 1000));
-        if (seconds < 60)
-            return "now";
-        const minutes = Math.floor(seconds / 60);
-        if (minutes < 60)
-            return minutes + "m";
-        const hours = Math.floor(minutes / 60);
-        if (hours < 24)
-            return hours + "h";
-        return Math.floor(hours / 24) + "d";
-    }
-
-    function notificationTitle(notification) {
-        return notification.summary || notification.body || "Notification";
-    }
-
-    function groupedNotifications() {
-        const map = new Map();
-        for (const notification of root.notifications) {
-            const name = root.appName(notification);
-            if (!map.has(name))
-                map.set(name, []);
-            map.get(name).push(notification);
-        }
-
-        const groups = [];
-        for (const [name, items] of map.entries()) {
-            const sortedItems = items.sort((a, b) => root.receivedTime(b) - root.receivedTime(a));
-            groups.push({
-                name: name,
-                notifications: sortedItems,
-                newest: sortedItems.length > 0 ? root.receivedTime(sortedItems[0]) : 0
-            });
-        }
-
-        return groups.sort((a, b) => b.newest - a.newest);
-    }
 
     Rectangle {
         id: content
@@ -186,7 +112,7 @@ PopupWindow {
 
                                     anchors.left: parent.left
                                     anchors.right: parent.right
-                                    implicitHeight: rowColumn.implicitHeight + 14
+                                    implicitHeight: Math.max(rowContent.implicitHeight, 32) + 14
                                     radius: root.theme.radius
                                     color: rowHover.hovered ? Qt.rgba(1, 1, 1, 0.1) : Qt.rgba(1, 1, 1, 0.05)
 
@@ -200,49 +126,77 @@ PopupWindow {
                                         onClicked: notificationRow.modelData.dismiss()
                                     }
 
-                                    Column {
-                                        id: rowColumn
+                                    Row {
+                                        id: rowContent
                                         anchors.left: parent.left
                                         anchors.right: parent.right
                                         anchors.verticalCenter: parent.verticalCenter
                                         anchors.margins: 8
-                                        spacing: 4
+                                        spacing: 8
 
-                                        Row {
-                                            anchors.left: parent.left
-                                            anchors.right: parent.right
-                                            spacing: 8
+                                        Item {
+                                            width: 32
+                                            height: 32
+                                            anchors.verticalCenter: parent.verticalCenter
 
-                                            Text {
-                                                width: parent.width - timeText.implicitWidth - parent.spacing
-                                                text: root.notificationTitle(notificationRow.modelData)
-                                                color: root.theme.fontColor
-                                                elide: Text.ElideRight
-                                                font.family: root.theme.font.family
-                                                font.pixelSize: root.theme.font.pixelSize - 2
+                                            IconImage {
+                                                anchors.fill: parent
+                                                visible: notificationRow.modelData.appIcon.length > 0
+                                                source: Quickshell.iconPath(notificationRow.modelData.appIcon)
                                             }
 
                                             Text {
-                                                id: timeText
-                                                text: root.relativeTime(notificationRow.modelData)
-                                                color: Qt.rgba(1, 1, 1, 0.45)
+                                                anchors.centerIn: parent
+                                                visible: notificationRow.modelData.appIcon.length === 0
+                                                text: "󰂚"
+                                                color: Qt.rgba(1, 1, 1, 0.6)
                                                 font.family: root.theme.font.family
-                                                font.pixelSize: root.theme.font.pixelSize - 4
+                                                font.pixelSize: root.theme.font.pixelSize
                                             }
                                         }
 
-                                        Text {
-                                            anchors.left: parent.left
-                                            anchors.right: parent.right
-                                            visible: notificationRow.modelData.body.length > 0 && notificationRow.modelData.summary.length > 0
-                                            text: notificationRow.modelData.body
-                                            textFormat: Text.PlainText
-                                            maximumLineCount: 3
-                                            wrapMode: Text.WordWrap
-                                            elide: Text.ElideRight
-                                            color: Qt.rgba(1, 1, 1, 0.6)
-                                            font.family: root.theme.font.family
-                                            font.pixelSize: root.theme.font.pixelSize - 4
+                                        Column {
+                                            id: rowColumn
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            width: parent.width - 40
+                                            spacing: 4
+
+                                            Row {
+                                                anchors.left: parent.left
+                                                anchors.right: parent.right
+                                                spacing: 8
+
+                                                Text {
+                                                    width: parent.width - timeText.implicitWidth - parent.spacing
+                                                    text: root.notificationService.notificationTitle(notificationRow.modelData)
+                                                    color: root.theme.fontColor
+                                                    elide: Text.ElideRight
+                                                    font.family: root.theme.font.family
+                                                    font.pixelSize: root.theme.font.pixelSize - 2
+                                                }
+
+                                                Text {
+                                                    id: timeText
+                                                    text: root.notificationService.relativeTime(notificationRow.modelData)
+                                                    color: Qt.rgba(1, 1, 1, 0.45)
+                                                    font.family: root.theme.font.family
+                                                    font.pixelSize: root.theme.font.pixelSize - 4
+                                                }
+                                            }
+
+                                            Text {
+                                                anchors.left: parent.left
+                                                anchors.right: parent.right
+                                                visible: notificationRow.modelData.body.length > 0 && notificationRow.modelData.summary.length > 0
+                                                text: notificationRow.modelData.body
+                                                textFormat: Text.PlainText
+                                                maximumLineCount: 3
+                                                wrapMode: Text.WordWrap
+                                                elide: Text.ElideRight
+                                                color: Qt.rgba(1, 1, 1, 0.6)
+                                                font.family: root.theme.font.family
+                                                font.pixelSize: root.theme.font.pixelSize - 4
+                                            }
                                         }
                                     }
                                 }

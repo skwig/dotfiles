@@ -2,6 +2,7 @@
 
 import Quickshell
 import QtQuick
+import "services" as Services
 
 ShellRoot {
     id: root
@@ -14,6 +15,7 @@ ShellRoot {
         fontColor: "#ffffff"
         radius: 4
     }
+    readonly property var notificationService: notificationServiceInstance
 
     function togglePopup(popup) {
         const nextVisible = !popup.visible;
@@ -103,7 +105,7 @@ ShellRoot {
                 Notifications {
                     id: notifications
                     theme: root.theme
-                    count: notificationHistoryPopup.notificationCount
+                    count: root.notificationService.notificationCount
                     onClicked: root.togglePopup(notificationHistoryPopup)
                 }
 
@@ -119,6 +121,15 @@ ShellRoot {
 
     VolumeOsd {
         theme: root.theme
+    }
+
+    Services.NotificationService {
+        id: notificationServiceInstance
+    }
+
+    NotificationsOsd {
+        theme: root.theme
+        notificationService: root.notificationService
     }
 
     CalendarPopup {
@@ -161,5 +172,6 @@ ShellRoot {
         id: notificationHistoryPopup
         theme: root.theme
         anchorItem: notifications
+        notificationService: root.notificationService
     }
 }
