@@ -19,6 +19,7 @@ ShellRoot {
         volumePopup.visible = false;
         networkPopup.visible = false;
         bluetoothPopup.visible = false;
+        batteryPopup.visible = false;
         popup.visible = nextVisible;
     }
 
@@ -69,6 +70,13 @@ ShellRoot {
                     onClicked: root.togglePopup(bluetoothPopup)
                 }
 
+                Battery {
+                    id: battery
+                    theme: root.theme
+                    hideWhenUnavailable: true
+                    onClicked: root.togglePopup(batteryPopup)
+                }
+
                 Volume {
                     id: volume
                     theme: root.theme
@@ -107,5 +115,11 @@ ShellRoot {
         id: bluetoothPopup
         theme: root.theme
         anchorItem: bluetooth
+    }
+
+    BatteryPopup {
+        id: batteryPopup
+        theme: root.theme
+        anchorItem: battery
     }
 }
