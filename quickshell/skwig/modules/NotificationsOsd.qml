@@ -2,13 +2,14 @@ import QtQuick
 import Quickshell
 import Quickshell.Services.Notifications
 import Quickshell.Widgets
-import ".."
+import ".." as Root
+import "../services" as Services
 
 PanelWindow {
     id: root
 
-    required property Theme theme
-    required property var notificationService
+    required property Root.Theme theme
+    required property Services.NotificationService notificationService
     property ShellScreen targetScreen: null
 
     anchors.top: true

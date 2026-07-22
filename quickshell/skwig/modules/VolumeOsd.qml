@@ -1,12 +1,13 @@
 import QtQuick
 import Quickshell
-import ".."
+import ".." as Root
+import "../services" as Services
 
 PanelWindow {
     id: root
 
-    required property Theme theme
-    required property var audioService
+    required property Root.Theme theme
+    required property Services.AudioService audioService
     property ShellScreen targetScreen: null
 
     readonly property var sink: audioService.sink

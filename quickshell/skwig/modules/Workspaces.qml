@@ -1,13 +1,13 @@
 import Quickshell
 import Quickshell.Hyprland
 import QtQuick
-import ".."
+import ".." as Root
 
 Row {
     id: workspaces
 
     required property int minCount
-    required property Theme theme
+    required property Root.Theme theme
 
     anchors.verticalCenter: parent.verticalCenter
     spacing: 4

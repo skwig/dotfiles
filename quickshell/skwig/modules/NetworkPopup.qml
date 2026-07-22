@@ -2,13 +2,14 @@ import QtQuick
 import QtQuick.Controls
 import Quickshell
 import Quickshell.Networking
-import ".."
+import ".." as Root
+import "../services" as Services
 
 PopupWindow {
     id: root
 
-    required property Theme theme
-    required property var networkService
+    required property Root.Theme theme
+    required property Services.NetworkService networkService
     property Item anchorItem: null
 
     readonly property var wifiDevice: networkService.wifiDevice

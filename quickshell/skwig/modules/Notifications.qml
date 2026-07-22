@@ -1,10 +1,10 @@
 import QtQuick
-import ".."
+import ".." as Root
 
 Item {
     id: root
 
-    required property Theme theme
+    required property Root.Theme theme
     property int count: 0
 
     signal clicked()

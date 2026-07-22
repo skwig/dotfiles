@@ -3,13 +3,14 @@ import QtQuick.Controls
 import Quickshell
 import Quickshell.Io
 import Quickshell.Services.Pipewire
-import ".."
+import ".." as Root
+import "../services" as Services
 
 PopupWindow {
     id: root
 
-    required property Theme theme
-    required property var audioService
+    required property Root.Theme theme
+    required property Services.AudioService audioService
     property Item anchorItem: null
 
     readonly property var sink: audioService.sink

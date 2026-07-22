@@ -1,12 +1,12 @@
 import QtQuick
 import Quickshell.Hyprland
 import Quickshell.Io
-import ".."
+import ".." as Root
 
 Item {
     id: root
 
-    required property Theme theme
+    required property Root.Theme theme
     property bool hideWhenDefault: false
     property string defaultSubmap: "reset"
     property var windowClassSubmaps: ({

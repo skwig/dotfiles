@@ -2,13 +2,14 @@ import QtQuick
 import QtQuick.Controls
 import Quickshell
 import Quickshell.Services.UPower
-import ".."
+import ".." as Root
+import "../services" as Services
 
 PopupWindow {
     id: root
 
-    required property Theme theme
-    required property var batteryService
+    required property Root.Theme theme
+    required property Services.BatteryService batteryService
     property Item anchorItem: null
     readonly property var battery: batteryService.battery
     readonly property bool batteryReady: batteryService.batteryReady
@@ -268,7 +269,7 @@ PopupWindow {
     }
 
     component DetailRow: Item {
-        required property Theme theme
+        required property Root.Theme theme
         property string rowIcon: ""
         property string label: ""
         property string value: ""
@@ -314,7 +315,7 @@ PopupWindow {
     }
 
     component ProfileButton: Button {
-        required property Theme theme
+        required property Root.Theme theme
         property int profile
         property bool selected: false
         property string label: ""

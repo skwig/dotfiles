@@ -1,11 +1,12 @@
 import QtQuick
-import ".."
+import ".." as Root
+import "../services" as Services
 
 Item {
     id: root
 
-    required property Theme theme
-    required property var batteryService
+    required property Root.Theme theme
+    required property Services.BatteryService batteryService
     property bool hideWhenUnavailable: false
 
     readonly property bool batteryAvailable: batteryService.batteryAvailable

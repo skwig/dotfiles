@@ -2,14 +2,15 @@ import QtQuick
 import Quickshell
 import Quickshell.Services.Notifications
 import Quickshell.Widgets
-import ".."
+import ".." as Root
+import "../services" as Services
 
 PopupWindow {
     id: root
 
-    required property Theme theme
+    required property Root.Theme theme
     property Item anchorItem: null
-    required property var notificationService
+    required property Services.NotificationService notificationService
 
     readonly property int notificationCount: notificationService.notificationCount
     readonly property var groups: notificationService.groupedNotifications()

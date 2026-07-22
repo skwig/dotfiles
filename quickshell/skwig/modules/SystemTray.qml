@@ -1,11 +1,11 @@
 import QtQuick
 import Quickshell.Services.SystemTray as Tray
-import ".."
+import ".." as Root
 
 Item {
     id: root
 
-    required property Theme theme
+    required property Root.Theme theme
     property bool hideWhenEmpty: false
 
     readonly property var items: Tray.SystemTray.items.values

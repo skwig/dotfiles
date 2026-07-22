@@ -1,12 +1,12 @@
 import Quickshell
 import Quickshell.Hyprland
 import QtQuick
-import ".."
+import ".." as Root
 
 Item {
     id: windowTitle
 
-    required property Theme theme
+    required property Root.Theme theme
 
     implicitWidth: label.implicitWidth + 20
     implicitHeight: label.implicitHeight + 10

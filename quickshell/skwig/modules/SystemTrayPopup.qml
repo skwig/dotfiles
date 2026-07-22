@@ -1,12 +1,12 @@
 import QtQuick
 import Quickshell
 import Quickshell.Services.SystemTray as Tray
-import ".."
+import ".." as Root
 
 PopupWindow {
     id: root
 
-    required property Theme theme
+    required property Root.Theme theme
     property Item anchorItem: null
 
     readonly property var items: Tray.SystemTray.items.values

@@ -1,12 +1,13 @@
 import QtQuick
-import ".."
+import ".." as Root
+import "../services" as Services
 
 Item {
     id: clock
 
     required property string format
-    required property Theme theme
-    required property var timeService
+    required property Root.Theme theme
+    required property Services.TimeService timeService
 
     signal clicked()
 

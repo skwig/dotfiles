@@ -2,13 +2,14 @@ import QtQuick
 import QtQuick.Controls
 import Quickshell
 import Quickshell.Bluetooth
-import ".."
+import ".." as Root
+import "../services" as Services
 
 PopupWindow {
     id: root
 
-    required property Theme theme
-    required property var bluetoothService
+    required property Root.Theme theme
+    required property Services.BluetoothService bluetoothService
     property Item anchorItem: null
 
     readonly property var adapter: bluetoothService.adapter
@@ -211,7 +212,7 @@ PopupWindow {
     component BluetoothDeviceRow: Item {
         id: row
 
-        required property Theme theme
+        required property Root.Theme theme
         property var device: null
         property string emptyText: ""
         property string deviceName: ""

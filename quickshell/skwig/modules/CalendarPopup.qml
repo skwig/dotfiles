@@ -1,13 +1,14 @@
 import QtQuick
 import QtQuick.Controls
 import Quickshell
-import ".."
+import ".." as Root
+import "../services" as Services
 
 PopupWindow {
     id: root
 
-    required property Theme theme
-    required property var timeService
+    required property Root.Theme theme
+    required property Services.TimeService timeService
     property Item anchorItem: null
 
     property date currentDate: new Date()

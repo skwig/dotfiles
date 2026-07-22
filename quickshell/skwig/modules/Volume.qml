@@ -1,11 +1,12 @@
 import QtQuick
-import ".."
+import ".." as Root
+import "../services" as Services
 
 Item {
     id: root
 
-    required property Theme theme
-    required property var audioService
+    required property Root.Theme theme
+    required property Services.AudioService audioService
 
     signal clicked()
 
