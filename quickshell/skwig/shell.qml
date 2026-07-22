@@ -90,6 +90,14 @@ ShellRoot {
                             hideWhenDefault: true
                         }
 
+                        Modules.Battery {
+                            id: battery
+                            theme: root.theme
+                            batteryService: root.batteryService
+                            hideWhenUnavailable: true
+                            onClicked: root.openPopup(batteryPopup, battery)
+                        }
+
                         Modules.Network {
                             id: network
                             theme: root.theme
@@ -102,14 +110,6 @@ ShellRoot {
                             theme: root.theme
                             bluetoothService: root.bluetoothService
                             onClicked: root.openPopup(bluetoothPopup, bluetooth)
-                        }
-
-                        Modules.Battery {
-                            id: battery
-                            theme: root.theme
-                            batteryService: root.batteryService
-                            hideWhenUnavailable: true
-                            onClicked: root.openPopup(batteryPopup, battery)
                         }
 
                         Modules.Volume {
@@ -176,16 +176,15 @@ ShellRoot {
         targetScreen: root.focusedScreen()
     }
 
-    Modules.CalendarPopup {
-        id: calendarPopup
+    Modules.SystemTrayPopup {
+        id: systemTrayPopup
         theme: root.theme
-        timeService: root.timeService
     }
 
-    Modules.VolumePopup {
-        id: volumePopup
+    Modules.BatteryPopup {
+        id: batteryPopup
         theme: root.theme
-        audioService: root.audioService
+        batteryService: root.batteryService
     }
 
     Modules.NetworkPopup {
@@ -200,20 +199,21 @@ ShellRoot {
         bluetoothService: root.bluetoothService
     }
 
-    Modules.BatteryPopup {
-        id: batteryPopup
+    Modules.VolumePopup {
+        id: volumePopup
         theme: root.theme
-        batteryService: root.batteryService
-    }
-
-    Modules.SystemTrayPopup {
-        id: systemTrayPopup
-        theme: root.theme
+        audioService: root.audioService
     }
 
     Modules.NotificationsPopup {
         id: notificationHistoryPopup
         theme: root.theme
         notificationService: root.notificationService
+    }
+
+    Modules.CalendarPopup {
+        id: calendarPopup
+        theme: root.theme
+        timeService: root.timeService
     }
 }
