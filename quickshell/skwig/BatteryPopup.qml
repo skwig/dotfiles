@@ -7,15 +7,16 @@ PopupWindow {
     id: root
 
     required property Theme theme
+    required property var batteryService
     property Item anchorItem: null
-    readonly property var battery: UPower.displayDevice
-    readonly property bool batteryReady: !!battery && battery.ready
-    readonly property bool batteryAvailable: batteryReady && battery.isLaptopBattery
-    readonly property int percentage: batteryAvailable ? Math.round(battery.percentage * 100) : 0
-    readonly property bool charging: batteryAvailable && battery.state === UPowerDeviceState.Charging
-    readonly property bool pendingCharge: batteryAvailable && battery.state === UPowerDeviceState.PendingCharge
-    readonly property bool fullyCharged: batteryAvailable && battery.state === UPowerDeviceState.FullyCharged
-    readonly property bool low: batteryAvailable && percentage <= 20 && !charging && !pendingCharge
+    readonly property var battery: batteryService.battery
+    readonly property bool batteryReady: batteryService.batteryReady
+    readonly property bool batteryAvailable: batteryService.batteryAvailable
+    readonly property int percentage: batteryService.percentage
+    readonly property bool charging: batteryService.charging
+    readonly property bool pendingCharge: batteryService.pendingCharge
+    readonly property bool fullyCharged: batteryService.fullyCharged
+    readonly property bool low: batteryService.low
 
     anchor.item: anchorItem
     anchor.rect.x: anchorItem ? anchorItem.width / 2 - implicitWidth / 2 : 0
@@ -25,45 +26,6 @@ PopupWindow {
     visible: false
     grabFocus: true
     color: "transparent"
-
-    function batteryIcon() {
-        if (!root.batteryAvailable)
-            return "󰂑";
-        if (root.charging || root.pendingCharge)
-            return "󰂄";
-        if (root.fullyCharged || root.percentage >= 95)
-            return "󰁹";
-        if (root.low)
-            return "󰂃";
-        if (root.percentage >= 80)
-            return "󰂂";
-        if (root.percentage >= 60)
-            return "󰂀";
-        if (root.percentage >= 40)
-            return "󰁾";
-        if (root.percentage >= 20)
-            return "󰁻";
-        return "󰁺";
-    }
-
-    function stateLabel(state) {
-        switch (state) {
-        case UPowerDeviceState.Charging:
-            return "Charging";
-        case UPowerDeviceState.Discharging:
-            return "Discharging";
-        case UPowerDeviceState.PendingCharge:
-            return "Pending charge";
-        case UPowerDeviceState.PendingDischarge:
-            return "Pending discharge";
-        case UPowerDeviceState.FullyCharged:
-            return "Fully charged";
-        case UPowerDeviceState.Empty:
-            return "Empty";
-        default:
-            return "Unknown";
-        }
-    }
 
     function profileLabel(profile) {
         switch (profile) {
@@ -85,28 +47,6 @@ PopupWindow {
         default:
             return "󰾅";
         }
-    }
-
-    function formatTime(seconds) {
-        if (!seconds || seconds <= 0)
-            return "";
-        const hours = Math.floor(seconds / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        if (hours > 0)
-            return hours + "h " + minutes + "m";
-        return minutes + "m";
-    }
-
-    function formatRate(rate) {
-        if (!rate || rate <= 0.01)
-            return "";
-        return rate.toFixed(2) + " W";
-    }
-
-    function formatCapacity() {
-        if (!root.batteryAvailable || root.battery.energy <= 0 || root.battery.energyCapacity <= 0)
-            return "";
-        return root.battery.energy.toFixed(1) + " / " + root.battery.energyCapacity.toFixed(1) + " Wh";
     }
 
     function profileSelected(profile) {
@@ -139,7 +79,7 @@ PopupWindow {
                 Text {
                     anchors.verticalCenter: parent.verticalCenter
                     width: 24
-                    text: root.batteryIcon()
+                    text: root.batteryService.batteryIcon()
                     color: root.theme.fontColor
                     font.family: root.theme.font.family
                     font.pixelSize: root.theme.font.pixelSize
@@ -159,7 +99,7 @@ PopupWindow {
 
                     Text {
                         width: parent.width
-                        text: root.batteryAvailable ? root.percentage + "% - " + root.stateLabel(root.battery.state) : root.batteryReady ? "No battery found" : "Battery unavailable"
+                        text: root.batteryAvailable ? root.percentage + "% - " + root.batteryService.stateLabel(root.battery.state) : root.batteryReady ? "No battery found" : "Battery unavailable"
                         color: Qt.rgba(1, 1, 1, 0.55)
                         font.family: root.theme.font.family
                         font.pixelSize: root.theme.font.pixelSize - 2
@@ -187,7 +127,7 @@ PopupWindow {
 
             DetailRow {
                 theme: root.theme
-                rowIcon: root.batteryIcon()
+                rowIcon: root.batteryService.batteryIcon()
                 label: "Charge"
                 value: root.batteryAvailable ? root.percentage + "%" : root.batteryReady ? "No battery found" : "Unavailable"
             }
@@ -196,7 +136,7 @@ PopupWindow {
                 theme: root.theme
                 rowIcon: "󰔟"
                 label: "State"
-                value: root.batteryAvailable ? root.stateLabel(root.battery.state) : "Unavailable"
+                value: root.batteryAvailable ? root.batteryService.stateLabel(root.battery.state) : "Unavailable"
             }
 
             DetailRow {
@@ -204,7 +144,7 @@ PopupWindow {
                 theme: root.theme
                 rowIcon: "󰥔"
                 label: "Time to full"
-                value: root.formatTime(root.battery.timeToFull)
+                value: root.batteryService.formatTime(root.battery.timeToFull)
             }
 
             DetailRow {
@@ -212,15 +152,15 @@ PopupWindow {
                 theme: root.theme
                 rowIcon: "󰥔"
                 label: "Time to empty"
-                value: root.formatTime(root.battery.timeToEmpty)
+                value: root.batteryService.formatTime(root.battery.timeToEmpty)
             }
 
             DetailRow {
-                visible: root.batteryAvailable && root.formatRate(root.battery.changeRate).length > 0
+                visible: root.batteryAvailable && root.batteryService.formatRate(root.battery.changeRate).length > 0
                 theme: root.theme
                 rowIcon: "󰚥"
                 label: root.charging || root.pendingCharge ? "Charging" : "Discharging"
-                value: root.formatRate(root.battery.changeRate)
+                value: root.batteryService.formatRate(root.battery.changeRate)
             }
 
             DetailRow {
@@ -232,11 +172,11 @@ PopupWindow {
             }
 
             DetailRow {
-                visible: root.formatCapacity().length > 0
+                visible: root.batteryService.formatCapacity().length > 0
                 theme: root.theme
                 rowIcon: "󰁹"
                 label: "Capacity"
-                value: root.formatCapacity()
+                value: root.batteryService.formatCapacity()
             }
 
             DetailRow {

@@ -7,22 +7,18 @@ PopupWindow {
     id: root
 
     required property Theme theme
+    required property var networkService
     property Item anchorItem: null
 
-    readonly property var devices: Networking.devices.values
-    readonly property var wifiDevice: devices.find(device => device.type === DeviceType.Wifi) || null
-    readonly property var wiredDevices: devices.filter(device => device.type === DeviceType.Wired)
-    readonly property var wiredDevice: wiredDevices.find(device => device.connected) || wiredDevices.find(device => device.hasLink) || null
-    readonly property var wiredNetwork: wiredDevice && wiredDevice.network ? wiredDevice.network : null
-    readonly property var wifiNetworkObjects: wifiDevice ? wifiDevice.networks.values : []
-    readonly property var networks: sortedNetworks()
-    readonly property var connectedWifi: wifiNetworkObjects.find(network => network.connected) || null
-    readonly property bool wifiEnabled: Networking.wifiEnabled && Networking.wifiHardwareEnabled
-    readonly property bool scanning: !!wifiDevice && wifiDevice.scannerEnabled
-    readonly property string currentSsid: connectedWifi ? connectedWifi.name : ""
-    readonly property string ethernetDevice: wiredDevice ? wiredDevice.name : ""
-    readonly property string ethernetConnection: wiredNetwork ? wiredNetwork.name : ""
-    readonly property string ethernetSpeed: wiredDevice && wiredDevice.linkSpeed > 0 ? wiredDevice.linkSpeed + " Mb/s" : ""
+    readonly property var wifiDevice: networkService.wifiDevice
+    readonly property var networks: networkService.networks
+    readonly property var connectedWifi: networkService.connectedWifi
+    readonly property bool wifiEnabled: networkService.wifiEnabled
+    readonly property bool scanning: networkService.scanning
+    readonly property string currentSsid: networkService.currentSsid
+    readonly property string ethernetDevice: networkService.ethernetDevice
+    readonly property string ethernetConnection: networkService.ethernetConnection
+    readonly property string ethernetSpeed: networkService.ethernetSpeed
     property var passwordNetwork: null
     property string failureMessage: ""
     readonly property int scrollbarWidth: 14
@@ -41,66 +37,13 @@ PopupWindow {
         target: root.passwordNetwork
 
         function onConnectionFailed(reason) {
-            if (reason === ConnectionFailReason.NoSecrets && root.hasPasswordSecurity(root.passwordNetwork)) {
+            if (reason === ConnectionFailReason.NoSecrets && root.networkService.hasPasswordSecurity(root.passwordNetwork)) {
                 root.failureMessage = "Password required";
             } else {
                 root.passwordNetwork = null;
                 root.failureMessage = ConnectionFailReason.toString(reason);
             }
         }
-    }
-
-    function sortedNetworks() {
-        const byName = new Map();
-        for (const network of root.wifiNetworkObjects) {
-            if (!network.name || network.name.length === 0)
-                continue;
-
-            const existing = byName.get(network.name);
-            if (!existing || network.connected || (!existing.connected && network.signalStrength > existing.signalStrength))
-                byName.set(network.name, network);
-        }
-
-        return Array.from(byName.values()).sort((a, b) => {
-            if (a.connected && !b.connected)
-                return -1;
-            if (!a.connected && b.connected)
-                return 1;
-            if (a.known && !b.known)
-                return -1;
-            if (!a.known && b.known)
-                return 1;
-            return b.signalStrength - a.signalStrength;
-        });
-    }
-
-    function securityLabel(network) {
-        if (!network || network.security === WifiSecurityType.Open)
-            return "Open";
-        return WifiSecurityType.toString(network.security);
-    }
-
-    function hasPasswordSecurity(network) {
-        return !!network && (network.security === WifiSecurityType.WpaPsk || network.security === WifiSecurityType.Wpa2Psk || network.security === WifiSecurityType.Sae);
-    }
-
-    function networkIcon(strength, secured) {
-        if (secured) {
-            if (strength >= 75)
-                return "󰤪";
-            if (strength >= 50)
-                return "󰤧";
-            if (strength >= 25)
-                return "󰤤";
-            return "󰤡";
-        }
-        if (strength >= 75)
-            return "󰤨";
-        if (strength >= 50)
-            return "󰤥";
-        if (strength >= 25)
-            return "󰤢";
-        return "󰤟";
     }
 
     function connectNetwork(network, password) {
@@ -110,7 +53,7 @@ PopupWindow {
         root.failureMessage = "";
         root.passwordNetwork = network;
 
-        if (password && password.length > 0 && root.hasPasswordSecurity(network)) {
+        if (password && password.length > 0 && root.networkService.hasPasswordSecurity(network)) {
             network.connectWithPsk(password);
         } else {
             network.connect();
@@ -123,18 +66,6 @@ PopupWindow {
             root.passwordNetwork = null;
             root.failureMessage = "";
         }
-    }
-
-    function networkDetails(network) {
-        if (!network)
-            return "";
-
-        const security = root.securityLabel(network);
-        if (network.connected)
-            return security + " - Connected";
-        if (network.stateChanging)
-            return security + " - Connecting";
-        return network.known ? security + " - Saved" : security;
     }
 
     Rectangle {
@@ -184,8 +115,8 @@ PopupWindow {
                 Button {
                     width: 48
                     text: root.wifiEnabled ? "Off" : "On"
-                    enabled: Networking.wifiHardwareEnabled
-                    onClicked: Networking.wifiEnabled = !Networking.wifiEnabled
+                    enabled: root.networkService.wifiHardwareEnabled
+                    onClicked: root.networkService.setWifiEnabled(!root.networkService.wifiEnabled)
                 }
 
                 Button {
@@ -271,7 +202,7 @@ PopupWindow {
                     required property var modelData
                     readonly property bool hasNetwork: !!modelData
                     readonly property bool saved: hasNetwork && modelData.known
-                    readonly property bool needsPassword: hasNetwork && root.hasPasswordSecurity(modelData) && root.passwordNetwork === modelData && !modelData.connected
+                    readonly property bool needsPassword: hasNetwork && root.networkService.hasPasswordSecurity(modelData) && root.passwordNetwork === modelData && !modelData.connected
 
                     width: networkList.width - root.scrollbarWidth
                     implicitHeight: hasNetwork ? needsPassword ? 82 : 44 : 24
@@ -300,7 +231,7 @@ PopupWindow {
                             Text {
                                 anchors.verticalCenter: parent.verticalCenter
                                 width: 24
-                                text: networkRow.hasNetwork ? root.networkIcon(Math.round(networkRow.modelData.signalStrength * 100), networkRow.modelData.security !== WifiSecurityType.Open) : ""
+                                text: networkRow.hasNetwork ? root.networkService.networkIcon(Math.round(networkRow.modelData.signalStrength * 100), networkRow.modelData.security !== WifiSecurityType.Open) : ""
                                 color: root.theme.fontColor
                                 font.family: root.theme.font.family
                                 font.pixelSize: root.theme.font.pixelSize
@@ -322,7 +253,7 @@ PopupWindow {
 
                                 Text {
                                     width: parent.width
-                                    text: networkRow.hasNetwork ? root.networkDetails(networkRow.modelData) : ""
+                                    text: networkRow.hasNetwork ? root.networkService.networkDetails(networkRow.modelData) : ""
                                     color: Qt.rgba(1, 1, 1, 0.55)
                                     font.family: root.theme.font.family
                                     font.pixelSize: root.theme.font.pixelSize - 3
@@ -336,7 +267,7 @@ PopupWindow {
                                 onClicked: {
                                     if (networkRow.modelData.connected) {
                                         root.disconnectNetwork(networkRow.modelData);
-                                    } else if (root.hasPasswordSecurity(networkRow.modelData) && !networkRow.modelData.known) {
+                                    } else if (root.networkService.hasPasswordSecurity(networkRow.modelData) && !networkRow.modelData.known) {
                                         root.passwordNetwork = root.passwordNetwork === networkRow.modelData ? null : networkRow.modelData;
                                         passwordField.forceActiveFocus();
                                     } else {

@@ -1,15 +1,10 @@
 import QtQuick
-import Quickshell.Services.Pipewire
 
 Item {
     id: root
 
     required property Theme theme
-
-    readonly property var sink: Pipewire.defaultAudioSink
-    readonly property bool hasAudio: !!sink?.audio
-    readonly property bool isMuted: hasAudio && sink.audio.muted
-    readonly property real volume: hasAudio ? sink.audio.volume : 0
+    required property var audioService
 
     signal clicked()
 
@@ -17,22 +12,6 @@ Item {
 
     implicitWidth: label.implicitWidth + 20
     implicitHeight: label.implicitHeight + 10
-
-    PwObjectTracker {
-        objects: root.sink ? [root.sink] : []
-    }
-
-    function volumeIcon() {
-        if (!root.hasAudio)
-            return "󰟎";
-        if (root.isMuted)
-            return "󰖁";
-        if (root.volume >= 0.6)
-            return "󰕾";
-        if (root.volume >= 0.3)
-            return "󰖀";
-        return "󰕿";
-    }
 
     Rectangle {
         anchors.fill: parent
@@ -52,7 +31,7 @@ Item {
         Text {
             id: label
             anchors.centerIn: parent
-            text: root.volumeIcon()
+            text: root.audioService.volumeIcon(root.audioService.volume, root.audioService.muted, root.audioService.hasAudio)
             color: root.theme.fontColor
             font.family: root.theme.font.family
             font.pixelSize: root.theme.font.pixelSize

@@ -1,4 +1,3 @@
-import Quickshell
 import QtQuick
 
 Item {
@@ -6,6 +5,7 @@ Item {
 
     required property string format
     required property Theme theme
+    required property var timeService
 
     signal clicked()
 
@@ -13,11 +13,6 @@ Item {
 
     implicitWidth: label.implicitWidth + 20
     implicitHeight: label.implicitHeight + 10
-
-    SystemClock {
-        id: sysclock
-        precision: SystemClock.Minutes
-    }
 
     Rectangle {
         id: bg
@@ -38,7 +33,7 @@ Item {
         Text {
             id: label
             anchors.centerIn: parent
-            text: Qt.formatDateTime(sysclock.date, clock.format)
+            text: clock.timeService.timeText(clock.format)
             color: clock.theme.fontColor
             font: clock.theme.font
         }

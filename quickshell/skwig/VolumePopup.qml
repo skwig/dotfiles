@@ -8,30 +8,23 @@ PopupWindow {
     id: root
 
     required property Theme theme
+    required property var audioService
     property Item anchorItem: null
 
-    readonly property var sink: Pipewire.defaultAudioSink
-    readonly property var source: Pipewire.defaultAudioSource
-    readonly property bool hasAudio: !!sink?.audio
-    readonly property bool hasInput: !!source?.audio
-    readonly property real volume: hasAudio ? sink.audio.volume : 0
-    readonly property real inputVolume: hasInput ? source.audio.volume : 0
-    readonly property bool muted: hasAudio && sink.audio.muted
-    readonly property bool inputMuted: hasInput && source.audio.muted
+    readonly property var sink: audioService.sink
+    readonly property var source: audioService.source
+    readonly property bool hasAudio: audioService.hasAudio
+    readonly property bool hasInput: audioService.hasInput
+    readonly property real volume: audioService.volume
+    readonly property real inputVolume: audioService.inputVolume
+    readonly property bool muted: audioService.muted
+    readonly property bool inputMuted: audioService.inputMuted
     property double lastVolumeTestSound: 0
     readonly property int scrollbarWidth: 14
-    readonly property var outputDevices: Pipewire.nodes.values.filter(node => {
-        return node?.audio && node.isSink && !node.isStream;
-    })
-    readonly property var inputDevices: Pipewire.nodes.values.filter(node => {
-        return node?.audio && !node.isSink && !node.isStream;
-    })
-    readonly property var appStreams: Pipewire.nodes.values.filter(node => {
-        return node?.audio && node.isSink && node.isStream && !root.isVolumeTestStream(node);
-    })
-    readonly property var inputStreams: Pipewire.nodes.values.filter(node => {
-        return node?.audio && !node.isSink && node.isStream && !root.isVolumeTestStream(node);
-    })
+    readonly property var outputDevices: audioService.outputDevices
+    readonly property var inputDevices: audioService.inputDevices
+    readonly property var appStreams: audioService.appStreams
+    readonly property var inputStreams: audioService.inputStreams
 
     anchor.item: anchorItem
     anchor.rect.x: anchorItem ? anchorItem.width / 2 - implicitWidth / 2 : 0
@@ -42,47 +35,6 @@ PopupWindow {
     visible: false
     grabFocus: true
     color: "transparent"
-
-    PwObjectTracker {
-        objects: root.sink ? [root.sink] : []
-    }
-
-    PwObjectTracker {
-        objects: root.source ? [root.source] : []
-    }
-
-    PwObjectTracker {
-        objects: root.outputDevices.concat(root.inputDevices).concat(root.appStreams).concat(root.inputStreams)
-    }
-
-    function nodeName(node) {
-        return node?.nickname || node?.description || node?.name || "Unknown";
-    }
-
-    function streamName(node) {
-        var app = node && node.properties ? node.properties["application.name"] : "";
-        var media = node && node.properties ? node.properties["media.name"] : "";
-        app = app || node?.description || node?.name || "Unknown app";
-        return media ? app + " - " + media : app;
-    }
-
-    function volumeIcon(value, muted) {
-        if (muted)
-            return "󰖁";
-        if (value >= 0.6)
-            return "󰕾";
-        if (value >= 0.3)
-            return "󰖀";
-        return "󰕿";
-    }
-
-    function inputIcon(muted) {
-        return muted ? "󰍭" : "󰍬";
-    }
-
-    function isVolumeTestStream(node) {
-        return node?.name === "pw-play" || node?.description === "pw-play";
-    }
 
     function playVolumeTestSound() {
         var now = Date.now();
@@ -142,7 +94,7 @@ PopupWindow {
 
                     Text {
                         anchors.centerIn: parent
-                        text: root.volumeIcon(root.volume, root.muted)
+                        text: root.audioService.volumeIcon(root.volume, root.muted, root.hasAudio)
                         color: root.theme.fontColor
                         font.family: root.theme.font.family
                         font.pixelSize: root.theme.font.pixelSize
@@ -177,7 +129,7 @@ PopupWindow {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 model: root.outputDevices.map(node => {
-                    return root.nodeName(node);
+                    return root.audioService.nodeName(node);
                 })
                 currentIndex: root.outputDevices.findIndex(node => {
                     return node?.id === root.sink?.id;
@@ -220,7 +172,7 @@ PopupWindow {
 
                     Text {
                         anchors.centerIn: parent
-                        text: root.inputIcon(root.inputMuted)
+                        text: root.audioService.inputIcon(root.inputMuted)
                         color: root.theme.fontColor
                         font.family: root.theme.font.family
                         font.pixelSize: root.theme.font.pixelSize
@@ -253,7 +205,7 @@ PopupWindow {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 model: root.inputDevices.map(node => {
-                    return root.nodeName(node);
+                    return root.audioService.nodeName(node);
                 })
                 currentIndex: root.inputDevices.findIndex(node => {
                     return node?.id === root.source?.id;
@@ -332,7 +284,7 @@ PopupWindow {
 
                             Text {
                                 anchors.centerIn: parent
-                                text: root.volumeIcon(streamRow.modelData?.audio?.volume ?? 0, streamRow.modelData?.audio?.muted ?? false)
+                                text: root.audioService.volumeIcon(streamRow.modelData?.audio?.volume ?? 0, streamRow.modelData?.audio?.muted ?? false, streamRow.hasStream)
                                 color: root.theme.fontColor
                                 font.family: root.theme.font.family
                                 font.pixelSize: root.theme.font.pixelSize - 2
@@ -359,7 +311,7 @@ PopupWindow {
 
                                 Text {
                                     width: parent.width - percentText.width - 8
-                                    text: root.streamName(streamRow.modelData)
+                                    text: root.audioService.streamName(streamRow.modelData)
                                     color: root.theme.fontColor
                                     font.family: root.theme.font.family
                                     font.pixelSize: root.theme.font.pixelSize - 2
@@ -455,7 +407,7 @@ PopupWindow {
 
                             Text {
                                 anchors.centerIn: parent
-                                text: root.inputIcon(inputStreamRow.modelData?.audio?.muted ?? false)
+                                text: root.audioService.inputIcon(inputStreamRow.modelData?.audio?.muted ?? false)
                                 color: root.theme.fontColor
                                 font.family: root.theme.font.family
                                 font.pixelSize: root.theme.font.pixelSize - 2
@@ -482,7 +434,7 @@ PopupWindow {
 
                                 Text {
                                     width: parent.width - inputPercentText.width - 8
-                                    text: root.streamName(inputStreamRow.modelData)
+                                    text: root.audioService.streamName(inputStreamRow.modelData)
                                     color: root.theme.fontColor
                                     font.family: root.theme.font.family
                                     font.pixelSize: root.theme.font.pixelSize - 2

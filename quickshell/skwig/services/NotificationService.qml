@@ -7,6 +7,7 @@ Scope {
 
     readonly property var notifications: server.trackedNotifications.values
     readonly property int notificationCount: notifications.length
+    required property var timeService
 
     property var receivedTimes: ({})
     property var osdNotifications: []
@@ -27,11 +28,6 @@ Scope {
         }
     }
 
-    SystemClock {
-        id: clock
-        precision: SystemClock.Seconds
-    }
-
     function notificationKey(notification) {
         return [notification.appName, notification.id, notification.summary, notification.body].join("|");
     }
@@ -48,7 +44,7 @@ Scope {
     }
 
     function relativeTime(notification) {
-        const seconds = Math.max(0, Math.floor((clock.date.getTime() - receivedTime(notification)) / 1000));
+        const seconds = Math.max(0, Math.floor((root.timeService.date.getTime() - receivedTime(notification)) / 1000));
         if (seconds < 60)
             return "now";
         const minutes = Math.floor(seconds / 60);

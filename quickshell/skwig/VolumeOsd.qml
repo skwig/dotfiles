@@ -1,21 +1,21 @@
 import QtQuick
 import Quickshell
-import Quickshell.Services.Pipewire
 
 PanelWindow {
     id: root
 
     required property Theme theme
+    required property var audioService
     property ShellScreen targetScreen: null
 
-    readonly property var sink: Pipewire.defaultAudioSink
-    readonly property var source: Pipewire.defaultAudioSource
+    readonly property var sink: audioService.sink
+    readonly property var source: audioService.source
     readonly property bool outputMode: mode === "output"
     readonly property bool hasNode: outputMode ? !!sink?.audio : !!source?.audio
     readonly property real currentVolume: outputMode ? (sink?.audio?.volume ?? 0) : (source?.audio?.volume ?? 0)
     readonly property bool currentMuted: outputMode ? (sink?.audio?.muted ?? false) : (source?.audio?.muted ?? false)
-    readonly property string currentName: outputMode ? nodeName(sink, "Unknown output") : nodeName(source, "Unknown input")
-    readonly property string currentIcon: outputMode ? outputIcon() : inputIcon()
+    readonly property string currentName: outputMode ? audioService.nodeName(sink, "Unknown output") : audioService.nodeName(source, "Unknown input")
+    readonly property string currentIcon: outputMode ? audioService.volumeIcon(currentVolume, currentMuted, !!sink?.audio) : audioService.inputIcon(currentMuted)
     readonly property real clampedVolume: Math.max(0, Math.min(1, currentVolume))
 
     property string mode: "output"
@@ -34,10 +34,6 @@ PanelWindow {
     mask: Region {}
 
     Component.onCompleted: ready = true
-
-    PwObjectTracker {
-        objects: [root.sink, root.source].filter(node => !!node)
-    }
 
     Connections {
         target: root.sink?.audio ?? null
@@ -75,26 +71,6 @@ PanelWindow {
         root.mode = nextMode;
         root.visible = true;
         hideTimer.restart();
-    }
-
-    function nodeName(node, fallback) {
-        return node?.nickname || node?.description || node?.name || fallback;
-    }
-
-    function outputIcon() {
-        if (!root.sink?.audio)
-            return "󰟎";
-        if (root.currentMuted)
-            return "󰖁";
-        if (root.currentVolume >= 0.6)
-            return "󰕾";
-        if (root.currentVolume >= 0.3)
-            return "󰖀";
-        return "󰕿";
-    }
-
-    function inputIcon() {
-        return root.currentMuted ? "󰍭" : "󰍬";
     }
 
     Rectangle {

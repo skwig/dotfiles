@@ -6,6 +6,7 @@ PopupWindow {
     id: root
 
     required property Theme theme
+    required property var timeService
     property Item anchorItem: null
 
     property date currentDate: new Date()
@@ -22,11 +23,6 @@ PopupWindow {
     grabFocus: true
     color: "transparent"
 
-    SystemClock {
-        id: clock
-        precision: SystemClock.Seconds
-    }
-
     Rectangle {
         anchors.fill: parent
         anchors.margins: 10
@@ -40,7 +36,7 @@ PopupWindow {
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: Qt.formatDateTime(clock.date, "HH:mm:ss")
+                text: root.timeService.calendarTimeText
                 color: root.theme.fontColor
                 font.family: root.theme.font.family
                 font.pixelSize: root.theme.font.pixelSize
@@ -48,7 +44,7 @@ PopupWindow {
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: Qt.formatDateTime(clock.date, "dddd, MMMM d yyyy")
+                text: root.timeService.calendarDateText
                 color: Qt.rgba(1, 1, 1, 0.5)
                 font.family: root.theme.font.family
                 font.pixelSize: root.theme.font.pixelSize - 2
