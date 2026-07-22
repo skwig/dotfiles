@@ -1,15 +1,21 @@
 import QtQuick
+import Quickshell.Services.SystemTray as Tray
+import ".."
 
 Item {
     id: root
 
     required property Theme theme
-    required property var bluetoothService
+    property bool hideWhenEmpty: false
+
+    readonly property var items: Tray.SystemTray.items.values
+    readonly property bool hasItems: items.length > 0
 
     signal clicked()
 
     anchors.verticalCenter: parent.verticalCenter
-    implicitWidth: label.implicitWidth + 20
+    visible: !hideWhenEmpty || hasItems
+    implicitWidth: visible ? label.implicitWidth + 20 : 0
     implicitHeight: label.implicitHeight + 10
 
     Rectangle {
@@ -30,7 +36,7 @@ Item {
         Text {
             id: label
             anchors.centerIn: parent
-            text: root.bluetoothService.bluetoothIcon()
+            text: "󰀻"
             color: root.theme.fontColor
             font.family: root.theme.font.family
             font.pixelSize: root.theme.font.pixelSize

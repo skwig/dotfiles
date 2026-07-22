@@ -1,23 +1,21 @@
 import QtQuick
+import ".."
 
 Item {
-    id: clock
+    id: root
 
-    required property string format
     required property Theme theme
-    required property var timeService
+    required property var networkService
 
     signal clicked()
 
     anchors.verticalCenter: parent.verticalCenter
-
     implicitWidth: label.implicitWidth + 20
     implicitHeight: label.implicitHeight + 10
 
     Rectangle {
-        id: bg
         anchors.fill: parent
-        radius: clock.theme.radius
+        radius: root.theme.radius
         color: hoverHandler.hovered ? Qt.rgba(1, 1, 1, 0.1) : "transparent"
 
         HoverHandler {
@@ -27,15 +25,17 @@ Item {
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
-            onClicked: clock.clicked()
+            onClicked: root.clicked()
         }
 
         Text {
             id: label
             anchors.centerIn: parent
-            text: clock.timeService.timeText(clock.format)
-            color: clock.theme.fontColor
-            font: clock.theme.font
+            text: root.networkService.statusIcon()
+            color: root.theme.fontColor
+            font.family: root.theme.font.family
+            font.pixelSize: root.theme.font.pixelSize
         }
     }
+
 }

@@ -1,16 +1,22 @@
 import QtQuick
+import ".."
 
 Item {
     id: root
 
     required property Theme theme
-    property int count: 0
+    required property var batteryService
+    property bool hideWhenUnavailable: false
 
-    signal clicked()
+    readonly property bool batteryAvailable: batteryService.batteryAvailable
+    readonly property int percentage: batteryService.percentage
+
+    signal clicked
 
     anchors.verticalCenter: parent.verticalCenter
-    implicitWidth: count > 0 ? icon.implicitWidth + countLabel.implicitWidth + 24 : icon.implicitWidth + 20
-    implicitHeight: Math.max(icon.implicitHeight, countLabel.implicitHeight) + 10
+    visible: !hideWhenUnavailable || batteryAvailable
+    implicitWidth: visible ? content.implicitWidth + 20 : 0
+    implicitHeight: content.implicitHeight + 10
 
     Rectangle {
         anchors.fill: parent
@@ -28,26 +34,24 @@ Item {
         }
 
         Row {
+            id: content
             anchors.centerIn: parent
-            spacing: 4
+            spacing: 6
 
             Text {
-                id: icon
                 anchors.verticalCenter: parent.verticalCenter
-                text: root.count > 0 ? "󰂚" : "󰂜"
+                text: root.batteryService.batteryIcon()
                 color: root.theme.fontColor
                 font.family: root.theme.font.family
                 font.pixelSize: root.theme.font.pixelSize
             }
 
             Text {
-                id: countLabel
                 anchors.verticalCenter: parent.verticalCenter
-                visible: root.count > 0
-                text: root.count > 99 ? "99+" : root.count.toString()
+                text: root.batteryAvailable ? root.percentage + "%" : "--%"
                 color: root.theme.fontColor
                 font.family: root.theme.font.family
-                font.pixelSize: root.theme.font.pixelSize - 3
+                font.pixelSize: root.theme.font.pixelSize - 2
             }
         }
     }

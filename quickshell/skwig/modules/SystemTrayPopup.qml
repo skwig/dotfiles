@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Services.SystemTray as Tray
+import ".."
 
 PopupWindow {
     id: root

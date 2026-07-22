@@ -1,20 +1,17 @@
 import QtQuick
-import Quickshell.Services.SystemTray as Tray
+import ".."
 
 Item {
     id: root
 
     required property Theme theme
-    property bool hideWhenEmpty: false
-
-    readonly property var items: Tray.SystemTray.items.values
-    readonly property bool hasItems: items.length > 0
+    required property var audioService
 
     signal clicked()
 
     anchors.verticalCenter: parent.verticalCenter
-    visible: !hideWhenEmpty || hasItems
-    implicitWidth: visible ? label.implicitWidth + 20 : 0
+
+    implicitWidth: label.implicitWidth + 20
     implicitHeight: label.implicitHeight + 10
 
     Rectangle {
@@ -35,7 +32,7 @@ Item {
         Text {
             id: label
             anchors.centerIn: parent
-            text: "󰀻"
+            text: root.audioService.volumeIcon(root.audioService.volume, root.audioService.muted, root.audioService.hasAudio)
             color: root.theme.fontColor
             font.family: root.theme.font.family
             font.pixelSize: root.theme.font.pixelSize

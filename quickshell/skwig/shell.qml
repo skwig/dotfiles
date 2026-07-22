@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Hyprland
 import QtQuick
 import "services" as Services
+import "modules" as Modules
 
 ShellRoot {
     id: root
@@ -57,7 +58,7 @@ ShellRoot {
                     anchors.fill: parent
                     color: Qt.rgba(0, 0, 0, 0.4)
 
-                    Workspaces {
+                    Modules.Workspaces {
                         anchors.horizontalCenter: parent.horizontalCenter
                         minCount: 5
                         theme: root.theme
@@ -68,14 +69,14 @@ ShellRoot {
                         anchors.verticalCenter: parent.verticalCenter
                         spacing: 0
 
-                        SystemTray {
+                        Modules.SystemTray {
                             id: systemTray
                             theme: root.theme
                             hideWhenEmpty: false
                             onClicked: root.openPopup(systemTrayPopup, systemTray)
                         }
 
-                        WindowTitle {
+                        Modules.WindowTitle {
                             theme: root.theme
                         }
                     }
@@ -84,26 +85,26 @@ ShellRoot {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
 
-                        Submap {
+                        Modules.Submap {
                             theme: root.theme
                             hideWhenDefault: true
                         }
 
-                        Network {
+                        Modules.Network {
                             id: network
                             theme: root.theme
                             networkService: root.networkService
                             onClicked: root.openPopup(networkPopup, network)
                         }
 
-                        Bluetooth {
+                        Modules.Bluetooth {
                             id: bluetooth
                             theme: root.theme
                             bluetoothService: root.bluetoothService
                             onClicked: root.openPopup(bluetoothPopup, bluetooth)
                         }
 
-                        Battery {
+                        Modules.Battery {
                             id: battery
                             theme: root.theme
                             batteryService: root.batteryService
@@ -111,21 +112,21 @@ ShellRoot {
                             onClicked: root.openPopup(batteryPopup, battery)
                         }
 
-                        Volume {
+                        Modules.Volume {
                             id: volume
                             theme: root.theme
                             audioService: root.audioService
                             onClicked: root.openPopup(volumePopup, volume)
                         }
 
-                        Notifications {
+                        Modules.Notifications {
                             id: notifications
                             theme: root.theme
                             count: root.notificationService.notificationCount
                             onClicked: root.openPopup(notificationHistoryPopup, notifications)
                         }
 
-                        Clock {
+                        Modules.Clock {
                             id: clock
                             format: "HH:mm"
                             theme: root.theme
@@ -136,12 +137,6 @@ ShellRoot {
                 }
             }
         }
-    }
-
-    VolumeOsd {
-        theme: root.theme
-        audioService: root.audioService
-        targetScreen: root.focusedScreen()
     }
 
     Services.TimeService {
@@ -169,48 +164,54 @@ ShellRoot {
         timeService: root.timeService
     }
 
-    NotificationsOsd {
+    Modules.VolumeOsd {
+        theme: root.theme
+        audioService: root.audioService
+        targetScreen: root.focusedScreen()
+    }
+
+    Modules.NotificationsOsd {
         theme: root.theme
         notificationService: root.notificationService
         targetScreen: root.focusedScreen()
     }
 
-    CalendarPopup {
+    Modules.CalendarPopup {
         id: calendarPopup
         theme: root.theme
         timeService: root.timeService
     }
 
-    VolumePopup {
+    Modules.VolumePopup {
         id: volumePopup
         theme: root.theme
         audioService: root.audioService
     }
 
-    NetworkPopup {
+    Modules.NetworkPopup {
         id: networkPopup
         theme: root.theme
         networkService: root.networkService
     }
 
-    BluetoothPopup {
+    Modules.BluetoothPopup {
         id: bluetoothPopup
         theme: root.theme
         bluetoothService: root.bluetoothService
     }
 
-    BatteryPopup {
+    Modules.BatteryPopup {
         id: batteryPopup
         theme: root.theme
         batteryService: root.batteryService
     }
 
-    SystemTrayPopup {
+    Modules.SystemTrayPopup {
         id: systemTrayPopup
         theme: root.theme
     }
 
-    NotificationsPopup {
+    Modules.NotificationsPopup {
         id: notificationHistoryPopup
         theme: root.theme
         notificationService: root.notificationService

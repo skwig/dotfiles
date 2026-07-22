@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Services.Notifications
 import Quickshell.Widgets
+import ".."
 
 PopupWindow {
     id: root

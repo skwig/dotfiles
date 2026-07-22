@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import Quickshell
 import Quickshell.Networking
+import ".."
 
 PopupWindow {
     id: root

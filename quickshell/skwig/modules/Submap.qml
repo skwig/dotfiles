@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell.Hyprland
 import Quickshell.Io
+import ".."
 
 Item {
     id: root
