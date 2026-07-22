@@ -1,0 +1,28 @@
+{
+    "checksum": "adfe2ac48c833129a237971f19572f6d",
+    "wallpaper": "/home/skwig/dotfiles/assets/purple.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#170a0a",
+        "foreground": "#c5c1c1",
+        "cursor": "#c5c1c1"
+    },
+    "colors": {
+        "color0": "#170a0a",
+        "color1": "#311E64",
+        "color2": "#51194C",
+        "color3": "#621F67",
+        "color4": "#7A4371",
+        "color5": "#872678",
+        "color6": "#662786",
+        "color7": "#c5c1c1",
+        "color8": "#6d5959",
+        "color9": "#311E64",
+        "color10": "#51194C",
+        "color11": "#621F67",
+        "color12": "#7A4371",
+        "color13": "#872678",
+        "color14": "#662786",
+        "color15": "#c5c1c1"
+    }
+}
