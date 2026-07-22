@@ -7,7 +7,7 @@ PopupWindow {
     id: root
 
     required property Theme theme
-    required property Item anchorItem
+    property Item anchorItem: null
 
     readonly property var adapter: Bluetooth.defaultAdapter
     readonly property bool hasAdapter: !!adapter
@@ -23,12 +23,13 @@ PopupWindow {
     readonly property int scrollbarWidth: 14
 
     anchor.item: anchorItem
-    anchor.rect.x: anchorItem.width / 2 - implicitWidth / 2
-    anchor.rect.y: anchorItem.height + 4
+    anchor.rect.x: anchorItem ? anchorItem.width / 2 - implicitWidth / 2 : 0
+    anchor.rect.y: anchorItem ? anchorItem.height + 4 : 0
 
     implicitWidth: 380
     implicitHeight: content.implicitHeight + 20
     visible: false
+    grabFocus: true
     color: "transparent"
 
     function deviceName(device) {

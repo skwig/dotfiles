@@ -8,7 +8,7 @@ PopupWindow {
     id: root
 
     required property Theme theme
-    required property Item anchorItem
+    property Item anchorItem: null
 
     readonly property var sink: Pipewire.defaultAudioSink
     readonly property var source: Pipewire.defaultAudioSource
@@ -34,12 +34,13 @@ PopupWindow {
     })
 
     anchor.item: anchorItem
-    anchor.rect.x: anchorItem.width / 2 - implicitWidth / 2
-    anchor.rect.y: anchorItem.height + 4
+    anchor.rect.x: anchorItem ? anchorItem.width / 2 - implicitWidth / 2 : 0
+    anchor.rect.y: anchorItem ? anchorItem.height + 4 : 0
 
     implicitWidth: 340
     implicitHeight: content.implicitHeight + 20
     visible: false
+    grabFocus: true
     color: "transparent"
 
     PwObjectTracker {

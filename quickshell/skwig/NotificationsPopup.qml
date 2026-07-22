@@ -7,19 +7,20 @@ PopupWindow {
     id: root
 
     required property Theme theme
-    required property Item anchorItem
+    property Item anchorItem: null
     required property var notificationService
 
     readonly property int notificationCount: notificationService.notificationCount
     readonly property var groups: notificationService.groupedNotifications()
 
     anchor.item: anchorItem
-    anchor.rect.x: anchorItem.width / 2 - implicitWidth / 2
-    anchor.rect.y: anchorItem.height + 4
+    anchor.rect.x: anchorItem ? anchorItem.width / 2 - implicitWidth / 2 : 0
+    anchor.rect.y: anchorItem ? anchorItem.height + 4 : 0
 
     implicitWidth: 420
     implicitHeight: Math.min(520, content.implicitHeight + 20)
     visible: false
+    grabFocus: true
     color: "transparent"
 
     Rectangle {

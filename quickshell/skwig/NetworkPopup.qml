@@ -7,7 +7,7 @@ PopupWindow {
     id: root
 
     required property Theme theme
-    required property Item anchorItem
+    property Item anchorItem: null
 
     readonly property var devices: Networking.devices.values
     readonly property var wifiDevice: devices.find(device => device.type === DeviceType.Wifi) || null
@@ -28,12 +28,13 @@ PopupWindow {
     readonly property int scrollbarWidth: 14
 
     anchor.item: anchorItem
-    anchor.rect.x: anchorItem.width / 2 - implicitWidth / 2
-    anchor.rect.y: anchorItem.height + 4
+    anchor.rect.x: anchorItem ? anchorItem.width / 2 - implicitWidth / 2 : 0
+    anchor.rect.y: anchorItem ? anchorItem.height + 4 : 0
 
     implicitWidth: 360
     implicitHeight: content.implicitHeight + 20
     visible: false
+    grabFocus: true
     color: "transparent"
 
     Connections {

@@ -17,118 +17,40 @@ ShellRoot {
         radius: 4
     }
     readonly property var notificationService: notificationServiceInstance
-    readonly property var popups: [calendarPopup, volumePopup, networkPopup, bluetoothPopup, batteryPopup, systemTrayPopup, notificationHistoryPopup]
-    property bool switchingPopup: false
 
-    function closePopups(except) {
-        for (const popup of popups) {
-            if (popup !== except)
-                popup.visible = false;
-        }
+    function focusedScreen() {
+        return Quickshell.screens.find(screen => Hyprland.monitorFor(screen) === Hyprland.focusedMonitor) ?? Quickshell.screens[0] ?? null;
     }
 
-    function togglePopup(popup) {
-        switchingPopup = true;
-        const nextVisible = !popup.visible;
-        closePopups(popup);
-        popup.visible = nextVisible;
-        Qt.callLater(() => switchingPopup = false);
+    function openPopup(popup, anchorItem) {
+        popup.anchorItem = anchorItem;
+        popup.visible = !popup.visible;
     }
 
-    PanelWindow {
-        id: barWindow
+    Variants {
+        id: bars
+        model: Quickshell.screens
 
-        anchors {
-            top: true
-            left: true
-            right: true
-        }
+        delegate: Bar {
+            required property ShellScreen modelData
 
-        implicitHeight: 40
-        color: "transparent"
+            screen: modelData
+            theme: root.theme
+            notificationService: root.notificationService
 
-        Rectangle {
-            anchors.fill: parent
-            color: Qt.rgba(0, 0, 0, 0.4)
-
-            Workspaces {
-                anchors.horizontalCenter: parent.horizontalCenter
-                minCount: 5
-                theme: root.theme
-            }
-
-            Row {
-                id: leftModules
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-                spacing: 0
-
-                SystemTray {
-                    id: systemTray
-                    theme: root.theme
-                    hideWhenEmpty: false
-                    onClicked: root.togglePopup(systemTrayPopup)
-                }
-
-                WindowTitle {
-                    theme: root.theme
-                }
-            }
-
-            Row {
-                id: rightModules
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-
-                Submap {
-                    theme: root.theme
-                    hideWhenDefault: true
-                }
-
-                Network {
-                    id: network
-                    theme: root.theme
-                    onClicked: root.togglePopup(networkPopup)
-                }
-
-                Bluetooth {
-                    id: bluetooth
-                    theme: root.theme
-                    onClicked: root.togglePopup(bluetoothPopup)
-                }
-
-                Battery {
-                    id: battery
-                    theme: root.theme
-                    hideWhenUnavailable: true
-                    onClicked: root.togglePopup(batteryPopup)
-                }
-
-                Volume {
-                    id: volume
-                    theme: root.theme
-                    onClicked: root.togglePopup(volumePopup)
-                }
-
-                Notifications {
-                    id: notifications
-                    theme: root.theme
-                    count: root.notificationService.notificationCount
-                    onClicked: root.togglePopup(notificationHistoryPopup)
-                }
-
-                Clock {
-                    id: clock
-                    format: "HH:mm"
-                    theme: root.theme
-                    onClicked: root.togglePopup(calendarPopup)
-                }
-            }
+            onSystemTrayClicked: anchorItem => root.openPopup(systemTrayPopup, anchorItem)
+            onNetworkClicked: anchorItem => root.openPopup(networkPopup, anchorItem)
+            onBluetoothClicked: anchorItem => root.openPopup(bluetoothPopup, anchorItem)
+            onBatteryClicked: anchorItem => root.openPopup(batteryPopup, anchorItem)
+            onVolumeClicked: anchorItem => root.openPopup(volumePopup, anchorItem)
+            onNotificationsClicked: anchorItem => root.openPopup(notificationHistoryPopup, anchorItem)
+            onClockClicked: anchorItem => root.openPopup(calendarPopup, anchorItem)
         }
     }
 
     VolumeOsd {
         theme: root.theme
+        targetScreen: root.focusedScreen()
     }
 
     Services.NotificationService {
@@ -138,57 +60,42 @@ ShellRoot {
     NotificationsOsd {
         theme: root.theme
         notificationService: root.notificationService
-    }
-
-    HyprlandFocusGrab {
-        active: root.popups.some(popup => popup.visible)
-        windows: [barWindow].concat(root.popups.filter(popup => popup.visible))
-        onCleared: {
-            if (!root.switchingPopup)
-                root.closePopups(null);
-        }
+        targetScreen: root.focusedScreen()
     }
 
     CalendarPopup {
         id: calendarPopup
         theme: root.theme
-        anchorItem: clock
     }
 
     VolumePopup {
         id: volumePopup
         theme: root.theme
-        anchorItem: volume
     }
 
     NetworkPopup {
         id: networkPopup
         theme: root.theme
-        anchorItem: network
     }
 
     BluetoothPopup {
         id: bluetoothPopup
         theme: root.theme
-        anchorItem: bluetooth
     }
 
     BatteryPopup {
         id: batteryPopup
         theme: root.theme
-        anchorItem: battery
     }
 
     SystemTrayPopup {
         id: systemTrayPopup
         theme: root.theme
-        anchorItem: systemTray
     }
 
     NotificationsPopup {
         id: notificationHistoryPopup
         theme: root.theme
-        anchorItem: notifications
         notificationService: root.notificationService
     }
 }

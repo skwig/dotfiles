@@ -6,17 +6,18 @@ PopupWindow {
     id: root
 
     required property Theme theme
-    required property Item anchorItem
+    property Item anchorItem: null
 
     readonly property var items: Tray.SystemTray.items.values
 
     anchor.item: anchorItem
     anchor.rect.x: 0
-    anchor.rect.y: anchorItem.height + 4
+    anchor.rect.y: anchorItem ? anchorItem.height + 4 : 0
 
     implicitWidth: Math.max(56, content.implicitWidth + 20)
     implicitHeight: content.implicitHeight + 20
     visible: false
+    grabFocus: true
     color: "transparent"
 
     Rectangle {

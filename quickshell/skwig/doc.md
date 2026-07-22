@@ -27,7 +27,6 @@ x. systray on the right?
 x. systray better icon?
 x. systray counter?
 x. split up into modules / components / services
-x. click off popup - hide popup
 x. launcher nixos icon
 --- design round ---
 11. launcher

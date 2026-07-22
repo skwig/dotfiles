@@ -7,7 +7,7 @@ PopupWindow {
     id: root
 
     required property Theme theme
-    required property Item anchorItem
+    property Item anchorItem: null
     readonly property var battery: UPower.displayDevice
     readonly property bool batteryReady: !!battery && battery.ready
     readonly property bool batteryAvailable: batteryReady && battery.isLaptopBattery
@@ -18,11 +18,12 @@ PopupWindow {
     readonly property bool low: batteryAvailable && percentage <= 20 && !charging && !pendingCharge
 
     anchor.item: anchorItem
-    anchor.rect.x: anchorItem.width / 2 - implicitWidth / 2
-    anchor.rect.y: anchorItem.height + 4
+    anchor.rect.x: anchorItem ? anchorItem.width / 2 - implicitWidth / 2 : 0
+    anchor.rect.y: anchorItem ? anchorItem.height + 4 : 0
     implicitWidth: 360
     implicitHeight: content.implicitHeight + 20
     visible: false
+    grabFocus: true
     color: "transparent"
 
     function batteryIcon() {

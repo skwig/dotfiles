@@ -8,9 +8,11 @@ PanelWindow {
 
     required property Theme theme
     required property var notificationService
+    property ShellScreen targetScreen: null
 
     anchors.top: true
     anchors.right: true
+    screen: targetScreen
     margins.top: 12
     margins.right: 12
     exclusiveZone: 0

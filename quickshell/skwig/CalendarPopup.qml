@@ -6,19 +6,20 @@ PopupWindow {
     id: root
 
     required property Theme theme
-    required property Item anchorItem
+    property Item anchorItem: null
 
     property date currentDate: new Date()
     property var selectedDate: null
 
     anchor.item: anchorItem
-    anchor.rect.x: anchorItem.width / 2 - implicitWidth / 2
-    anchor.rect.y: anchorItem.height + 4
+    anchor.rect.x: anchorItem ? anchorItem.width / 2 - implicitWidth / 2 : 0
+    anchor.rect.y: anchorItem ? anchorItem.height + 4 : 0
 
     implicitWidth: 280
     implicitHeight: 360
 
     visible: false
+    grabFocus: true
     color: "transparent"
 
     SystemClock {
@@ -30,7 +31,7 @@ PopupWindow {
         anchors.fill: parent
         anchors.margins: 10
         color: Qt.rgba(0, 0, 0, 0.8)
-        radius: theme.radius
+        radius: root.theme.radius
 
         Column {
             anchors.fill: parent
@@ -40,17 +41,17 @@ PopupWindow {
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: Qt.formatDateTime(clock.date, "HH:mm:ss")
-                color: theme.fontColor
-                font.family: theme.font.family
-                font.pixelSize: theme.font.pixelSize
+                color: root.theme.fontColor
+                font.family: root.theme.font.family
+                font.pixelSize: root.theme.font.pixelSize
             }
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: Qt.formatDateTime(clock.date, "dddd, MMMM d yyyy")
                 color: Qt.rgba(1, 1, 1, 0.5)
-                font.family: theme.font.family
-                font.pixelSize: theme.font.pixelSize - 2
+                font.family: root.theme.font.family
+                font.pixelSize: root.theme.font.pixelSize - 2
             }
 
             Rectangle {
@@ -70,9 +71,9 @@ PopupWindow {
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
                     text: Qt.formatDate(root.currentDate, "MMM yyyy")
-                    color: theme.fontColor
-                    font.family: theme.font.family
-                    font.pixelSize: theme.font.pixelSize
+                    color: root.theme.fontColor
+                    font.family: root.theme.font.family
+                    font.pixelSize: root.theme.font.pixelSize
                 }
 
                 Rectangle {
@@ -82,7 +83,7 @@ PopupWindow {
                     height: parent.height
                     width: todayText.implicitWidth + 12
                     color: todayHover.hovered && todayLabel.enabled ? Qt.rgba(1, 1, 1, 0.1) : "transparent"
-                    radius: theme.radius
+                    radius: root.theme.radius
                     opacity: (root.currentDate.getMonth() !== new Date().getMonth() || root.currentDate.getFullYear() !== new Date().getFullYear()) ? 1 : 0
                     enabled: opacity > 0
 
@@ -90,9 +91,9 @@ PopupWindow {
                         id: todayText
                         anchors.centerIn: parent
                         text: "Today"
-                        color: theme.fontColor
-                        font.family: theme.font.family
-                        font.pixelSize: theme.font.pixelSize - 2
+                        color: root.theme.fontColor
+                        font.family: root.theme.font.family
+                        font.pixelSize: root.theme.font.pixelSize - 2
                     }
 
                     HoverHandler {
@@ -113,14 +114,14 @@ PopupWindow {
                     width: 30
                     height: parent.height
                     color: prevHover.hovered ? Qt.rgba(1, 1, 1, 0.1) : "transparent"
-                    radius: theme.radius
+                    radius: root.theme.radius
 
                     Text {
                         anchors.centerIn: parent
                         text: "\u276E"
-                        color: theme.fontColor
-                        font.family: theme.font.family
-                        font.pixelSize: theme.font.pixelSize
+                        color: root.theme.fontColor
+                        font.family: root.theme.font.family
+                        font.pixelSize: root.theme.font.pixelSize
                     }
 
                     HoverHandler {
@@ -145,14 +146,14 @@ PopupWindow {
                     width: 30
                     height: parent.height
                     color: nextHover.hovered ? Qt.rgba(1, 1, 1, 0.1) : "transparent"
-                    radius: theme.radius
+                    radius: root.theme.radius
 
                     Text {
                         anchors.centerIn: parent
                         text: "\u276F"
-                        color: theme.fontColor
-                        font.family: theme.font.family
-                        font.pixelSize: theme.font.pixelSize
+                        color: root.theme.fontColor
+                        font.family: root.theme.font.family
+                        font.pixelSize: root.theme.font.pixelSize
                     }
 
                     HoverHandler {
@@ -180,8 +181,8 @@ PopupWindow {
                     required property string shortName
                     text: shortName
                     color: Qt.rgba(1, 1, 1, 0.4)
-                    font.family: theme.font.family
-                    font.pixelSize: theme.font.pixelSize - 2
+                    font.family: root.theme.font.family
+                    font.pixelSize: root.theme.font.pixelSize - 2
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
@@ -205,15 +206,15 @@ PopupWindow {
 
                     Rectangle {
                         anchors.fill: parent
-                        radius: theme.radius
-                        color: isSelected ? theme.fontColor : dayHover.hovered ? Qt.rgba(1, 1, 1, 0.1) : "transparent"
+                        radius: root.theme.radius
+                        color: isSelected ? root.theme.fontColor : dayHover.hovered ? Qt.rgba(1, 1, 1, 0.1) : "transparent"
 
                         Text {
                             anchors.centerIn: parent
                             text: model.day
-                            color: isSelected ? "#000000" : isCurrentMonth ? theme.fontColor : Qt.rgba(1, 1, 1, 0.2)
-                            font.family: theme.font.family
-                            font.pixelSize: theme.font.pixelSize - 2
+                            color: isSelected ? "#000000" : isCurrentMonth ? root.theme.fontColor : Qt.rgba(1, 1, 1, 0.2)
+                            font.family: root.theme.font.family
+                            font.pixelSize: root.theme.font.pixelSize - 2
                         }
 
                         Rectangle {
@@ -222,7 +223,7 @@ PopupWindow {
                             width: parent.width - 8
                             height: 2
                             radius: 1
-                            color: theme.fontColor
+                            color: root.theme.fontColor
                             visible: isToday
                         }
                     }

@@ -6,6 +6,7 @@ PanelWindow {
     id: root
 
     required property Theme theme
+    property ShellScreen targetScreen: null
 
     readonly property var sink: Pipewire.defaultAudioSink
     readonly property var source: Pipewire.defaultAudioSource
@@ -22,6 +23,7 @@ PanelWindow {
 
     anchors.top: true
     anchors.left: true
+    screen: targetScreen
     margins.top: 12
     margins.left: 12
     exclusiveZone: 0
