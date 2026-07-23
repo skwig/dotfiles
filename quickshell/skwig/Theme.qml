@@ -1,29 +1,29 @@
 import QtQuick
 
 QtObject {
-    property string textFontFamily: "Inter"
-    property string iconFontFamily: "Material Symbols Rounded"
+    required property string textFontFamily
+    required property string iconFontFamily
 
-    property color specialBackground: "#190b11"
-    property color specialForeground: "#c5c2c3"
-    property color specialCursor: "#c5c2c3"
+    required property color specialBackground
+    required property color specialForeground
+    required property color specialCursor
 
-    property color color0: "#190b11"
-    property color color1: "#75658E"
-    property color color2: "#8F6A87"
-    property color color3: "#A67A8F"
-    property color color4: "#CC6CA1"
-    property color color5: "#A288A8"
-    property color color6: "#C8919C"
-    property color color7: "#c5c2c3"
-    property color color8: "#6e5a63"
-    property color color9: "#75658E"
-    property color color10: "#8F6A87"
-    property color color11: "#A67A8F"
-    property color color12: "#CC6CA1"
-    property color color13: "#A288A8"
-    property color color14: "#C8919C"
-    property color color15: "#c5c2c3"
+    required property color color0
+    required property color color1
+    required property color color2
+    required property color color3
+    required property color color4
+    required property color color5
+    required property color color6
+    required property color color7
+    required property color color8
+    required property color color9
+    required property color color10
+    required property color color11
+    required property color color12
+    required property color color13
+    required property color color14
+    required property color color15
 
     property color background: specialBackground
     property color onSurface: specialForeground

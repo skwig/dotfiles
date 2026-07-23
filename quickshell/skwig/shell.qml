@@ -11,7 +11,32 @@ ShellRoot {
 
     readonly property Theme theme: Theme {
         id: theme
+
+        textFontFamily: "Inter"
+        iconFontFamily: "Material Symbols Rounded"
+
+        specialBackground: "#190b11"
+        specialForeground: "#c5c2c3"
+        specialCursor: "#c5c2c3"
+
+        color0: "#190b11"
+        color1: "#75658E"
+        color2: "#8F6A87"
+        color3: "#A67A8F"
+        color4: "#CC6CA1"
+        color5: "#A288A8"
+        color6: "#C8919C"
+        color7: "#c5c2c3"
+        color8: "#6e5a63"
+        color9: "#75658E"
+        color10: "#8F6A87"
+        color11: "#A67A8F"
+        color12: "#CC6CA1"
+        color13: "#A288A8"
+        color14: "#C8919C"
+        color15: "#c5c2c3"
     }
+
     readonly property var timeService: timeServiceInstance
     readonly property var audioService: audioServiceInstance
     readonly property var batteryService: batteryServiceInstance
