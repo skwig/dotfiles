@@ -68,6 +68,8 @@
       nerd-fonts.jetbrains-mono
       twemoji-color-font
       twitter-color-emoji
+      inter
+      material-symbols
     ];
   };
 
