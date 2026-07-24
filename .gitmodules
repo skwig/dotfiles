@@ -1,0 +1,4 @@
+[submodule "quickshell/dank-qml-common"]
+	path = quickshell/dank-qml-common
+	url = https://github.com/AvengeMedia/dank-qml-common.git
+	branch = master
