@@ -33,7 +33,7 @@ Item {
             id: label
             anchors.centerIn: parent
             text: root.networkService.statusSymbol()
-            color: root.theme.onSurface
+            color: root.theme.fart
             font.family: root.theme.iconFontFamily
             font.pixelSize: root.theme.iconSizeSmall
         }

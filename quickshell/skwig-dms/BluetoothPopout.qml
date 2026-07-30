@@ -3,8 +3,7 @@ import QtQuick.Controls
 import Quickshell
 import Quickshell.Bluetooth
 import qs.Common
-import qs.Services
-import qs.Widgets
+import qs.DankCommon.Widgets
 
 PopupWindow {
     id: root
@@ -20,9 +19,6 @@ PopupWindow {
     implicitHeight: Math.min(600, contentColumn.implicitHeight + Theme.spacingL * 2)
 
     color: "transparent"
-
-    anchor.rect.y: 0
-    anchor.rect.x: 0
 
     onVisibleChanged: {
         if (!visible) closeTransientSurfaces();
@@ -47,10 +43,6 @@ PopupWindow {
         return devicesBeingPaired.has(deviceAddress);
     }
 
-    function getPinnedDevices() {
-        return [];
-    }
-
     function handlePairDevice(device) {
         if (!device) return;
         const addr = device.address;
@@ -66,14 +58,6 @@ PopupWindow {
                 devicesBeingPairedChanged();
             }
         }, 500);
-    }
-
-    PopupWindow {
-        id: codecSelector
-        visible: false
-        color: "transparent"
-        implicitWidth: 320
-        implicitHeight: 200
     }
 
     Rectangle {
@@ -107,7 +91,7 @@ PopupWindow {
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
-                Item { width: 1; height: 1; }
+                Item { width: 1; height: 1 }
 
                 Rectangle {
                     id: toggleButton
@@ -147,8 +131,7 @@ PopupWindow {
                     color: scanMouse.containsMouse && adapterEnabled
                         ? Theme.primaryHover
                         : "transparent"
-                    border.color: adapterEnabled ? Theme.primary : Theme.outlineLight
-                    border.width: adapterEnabled ? 1 : 0
+                    border.width: 0
                     visible: adapterEnabled
                     anchors.verticalCenter: parent.verticalCenter
 
@@ -180,11 +163,17 @@ PopupWindow {
                         }
                     }
 
+                    DankRipple {
+                        id: scanRipple
+                        cornerRadius: scanBtn.radius
+                    }
+
                     MouseArea {
                         id: scanMouse
                         anchors.fill: parent
                         hoverEnabled: true
                         cursorShape: Qt.PointingHandCursor
+                        onPressed: mouse => scanRipple.trigger(mouse.x, mouse.y)
                         onClicked: {
                             if (adapter) adapter.discovering = !adapter.discovering;
                         }
@@ -221,7 +210,6 @@ PopupWindow {
                 delegate: Rectangle {
                     id: pairedDelegate
                     required property var modelData
-                    required property int index
 
                     readonly property bool isConnecting: modelData.state === BluetoothDeviceState.Connecting
                     readonly property bool isConnected: modelData.connected
@@ -326,12 +314,18 @@ PopupWindow {
                         }
                     }
 
+                    DankRipple {
+                        id: deviceRipple
+                        cornerRadius: pairedDelegate.radius
+                    }
+
                     MouseArea {
                         id: devMouse
                         anchors.fill: parent
                         anchors.rightMargin: 60
                         hoverEnabled: true
                         cursorShape: Qt.PointingHandCursor
+                        onPressed: mouse => deviceRipple.trigger(mouse.x, mouse.y)
                         onClicked: {
                             if (isConnected) {
                                 modelData.disconnect();
@@ -396,7 +390,6 @@ PopupWindow {
                 delegate: Rectangle {
                     id: availableDelegate
                     required property var modelData
-                    required property int index
 
                     readonly property bool isBusy: isDeviceBeingPaired(modelData.address)
                     readonly property bool isInteractive: !isBusy
@@ -457,12 +450,18 @@ PopupWindow {
                         font.weight: Font.Medium
                     }
 
+                    DankRipple {
+                        id: availableRipple
+                        cornerRadius: availableDelegate.radius
+                    }
+
                     MouseArea {
                         id: availMouse
                         anchors.fill: parent
                         hoverEnabled: true
                         cursorShape: isInteractive ? Qt.PointingHandCursor : Qt.ArrowCursor
                         enabled: isInteractive
+                        onPressed: mouse => availableRipple.trigger(mouse.x, mouse.y)
                         onClicked: handlePairDevice(availableDelegate.modelData)
                     }
                 }

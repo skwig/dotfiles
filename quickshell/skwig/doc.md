@@ -35,3 +35,14 @@ x. launcher nixos icon
 14. lockscreen
 15. greeter
 16. low battery alert
+
+--- DankMaterialShell copy ---
+- onclick ripple
+- monitor brigthness control
+- ?system monitor?
+- skusit zobrat farby z toho ze co feeluje dobre a az potom pywal
+  - napr onhover buttony modreju
+- nejake buttony su len text
+- weather je cute
+- bol by som uplne ok ak by som vykradol moje popupy z ich "settingov"
+- scrolloff v launcheri ma pekny fade / shadow

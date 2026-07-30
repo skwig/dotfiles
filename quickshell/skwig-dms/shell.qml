@@ -4,8 +4,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Bluetooth
 import qs.Common
-import qs.Services
-import qs.Widgets
+import qs.DankCommon.Widgets
 
 ShellRoot {
     id: root
@@ -22,6 +21,8 @@ ShellRoot {
     }
 
     property bool popupVisible: false
+    property var popupAnchor: null
+    property var popupScreen: null
 
     function togglePopup() {
         popupVisible = !popupVisible;
@@ -36,8 +37,9 @@ ShellRoot {
         model: Quickshell.screens
 
         delegate: PanelWindow {
+            required property ShellScreen modelData
+
             screen: modelData
-            layerNamespace: "skwig-dms:bar"
 
             anchors {
                 top: true
@@ -98,7 +100,11 @@ ShellRoot {
                         MouseArea {
                             anchors.fill: parent
                             cursorShape: Qt.PointingHandCursor
-                            onClicked: root.togglePopup()
+                            onClicked: {
+                                root.popupAnchor = btWidget;
+                                root.popupScreen = modelData;
+                                root.togglePopup();
+                            }
                         }
                     }
                 }
@@ -108,20 +114,13 @@ ShellRoot {
 
     BluetoothPopout {
         id: bluetoothPopout
-        screen: bars.instances.length > 0 ? bars.instances[0].screen : null
         visible: root.popupVisible
-        x: {
-            const s = bluetoothPopout.screen;
-            if (s) {
-                return s.geometry.x + s.geometry.width - bluetoothPopout.implicitWidth - Theme.spacingM;
-            }
-            return 0;
-        }
-        y: {
-            const s = bluetoothPopout.screen;
-            if (s) return s.geometry.y + root.barHeight + 4;
-            return root.barHeight + 4;
-        }
+        screen: root.popupScreen
+        anchor.item: root.popupAnchor
+        anchor.rect.x: root.popupAnchor
+            ? root.popupAnchor.width - bluetoothPopout.implicitWidth - Theme.spacingM
+            : 0
+        anchor.rect.y: root.barHeight + 4
     }
 
     Keys.onEscapePressed: root.closePopup()

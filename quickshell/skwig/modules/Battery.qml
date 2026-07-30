@@ -42,7 +42,7 @@ Item {
             Text {
                 anchors.verticalCenter: parent.verticalCenter
                 text: root.batteryService.batterySymbol()
-                color: root.theme.onSurface
+                color: root.theme.fart
                 font.family: root.theme.iconFontFamily
                 font.pixelSize: root.theme.iconSizeSmall
             }
@@ -50,7 +50,7 @@ Item {
             Text {
                 anchors.verticalCenter: parent.verticalCenter
                 text: root.batteryAvailable ? root.percentage + "%" : "--%"
-                color: root.theme.onSurface
+                color: root.theme.fart
                 font: root.theme.fontSmall
             }
         }

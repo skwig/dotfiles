@@ -26,8 +26,8 @@ QtObject {
     required property color color15
 
     property color background: specialBackground
-    property color onSurface: specialForeground
-    property color onSurfaceVariant: color5
+    property color fart: specialForeground
+    property color fartVariant: color5
     property color muted: withAlpha(specialForeground, 0.62)
     property color primary: color4
     property color onPrimary: specialForeground
@@ -46,7 +46,7 @@ QtObject {
     property color warning: color3
     property color success: color2
 
-    property color fontColor: onSurface
+    property color fontColor: fart
     property real radius: 14
     property real radiusLarge: 22
     property real radiusFull: 999

@@ -291,7 +291,7 @@ PopupWindow {
                                     Text {
                                         width: parent.width - percentText.width - 8
                                         text: root.audioService.streamName(streamRow.modelData)
-                                        color: root.theme.onSurface
+                                        color: root.theme.fart
                                         font: root.theme.fontSmall
                                         elide: Text.ElideRight
                                     }
@@ -396,7 +396,7 @@ PopupWindow {
                                     Text {
                                         width: parent.width - inputPercentText.width - 8
                                         text: root.audioService.streamName(inputStreamRow.modelData)
-                                        color: root.theme.onSurface
+                                        color: root.theme.fart
                                         font: root.theme.fontSmall
                                         elide: Text.ElideRight
                                     }

@@ -34,7 +34,7 @@ Item {
             id: label
             anchors.centerIn: parent
             text: root.audioService.volumeSymbol(root.audioService.volume, root.audioService.muted, root.audioService.hasAudio)
-            color: root.theme.onSurface
+            color: root.theme.fart
             font.family: root.theme.iconFontFamily
             font.pixelSize: root.theme.iconSizeSmall
         }

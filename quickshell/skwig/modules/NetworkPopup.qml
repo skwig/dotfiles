@@ -118,7 +118,7 @@ PopupWindow {
                         Text {
                             width: parent.width
                             text: root.currentSsid.length > 0 ? root.currentSsid : root.wifiEnabled ? "No internet" : "Wi-Fi off"
-                            color: root.theme.onSurface
+                            color: root.theme.fart
                             font: root.theme.font
                             elide: Text.ElideRight
                         }
@@ -181,7 +181,7 @@ PopupWindow {
                         Text {
                             width: parent.width
                             text: root.ethernetConnection.length > 0 ? root.ethernetConnection : root.ethernetDevice
-                            color: root.theme.onSurface
+                            color: root.theme.fart
                             font: root.theme.fontSmall
                             elide: Text.ElideRight
                         }
@@ -252,7 +252,7 @@ PopupWindow {
                                     anchors.verticalCenter: parent.verticalCenter
                                     width: 24
                                     text: networkRow.hasNetwork && networkRow.modelData.security !== WifiSecurityType.Open ? "wifi_lock" : "wifi"
-                                    color: networkRow.hasNetwork && networkRow.modelData.connected ? root.theme.primary : root.theme.onSurface
+                                    color: networkRow.hasNetwork && networkRow.modelData.connected ? root.theme.primary : root.theme.fart
                                     font.family: root.theme.iconFontFamily
                                     font.pixelSize: root.theme.iconSize
                                 }
@@ -265,7 +265,7 @@ PopupWindow {
                                     Text {
                                         width: parent.width
                                         text: networkRow.hasNetwork ? networkRow.modelData.name : ""
-                                        color: root.theme.onSurface
+                                        color: root.theme.fart
                                         font: root.theme.fontSmall
                                         elide: Text.ElideRight
                                     }

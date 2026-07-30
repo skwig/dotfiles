@@ -60,7 +60,7 @@ Item {
             Text {
                 anchors.verticalCenter: parent.verticalCenter
                 text: "keyboard_command_key"
-                color: root.theme.onSurface
+                color: root.theme.fart
                 font.family: root.theme.iconFontFamily
                 font.pixelSize: root.theme.iconSizeSmall
             }
@@ -69,7 +69,7 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 width: Math.min(implicitWidth, 120)
                 text: root.currentSubmap
-                color: root.theme.onSurface
+                color: root.theme.fart
                 font: root.theme.fontSmall
                 elide: Text.ElideRight
             }

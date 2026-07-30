@@ -153,7 +153,7 @@ PanelWindow {
                             Text {
                                 Layout.fillWidth: true
                                 text: root.notificationService.notificationTitle(card.modelData)
-                                color: root.theme.onSurface
+                                color: root.theme.fart
                                 elide: Text.ElideRight
                                 font: root.theme.font
                             }
@@ -166,7 +166,7 @@ PanelWindow {
                                 maximumLineCount: 2
                                 wrapMode: Text.WordWrap
                                 elide: Text.ElideRight
-                                color: root.theme.onSurfaceVariant
+                                color: root.theme.fartVariant
                                 font: root.theme.fontSmall
                             }
                         }

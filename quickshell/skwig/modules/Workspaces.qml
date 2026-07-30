@@ -38,7 +38,7 @@ Row {
             Text {
                 anchors.centerIn: parent
                 text: workspace.wsIndex.toString()
-                color: workspace.isActive ? workspaces.theme.primary : workspaces.theme.withAlpha(workspaces.theme.onSurface, 0.42)
+                color: workspace.isActive ? workspaces.theme.primary : workspaces.theme.withAlpha(workspaces.theme.fart, 0.42)
                 font: workspaces.theme.fontSmall
             }
 

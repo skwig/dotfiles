@@ -10,7 +10,7 @@ Rectangle {
     property string label: ""
     property bool selected: false
     property bool filled: false
-    property color foreground: selected || filled ? theme.onPrimary : theme.onSurface
+    property color foreground: selected || filled ? theme.onPrimary : theme.fart
     signal clicked
 
     implicitWidth: label.length > 0 ? icon.implicitWidth + labelText.implicitWidth + theme.spacingL * 2 : 36

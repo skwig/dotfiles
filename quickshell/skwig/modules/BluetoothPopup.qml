@@ -100,7 +100,7 @@ PopupWindow {
                         anchors.verticalCenter: parent.verticalCenter
                         width: 28
                         text: !root.hasAdapter || root.adapterBlocked || !root.adapterEnabled ? "bluetooth_disabled" : root.connectedDevice ? "bluetooth_connected" : "bluetooth"
-                        color: root.connectedDevice ? root.theme.primary : root.adapterEnabled ? root.theme.onSurface : root.theme.muted
+                        color: root.connectedDevice ? root.theme.primary : root.adapterEnabled ? root.theme.fart : root.theme.muted
                         font.family: root.theme.iconFontFamily
                         font.pixelSize: root.theme.iconSize
                     }
@@ -112,7 +112,7 @@ PopupWindow {
                         Text {
                             width: parent.width
                             text: "Bluetooth"
-                            color: root.theme.onSurface
+                            color: root.theme.fart
                             font: root.theme.font
                             elide: Text.ElideRight
                         }
@@ -270,7 +270,7 @@ PopupWindow {
                     anchors.verticalCenter: parent.verticalCenter
                     width: 24
                     text: row.device && row.device.connected ? "bluetooth_connected" : row.deviceIcon
-                    color: row.device && row.device.connected ? row.theme.primary : row.theme.onSurface
+                    color: row.device && row.device.connected ? row.theme.primary : row.theme.fart
                     font.family: row.theme.iconFontFamily
                     font.pixelSize: row.theme.iconSize
                 }
@@ -283,7 +283,7 @@ PopupWindow {
                     Text {
                         width: parent.width
                         text: row.deviceName
-                        color: row.theme.onSurface
+                        color: row.theme.fart
                         font: row.theme.fontSmall
                         elide: Text.ElideRight
                     }

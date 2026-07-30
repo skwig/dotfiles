@@ -46,7 +46,7 @@ PopupWindow {
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: root.timeService.calendarTimeText
-                color: root.theme.onSurface
+                color: root.theme.fart
                 font: root.theme.font
             }
 
@@ -74,7 +74,7 @@ PopupWindow {
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
                     text: Qt.formatDate(root.currentDate, "MMM yyyy")
-                    color: root.theme.onSurface
+                    color: root.theme.fart
                     font: root.theme.font
                 }
 
@@ -93,7 +93,7 @@ PopupWindow {
                         id: todayText
                         anchors.centerIn: parent
                         text: "Today"
-                        color: root.theme.onSurface
+                        color: root.theme.fart
                         font: root.theme.fontSmall
                     }
 
@@ -120,7 +120,7 @@ PopupWindow {
                     Text {
                         anchors.centerIn: parent
                         text: "chevron_left"
-                        color: root.theme.onSurface
+                        color: root.theme.fart
                         font.family: root.theme.iconFontFamily
                         font.pixelSize: root.theme.iconSize
                     }
@@ -152,7 +152,7 @@ PopupWindow {
                     Text {
                         anchors.centerIn: parent
                         text: "chevron_right"
-                        color: root.theme.onSurface
+                        color: root.theme.fart
                         font.family: root.theme.iconFontFamily
                         font.pixelSize: root.theme.iconSize
                     }
@@ -212,7 +212,7 @@ PopupWindow {
                         Text {
                             anchors.centerIn: parent
                             text: model.day
-                            color: isSelected ? root.theme.onPrimary : isCurrentMonth ? root.theme.onSurface : root.theme.muted
+                            color: isSelected ? root.theme.onPrimary : isCurrentMonth ? root.theme.fart : root.theme.muted
                             opacity: isSelected || isCurrentMonth ? 1 : 0.62
                             font: root.theme.fontSmall
                         }

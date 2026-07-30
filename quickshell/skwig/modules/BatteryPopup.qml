@@ -93,7 +93,7 @@ PopupWindow {
                     Text {
                         width: parent.width
                         text: "Battery"
-                        color: root.theme.onSurface
+                        color: root.theme.fart
                         font: root.theme.font
                         elide: Text.ElideRight
                     }
@@ -293,7 +293,7 @@ PopupWindow {
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             text: value
-            color: theme.onSurface
+            color: theme.fart
             font: theme.fontSmall
             horizontalAlignment: Text.AlignRight
             elide: Text.ElideRight
@@ -320,7 +320,7 @@ PopupWindow {
 
             Text {
                 text: profileIconText
-                color: selected ? theme.onPrimary : theme.onSurface
+                color: selected ? theme.onPrimary : theme.fart
                 font.family: theme.iconFontFamily
                 font.pixelSize: theme.iconSizeSmall
                 verticalAlignment: Text.AlignVCenter
@@ -328,7 +328,7 @@ PopupWindow {
 
             Text {
                 text: label
-                color: selected ? theme.onPrimary : theme.onSurface
+                color: selected ? theme.onPrimary : theme.fart
                 font: theme.fontSmall
                 verticalAlignment: Text.AlignVCenter
             }

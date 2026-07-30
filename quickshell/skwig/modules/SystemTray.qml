@@ -37,7 +37,7 @@ Item {
             id: label
             anchors.centerIn: parent
             text: "apps"
-            color: root.theme.onSurface
+            color: root.theme.fart
             font.family: root.theme.iconFontFamily
             font.pixelSize: root.theme.iconSizeSmall
         }

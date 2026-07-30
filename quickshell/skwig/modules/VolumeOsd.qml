@@ -131,7 +131,7 @@ PanelWindow {
 
             Text {
                 text: root.currentMuted ? "Muted" : Math.round(root.currentVolume * 100) + "%"
-                color: root.theme.onSurface
+                color: root.theme.fart
                 font: root.theme.fontSmall
                 horizontalAlignment: Text.AlignRight
                 Layout.preferredWidth: 44

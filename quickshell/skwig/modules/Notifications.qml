@@ -36,7 +36,7 @@ Item {
                 id: icon
                 anchors.verticalCenter: parent.verticalCenter
                 text: root.count > 0 ? "notifications_unread" : "notifications"
-                color: root.theme.onSurface
+                color: root.theme.fart
                 font.family: root.theme.iconFontFamily
                 font.pixelSize: root.theme.iconSizeSmall
             }
@@ -46,7 +46,7 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 visible: root.count > 0
                 text: root.count > 99 ? "99+" : root.count.toString()
-                color: root.theme.onSurface
+                color: root.theme.fart
                 font: root.theme.fontSmall
             }
         }

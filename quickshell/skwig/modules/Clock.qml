@@ -36,7 +36,7 @@ Item {
             id: label
             anchors.centerIn: parent
             text: clock.timeService.timeText(clock.format)
-            color: clock.theme.onSurface
+            color: clock.theme.fart
             font: clock.theme.fontSmall
         }
     }

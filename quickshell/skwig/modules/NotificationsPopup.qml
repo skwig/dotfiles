@@ -70,7 +70,7 @@ PopupWindow {
                         anchors.verticalCenter: parent.verticalCenter
                         width: parent.width - 36
                         text: "Notifications"
-                        color: root.theme.onSurface
+                        color: root.theme.fart
                         font: root.theme.font
                     }
                 }
@@ -186,7 +186,7 @@ PopupWindow {
                                                 Text {
                                                     width: parent.width - timeText.implicitWidth - parent.spacing
                                                     text: root.notificationService.notificationTitle(notificationRow.modelData)
-                                                    color: root.theme.onSurface
+                                                    color: root.theme.fart
                                                     elide: Text.ElideRight
                                                     font: root.theme.fontSmall
                                                 }
