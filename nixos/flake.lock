@@ -29,6 +29,22 @@
         "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
       }
     },
+    "flake-compat_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "owner": "NixOS",
+        "repo": "flake-compat",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -189,6 +205,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -196,7 +228,28 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-cuttingedge": "nixpkgs-cuttingedge",
         "nixpkgs-hypr": "nixpkgs-hypr",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "skwig-dms": "skwig-dms"
+      }
+    },
+    "skwig-dms": {
+      "inputs": {
+        "flake-compat": "flake-compat_2",
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1785445167,
+        "narHash": "sha256-1KQQHjqcyU89GFqGc0iHVTgkPWmulbri9xwy5Dn8FzY=",
+        "owner": "Skwig",
+        "repo": "DankMaterialShell",
+        "rev": "68035d078c0c4e5cdb05b3da711841a910ee4350",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Skwig",
+        "ref": "v1.5.2-skwig",
+        "repo": "DankMaterialShell",
+        "type": "github"
       }
     },
     "systems": {

@@ -3,6 +3,7 @@
   pkgs-unstable,
   pkgs-hypr,
   pkgs-pr,
+  pkgs-skwig,
   username,
   ...
 }:
@@ -30,6 +31,7 @@
     pkgs-unstable.hyprpolkitagent
 
     pkgs-unstable.wayle
+    pkgs-skwig.quickshell-skwig-dms
   ];
 
   environment.sessionVariables = {

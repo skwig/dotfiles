@@ -8,6 +8,8 @@
     home-manager.url = "github:nix-community/home-manager?ref=release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    skwig-dms.url = "github:Skwig/DankMaterialShell?ref=v1.5.2-skwig";
+
     librepods.url = "github:kavishdevar/librepods/linux/rust";
     librepods.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
@@ -19,6 +21,7 @@
       nixpkgs-cuttingedge,
       nixpkgs-hypr,
       home-manager,
+      skwig-dms,
       librepods,
       ...
     }@attrs:
@@ -69,6 +72,9 @@
             config.permittedInsecurePackages = permittedInsecurePackages;
           }
         );
+        pkgs-skwig = {
+          quickshell-skwig-dms = skwig-dms.packages.${system}.default;
+        };
         pkgs-pr = {
           librepods = librepods.packages.${system}.default;
         };
