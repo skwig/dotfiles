@@ -78,6 +78,9 @@
       home.file.".config/wallpaper.jpg".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/assets/fuji.jpg;
 
+      home.file.".config/wallpaper.matugen.json".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/assets/fuji.matugen.jpg;
+
       home.file.".config/hypr-custom/hyprland.globals.conf".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/hypr/hyprland.globals.${hostname}.conf;
 
