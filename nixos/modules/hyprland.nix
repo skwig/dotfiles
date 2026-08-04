@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   pkgs-unstable,
   pkgs-hypr,
@@ -56,6 +57,23 @@
     xwayland.enable = true;
     withUWSM = true;
     package = pkgs-hypr.hyprland;
+  };
+
+  systemd.user.services.skwig-dms = {
+    description = "Skwig DankMaterialShell";
+    path = lib.mkForce [ ]; # inherit session PATH
+
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+
+    restartIfChanged = true;
+
+    serviceConfig = {
+      ExecStart = "${pkgs-skwig.quickshell-skwig-dms}/bin/skwig-dms";
+      Restart = "always";
+      RestartSec = "2s";
+    };
   };
 
   programs.hyprlock = {

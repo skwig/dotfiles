@@ -8,7 +8,7 @@
     home-manager.url = "github:nix-community/home-manager?ref=release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    skwig-dms.url = "github:Skwig/DankMaterialShell?ref=v1.5.2-skwig";
+    skwig-dms.url = "github:Skwig/DankMaterialShell?ref=stable-skwig";
 
     rider-fix.url = "github:baracoder/nixpkgs?ref=rider-fix-jcef";
 
