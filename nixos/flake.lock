@@ -221,6 +221,22 @@
         "type": "github"
       }
     },
+    "rider-fix": {
+      "locked": {
+        "lastModified": 1785314904,
+        "narHash": "sha256-D7u29L6oWGfPxmUegFxUSUdc0FdjfcjBRZLUZtdIdPM=",
+        "owner": "baracoder",
+        "repo": "nixpkgs",
+        "rev": "eadd6f50ffdfa3dca52328e43068ec13d63fdfa3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "baracoder",
+        "ref": "rider-fix-jcef",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -229,6 +245,7 @@
         "nixpkgs-cuttingedge": "nixpkgs-cuttingedge",
         "nixpkgs-hypr": "nixpkgs-hypr",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "rider-fix": "rider-fix",
         "skwig-dms": "skwig-dms"
       }
     },
@@ -238,16 +255,16 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1785791588,
-        "narHash": "sha256-lepOqk+Nhc3XWIyxnvyMVbCDQ3t3p9iA69qwZEWRd9Y=",
+        "lastModified": 1785446252,
+        "narHash": "sha256-Wjf+M0w4eb4pQWw02qjq715vi8Iq+CFhc00Y0odAp10=",
         "owner": "Skwig",
         "repo": "DankMaterialShell",
-        "rev": "ff529277fff08a8b1fc275a45ef2e485be3ee0a3",
+        "rev": "de8a27055b28a532e37481c871a5ae5e74be7ca2",
         "type": "github"
       },
       "original": {
         "owner": "Skwig",
-        "ref": "stable-skwig",
+        "ref": "v1.5.2-skwig",
         "repo": "DankMaterialShell",
         "type": "github"
       }

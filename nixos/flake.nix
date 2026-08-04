@@ -10,6 +10,8 @@
 
     skwig-dms.url = "github:Skwig/DankMaterialShell?ref=v1.5.2-skwig";
 
+    rider-fix.url = "github:baracoder/nixpkgs?ref=rider-fix-jcef";
+
     librepods.url = "github:kavishdevar/librepods/linux/rust";
     librepods.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
@@ -22,6 +24,7 @@
       nixpkgs-hypr,
       home-manager,
       skwig-dms,
+      rider-fix,
       librepods,
       ...
     }@attrs:
@@ -76,6 +79,12 @@
         };
         pkgs-pr = {
           librepods = librepods.packages.${system}.default;
+          jetbrains.rider =
+            (import rider-fix {
+              inherit system;
+              config.allowUnfreePredicate = allowUnfreePredicate;
+              config.permittedInsecurePackages = permittedInsecurePackages;
+            }).jetbrains.rider;
         };
       };
     in
