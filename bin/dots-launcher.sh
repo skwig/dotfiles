@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 
-rofi -show drun -run-command "dots-start {cmd}"
+app=$(skwig-dms-app-picker) || exit
+dots-start $app
