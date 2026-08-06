@@ -255,11 +255,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1785965775,
-        "narHash": "sha256-y5MNxhI+5hdfNuHheXdHwdt0YRm/wrdVXJpvJatSDb4=",
+        "lastModified": 1786046004,
+        "narHash": "sha256-HymKE66bET4sc2PZlxrhSgHRVuBdcx07fVrKoduL9So=",
         "owner": "Skwig",
         "repo": "DankMaterialShell",
-        "rev": "79166ebf31e5f709c4105bb2ec0dbb31e6bc895e",
+        "rev": "677125b9381cee3b60adee3d76ffcec6d4abe7e7",
         "type": "github"
       },
       "original": {
