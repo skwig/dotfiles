@@ -72,19 +72,15 @@
     serviceConfig = {
       ExecStart = "${pkgs-skwig.quickshell-skwig-dms}/bin/skwig-dms";
       Restart = "always";
-      RestartSec = "2s";
     };
-  };
-
-  programs.hyprlock = {
-    enable = true;
-    package = pkgs-hypr.hyprlock;
   };
 
   services.hypridle = {
     enable = true;
     package = pkgs-hypr.hypridle;
   };
+
+  systemd.user.services.hypridle.path = lib.mkForce [ ]; # force inherit session PATH, so skwig-dms is accessible
 
   programs.uwsm = {
     enable = true;
@@ -126,7 +122,7 @@
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
-  security.pam.services.hyprlock.enableGnomeKeyring = true;
+  # security.pam.services.hyprlock.enableGnomeKeyring = true;
   security.pam.services.login.enableGnomeKeyring = true;
   security.pam.services.polkit-1.enableGnomeKeyring = true;
 
