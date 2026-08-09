@@ -186,6 +186,7 @@
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-terminal.sh;
       home.file.".local/bin/gaming".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/gaming.sh;
+      home.file.".local/bin/occ".source = config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/occ.sh;
       home.file.".local/bin/opencode-latest".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/opencode-latest.sh;
       home.file.".local/bin/setup-git".source =
