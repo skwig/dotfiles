@@ -9,6 +9,56 @@
   ...
 }:
 
+let
+  greeterWallpaper = ../../assets/fuji.jpg;
+  greeterColors = ../../assets/fuji.matugen.json;
+
+  runGreeter = pkgs.writeShellScript "run-quickshell-greeter" ''
+    export SKWIG_GREETER_USERNAME=${lib.escapeShellArg username}
+    export SKWIG_GREETER_DISPLAY_NAME=${lib.escapeShellArg username}
+    export SKWIG_GREETER_UWSM=${lib.escapeShellArg "${pkgs-hypr.uwsm}/bin/uwsm"}
+    export SKWIG_GREETER_WALLPAPER=${lib.escapeShellArg "${greeterWallpaper}"}
+    export SKWIG_GREETER_COLORS=${lib.escapeShellArg "${greeterColors}"}
+
+    ${pkgs-skwig.quickshell-skwig-dms}/bin/skwig-dms-greeter
+
+    # Quickshell exits after Greetd.launch().
+    #
+    # Kill the temporary greeter compositor so greetd can replace
+    # it with the authenticated user's real session.
+    ${pkgs.procps}/bin/pkill -x Hyprland
+  '';
+
+  greeterHyprlandConfig = pkgs.writeText "greeter-hyprland.conf" ''
+    exec-once = ${runGreeter}
+
+    monitor = , preferred, auto, 1
+
+    input {
+      kb_layout = us
+      follow_mouse = 1
+    }
+
+    decoration {
+      blur {
+        enabled = false
+      }
+    }
+
+    animations {
+      enabled = false
+    }
+
+    misc {
+      disable_hyprland_logo = true
+      disable_splash_rendering = true
+      background_color = 0x111111
+      key_press_enables_dpms = true
+      mouse_move_enables_dpms = true
+    }
+  '';
+in
+
 {
   environment.systemPackages = with pkgs-hypr; [
     hyprls
@@ -18,7 +68,7 @@
     adwaita-icon-theme
     papirus-icon-theme
     rofi
-    tuigreet
+    # tuigreet removed: Quickshell is now the greeter
     wl-clipboard
     cliphist
     brightnessctl
@@ -87,29 +137,38 @@
     package = pkgs-hypr.uwsm;
   };
 
-  # systemd.services.greetd.serviceConfig = {
-  #   Type = "idle";
-  #   StandardInput = "tty";
-  #   StandardOutput = "tty";
-  #   StandardErro = "journal";
-  #   TTYReset = true;
-  #   TTYVHangup = true;
-  #   TTYVTDisallocate = true;
-  # };
-
   services.greetd = {
     enable = true;
+
     settings = {
       default_session = {
-        command = "${pkgs-hypr.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd 'uwsm start -- hyprland-uwsm.desktop'";
+        command = "${pkgs-hypr.hyprland}/bin/Hyprland -c ${greeterHyprlandConfig}";
+
+        # No user = "greeter" needed here.
+        #
+        # The NixOS greetd module defaults default_session.user
+        # to the existing "greeter" system account.
       };
+
       # initial_session = {
       #   command = "uwsm start hyprland-uwsm.desktop";
       #   user = username;
       # };
       # default_session = initial_session;
     };
-    useTextGreeter = true;
+
+    # This is now a graphical Wayland greeter, not a TUI.
+    useTextGreeter = false;
+  };
+
+  # services.greetd already creates the "greeter" system account.
+  #
+  # This only extends that existing account with a writable home.
+  # Outfoxxed does the same because Hyprland wants writable
+  # cache/state directories.
+  users.users.greeter = {
+    home = "/var/lib/greeter";
+    createHome = true;
   };
 
   services.logind = {
@@ -128,6 +187,7 @@
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
 
