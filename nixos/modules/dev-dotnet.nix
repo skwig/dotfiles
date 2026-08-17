@@ -1,7 +1,6 @@
 {
   pkgs,
   pkgs-unstable,
-  pkgs-pr,
   ...
 }:
 
@@ -19,7 +18,7 @@ in
   nixpkgs.config.permittedInsecurePackages = [ "dotnet-sdk-7.0.317" ];
 
   environment.systemPackages = with pkgs; [
-    pkgs-pr.jetbrains.rider
+    pkgs-unstable.jetbrains.rider
     roslyn-ls
     dotnetCombined
     powershell
