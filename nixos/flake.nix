@@ -26,8 +26,6 @@
       ...
     }@attrs:
     let
-      system = "x86_64-linux";
-
       allowUnfreePredicate =
         pkg:
         builtins.elem (nixpkgs.lib.getName pkg) [
@@ -45,75 +43,82 @@
           "open-webui"
         ];
 
-      permittedInsecurePackages = [
-      ];
+      permittedInsecurePackages = [ ];
 
-      specialArgs = attrs // {
-        inherit allowUnfreePredicate;
-        pkgs-unstable = (
-          import nixpkgs-unstable {
+      mkSpecialArgs =
+        system:
+        attrs
+        // {
+          inherit allowUnfreePredicate;
+
+          pkgs-unstable = import nixpkgs-unstable {
             inherit system;
             config.allowUnfreePredicate = allowUnfreePredicate;
             config.permittedInsecurePackages = permittedInsecurePackages;
-          }
-        );
-        pkgs-cuttingedge = (
-          import nixpkgs-cuttingedge {
+          };
+
+          pkgs-cuttingedge = import nixpkgs-cuttingedge {
             inherit system;
             config.allowUnfreePredicate = allowUnfreePredicate;
             config.permittedInsecurePackages = permittedInsecurePackages;
-          }
-        );
-        pkgs-hypr = (
-          import nixpkgs-hypr {
+          };
+
+          pkgs-hypr = import nixpkgs-hypr {
             inherit system;
             config.allowUnfreePredicate = allowUnfreePredicate;
             config.permittedInsecurePackages = permittedInsecurePackages;
-          }
-        );
-        pkgs-skwig = {
-          quickshell-skwig-dms = skwig-dms.packages.${system}.default;
+          };
+
+          pkgs-skwig = {
+            quickshell-skwig-dms = skwig-dms.packages.${system}.default;
+          };
+
+          pkgs-pr = {
+            librepods = librepods.packages.${system}.default;
+          };
         };
-        pkgs-pr = {
-          librepods = librepods.packages.${system}.default;
-        };
-      };
     in
     {
       nixosConfigurations = {
-        blackbox = nixpkgs.lib.nixosSystem {
-          system = system;
-          specialArgs = specialArgs // rec {
+        blackbox = nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+
+          specialArgs = (mkSpecialArgs system) // rec {
             username = "skwig";
             hostname = "blackbox";
             dotfiles = "/home/${username}/dotfiles";
           };
+
           modules = [
             ./hosts/blackbox/configuration.nix
             home-manager.nixosModules.default
           ];
         };
 
-        smallbox = nixpkgs.lib.nixosSystem {
-          system = system;
-          specialArgs = specialArgs // rec {
+        smallbox = nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+
+          specialArgs = (mkSpecialArgs system) // rec {
             username = "skwig";
             hostname = "smallbox";
             dotfiles = "/home/${username}/dotfiles";
           };
+
           modules = [
             ./hosts/smallbox/configuration.nix
             home-manager.nixosModules.default
           ];
         };
 
-        vmbox = nixpkgs.lib.nixosSystem {
-          system = system;
-          specialArgs = specialArgs // rec {
+        vmbox = nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+
+          specialArgs = (mkSpecialArgs system) // rec {
             username = "skwig";
             hostname = "nixos";
             dotfiles = "/home/${username}/dotfiles";
           };
+
           modules = [
             ./hosts/vmbox/configuration.nix
             home-manager.nixosModules.default
