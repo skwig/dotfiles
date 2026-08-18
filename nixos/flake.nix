@@ -124,6 +124,21 @@
             home-manager.nixosModules.default
           ];
         };
+
+        rpi4 = nixpkgs.lib.nixosSystem rec {
+          system = "aarch64-linux";
+
+          specialArgs = (mkSpecialArgs system) // rec {
+            username = "skwig";
+            hostname = "rpi4";
+            dotfiles = "/home/${username}/dotfiles";
+          };
+
+          modules = [
+            ./hosts/rpi4/configuration.nix
+            home-manager.nixosModules.default
+          ];
+        };
       };
 
       nixosModules = {
