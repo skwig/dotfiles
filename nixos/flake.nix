@@ -136,6 +136,7 @@
 
           modules = [
             ./hosts/rpi4/configuration.nix
+            home-manager.nixosModules.default
           ];
         };
       };
