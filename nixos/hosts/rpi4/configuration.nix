@@ -66,6 +66,9 @@
     ripgrep
     fd
     jq
+
+    # Own
+    wakeonlan
   ];
 
   time.hardwareClockInLocalTime = true;
@@ -121,6 +124,9 @@
     { config, ... }:
     {
       home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink /${dotfiles}/zsh/.zshrc;
+
+      home.file.".local/bin/wake-blackbox".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/wake-blackbox.sh;
 
       home.stateVersion = "26.05";
     };
