@@ -3,7 +3,6 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-cuttingedge.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-hypr.url = "github:skwig/nixpkgs?ref=nixos-unstable-hyprland-xkb-patch";
 
     home-manager.url = "github:nix-community/home-manager?ref=release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +18,6 @@
       nixpkgs,
       nixpkgs-unstable,
       nixpkgs-cuttingedge,
-      nixpkgs-hypr,
       home-manager,
       skwig-dms,
       librepods,
@@ -58,12 +56,6 @@
           };
 
           pkgs-cuttingedge = import nixpkgs-cuttingedge {
-            inherit system;
-            config.allowUnfreePredicate = allowUnfreePredicate;
-            config.permittedInsecurePackages = permittedInsecurePackages;
-          };
-
-          pkgs-hypr = import nixpkgs-hypr {
             inherit system;
             config.allowUnfreePredicate = allowUnfreePredicate;
             config.permittedInsecurePackages = permittedInsecurePackages;

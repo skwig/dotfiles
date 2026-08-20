@@ -3,14 +3,13 @@
   pkgs,
   pkgs-unstable,
   pkgs-hypr,
-  pkgs-pr,
   pkgs-skwig,
   username,
   ...
 }:
 
 {
-  environment.systemPackages = with pkgs-hypr; [
+  environment.systemPackages = with pkgs-unstable; [
     hyprls
     hyprshot
     hyprcursor
@@ -56,7 +55,7 @@
     enable = true;
     xwayland.enable = true;
     withUWSM = true;
-    package = pkgs-hypr.hyprland;
+    package = pkgs-unstable.hyprland;
   };
 
   systemd.user.services.skwig-dms = {
@@ -77,14 +76,14 @@
 
   services.hypridle = {
     enable = true;
-    package = pkgs-hypr.hypridle;
+    package = pkgs-unstable.hypridle;
   };
 
   systemd.user.services.hypridle.path = lib.mkForce [ ]; # force inherit session PATH, so skwig-dms is accessible
 
   programs.uwsm = {
     enable = true;
-    package = pkgs-hypr.uwsm;
+    package = pkgs-unstable.uwsm;
   };
 
   # systemd.services.greetd.serviceConfig = {
@@ -101,7 +100,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs-hypr.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd 'uwsm start -- hyprland-uwsm.desktop'";
+        command = "${pkgs-unstable.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd 'uwsm start -- hyprland-uwsm.desktop'";
       };
       # initial_session = {
       #   command = "uwsm start hyprland-uwsm.desktop";

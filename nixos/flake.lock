@@ -142,22 +142,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-hypr": {
-      "locked": {
-        "lastModified": 1781216472,
-        "narHash": "sha256-YJLOuZJ8Jjy2hERU5rA6goKAxpUb1KFtAoRXq4Qvq/I=",
-        "owner": "skwig",
-        "repo": "nixpkgs",
-        "rev": "1ef511f3fc536dbaf5553f60a24c601b3577b13a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "skwig",
-        "ref": "nixos-unstable-hyprland-xkb-patch",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1761765539,
@@ -227,7 +211,6 @@
         "librepods": "librepods",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-cuttingedge": "nixpkgs-cuttingedge",
-        "nixpkgs-hypr": "nixpkgs-hypr",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "skwig-dms": "skwig-dms"
       }
