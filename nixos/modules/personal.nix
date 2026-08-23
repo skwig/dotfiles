@@ -34,6 +34,7 @@
     prismlauncher
     yubioath-flutter
     pkgs-pr.librepods
+    poppler-utils
     trayscale
   ];
 
