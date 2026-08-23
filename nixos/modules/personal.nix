@@ -19,6 +19,7 @@
     framesh
     foundry
     lutris
+    mangohud
     wine-wayland
     qbittorrent
     pywal16
