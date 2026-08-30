@@ -67,15 +67,6 @@
     fsType = "ext4";
   };
 
-  fileSystems."/mnt/VM2" = {
-    device = "/dev/disk/by-label/VM2";
-    fsType = "ntfs-3g";
-    options = [
-      "rw"
-      "uid=1000"
-    ];
-  };
-
   swapDevices = [
     {
       device = "/var/lib/swapfile";
