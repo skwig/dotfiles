@@ -29,11 +29,9 @@
     file
     fastfetch
     wget
-    htop
     btop
     zip
     unzip
-    socat
 
     nvtopPackages.amd
 
@@ -43,12 +41,10 @@
     ncdu
 
     # TODO: Some sort of "desktop" section? These dont work in TTY or headless mode
-    imagemagick
     efibootmgr
     file-roller
 
     brave
-    chromium
     google-chrome
     wezterm
     xterm

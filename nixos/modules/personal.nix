@@ -22,13 +22,11 @@
     mangohud
     wine-wayland
     qbittorrent
-    pywal16
     gimp
     gamescope
     syncplay
     obsidian
     gnome-disk-utility
-    signal-desktop
     pkgs-unstable.bitwarden-desktop
     remmina
     prismlauncher

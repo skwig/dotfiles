@@ -21,7 +21,6 @@
     stylua
 
     git
-    git-lfs
     gh
     lazygit
 
@@ -45,9 +44,6 @@
 
     jq
     yq
-
-    k6
-    nushell
   ];
 
   programs.neovim = {

@@ -63,6 +63,5 @@
   environment.systemPackages = with pkgs; [
     passt
     pkgs-unstable.virglrenderer
-    pkgs-unstable.swtpm
   ];
 }

@@ -13,24 +13,20 @@
     hyprls
     hyprshot
     hyprcursor
-    hyprpaper
     adwaita-icon-theme
     papirus-icon-theme
-    rofi
     tuigreet
     wl-clipboard
     cliphist
     brightnessctl
     playerctl
-    pavucontrol
-    pamixer
+    socat
 
     libnotify
     wlogout
     wtype
     pkgs-unstable.hyprpolkitagent
 
-    pkgs-unstable.wayle
     pkgs-skwig.quickshell-skwig-dms
   ];
 
@@ -85,16 +81,6 @@
     enable = true;
     package = pkgs-unstable.uwsm;
   };
-
-  # systemd.services.greetd.serviceConfig = {
-  #   Type = "idle";
-  #   StandardInput = "tty";
-  #   StandardOutput = "tty";
-  #   StandardErro = "journal";
-  #   TTYReset = true;
-  #   TTYVHangup = true;
-  #   TTYVTDisallocate = true;
-  # };
 
   services.greetd = {
     enable = true;
