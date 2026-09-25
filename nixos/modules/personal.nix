@@ -15,7 +15,6 @@
     yt-dlp
     synology-drive-client
     pkgs-unstable.bolt-launcher
-    pkgs-unstable.runelite
     framesh
     foundry
     lutris
