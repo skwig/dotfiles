@@ -1,6 +1,5 @@
 ---
 description: Interactive design refinement using Socratic method
-agent: plan
 ---
 
-use use_skill tool with skill_name: "superpowers:brainstorming"
+Use the native skill tool to load the brainstorming skill.

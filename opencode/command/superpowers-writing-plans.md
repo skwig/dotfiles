@@ -1,6 +1,5 @@
 ---
 description: Create detailed implementation plan with bite-sized task
-sagent: plan
 ---
 
-use use_skill tool with skill_name: "superpowers:writing-plans"
+Use the native skill tool to load the writing-plans skill.

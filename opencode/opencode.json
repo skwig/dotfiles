@@ -1,14 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "autoupdate": false,
-  "plugin": [
-    "opencode-skills",
-    "@franlol/opencode-md-table-formatter@0.0.6",
-    "@mohak34/opencode-notifier@0.2.8",
-    "superpowers@git+https://github.com/obra/superpowers.git#v6.3.0"
+  "update": "disable",
+  "plugins": [
+    "@mohak34/opencode-notifier@0.8.2",
+    "superpowers@git+https://github.com/obra/superpowers.git#v7.0.0"
   ],
   "compaction": {
-    "auto": false,
-    "prune": true
+    "auto": false
   }
 }

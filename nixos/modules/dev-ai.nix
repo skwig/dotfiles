@@ -1,14 +1,13 @@
 {
-  pkgs,
-  pkgs-cuttingedge,
+  pkgs-opencode,
   username,
   dotfiles,
   ...
 }:
 
 {
-  environment.systemPackages = with pkgs-cuttingedge; [
-    opencode
+  environment.systemPackages = [
+    pkgs-opencode.opencode
     # codex
     # claude-code
   ];
