@@ -27,6 +27,7 @@
     "kvm-amd"
     "amdgpu"
   ];
+  boot.blacklistedKernelModules = [ "mt7921e" ];
   boot.extraModulePackages = [ ];
   boot.extraModprobeConfig = ''
     options amdgpu hdmi_hpd_debounce_delay_ms=1500
