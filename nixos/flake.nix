@@ -4,7 +4,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-cuttingedge.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
-    opencode.url = "github:anomalyco/opencode/v2.0.27";
+    opencode.url = "github:anomalyco/opencode/v2.1.1";
 
     home-manager.url = "github:nix-community/home-manager?ref=release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
