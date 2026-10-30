@@ -192,6 +192,9 @@
       home.file.".local/bin/wake-blackbox".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/wake-blackbox.sh;
 
+      home.file.".local/bin/dots-focus-layout".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/dots-focus-layout.sh;
+
       dconf.settings = {
         "org/gnome/desktop/interface" = {
           color-scheme = "prefer-dark";
