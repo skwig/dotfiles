@@ -9,6 +9,8 @@
 }:
 
 {
+  imports = [ ./remote-desktop-login.nix ];
+
   environment.systemPackages = with pkgs-unstable; [
     hyprls
     hyprshot
