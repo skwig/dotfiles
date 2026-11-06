@@ -49,10 +49,10 @@
 
 **Interfaces:** Uses Task 1's module/tests; produces a feature commit and PR against `master`.
 
-- [ ] Format Nix and syntax-check scripts.
-- [ ] Evaluate affected hosts and build helper/launcher derivations without changing the lock file; verify generated TOML.
-- [ ] Re-run tests, inspect the diff and obtain whole-branch review; accurately report unavailable checks.
-- [ ] Commit only feature files, push a feature branch and open a PR with verification and security limitations.
+- [x] Format Nix and syntax-check scripts.
+- [x] Evaluate affected hosts and build helper/launcher derivations without changing the lock file; verify generated TOML. Blackbox/smallbox pass; vmbox has a pre-existing undefined `pkgs-unstable` reference at configuration.nix:48.
+- [x] Re-run tests, inspect the diff and obtain whole-branch review; accurately report unavailable checks. All 17 tests pass; the review finding has a RED→GREEN regression. Live login/streaming testing is deferred to deployment.
+- [x] Commit only feature files, push a feature branch and open a PR with verification and security limitations: https://github.com/skwig/dotfiles/pull/3.
 
 ## Execution status
 
@@ -60,4 +60,4 @@
 - [x] Draft and self-review plan.
 - [x] Obtain plan approval and isolated-worktree consent.
 - [x] Task 1: implementation and tests.
-- [ ] Task 2: verification and PR.
+- [x] Task 2: verification and PR.
