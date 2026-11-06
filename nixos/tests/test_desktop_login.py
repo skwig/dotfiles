@@ -118,6 +118,15 @@ sys.exit(1 if os.environ.get('TEST_RESTART_FAIL') else 0)
         self.uptime.write_text("1015.01 0.00\n")
         self.assert_config("/normal.toml")
 
+    def test_binary_or_noncanonical_requests_cannot_authorize_login(self):
+        for value in [b"10\x0015\n", b"1015\x00\n", b"1015\n\n", b"1015"]:
+            with self.subTest(value=value):
+                (self.state / "request").write_bytes(value)
+                (self.state / "used").touch()
+                self.assert_config("/normal.toml")
+                self.assertFalse((self.state / "request").exists())
+                self.assertTrue((self.state / "used").exists())
+
     def test_unreadable_uptime_cannot_authorize_login(self):
         self.request()
         self.uptime.unlink()

@@ -33,7 +33,10 @@ let
 
   launcher = pkgs.writeShellApplication {
     name = "greetd-launcher";
-    runtimeInputs = [ pkgs.coreutils ];
+    runtimeInputs = [
+      pkgs.coreutils
+      pkgs.diffutils
+    ];
     runtimeEnv = runtimeEnv // {
       GREETD = lib.getExe cfg.package;
       NORMAL_CONFIG = normalConfig;
