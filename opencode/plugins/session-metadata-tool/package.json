@@ -1,5 +1,5 @@
 {
-  "name": "opencode-poc-session-metadata",
+  "name": "session-metadata-tool",
   "version": "0.1.0",
   "private": true,
   "type": "module",

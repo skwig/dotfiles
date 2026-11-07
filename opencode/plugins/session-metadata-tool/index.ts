@@ -11,7 +11,7 @@ type Input = {
 // Generic, session-scoped array tool: each metadata key managed by this tool
 // contains an array of JSON objects. No plugin storage or Jira-specific logic.
 export default Plugin.define({
-  id: "poc.session-metadata",
+  id: "session-metadata-tool",
   async setup(ctx) {
     await ctx.tool.transform((editor) => {
       editor.add({
