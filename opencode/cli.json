@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "keybinds": {
+    "leader": "ctrl+space"
+  },
+  "theme": {
+    "name": "system"
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "animations": true,
+  "tabs": {
+    "scope": "global"
+  }
+}

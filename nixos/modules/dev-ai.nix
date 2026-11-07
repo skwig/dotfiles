@@ -1,4 +1,5 @@
 {
+  pkgs,
   pkgs-opencode,
   username,
   dotfiles,
@@ -19,6 +20,8 @@
     {
       home.file.".config/opencode/opencode.json".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/opencode/opencode.json;
+      home.file.".config/opencode/cli.json".source =
+        config.lib.file.mkOutOfStoreSymlink "/${dotfiles}/opencode/cli.json";
       home.file.".config/opencode/plugins/session-metadata-tool".source =
         config.lib.file.mkOutOfStoreSymlink "/${dotfiles}/opencode/plugins/session-metadata-tool";
       home.file.".config/opencode/command/superpowers-brainstorming.md".source =
