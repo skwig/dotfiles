@@ -19,6 +19,8 @@
     {
       home.file.".config/opencode/opencode.json".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/opencode/opencode.json;
+      home.file.".config/opencode/plugins/session-metadata-tool".source =
+        config.lib.file.mkOutOfStoreSymlink "/${dotfiles}/opencode/plugins/session-metadata-tool";
       home.file.".config/opencode/command/superpowers-brainstorming.md".source =
         config.lib.file.mkOutOfStoreSymlink "/${dotfiles}/opencode/command/superpowers-brainstorming.md";
       home.file.".config/opencode/command/superpowers-executing-plans.md".source =
