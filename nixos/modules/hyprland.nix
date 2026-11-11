@@ -2,7 +2,6 @@
   lib,
   pkgs,
   pkgs-unstable,
-  pkgs-hypr,
   pkgs-skwig,
   username,
   ...

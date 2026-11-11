@@ -187,8 +187,6 @@
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/opencode-latest.sh;
       home.file.".local/bin/setup-git".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/setup-git.sh;
-      home.file.".local/bin/vm-submap-on-vm-focus".source =
-        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/vm-submap-on-vm-focus.sh;
       home.file.".local/bin/wake-blackbox".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/bin/wake-blackbox.sh;
 

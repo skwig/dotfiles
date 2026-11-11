@@ -1,3 +1,11 @@
+hl.window_rule({
+  name = "todo-workspace",
+  match = { workspace = "special:todo" },
+  float = true,
+  size = "1850 1000",
+  center = true,
+})
+
 -- Default locations
 hl.window_rule({ workspace = "1 silent", match = { class = "brave-browser|google-chrome" } })
 hl.window_rule({ workspace = "2 silent", match = { class = "jetbrains-rider" } })
@@ -33,5 +41,10 @@ hl.layer_rule({ blur = true, match = { namespace = "rofi" } })
 hl.layer_rule({ blur = true, match = { namespace = "logout_dialog" } })
 
 -- VMs
-hl.window_rule({ workspace = "5", fullscreen = true, idle_inhibit = "always", match = { class = [[\.qemu-system-x86_64-wrapped]], title = [[(QEMU\ \(linuxvm-0\).*)]] } })
+hl.window_rule({
+  workspace = "5",
+  fullscreen = true,
+  idle_inhibit = "always",
+  match = { class = [[\.qemu-system-x86_64-wrapped]], title = [[(QEMU\ \(linuxvm-0\).*)]] },
+})
 hl.window_rule({ workspace = "7", idle_inhibit = "always", match = { class = "Vmware" } })

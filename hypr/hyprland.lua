@@ -1,11 +1,5 @@
 local config_home = os.getenv("XDG_CONFIG_HOME") or (os.getenv("HOME") .. "/.config")
-local globals = require(config_home .. "/hypr-custom/hyprland.globals.lua")
-local monitors = require(config_home .. "/hypr-custom/hyprland.monitors.lua")(globals)
-
--- temporary fix until `start-hyprland` is well integrated with uwsm
-hl.config({ misc = {
-  disable_watchdog_warning = true,
-} })
+local monitors = require(config_home .. "/hypr-custom/hyprland.monitors.lua")
 
 -----------------------------
 --- ENVIRONMENT VARIABLES ---
@@ -32,7 +26,7 @@ hl.env("GDK_SCALE", tostring(monitors.scale))
 
 -- Lua's start hook replaces exec-once. Unlike that executor queue, ordinary
 -- hl.exec_cmd attaches a workspace token. Remove it from each entire command's
--- environment, preserving the five original commands and their shell behavior.
+-- environment, preserving the remaining commands and their shell behavior.
 local function exec_once(command)
   local quoted = "'" .. command:gsub("'", "'\\''") .. "'"
   hl.exec_cmd("env -u HL_INITIAL_WORKSPACE_TOKEN sh -c " .. quoted)
@@ -40,7 +34,6 @@ end
 hl.on("hyprland.start", function()
   exec_once("wl-paste --watch cliphist store &")
   exec_once("systemctl --user start hyprpolkitagent")
-  exec_once("vm-submap-on-vm-focus &")
   exec_once("synology-drive &")
   exec_once("sleep 3 && librepods --start-minimized &")
 end)
@@ -247,11 +240,9 @@ hl.device({
 
 require(config_home .. "/hypr/hyprland.keybindings.lua")
 
-local mainMod = "SUPER + ALT"
-require(config_home .. "/hypr/hyprland.keybindings.mainMod.lua")(mainMod)
+require(config_home .. "/hypr/hyprland.keybindings.mainMod.lua")("SUPER + ALT")
 
-mainMod = "SUPER"
-require(config_home .. "/hypr/hyprland.keybindings.mainMod.lua")(mainMod)
+require(config_home .. "/hypr/hyprland.keybindings.mainMod.lua")("SUPER")
 
 ------------------------------
 --- WINDOWS AND WORKSPACES ---
@@ -277,6 +268,6 @@ hl.window_rule({
 })
 
 require(config_home .. "/hypr/hyprland.apps.lua")
+require(config_home .. "/hypr/hyprland.events.lua")
 
--- Retain the 0.56 default if this config is later used with 0.57.
 hl.config({ quirks = { skip_non_kms_dmabuf_formats = false } })
