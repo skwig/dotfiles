@@ -19,6 +19,16 @@ die() {
     exit 1
 }
 
+# Quote selectors as Lua data, not code (JSON's \uXXXX escapes are not Lua).
+lua_string() {
+    local value=$1
+    value=${value//\\/\\\\}
+    value=${value//\"/\\\"}
+    value=${value//$'\n'/\\n}
+    value=${value//$'\r'/\\r}
+    printf '"%s"' "$value"
+}
+
 classes=()
 workspaces=()
 fullscreen_classes=()
@@ -66,8 +76,8 @@ for cls in "${fullscreen_classes[@]}"; do
     while IFS= read -r address; do
         [[ -n "$address" ]] || continue
         fullscreen_addresses+=("$address")
-        hyprctl dispatch focuswindow "address:$address"
-        hyprctl dispatch fullscreen 0 set
+        hyprctl dispatch "hl.dsp.focus({window=$(lua_string "address:$address")})"
+        hyprctl dispatch 'hl.dsp.window.fullscreen({mode="fullscreen",action="set"})'
     done <<< "$addresses"
 done
 
@@ -76,16 +86,16 @@ for i in "${!classes[@]}"; do
         '.[] | select(.class == $cls) | .address' <<< "$clients")
     while IFS= read -r address; do
         [[ -n "$address" ]] || continue
-        hyprctl dispatch movetoworkspacesilent "${workspaces[$i]},address:$address"
+        hyprctl dispatch "hl.dsp.window.move({workspace=$(lua_string "${workspaces[$i]}"),window=$(lua_string "address:$address"),follow=false})"
     done <<< "$addresses"
 done
 
 for address in "${fullscreen_addresses[@]}"; do
-    hyprctl dispatch focuswindow "address:$address"
-    hyprctl dispatch fullscreen 0 unset
-    hyprctl dispatch fullscreen 0 set
+    hyprctl dispatch "hl.dsp.focus({window=$(lua_string "address:$address")})"
+    hyprctl dispatch 'hl.dsp.window.fullscreen({mode="fullscreen",action="unset"})'
+    hyprctl dispatch 'hl.dsp.window.fullscreen({mode="fullscreen",action="set"})'
 done
 
 if [[ -n "$focus_workspace" ]]; then
-    hyprctl dispatch workspace "$focus_workspace"
+    hyprctl dispatch "hl.dsp.focus({workspace=$(lua_string "$focus_workspace")})"
 fi

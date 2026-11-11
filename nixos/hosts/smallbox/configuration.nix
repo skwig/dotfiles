@@ -81,10 +81,10 @@
       home.file.".config/wallpaper.matugen.json".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/assets/fuji.matugen.json;
 
-      home.file.".config/hypr-custom/hyprland.globals.conf".source =
-        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/hypr/hyprland.globals.${hostname}.conf;
+      home.file.".config/hypr-custom/hyprland.globals.lua".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/hypr/hyprland.globals.${hostname}.lua;
 
-      home.file.".config/hypr-custom/hyprland.monitors.conf".source =
-        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/hypr/hyprland.monitors.${hostname}.conf;
+      home.file.".config/hypr-custom/hyprland.monitors.lua".source =
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/hypr/hyprland.monitors.${hostname}.lua;
     };
 }
