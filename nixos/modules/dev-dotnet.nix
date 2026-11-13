@@ -8,6 +8,7 @@ let
   dotnetCombined =
     with pkgs-unstable.dotnetCorePackages;
     combinePackages [
+      sdk_11_0
       sdk_10_0
       sdk_9_0_1xx
       sdk_8_0_1xx
