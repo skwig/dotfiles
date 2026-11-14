@@ -82,10 +82,10 @@
     { config, ... }:
     {
       home.file.".config/wallpaper.jpg".source =
-        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/assets/fuji.jpg;
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/assets/053.png;
 
       home.file.".config/wallpaper.matugen.json".source =
-        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/assets/fuji.matugen.json;
+        config.lib.file.mkOutOfStoreSymlink /${dotfiles}/assets/053.matugen.json;
 
       home.file.".config/hypr-custom/hyprland.monitors.lua".source =
         config.lib.file.mkOutOfStoreSymlink /${dotfiles}/hypr/hyprland.monitors.${hostname}.lua;
