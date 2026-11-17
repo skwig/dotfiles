@@ -22,7 +22,6 @@
     socat
 
     libnotify
-    wlogout
     wtype
     pkgs-unstable.hyprpolkitagent
 
