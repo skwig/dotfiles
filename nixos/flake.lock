@@ -128,11 +128,11 @@
     },
     "nixpkgs-cuttingedge": {
       "locked": {
-        "lastModified": 1794386569,
-        "narHash": "sha256-x9sADJvoVG0L6RejZB+/BB4YiGZFBZrfTlhF4uBq1tQ=",
+        "lastModified": 1794890597,
+        "narHash": "sha256-lME2lHoDHAaSHP3/okgiVoJ0icVEvsQH8LeU3We7tcc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d4f25a3e562008648d45bcf2d70bcc7422cad84e",
+        "rev": "04906337b6d53e8bb0eaf0470ae9f070a4d4eb55",
         "type": "github"
       },
       "original": {
@@ -191,22 +191,6 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1790510107,
-        "narHash": "sha256-EVMNYv7hYDDD9TGVT/hIyTYgpiXA8y3m5xIEIxuGNU0=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3181085bfd08663b6b9e60bc7a8395c2aaa741bd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_4": {
-      "locked": {
         "lastModified": 1783224372,
         "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
         "owner": "nixos",
@@ -221,25 +205,6 @@
         "type": "github"
       }
     },
-    "opencode": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1793374714,
-        "narHash": "sha256-Q26ABM+QF6PAjMSCSdp/ThjCazSJvJUJwP66Y31gzy0=",
-        "owner": "anomalyco",
-        "repo": "opencode",
-        "rev": "45898d0f8569225eb1ddb4ee13f8581b34dff311",
-        "type": "github"
-      },
-      "original": {
-        "owner": "anomalyco",
-        "ref": "v2.2.4",
-        "repo": "opencode",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -247,14 +212,13 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-cuttingedge": "nixpkgs-cuttingedge",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "opencode": "opencode",
         "skwig-dms": "skwig-dms"
       }
     },
     "skwig-dms": {
       "inputs": {
         "flake-compat": "flake-compat_2",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1786710214,
