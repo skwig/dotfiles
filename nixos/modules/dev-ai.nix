@@ -1,6 +1,6 @@
 {
   pkgs,
-  pkgs-opencode,
+  pkgs-cuttingedge,
   username,
   dotfiles,
   ...
@@ -8,7 +8,7 @@
 
 {
   environment.systemPackages = [
-    pkgs-opencode.opencode
+    pkgs-cuttingedge.opencode
     # codex
     # claude-code
   ];
