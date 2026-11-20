@@ -68,6 +68,12 @@ hl.config({
   },
 })
 
+-- Workaround for the 0.57 fullscreen auto-HDR regression.
+-- https://github.com/hyprwm/Hyprland/discussions/16848
+hl.config({ render = {
+  cm_auto_hdr = 0,
+} })
+
 hl.config({ xwayland = {
   enabled = true,
   use_nearest_neighbor = false,
