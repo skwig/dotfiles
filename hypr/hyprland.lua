@@ -275,5 +275,3 @@ hl.window_rule({
 
 require(config_home .. "/hypr/hyprland.apps.lua")
 require(config_home .. "/hypr/hyprland.events.lua")
-
-hl.config({ quirks = { skip_non_kms_dmabuf_formats = false } })
